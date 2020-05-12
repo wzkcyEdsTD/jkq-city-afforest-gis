@@ -1,0 +1,81 @@
+﻿/*@import url('../../bmap/icomoon.css');*/
+
+.controls-dynamicLayerLegend-container {
+    border: solid rgba(255, 255, 255, 1.0) 2px;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.65);
+    border-radius: 3px;
+    -moz-border-radius: 3px; /* Gecko browsers */
+    -webkit-border-radius: 3px; /* Webkit browsers */
+    background: #f8f8f9;
+    min-width: 200px;
+    min-height: 200px;
+}
+
+.controls-dynamiclayerlegend-nav-container {
+   
+}
+
+/*顶部tab项被选中时的样式*/
+.controls-dynamiclayerlegend-nav-item-selected {
+     background-color:#808080;
+}
+
+.controls-dynamiclayerlegend-nav-container div {
+    display: inline-block;
+}
+
+    .controls-dynamiclayerlegend-nav-container div span {
+        color: black;
+        font-size: 12px;
+        display: inline-block;
+        padding: 1px 8px 1px 8px;
+        cursor: pointer;
+        border-right: 1px solid #808080;
+    }
+
+        .controls-dynamiclayerlegend-nav-container div span:last-child {
+            border-right: none;
+        }
+
+
+        .controls-dynamiclayerlegend-nav-container div span:hover {
+            color: black;
+            font-size: 12px;
+            display: inline-block;
+        }
+
+
+.controls-dynamiclayerlegend-nav-container > span {
+    width: 28px;
+    height: 24px;
+    line-height: 24px;
+    display: inline-block;
+     font-size: 12px;
+    text-align: center;
+    color: black;
+    cursor: pointer;
+    margin-right: 0px;
+}
+
+    .controls-dynamiclayerlegend-nav-container > span:hover {
+        color: white;
+        background-color: #ff6551;
+    }
+
+.controls-dynamiclayerlegend-layertab-selected {
+}
+
+.controls-dynamiclayerlegend-features-container {
+}
+
+    .controls-dynamiclayerlegend-features-container div {
+    }
+
+        .controls-dynamiclayerlegend-features-container div input[type=checkbox] {
+        }
+
+        .controls-dynamiclayerlegend-features-container div img {
+        }
+
+        .controls-dynamiclayerlegend-features-container div span {
+        }

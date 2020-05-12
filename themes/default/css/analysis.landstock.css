@@ -1,0 +1,60 @@
+﻿/*
+* table样式
+*/
+.landst-table-wrap { position:relative;margin-bottom:20px; padding-top:15px;}
+.landst-talbe {font-size: 12px;}
+.landst-table-wrap .print {position: absolute; top: 10px;right: 0;    display: none;}
+.landst-table-wrap .print > span { font-size:16px;}
+/*表头样式*/
+.landst-talbe-head > table { margin-bottom:0px;}
+.landst-talbe-head > table > thead > tr { height:35px;}
+.landst-talbe-head > table > thead > tr > th {padding:0; margin:0; text-align:center;vertical-align:middle; border-bottom:none; background-color: #f0f0f0; color:#323232;}
+/*表格内容以及其滚动条内边距*/
+.landst-talbe-body { width: 100%;max-height: 360px;height: auto;  /*height: 300px;*/ border-left:1px solid #ddd; border-right:1px solid #ddd; border-bottom:1px solid #ddd;}
+.landst-talbe-body tr { height:30px;}
+.landst-talbe-body .mCSB_container { padding:0;}
+/*表格宽度和数值溢出换行*/
+/*.landst-talbe-head { display:none;}*/
+.landst-talbe-head>table>thead>tr>th.colspan1 ,.firsttable>tbody>tr>td.colspan1,.secendtable>tbody>tr>td.colspan1{ width:30px;}
+.landst-talbe-head>table>thead>tr>th.colspan2 ,.firsttable>tbody>tr>td.colspan2,.secendtable>tbody>tr>td.colspan2{ width:50px;}
+.landst-talbe-head>table>thead>tr>th.colspan3 ,.firsttable>tbody>tr>td.colspan3,.secendtable>tbody>tr>td.colspan3{ width:139px;}
+.landst-talbe-head>table>thead>tr>th.colspan4 ,.firsttable>tbody>tr>td.colspan4,.secendtable>tbody>tr>td.colspan4{ width:85px;word-wrap: break-word;word-break: break-all;}
+.landst-talbe-head>table>thead>tr>th.colspan5 ,.firsttable>tbody>tr>td.colspan5,.secendtable>tbody>tr>td.colspan5{ width:80px;word-wrap: break-word;word-break: break-all;}
+.landst-talbe-head>table>thead>tr>th.colspan6 ,.firsttable>tbody>tr>td.colspan6,.secendtable>tbody>tr>td.colspan6{ width:60px;word-wrap: break-word;word-break: break-all;}
+.landst-talbe-head>table>thead>tr>th.colspan7 ,.firsttable>tbody>tr>td.colspan7,.secendtable>tbody>tr>td.colspan7{ width:60px;word-wrap: break-word;word-break: break-all;}
+.landst-talbe-head>table>thead>tr>th.colspan8 ,.firsttable>tbody>tr>td.colspan8,.secendtable>tbody>tr>td.colspan8{ width:80px;word-wrap: break-word;word-break: break-all;}
+.landst-talbe-head>table>thead>tr>th.colspan9 ,.firsttable>tbody>tr>td.colspan9,.secendtable>tbody>tr>td.colspan9{ width:80px;word-wrap: break-word;word-break: break-all;}
+
+.landst-talbe-body .levelOne:hover,.landst-talbe-body .levelTwo:hover{cursor:pointer;background-color:#eee;}
+/*.landst-table-wrap .colspan3:hover,.landst-talbe-tbody .colspan1:hover,.landst-table-wrap .selected,.landst-talbe-tbody .selected{background-color: #93D1FD;color: #fff;}*/
+
+
+/*去掉表格重合的边框*/
+.landst-talbe-body .firsttable { border:none;margin-bottom: 0;}
+.firsttable > tbody > tr:first-child > td { border-top:none;}
+.firsttable > tbody > tr:last-child > td { border-bottom:none;}
+.firsttable > tbody > tr > td:first-child { border-left:none;}
+.firsttable > tbody > tr > td:last-child { border-right:none;}
+.firsttable > tbody > tr > td { padding:0;margin:0;text-align:center;vertical-align:middle;color: #787878; font-size: 12px;}
+
+.landst-talbe-body .secendtable_td { padding:0;}
+.landst-talbe-body .secendtable { border:none;}
+.secendtable > tbody > tr:first-child > td { border-top:none;}
+.secendtable > tbody > tr > td:first-child { border-left:none;}
+.secendtable > tbody > tr > td:last-child { border-right:none;}
+
+.landst-talbe-body .levelOne { background-color:#fff;}
+.landst-talbe-body .levelTwo { background-color:#eee;}
+.landst-talbe-body .levelThree { background-color:#E6E6E6;}
+
+.landst-talbe-body .levelTwo .colspan1,.landst-talbe-body .levelThree .colspan1,.landst-talbe-body .levelThree .colspan2{ background-color:#fff;}
+
+/*隐藏或显示table*/
+/*.landst-talbe-body .table_tr, .landst-talbe-body .table_tr{ display:none;}*/
+/*.landst-talbe-body .table_tr.tractive, .landst-talbe-body .table_tr.tractive{ display:block;}*/
+/*有加减号标记的行，改变鼠标箭头*/
+/*.landst-talbe-tbody .hastables { cursor: pointer; }*/
+/*加减号标记*/
+.landst-talbe-tbody .signOne,.landst-talbe-tbody .signTwo { color: #8cd200; font-size: 20px; font-weight: bold;}
+.landst-talbe-tbody .signOne.signactive, .landst-talbe-tbody .signTwo.signactive { color:#a0a0a0;font-size: 20px; font-weight: bold;}
+.landst-talbe-tbody .signTwo { padding-left:7px;}

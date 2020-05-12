@@ -1,0 +1,79 @@
+﻿.privilegeConfig {height:100%;padding:0px 20px 20px 20px;}
+
+.privilegeConfig_Left,
+.privilegeConfig_Middle,
+.privilegeConfig_Right { float: left; width: 32%; height: 100%;}
+.privilegeConfig_LeftMiddle,
+.privilegeConfig_MiddleRight { float: left; width: 2%; height: 100%;}
+
+.privilegeConfig_Left > div:first-child ,
+.privilegeConfig_Middle > div:first-child,
+.privilegeConfig_Right > div:first-child
+{ position: relative; top: 0; width: 100%; height: 30px; background-color: #ffe696;border-top-left-radius:4px;border-top-right-radius:4px;}
+.privilegeConfig_Left > div:first-child + div,
+.privilegeConfig_Middle > div:first-child + div,
+.privilegeConfig_Right > div:first-child + div
+{  width: 100%; height: 100%; padding-top: 30px; margin-top: -30px; background-color: #fff; border-radius: 4px;  border: 1px solid #d2d2d2;}
+
+
+.privilegeConfig_Left .privilegeConfig_Left_Title,
+.privilegeConfig_Middle .privilegeConfig_Middle_Title,
+.privilegeConfig_Right .privilegeConfig_Right_Title
+ {height: 100%; width: auto; float: left; font-size: 14px; padding: 4px 20px; }
+
+/*privilegeConfig_Left*/
+.privilegeConfig_Left_Search,
+.privilegeConfig_Middle_Search,
+.privilegeConfig_Right_Search
+ {display:none; height: 30px; margin-top: 10px; margin-bottom: 10px;  padding: 0px 20px;}
+.privilegeConfig_Left_Search.active,
+.privilegeConfig_Middle_Search.active,
+.privilegeConfig_Right_Search.active
+ { display:block;}
+
+.privilegeConfig_Left_Search > input ,
+.privilegeConfig_Middle_Search > input ,
+.privilegeConfig_Right_Search > input 
+{ float:left;}
+
+.privilegeConfig_Left_Search > span,
+.privilegeConfig_Middle_Search > span,
+.privilegeConfig_Right_Search > span
+{   float: left;  font-size: 18px;  margin-top: 8px;  margin-left: -27px;  cursor: pointer;}
+.privilegeConfig_Left_Container,
+.privilegeConfig_Middle_Container,
+.privilegeConfig_Right_Container
+{ height: 100%;  margin-top: -50px;  padding-top: 50px;}
+
+.privilegeConfig_Left_Container>div,
+.privilegeConfig_Middle_Container>div,
+.privilegeConfig_Right_Container>div {
+      height: 100%;
+}
+#privilegeConfigRoleTree,#privilegeConfigFeatureTree,#privilegeConfigFunctionTree { padding:10px 20px;}
+
+.privilegeConfig_Save {
+    float: right;
+    margin-right: 12px;
+    width: 40px;
+    color: #fff;
+    background-color: #c88c00;
+    cursor: pointer;
+    height: 21px;
+    margin-top: 5px;
+    text-align: center;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <system.web>
+    <compilation debug="true" targetFramework="4.0">
+    </compilation>
+    <!--
+            通过 <authentication> 节可以配置
+            安全身份验证模式，ASP.NET 
+            使用该模式来识别来访用户身份。 
+        -->
+    <authentication mode="Windows">
+    </authentication>
+    <!--
+            如果在执行请求的过程中出现未处理的错误，
+            则通过 <customErrors> 节
+            可以配置相应的处理步骤。具体而言，
+            开发人员通过该节可配置要显示的 html 错误页，
+            以代替错误堆栈跟踪。
+
+        <customErrors mode="RemoteOnly" defaultRedirect="GenericErrorPage.htm">
+            <error statusCode="403" redirect="NoAccess.htm" />
+            <error statusCode="404" redirect="FileNotFound.htm" />
+        </customErrors>
+        -->
+    <pages controlRenderingCompatibilityVersion="3.5" clientIDMode="AutoID" />
+  </system.web>
+  <system.web.extensions>
+    <scripting>
+      <webServices>
+        <jsonSerialization maxJsonLength="1024000"/>
+      </webServices>
+    </scripting>
+  </system.web.extensions>
+  <system.webServer>
+    <httpProtocol>
+      <customHeaders>
+        <add name="X-UA-Compatible" value="chrome=1" />
+      </customHeaders>
+    </httpProtocol>
+        <staticContent>
+            <remove fileExtension=".jpg" />
+            <mimeMap fileExtension=".jpg" mimeType="application/octet-stream" />
+        </staticContent>
+  </system.webServer>
+  <appSettings>
+    <!--设置该地址可以在地址中加入用户名和密码后自动验证登录一张图系统-->
+    <add key="LoginVerifyUrl" value="http://localhost/DCI.Services/v1" />
+  </appSettings>
+  <!-- 
+        system.webServer 节是在 Internet Information Services 7.0 下运行 ASP.NET AJAX
+        所必需的。对早期版本的 IIS 来说则不需要此节。
+    -->
+  </configuration>

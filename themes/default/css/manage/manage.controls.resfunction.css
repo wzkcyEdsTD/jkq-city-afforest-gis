@@ -1,0 +1,93 @@
+﻿.resFunction {height:100%;padding:0px 20px 20px 20px;}
+
+.resFunction_Left{ float: left; width: 32%; height: 100%;}
+.resFunction_LeftMiddle{ float: left; width: 2%; height: 100%;}
+.resFunction_Right { float: left; width: 66%; height: 100%;    border: 1px solid #d2d2d2;text-align: center;/*padding-top: 35px;*/  border-radius: 4px;}
+.resFunction_Right > div.title {   width: 100%;  height: 30px;}
+.resFunction_Right > div.title.highlight { background-color:#ffe696;  text-align: left;  font-size: 14px;  padding: 4px 20px;}
+.resFunction_Right > div.resFunction_Right_Body { width: 100%; height: 100%; margin-top: -30px; padding-top: 30px;}
+.resFunction_Right_Body .row{ margin: 25px;}
+.resFunction_Right_Body .row span{ margin-right: 15px;}
+.resFunction_Right_Body .row input{ width: 250px;}
+.resFunction_Right_Body .row textarea{width: 250px;height: 100px;}
+.resFunction_Right_Body .row:last-child { margin: -10px 0px 10px 0px;}
+.resFunction_Right_Body .row .errorText {   color: red;  margin-left: -29px;}
+.resFunction_Right-details-analyze { margin-left: 234px;}
+.resFunction_Right-save { width: 90px;height: 30px;border-radius: 4px;border-style: none;background: #ffb400;color: #ffffff;}
+
+.resFunction_Right_Body .redStar {color:red; margin-right: 8px;}
+.resFunction_Right_Body .whiteStar { color:#ffffff;margin-right: 8px;}
+.resFunction_Right_Body .viewClsName { width: 80px!important;height: 24px;
+  margin-left: 10px;
+  margin-right: -90px !important;
+  background: #ffb400;
+  color: #ffffff;
+  border-radius: 4px;
+  border-style: none;
+  }
+.resFunction_Right_Body .viewClsName:focus, .resFunction_Right_Body .viewClsName:hover { border-style: none;outline-color: #ffb400;  color: #ffffff;}
+
+.resFunction_Left > div:first-child
+{ position: relative; top: 0; width: 100%; height: 30px; background-color: #ffe696;border-top-left-radius:4px;border-top-right-radius:4px;}
+.resFunction_Left > div:first-child + div
+{  width: 100%; height: 100%; padding-top: 30px; margin-top: -30px; background-color: #fff; border-radius: 4px;  border: 1px solid #d2d2d2;}
+
+
+.resFunction_Left .resFunction_Left_Title
+ {height: 100%; width: auto; float: left; font-size: 14px; padding: 4px 20px; }
+
+/*标题上删除样式*/
+.resFunction_Left .titleIcon{ float: right;width: 26px;height: 26px;margin-top: 2px;margin-right: 10px;text-align: center;font-size: 14px;padding: 6px 0px;border-radius: 25px;color:#a0a0a0;}
+.resFunction_Left .titleIconActive{ float: right;width: 26px;height: 26px;margin-top: 2px;margin-right: 10px;text-align: center;font-size: 14px;padding: 6px 0px;border-radius: 25px;cursor:pointer;color:#000000;}
+.resFunction_Left .titleIconActive:hover {background-color:#ffb400; }
+
+
+/*resFunction_Left*/
+.resFunction_Left_Search{display:none; height: 30px; margin-top: 10px; margin-bottom: 10px;  padding: 0px 20px;}
+.resFunction_Left_Search.active{ display:block;}
+/*默认添加容器样式*/
+#addFunctionTypeDiv{display:none; height: 30px; margin-top: 10px; margin-bottom: 10px;  padding: 0px 20px;}
+#addFunctionTypeDiv.active { display:block;}
+#addFunctionTypeDiv > div{ border: 1px dashed #d2d2d2; height: 34px;border-radius: 4px; cursor: pointer;text-align: center; padding: 5px 0px;}
+#addFunctionTypeDiv > div:hover{background-color:#b4e6ff; }
+#addFunctionTypeDiv > div > span{  margin-right: 5px; }
+.changeMargin { margin-top:-40px;}
+
+/*隐藏搜索栏*/
+#addFunctionTypeDiv + div {
+    display: none;
+}
+
+.resFunction_Left_Search > input 
+{ float:left;}
+
+.resFunction_Left_Search > span
+{   float: left;  font-size: 18px;  margin-top: 8px;  margin-left: -27px;  cursor: pointer;}
+.resFunction_Left_Container
+{ height: 100%;  /*margin-top: -50px;  padding-top: 50px;*/}
+
+.resFunction_Left_Container>div
+{
+      height: 100%;padding: 0px 20px;
+}
+
+/*
+删除对话框
+*/
+.deleteFunction {padding:20px;}
+.deleteFunction > div:last-child{ height: 30px;  margin-top: 20px;}
+.deleteFunction > div:last-child > button {  float: right;}
+.deleteFunction > div:last-child > button:hover { background-color:#64c8ff;}
+.deleteFunction .submitDelete { margin-right: 5px;}
+.deleteFunction > div:first-child > p { text-align:center; margin-top: 15px;}
+
+
+
+
+
+
+
+
+
+
+

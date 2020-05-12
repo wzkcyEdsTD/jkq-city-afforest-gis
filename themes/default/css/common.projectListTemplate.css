@@ -1,0 +1,19 @@
+﻿.percontent {position: relative;width: 100%; height: auto; min-height:89px; border-bottom: 1px solid #d2d2d2; padding-bottom: 10px; padding-top: 10px;}
+.percontent .pic1 { position: absolute;left: -10px;top: 0;height: 100%; width: 40px;}
+.percontent .percontent-content { padding-left: 10px; }
+.percontent-content table >tbody > tr { }
+.percontent-content table >tbody > tr > td { font-size: 12px;text-align:left; border: none; padding:0;vertical-align: top;}
+.percontent-content table > tbody > tr > td:first-child { min-width: 80px;}
+.percontent-content table > tbody > tr > td:last-child { padding-left:3px;}
+.percontent .operation { position: absolute;top:0; right: 0; width: 70px; height: 100%;margin-right: 3px;}
+.percontent:hover{ background-color: #ebf5ff;cursor: pointer;}
+.selected{background-color: #ebf5ff;cursor: pointer;}
+
+.viewDetail {position: absolute; bottom: 10px;right: 0; cursor: pointer; font-size: 12px;border: 1px solid #d2d2d2;border-radius: 4px;padding: 2px 5px;color: #d2d2d2;}
+.viewDetail:hover{ color: #fff;background-color: #ffb400;}
+.emptyResult{  margin: 50% auto;text-align: center;}
+
+.bottom { position: absolute; bottom: 0px;  height: 30px; width: 100%; z-index: 2;background-color:#fff;text-align:center;}
+.bottom .NumTotal{ display: none;}
+.queryresult-data-container .bottom {bottom: 40px;}
+    

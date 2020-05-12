@@ -1,0 +1,85 @@
+﻿.layerIndex_container
+{
+    width: 55%;
+    height: 200px;
+    border: 1px solid #d2d2d2;
+    border-radius: 4px;
+    margin-left: 10px;
+    float: left;
+}
+
+.form-horizontal > input
+{
+    margin-left: 10px;
+}
+
+.editlayer_panel > div:last-child > button
+{
+    float: right;
+}
+
+.editlayer_panel .saveAddFeatureWithImg
+{
+    margin-right: 5px;
+}
+
+.editlayer_panel .editAddFeatureWithImg
+{
+    margin-right: 5px;
+    display: none;
+}
+
+.editlayer_panel > div:last-child > button:hover
+{
+    background-color: #64c8ff;
+}
+
+
+.editlayer_panel
+{
+    padding: 20px;
+    height: 380px;
+}
+
+    .editlayer_panel .form-horizontal
+    {
+        height: 300px;
+        margin-bottom: 10px;
+    }
+
+        .editlayer_panel .form-horizontal > div
+        {
+            margin-bottom: 5px;
+        }
+
+.edit-name-style, .edit-field-style
+{
+    width: 100%;
+    height: 35px;
+}
+
+.edit-layerindex-style
+{
+    width: 100%;
+    height: 250px;
+}
+
+.choose-layer-checkbox
+{
+    float: left;
+    width: 200px;
+    margin-left: 15px;
+}
+
+.icheckbox_flat-red
+{
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+    width: 15px;
+    height: 15px;
+    background: url(red.png) no-repeat;
+    border: none;
+    cursor: pointer;
+}

@@ -1,0 +1,101 @@
+﻿.modal { overflow-y:hidden;}
+
+.bigDialog { }
+.bigDialog .modal-dialog { padding-top:60px;}
+.bigDialog .modal-header { }
+.bigDialog .modal-body { }
+.bigDialog .modal-footer { margin-top:0px;}
+
+.smallDialog { }
+.smallDialog .modal-dialog { width:300px; padding-top:80px;}
+.smallDialog .modal-content { width:100%;height:180px;}
+.smallDialog .modal-text { text-align:center;}
+.smallDialog .modal-footer { margin-top:0px;padding:10px 10px 10px 0px;}
+
+
+
+
+/*dialogModel*/
+.dialogModel { position: absolute; top: 0; width: 100%; height: 100%; display:none;}
+
+.dialogModel_Mask { position: absolute; top: 0; width: 100%; height: 100%; background-color: #000; opacity: 0.3; z-index: 1000;}
+
+.dialogModel_Body { position: absolute; top: 0; width: 100%; height: auto; z-index: 1001;}
+
+.dialogModel_Container { position: relative; width: 300px; height: auto; background-color: #fff; margin-left: auto; margin-right: auto; border-radius: 4px; }
+
+.dialogModel_Container_Title {position: absolute; top: 0; height: 30px; width: 100%; background-color: #ffe696; border-top-left-radius: 4px; border-top-right-radius: 4px;}
+
+.dialogModel_Container_Title > span:first-child { float: left; padding: 4px 0 4px 10px; font-size: 14px; color: #000;}
+
+.dialogModel_Container_Title > span:last-child { float: right;font-size: 14px; width: 24px; height: 24px; border-radius: 25px; text-align: center; padding: 5px 0px; margin: 3px 5px;
+  cursor: pointer;}
+.dialogModel_Container_Title > span:last-child:hover { background-color: darkorange; color:#fff;}
+
+.dialogModel_Container_Content {  width: 100%; height: 100%; padding-top: 30px;}
+
+/*errorDialogModel*/
+
+.errorDialogModel { 
+  width: 300px;
+  height: 180px;
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  background-color: #fff;
+  margin-left: -150px;
+  border: 1px solid #d2d2d2;
+  border-radius: 4px;
+  z-index:9999;
+}
+
+.errorDialogModel_Title { 
+  position: relative;
+  height: 30px;
+  width: 100%;
+  background-color: #ffe696;
+}
+
+.errorDialogModel_Title > span:first-child { 
+  float: left;
+  padding: 4px 0 4px 10px;
+  font-size: 14px;
+  color: #000;
+}
+
+.errorDialogModel_Title > span:last-child { 
+  float: right;
+  font-size: 14px;
+  width: 24px;
+  height: 24px;
+  border-radius: 25px;
+  text-align: center;
+  padding: 5px 0px;
+  margin: 3px 5px;
+  cursor: pointer;
+}
+.errorDialogModel_Title > span:last-child:hover { 
+    background-color: darkorange;
+    color:#fff;
+}
+
+
+.errorDialogModel_Content { 
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 80px 20px 20px 20px;
+  margin-top: -30px;
+}
+
+
+
+
+
+.dci-modal {width: 300px;}
+.dci-modal .modal-content { width: 300px; height: 200px; box-shadow: 0 0px 3px rgba(0,0,0,.3);}
+.dci-modal .modal-header{height: 40px;font-family: 'Microsoft YaHei'; font-size: 15px; border-bottom: solid 1px #ddd; background-color: #ebebeb; border-top-left-radius: 4px; border-top-right-radius: 4px; padding: 8px 10px 8px 15px; color: #000000;}
+.dci-modal .modal-body {height: 95px;text-align: center; padding: 35px 15px 0px 15px;color: #787878; }
+.dci-modal .modal-footer { border-top: 1px solid #ffffff;margin-top: 0px;}
+#modal-todo {width: 60px;height: 32px;color: #ffffff; background-color: #64c8ff; padding: 0;}
+#modal-close {margin-bottom: 0; margin-left: 5px;}

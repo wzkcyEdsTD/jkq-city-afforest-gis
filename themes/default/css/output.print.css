@@ -1,0 +1,312 @@
+﻿
+.print_model
+{
+    position:absolute;
+    width:500px;
+    height:340px;
+    z-index: 9000;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.30);
+    border-radius: 4px;
+    background: white;
+}
+.print_model_blank
+{
+    margin-top:40px;
+    margin-left:40px;
+    float:left;
+    width:175px;
+    height:115px;
+    background:url('../images/print/model_blank.png');
+    border:2px solid #a0a0a0;
+    border-radius:4px;
+    cursor:pointer;
+}
+
+.print_model_info
+{
+    margin-top:40px;
+    margin-right:40px;
+    float:right;
+    width:175px;
+    height:115px;
+    background:url('../images/print/model_blank.png');
+    border:2px solid #f05028;
+    border-radius:4px;
+    cursor:pointer;
+}
+.print_model_info .icon-flag
+{
+    float: left;
+    font-size: 32px;
+    color: #f05028;
+    margin-left: 15px;
+}
+.print_model_info .icon-edit
+{
+    float: left;
+    margin-left: -25px;
+    font-size: 16px;
+    margin-top: 4px;
+    color: white;
+}
+
+.print_model_blank_text
+{
+    float:left;
+    margin-top: 20px;
+    margin-left: 90px;
+
+
+}
+.print_model_info_text
+{
+    float:right;    
+    margin-top: 20px;
+    margin-right: 80px;
+
+}
+.print_model_ok
+{
+    float: right;
+    margin-top: 70px;
+    margin-right: -155px;
+    text-align:right;
+}
+    .print_model_ok button
+    {
+        width: 80px;
+    }
+/*************************************************************************/
+
+.print_content_blank
+{
+    background: #fff;
+    margin:0 auto;
+    margin-bottom:10px;
+   margin: 10px;
+  height: 90%;
+}
+.print_map_blank
+{
+    width:100%;
+    height:100%;
+    margin-bottom:10px;
+}
+.print_button_blank
+{
+    height: 110px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    padding-right: 0px;
+    margin-top: 10px;
+    text-align:right;
+}
+.print_button_blank button
+{
+    margin-left:50px;
+    width: 80px;
+}
+/****************************************************************************/
+
+.print_container
+{
+    position:absolute;
+    padding-left: 5px;
+    top:0px;
+    left:0px;
+    width:98.7%;
+    height:97%;    
+    min-height: 680px;
+    margin: 10px;
+    z-index: 9000;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.30);
+    border-radius: 4px;
+    background: white;
+}
+.print_content
+{
+    width: 98%;
+    margin-left:10px;
+    margin-top:10px;
+    margin-bottom:10px;
+    padding-left: 30px;
+    padding-bottom:10px;
+    padding-right:30px;
+    float:left;
+    background:white;
+    height: 97%;
+}
+.print_control
+{
+    width: 50%;
+    padding-left: 10px;
+    padding-right: 30px;
+    margin-top: 10px;
+    float: left;
+    background: white;
+    overflow: hidden;
+    height: 50%;
+    position: absolute;
+    border: 1px solid #ccc;
+    z-index: 100;
+        top: 16%;
+    left: 26%;
+}
+.print_title
+{
+    padding-top:20px;
+    padding-bottom:10px;
+    margin:0 auto;
+    font-weight:bold;
+    width:100%;
+}
+.print_title div
+{
+    margin:0 auto;
+    width: 100%;
+}
+
+.print_map
+{
+    width:100%;
+    height: 68%;
+    margin-bottom:10px;
+    border: 1px solid #CCC;
+}
+
+.print_bz
+{
+    height:110px;
+    width:100%;
+}
+
+.print_legend
+{
+    float:left;
+    border:1px solid #CCC;
+    height:100%;
+    width:80%;
+}
+.print_legend_lab
+{
+    width:8%;
+    height:100%;
+    float:left;
+    font-size:14px;
+    padding-top:30px;
+    text-align:center;
+    cursor: pointer;
+    font-weight:bold;
+    cursor:default;
+    color: blue;
+}
+.print_legend_lab:hover {
+    background-color: #ffb400;   
+    cursor: pointer;
+}
+.print_legend_leg
+{
+    width:92%;
+    height:100%;
+    border-left:1px solid #CCC;
+    float:right;
+}
+.print_info
+{
+    float:right;
+    width:18%;
+    height:100%;
+    font-size:12px;
+    border:1px solid #CCC;
+    padding-left:10px;
+}
+
+.print_legendset
+{
+    background:white;
+    width:100%;
+    height:300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.print_legendset_lab
+{
+    width:100%;
+    height:20px;
+    font-size:14px;
+    margin-left:20px;
+    margin-top:20px;
+    font-weight:bold;
+    cursor:default;
+}
+.print_legendset_leg
+{
+    width:100%;
+    height:auto;
+    font-size: 12px; 
+    margin-top: 20px;
+    margin-left: 40px;
+}
+
+.print_textset
+{
+    border: 1px solid #ccc;
+    margin-top: 20px;
+    height: 131px;
+}
+    .print_textset textarea
+    {
+        border: none;
+        resize:none;
+        box-shadow: none;
+        border-radius: 0px;
+        display: inline;
+        width: 100%;
+        height: 100%;
+        overflow-y:scroll;
+    }
+
+.print_button
+{
+    margin-bottom: 10px;
+    padding-right: 0px;
+    margin-top: 5px;
+    text-align:right;
+}
+.print_button button
+{
+    margin-left: 20px;
+    width: 80px;
+}
+.print_model_close
+{
+    /*float: right;*/
+    position:absolute;
+    right:12px;
+    top:10px;
+  border-radius: 4px;
+  padding:3px;
+    margin-right: -5px;
+    cursor:pointer;
+}
+    .print_model_close:hover
+    {
+        background-color:red;
+        color:#fff;
+    }
+.print-close {
+    color: white;
+    position: absolute;
+    right: 3px;
+    top: 3px;
+    line-height: 18px;
+    font-size: 12px;
+    background: #d2d2d2;
+    padding: 1px 4px 1px 4px;
+}
+.print-close:hover {
+    background-color: red;
+}
+#panel-heading {
+    height: 36px;
+}

@@ -1,0 +1,54 @@
+﻿@import url('business.rarrow.css');
+
+.result-business-contain {right: 0px;width: 100%;height: 100%;top:0px;position: absolute;}
+/*头部*/
+.result-business-contain>table {border-right: 1px solid #ffb400;border-bottom: 1px solid #ffb400;width: 100%;height: 40px;font-size: 14px;font-weight: bold;}
+.result-business-contain>table td {border-right: 1px solid #ffb400;text-align: center;font-size: 14px;padding: 4px 4px 4px 4px;cursor: pointer;}
+.result-business-contain>table td:hover {background-color: #ffb400;color:white;}
+.result-business-contain>table td:last-child {border-right: none;}
+.result-business-contain-td-selected {background-color: #ffb400;color: white;}
+
+/*内容*/
+.result-business-contain-content {position: absolute;top: 40px;width: 100%;height: 100%;padding-bottom: 40px;}
+
+/*规划成果的内容*/
+.result-contain-query {position:relative;height:100%;overflow-y:auto;width:100%;}
+.result-kg {top: 310px;width:100%;}
+.title-contain {width:100%;height:40px;background-color: #ebebeb;}
+.titlename {font-size: 14px;position:absolute;margin-top: 9px;font-weight: bold;margin-left:20px;}
+.title-cgmc {font-size: 12px;margin-left:20px;}
+.result-cgmc {left: 80px;font-size: 12px;}
+.title-spsj {top: 60px;font-size: 12px;margin-left:20px;}
+.result-spsj {top: 60px;left:80px;width: 80px;font-size: 12px;}
+.result-fg {top: 160px;width:100%;}
+.result-zg {top: 0px;width:100%;}
+.dikuai-konggui {margin-left:20px;margin-top: 5px;width:360px;background-color:#e1f5ff;height:30px;}
+.dikuai-name {margin-left:10px;  margin-top:6px;  width:250px;  color: #28aadc;  float: left;}
+.dikuai-name:hover {}
+.dikuai-icon {font-size:20px;float:right;margin-right:20px;margin-top:3px;color: #d2d2d2;}
+
+
+.result-contain-query-xq {position:absolute;top:40px;height:669px;overflow-y:auto;width:100%;overflow-x: hidden;padding-right:20px;}
+.xq_lie_q {width: 400px;margin-left: -20px;}
+.back-contain {margin-top: 0px;height: 35px;width: 100%;border-bottom: solid 1px #d2d2d2;}
+.result-back {color: #ffb400;text-align: center;font-size: 20px;margin-left: 20px;float: left;}
+.result-title-zg {width: 340px;margin-top: 13px;margin-left: 60px;font-size: 14px;font-weight: bold;}
+.table-s {border: 1px solid #d2ded2;width: 360px;height: 30px;margin-left:20px;margin-top:20px;}
+.key{border: solid 1px #d2d2d2;text-align: center;font-size: 12px;padding: 4px 4px 4px 4px;background-color: #f5f5f5;}
+.key-value {border: solid 1px #d2d2d2;text-align: center;font-size: 12px;padding: 4px 4px 4px 4px;}
+.xq_lie {width: 400px;margin-left: -20px;}
+
+
+/*实施规划*/
+.business-project-details-container {position:relative;height:100%;overflow-y:auto;width:100%;padding-right: 20px;}
+#business-project-details-content-container {margin-top:20px;}
+.check-more-details {font-size: 12px;color: #64c8ff;width: 80px;margin-right: 10px;margin-top: -29px;float: right;}
+.check-more-details:hover {cursor:pointer;}
+
+#business-project-details-quota-container {margin-top:20px;}
+.business-project-details-container thead td {background: #f5f5f5;}
+.business-project-details-container td:first-child {width:100px;}
+.business-project-details-container td:last-child {width:260px;}
+.business-project-details-content {width:100%;margin-bottom:20px;}
+.shubiao-selected:hover {cursor:pointer;}
+

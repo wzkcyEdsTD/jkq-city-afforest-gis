@@ -1,0 +1,843 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{254AEF62-9957-449E-ADC8-20FF12EE0025}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Client</RootNamespace>
+    <AssemblyName>Client</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="basic.aspx" />
+    <Content Include="bmap\bmap.business.js" />
+    <Content Include="components\tcxz.vue.html">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="components\qyxz.vue.html">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="components\xzqh.vue.html">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="components\ydlx.vue.html">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="components\YDDM.xml" />
+    <Content Include="controls\controls.layerIndexAndOpacity - 复制.js" />
+    <Content Include="controls\controls.layerIndexAndOpacity.js" />
+    <Content Include="controls\controls.spotAnalysis.js" />
+    <Content Include="controls\controls.timeslider.js" />
+    <Content Include="controls\controls.toolbar.js" />
+    <Content Include="data\data.arcgis.xhr.js" />
+    <Content Include="data\data.manage.baseservice.js" />
+    <Content Include="data\data.manage.handledata.js" />
+    <Content Include="data\data.util.js" />
+    <Content Include="data\data.common.sview.js" />
+    <Content Include="layout\layout.leftcontentpanel.js" />
+    <Content Include="layout\layout.rightpanel - 复制.js" />
+    <Content Include="library\arttemplate\template.js" />
+    <Content Include="library\jquery\jquery-1.11.3.js" />
+    <Content Include="library\layui\css\layui.css" />
+    <Content Include="library\layui\css\layui.mobile.css" />
+    <Content Include="library\layui\css\modules\code.css" />
+    <Content Include="library\layui\css\modules\laydate\default\laydate.css" />
+    <Content Include="library\layui\css\modules\layer\default\icon-ext.png" />
+    <Content Include="library\layui\css\modules\layer\default\icon.png" />
+    <Content Include="library\layui\css\modules\layer\default\layer.css" />
+    <Content Include="library\layui\css\modules\layer\default\loading-0.gif" />
+    <Content Include="library\layui\css\modules\layer\default\loading-1.gif" />
+    <Content Include="library\layui\css\modules\layer\default\loading-2.gif" />
+    <Content Include="library\layui\images\face\0.gif" />
+    <Content Include="library\layui\images\face\1.gif" />
+    <Content Include="library\layui\images\face\10.gif" />
+    <Content Include="library\layui\images\face\11.gif" />
+    <Content Include="library\layui\images\face\12.gif" />
+    <Content Include="library\layui\images\face\13.gif" />
+    <Content Include="library\layui\images\face\14.gif" />
+    <Content Include="library\layui\images\face\15.gif" />
+    <Content Include="library\layui\images\face\16.gif" />
+    <Content Include="library\layui\images\face\17.gif" />
+    <Content Include="library\layui\images\face\18.gif" />
+    <Content Include="library\layui\images\face\19.gif" />
+    <Content Include="library\layui\images\face\2.gif" />
+    <Content Include="library\layui\images\face\20.gif" />
+    <Content Include="library\layui\images\face\21.gif" />
+    <Content Include="library\layui\images\face\22.gif" />
+    <Content Include="library\layui\images\face\23.gif" />
+    <Content Include="library\layui\images\face\24.gif" />
+    <Content Include="library\layui\images\face\25.gif" />
+    <Content Include="library\layui\images\face\26.gif" />
+    <Content Include="library\layui\images\face\27.gif" />
+    <Content Include="library\layui\images\face\28.gif" />
+    <Content Include="library\layui\images\face\29.gif" />
+    <Content Include="library\layui\images\face\3.gif" />
+    <Content Include="library\layui\images\face\30.gif" />
+    <Content Include="library\layui\images\face\31.gif" />
+    <Content Include="library\layui\images\face\32.gif" />
+    <Content Include="library\layui\images\face\33.gif" />
+    <Content Include="library\layui\images\face\34.gif" />
+    <Content Include="library\layui\images\face\35.gif" />
+    <Content Include="library\layui\images\face\36.gif" />
+    <Content Include="library\layui\images\face\37.gif" />
+    <Content Include="library\layui\images\face\38.gif" />
+    <Content Include="library\layui\images\face\39.gif" />
+    <Content Include="library\layui\images\face\4.gif" />
+    <Content Include="library\layui\images\face\40.gif" />
+    <Content Include="library\layui\images\face\41.gif" />
+    <Content Include="library\layui\images\face\42.gif" />
+    <Content Include="library\layui\images\face\43.gif" />
+    <Content Include="library\layui\images\face\44.gif" />
+    <Content Include="library\layui\images\face\45.gif" />
+    <Content Include="library\layui\images\face\46.gif" />
+    <Content Include="library\layui\images\face\47.gif" />
+    <Content Include="library\layui\images\face\48.gif" />
+    <Content Include="library\layui\images\face\49.gif" />
+    <Content Include="library\layui\images\face\5.gif" />
+    <Content Include="library\layui\images\face\50.gif" />
+    <Content Include="library\layui\images\face\51.gif" />
+    <Content Include="library\layui\images\face\52.gif" />
+    <Content Include="library\layui\images\face\53.gif" />
+    <Content Include="library\layui\images\face\54.gif" />
+    <Content Include="library\layui\images\face\55.gif" />
+    <Content Include="library\layui\images\face\56.gif" />
+    <Content Include="library\layui\images\face\57.gif" />
+    <Content Include="library\layui\images\face\58.gif" />
+    <Content Include="library\layui\images\face\59.gif" />
+    <Content Include="library\layui\images\face\6.gif" />
+    <Content Include="library\layui\images\face\60.gif" />
+    <Content Include="library\layui\images\face\61.gif" />
+    <Content Include="library\layui\images\face\62.gif" />
+    <Content Include="library\layui\images\face\63.gif" />
+    <Content Include="library\layui\images\face\64.gif" />
+    <Content Include="library\layui\images\face\65.gif" />
+    <Content Include="library\layui\images\face\66.gif" />
+    <Content Include="library\layui\images\face\67.gif" />
+    <Content Include="library\layui\images\face\68.gif" />
+    <Content Include="library\layui\images\face\69.gif" />
+    <Content Include="library\layui\images\face\7.gif" />
+    <Content Include="library\layui\images\face\70.gif" />
+    <Content Include="library\layui\images\face\71.gif" />
+    <Content Include="library\layui\images\face\8.gif" />
+    <Content Include="library\layui\images\face\9.gif" />
+    <Content Include="library\layui\layui.all.js" />
+    <Content Include="library\layui\layui.js" />
+    <Content Include="library\layui\lay\modules\carousel.js" />
+    <Content Include="library\layui\lay\modules\code.js" />
+    <Content Include="library\layui\lay\modules\element.js" />
+    <Content Include="library\layui\lay\modules\flow.js" />
+    <Content Include="library\layui\lay\modules\form.js" />
+    <Content Include="library\layui\lay\modules\jquery.js" />
+    <Content Include="library\layui\lay\modules\laydate.js" />
+    <Content Include="library\layui\lay\modules\layedit.js" />
+    <Content Include="library\layui\lay\modules\layer.js" />
+    <Content Include="library\layui\lay\modules\laypage.js" />
+    <Content Include="library\layui\lay\modules\laytpl.js" />
+    <Content Include="library\layui\lay\modules\mobile.js" />
+    <Content Include="library\layui\lay\modules\table.js" />
+    <Content Include="library\layui\lay\modules\tree.js" />
+    <Content Include="library\layui\lay\modules\upload.js" />
+    <Content Include="library\layui\lay\modules\util.js" />
+    <Content Include="library\leaflet\es5-sham.min.js" />
+    <Content Include="library\leaflet\es5-shim.min.js" />
+    <Content Include="library\leaflet\images\layers-2x.png" />
+    <Content Include="library\leaflet\images\layers.png" />
+    <Content Include="library\leaflet\images\marker-icon-2x.png" />
+    <Content Include="library\leaflet\images\marker-icon.png" />
+    <Content Include="library\leaflet\images\marker-shadow.png" />
+    <Content Include="library\leaflet\leaflet-heat.js" />
+    <Content Include="library\requirejs\text.js" />
+    <Content Include="library\vue\vue.js" />
+    <Content Include="library\vue\vue.min.js" />
+    <Content Include="library\zeroclipboard\test.html" />
+    <Content Include="library\zeroclipboard\ZeroClipboard.js" />
+    <Content Include="library\zeroclipboard\ZeroClipboard.swf" />
+    <Content Include="library\zTree\css\demo.css" />
+    <Content Include="library\zTree\css\zTreeStyle\img\diy\1_close.png" />
+    <Content Include="library\zTree\css\zTreeStyle\img\diy\1_open.png" />
+    <Content Include="library\zTree\css\zTreeStyle\img\diy\2.png" />
+    <Content Include="library\zTree\css\zTreeStyle\img\diy\3.png" />
+    <Content Include="library\zTree\css\zTreeStyle\img\diy\4.png" />
+    <Content Include="library\zTree\css\zTreeStyle\img\diy\5.png" />
+    <Content Include="library\zTree\css\zTreeStyle\img\diy\6.png" />
+    <Content Include="library\zTree\css\zTreeStyle\img\diy\7.png" />
+    <Content Include="library\zTree\css\zTreeStyle\img\diy\8.png" />
+    <Content Include="library\zTree\css\zTreeStyle\img\diy\9.png" />
+    <Content Include="library\zTree\css\zTreeStyle\img\line_conn.gif" />
+    <Content Include="library\zTree\css\zTreeStyle\img\loading.gif" />
+    <Content Include="library\zTree\css\zTreeStyle\img\zTreeStandard.gif" />
+    <Content Include="library\zTree\css\zTreeStyle\img\zTreeStandard.png" />
+    <Content Include="library\zTree\css\zTreeStyle\zTreeStyle.css" />
+    <Content Include="library\zTree\js\jquery-1.4.4.min.js" />
+    <Content Include="library\zTree\js\jquery.ztree.all-3.5.js" />
+    <Content Include="library\zTree\js\jquery.ztree.all-3.5.min.js" />
+    <Content Include="library\zTree\js\jquery.ztree.core-3.5.js" />
+    <Content Include="library\zTree\js\jquery.ztree.core-3.5.min.js" />
+    <Content Include="library\zTree\js\jquery.ztree.excheck-3.5.js" />
+    <Content Include="library\zTree\js\jquery.ztree.excheck-3.5.min.js" />
+    <Content Include="library\zTree\js\jquery.ztree.exedit-3.5.js" />
+    <Content Include="library\zTree\js\jquery.ztree.exedit-3.5.min.js" />
+    <Content Include="library\zTree\js\jquery.ztree.exedit.js" />
+    <Content Include="library\zTree\js\jquery.ztree.exhide-3.5.js" />
+    <Content Include="library\zTree\js\jquery.ztree.exhide-3.5.min.js" />
+    <Content Include="manage.aspx" />
+    <Content Include="manage\controls\manage.controls.featurepanel.js" />
+    <Content Include="manage\controls\manage.controls.featurepanel_resourcetree.js" />
+    <Content Include="manage\controls\manage.controls.globalsearchpanel.js" />
+    <Content Include="manage\controls\manage.controls.layerContrast.js" />
+    <Content Include="manage\controls\manage.controls.loggingpanel.js" />
+    <Content Include="manage\controls\manage.controls.privilegeconfig.js" />
+    <Content Include="manage\controls\manage.controls.resfunction.js" />
+    <Content Include="manage\controls\manage.controls.resourcepanel.js" />
+    <Content Include="manage\controls\manage.controls.resourcetree.js" />
+    <Content Include="manage\controls\manage.controls.tree.js" />
+    <Content Include="manage\controls\manage.controls.userpanel.js" />
+    <Content Include="manage\controls\manage.controls.userpanel_roletree.js" />
+    <Content Include="manage\controls\manage.controls.userpanel_usertree.js" />
+    <Content Include="manage\controls\manage.controls.visitedlogging.js" />
+    <Content Include="manage\layout\manage.layout.featurepanel.js" />
+    <Content Include="manage\layout\manage.layout.globalsearchpanel.js" />
+    <Content Include="manage\layout\manage.layout.layerContrast.js" />
+    <Content Include="manage\layout\manage.layout.loggingpanel.js" />
+    <Content Include="manage\layout\manage.layout.privilegeconfig.js" />
+    <Content Include="manage\layout\manage.layout.resfunction.js" />
+    <Content Include="manage\layout\manage.layout.resourcepanel.js" />
+    <Content Include="manage\layout\manage.layout.userpanel.js" />
+    <Content Include="manage\layout\manage.layout.visitedlogging.js" />
+    <Content Include="manage\manage.application.js" />
+    <Content Include="modules\analysis\analysis.autogp.js" />
+    <Content Include="modules\analysis\analysis.facilitiesStatistics.js" />
+    <Content Include="modules\analysis\analysis.auxiliaryloc.js" />
+    <Content Include="modules\analysis\analysis.certificate.js" />
+    <Content Include="modules\analysis\analysis.conflictanalysis.js" />
+    <Content Include="modules\analysis\analysis.landstock.js" />
+    <Content Include="modules\analysis\analysis.netvolumeratio.js" />
+    <Content Include="modules\analysis\analysis.publicservice.js" />
+    <Content Include="modules\analysis\plupload\Moxie.swf" />
+    <Content Include="modules\analysis\plupload\Moxie.xap" />
+    <Content Include="modules\analysis\plupload\plupload.full.min.js" />
+    <Content Include="modules\analysis\plupload\zh_CN.js" />
+    <Content Include="modules\analysis\analysis.sample.js" />
+    <Content Include="modules\business\business.approvedmap.illegalproject.js" />
+    <Content Include="modules\business\business.mapmonitor.js" />
+    <Content Include="modules\business\business.indexcontrast.js" />
+    <Content Include="modules\business\business.wholelifecycle.approval.js" />
+    <Content Include="modules\business\business.wholelifecycle.examine.js" />
+    <Content Include="modules\business\business.wholelifecycle.js" />
+    <Content Include="modules\business\organization.query.js" />
+    <Content Include="modules\common\common.businessTemplate.js" />
+    <Content Include="modules\common\common.projectPhase.js" />
+    <Content Include="modules\common\common.sview.js" />
+    <Content Include="modules\query\query.contain.xml" />
+    <Content Include="modules\query\query.spatialIdentify.js" />
+    <Content Include="modules\query\query.relatedidentify.js" />
+    <Content Include="plugins\bootstrap-datetimepicker\bootstrap-datetimepicker.css" />
+    <Content Include="plugins\bootstrap-datetimepicker\bootstrap-datetimepicker.js" />
+    <Content Include="plugins\bootstrap-datetimepicker\bootstrap-datetimepicker.min.css" />
+    <Content Include="plugins\bootstrap-datetimepicker\bootstrap-datetimepicker.min.js" />
+    <Content Include="plugins\bootstrap-datetimepicker\bootstrap-datetimepicker.zh-CN.js" />
+    <Content Include="plugins\bootstrap-datetimepicker\moment.js" />
+    <Content Include="plugins\bootstrap-datetimepicker\moment_zh-CN.js" />
+    <Content Include="plugins\ie-css3.htc" />
+    <Content Include="plugins\jquery.icheck\icheck.js" />
+    <Content Include="plugins\jquery.icheck\red%402x.png" />
+    <Content Include="plugins\jquery.icheck\red.css" />
+    <Content Include="plugins\jquery.icheck\red.png" />
+    <Content Include="plugins\jquery.bxslider\jquery.bxslider.css" />
+    <Content Include="plugins\jquery.bxslider\jquery.bxslider.js" />
+    <Content Include="plugins\jquery.form.js" />
+    <Content Include="library\leaflet\leaflet.label\leaflet.label.css" />
+    <Content Include="library\leaflet\leaflet.label\leaflet.label.js" />
+    <Content Include="library\leaflet\leaflet.polylineDecorator.js" />
+    <Content Include="library\leaflet\wmts.js" />
+    <Content Include="modules\analysis\analysis.landbalance.js" />
+    <Content Include="modules\analysis\analysis.landstrength.js" />
+    <Content Include="modules\analysis\gp\geoprocessor.js" />
+    <Content Include="modules\analysis\gp\gpHandler.js" />
+    <Content Include="modules\business\business.approvedmap.js" />
+    <Content Include="modules\business\business.approvedtracking.js" />
+    <Content Include="modules\business\business.compilemap.js" />
+    <Content Include="modules\business\business.regulatoryplan.js" />
+    <Content Include="modules\common\common.plotting.js" />
+    <Content Include="modules\error\404Error.html" />
+    <Content Include="bmap\bmap.fold.js" />
+    <Content Include="bmap\bmap.toolbar.js" />
+    <Content Include="bmap\bmap.application.js" />
+    <Content Include="bmap\bmap.map.js" />
+    <Content Include="bmap\bmap.rightpanel.js" />
+    <Content Include="bmap\bmap.resultpanel.js" />
+    <Content Include="controls\controls.defaultextent.js" />
+    <Content Include="controls\controls.draw.js" />
+    <Content Include="controls\controls.dynamicLayerLegend.js" />
+    <Content Include="controls\controls.fullscreen.js" />
+    <Content Include="controls\controls.layerswitch.js" />
+    <Content Include="controls\controls.layertab.js" />
+    <Content Include="controls\controls.legend.js" />
+    <Content Include="controls\controls.loading.js" />
+    <Content Include="controls\controls.measure.js" />
+    <Content Include="controls\controls.navigation.js" />
+    <Content Include="controls\controls.minimap.js" />
+    <Content Include="controls\controls.paging.js" />
+    <Content Include="controls\controls.pan.js" />
+    <Content Include="controls\controls.scalebar.js" />
+    <Content Include="core\core.multimap.js" />
+    <Content Include="controls\controls.groupedlayer.js" />
+    <Content Include="core\core.baseobject.js" />
+    <Content Include="core\core.application.js" />
+    <Content Include="core\core.map.js" />
+    <Content Include="core\core.pool.js" />
+    <Content Include="core\core.symbol.js" />
+    <Content Include="data\data.ajax.js" />
+    <Content Include="data\data.analysis.js" />
+    <Content Include="data\data.baseservice.js" />
+    <Content Include="data\data.business.js" />
+    <Content Include="data\data.query.js" />
+    <Content Include="data\data.services.js" />
+    <Content Include="data\data.statistics.js" />
+    <Content Include="default.aspx" />
+    <Content Include="layout\layout.bottompanel.js" />
+    <Content Include="layout\layout.centerpanel.js" />
+    <Content Include="layout\layout.base.js" />
+    <Content Include="layout\layout.leftpanel.js" />
+    <Content Include="layout\layout.rightpanel.js" />
+    <Content Include="layout\layout.toolbar.js" />
+    <Content Include="layout\layout.toppanel.js" />
+    <Content Include="home.aspx" />
+    <Content Include="layout\layout.menu.js" />
+    <Content Include="library\echarts\echarts-all.js" />
+    <Content Include="library\jquery\jquery-1.11.1.js" />
+    <Content Include="plugins\jquery.rotate.js" />
+    <Content Include="library\leaflet\L.CRS2379.js" />
+    <Content Include="modules\common\common.browser.setting.js" />
+    <Content Include="modules\login\login.settings.js" />
+    <Content Include="modules\query\query.contain.js" />
+    <Content Include="plugins\md5\md5.js" />
+    <Content Include="library\requirejs\css.min.js" />
+    <Content Include="library\requirejs\normalize.js" />
+    <Content Include="modules\analysis\analysis.addcad.js" />
+    <Content Include="modules\analysis\colorpick\bigcolorpick.js" />
+    <Content Include="modules\analysis\colorpick\colorpick.js" />
+    <Content Include="modules\analysis\colorpick\jquery.cxcolor.js" />
+    <Content Include="modules\analysis\swfupload\default.css" />
+    <Content Include="modules\analysis\swfupload\filegroupprogress.js" />
+    <Content Include="modules\analysis\swfupload\fileprogress.js" />
+    <Content Include="modules\analysis\swfupload\handlers.js" />
+    <Content Include="modules\analysis\swfupload\image\del.gif" />
+    <Content Include="modules\analysis\swfupload\image\ico.gif" />
+    <Content Include="modules\analysis\swfupload\image\upload.gif" />
+    <Content Include="modules\analysis\swfupload\image\upload_normal.gif" />
+    <Content Include="modules\analysis\swfupload\image\upload_waiting.gif" />
+    <Content Include="modules\analysis\swfupload\image\XPButtonNoText_80x22.png" />
+    <Content Include="modules\analysis\swfupload\swfupload-Min.js" />
+    <Content Include="modules\analysis\swfupload\swfupload.js" />
+    <Content Include="modules\analysis\swfupload\swfupload.queue.js" />
+    <Content Include="modules\analysis\swfupload\swfupload.speed.js" />
+    <Content Include="modules\analysis\swfupload\swfupload\swfupload.swf" />
+    <Content Include="modules\business\business.approvalcharts.js" />
+    <Content Include="modules\business\business.organization.query.js" />
+    <Content Include="modules\business\business.projectmap.js" />
+    <Content Include="modules\business\business.query.js" />
+    <Content Include="modules\business\business.sxonemap.js" />
+    <Content Include="modules\common\common.fileload.js" />
+    <Content Include="modules\login\login.verify.js" />
+    <Content Include="modules\output\output.export.js" />
+    <Content Include="modules\output\output.legend.js" />
+    <Content Include="modules\statistics\statistics.chart.js" />
+    <Content Include="layout\layout.home.js" />
+    <Content Include="library\bootstrap\bootstrap.min.js" />
+    <Content Include="library\echarts\echarts.js" />
+    <Content Include="library\jquery\jquery-1.11.1.min.js" />
+    <Content Include="library\leaflet\arcgis\esri-leaflet.js" />
+    <Content Include="library\leaflet\arcgis\shapeFile\catiline.js" />
+    <Content Include="library\leaflet\arcgis\shapeFile\leaflet.shpfile.js" />
+    <Content Include="library\leaflet\arcgis\shapeFile\shp.js" />
+    <Content Include="library\leaflet\leaflet.contextmenu\leaflet.contextmenu.css" />
+    <Content Include="library\leaflet\leaflet.contextmenu\leaflet.contextmenu.js" />
+    <Content Include="library\leaflet\leaflet.css" />
+    <Content Include="library\leaflet\leaflet.draw\images\spritesheet-2x.png" />
+    <Content Include="library\leaflet\leaflet.draw\images\spritesheet.png" />
+    <Content Include="library\leaflet\leaflet.draw\leaflet.draw-src.js" />
+    <Content Include="library\leaflet\leaflet.draw\leaflet.draw.css" />
+    <Content Include="library\leaflet\leaflet.js" />
+    <Content Include="library\leaflet\proj4.js" />
+    <Content Include="library\leaflet\proj4leaflet.js" />
+    <Content Include="library\requirejs\requirejs.js" />
+    <Content Include="login.aspx" />
+    <Content Include="modules\analysis\analysis.conflict.js" />
+    <Content Include="modules\output\output.print.js" />
+    <Content Include="modules\query\query.projectidentify.js" />
+    <Content Include="modules\query\query.resultpanel.js" />
+    <Content Include="plugins\html5shiv.js" />
+    <Content Include="plugins\jquery.cookie.js" />
+    <Content Include="plugins\jquery.customscrollbar\jquery.mCustomScrollbar.min.js" />
+    <Content Include="plugins\jquery.customscrollbar\jquery.mCustomScrollbar.css" />
+    <Content Include="plugins\jquery.draggable\jquery.draggable.js" />
+    <Content Include="modules\query\query.identify.js" />
+    <Content Include="modules\query\query.quickquery.js" />
+    <Content Include="plugins\base64.min.js" />
+    <Content Include="plugins\jquery.print.js" />
+    <Content Include="plugins\jquery.qtip.min.js" />
+    <Content Include="plugins\jquery.mousewheel\jquery.mousewheel.js" />
+    <Content Include="plugins\plugins.pagination.js" />
+    <Content Include="projects\duogui\project.duogui.config.js" />
+    <Content Include="projects\default\project.default.config.js" />
+    <Content Include="projects\login\project.login.config.js" />
+    <Content Include="projects\project.basic.init.js" />
+    <Content Include="projects\project.manage.init.js" />
+    <Content Include="projects\project.premium.init.js" />
+    <Content Include="projects\project.script.js" />
+    <Content Include="projects\project.splitscreen.init.js" />
+    <Content Include="splitscreen.aspx" />
+    <Content Include="splitscreen\splitscreen.application.js" />
+    <Content Include="splitscreen\splitscreen.compareResult.js" />
+    <Content Include="splitscreen\splitscreen.map.js" />
+    <Content Include="themes\default\css\analysis.addcad.css" />
+    <Content Include="themes\default\css\analysis.bigcolorpicker.css" />
+    <Content Include="themes\default\css\analysis.certificate.css" />
+    <Content Include="themes\default\css\analysis.conflictanalysis.css" />
+    <Content Include="themes\default\css\analysis.landbalance.css" />
+    <Content Include="themes\default\css\analysis.landstock.css" />
+    <Content Include="themes\default\css\analysis.landstrength.css" />
+    <Content Include="library\bootstrap\bootstrap-theme.min.css" />
+    <Content Include="library\bootstrap\bootstrap.min.css" />
+    <Content Include="themes\default\css\analysis.conflict.css" />
+    <Content Include="themes\default\css\analysis.netvolumeratio.css" />
+    <Content Include="themes\default\css\analysis.publicservice.css" />
+    <Content Include="themes\default\css\bmap\bmap.controls.fold.css" />
+    <Content Include="themes\default\css\bmap\bmap.controls.zoom.css" />
+    <Content Include="themes\default\css\bmap\bmap.icon.css" />
+    <Content Include="themes\default\css\bmap\bmap.main.css" />
+    <Content Include="themes\default\css\bmap\bmap.rightpanel.css" />
+    <Content Include="themes\default\css\business.approvalcharts.css" />
+    <Content Include="themes\default\css\business.approvedmap.css" />
+    <Content Include="themes\default\css\business.approvedmap.illegalproject.css" />
+    <Content Include="themes\default\css\business.approvedonemap.css" />
+    <Content Include="themes\default\css\business.approvedtracking.css" />
+    <Content Include="themes\default\css\business.compilemap.css" />
+    <Content Include="themes\default\css\business.mapmonitor.css" />
+    <Content Include="themes\default\css\business.indexcontrast.css" />
+    <Content Include="themes\default\css\business.organization.query.css" />
+    <Content Include="themes\default\css\business.projectmap.css" />
+    <Content Include="themes\default\css\business.query.css" />
+    <Content Include="themes\default\css\business.rarrow.css" />
+    <Content Include="themes\default\css\business.regulatoryplan.css" />
+    <Content Include="themes\default\css\business.sxonemap.css" />
+    <Content Include="themes\default\css\business.wholelifecycle.css" />
+    <Content Include="themes\default\css\common.businessTemplate.css" />
+    <Content Include="themes\default\css\common.plotting.css" />
+    <Content Include="themes\default\css\common.projectListTemplate.css" />
+    <Content Include="themes\default\css\common.projectPhase.css" />
+    <Content Include="themes\default\css\common.sview.css" />
+    <Content Include="themes\default\css\controls.defaultextent.css" />
+    <Content Include="themes\default\css\controls.dynamicLayerLegend.css" />
+    <Content Include="themes\default\css\controls.filesload.css" />
+    <Content Include="themes\default\css\controls.layerIndexAndOpacity.css" />
+    <Content Include="themes\default\css\controls.layertab.css" />
+    <Content Include="themes\default\css\controls.legend.css" />
+    <Content Include="themes\default\css\controls.loading.css" />
+    <Content Include="themes\default\css\controls.minimap.css" />
+    <Content Include="themes\default\css\controls.optcity.css" />
+    <Content Include="themes\default\css\controls.overlay.css" />
+    <Content Include="themes\default\css\controls.paging.css" />
+    <Content Include="themes\default\css\controls.pan.css" />
+    <Content Include="themes\default\css\controls.sidebar.css" />
+    <Content Include="themes\default\css\controls.spotAnalysis.css" />
+    <Content Include="themes\default\css\controls.sxlegend.css" />
+    <Content Include="themes\default\css\controls.timeslider.css" />
+    <Content Include="themes\default\css\controls.toolbar.css" />
+    <Content Include="themes\default\css\core.map.css" />
+    <Content Include="themes\default\css\controls.navigation.css" />
+    <Content Include="themes\default\css\controls.scalebar.css" />
+    <Content Include="themes\default\css\controls.fullscreen.css" />
+    <Content Include="themes\default\css\default.icon.css" />
+    <Content Include="themes\default\css\default.login.css" />
+    <Content Include="themes\default\css\ie8.css" />
+    <Content Include="themes\default\css\jquery.cxcolor.css" />
+    <Content Include="themes\default\css\jquery.qtip.min.css" />
+    <Content Include="themes\default\css\layout.leftcontentpanel.css" />
+    <Content Include="themes\default\css\layout.toolbar.css" />
+    <Content Include="themes\default\css\login.settings.css" />
+    <Content Include="themes\default\css\manage\manage.controls.featurepanel.css" />
+    <Content Include="themes\default\css\manage\manage.controls.globalsearchpanel.css" />
+    <Content Include="themes\default\css\manage\manage.controls.layerContrast.css" />
+    <Content Include="themes\default\css\manage\manage.controls.loggingpanel.css" />
+    <Content Include="themes\default\css\manage\manage.controls.privilegeconfig.css" />
+    <Content Include="themes\default\css\manage\manage.controls.resfunction.css" />
+    <Content Include="themes\default\css\manage\manage.controls.resourcepanel.css" />
+    <Content Include="themes\default\css\manage\manage.controls.userpanel.css" />
+    <Content Include="themes\default\css\manage\manage.controls.visitedlogging.css" />
+    <Content Include="themes\default\css\manage\manage.icon.css" />
+    <Content Include="themes\default\css\manage\manage.main.css" />
+    <Content Include="themes\default\css\util.attachment.css" />
+    <Content Include="themes\default\css\output.legend.css" />
+    <Content Include="themes\default\css\plugins.pagination.css" />
+    <Content Include="themes\default\css\query.contain.css" />
+    <Content Include="themes\default\css\splitScreen\splitScreen.main.css" />
+    <Content Include="themes\default\css\util.dialog.css" />
+    <Content Include="themes\default\css\util.mtip.css" />
+    <Content Include="themes\default\fonts\basic\icomoon.svg" />
+    <Content Include="themes\default\fonts\manage\demo.css" />
+    <Content Include="themes\default\fonts\manage\demo.html" />
+    <Content Include="themes\default\fonts\manage\demo.js" />
+    <Content Include="themes\default\fonts\manage\icomoon.svg" />
+    <Content Include="themes\default\fonts\manage\style.css" />
+    <Content Include="themes\default\fonts\premium\icomoon.svg" />
+    <Content Include="themes\default\images\bianzhi-label.png" />
+    <Content Include="themes\default\images\biaozhu-icon.png" />
+    <Content Include="themes\default\images\browser\Chromeicon.png" />
+    <Content Include="themes\default\images\browser\IEicon.png" />
+    <Content Include="themes\default\images\CAD-ICON.png" />
+    <Content Include="themes\default\images\color.png" />
+    <Content Include="themes\default\images\controls\draw\close.png" />
+    <Content Include="themes\default\images\controls\draw\dot-plotting.png" />
+    <Content Include="themes\default\images\controls\draw\point_32.png" />
+    <Content Include="themes\default\images\controls\fullscreen.png" />
+    <Content Include="themes\default\images\controls\grouplayer\dixingtu-xiao.png" />
+    <Content Include="themes\default\images\controls\grouplayer\dixingtu.png" />
+    <Content Include="themes\default\images\controls\grouplayer\kongbai-xiao.png" />
+    <Content Include="themes\default\images\controls\grouplayer\map-xiao.png" />
+    <Content Include="themes\default\images\controls\grouplayer\map.png" />
+    <Content Include="themes\default\images\controls\grouplayer\timershaft-icon.png" />
+    <Content Include="themes\default\images\controls\grouplayer\yingxiangtu-xiao.png" />
+    <Content Include="themes\default\images\controls\grouplayer\yingxiangtu.png" />
+    <Content Include="themes\default\images\controls\layers.png" />
+    <Content Include="themes\default\images\controls\layerswitch\bg.base.png" />
+    <Content Include="themes\default\images\controls\layerswitch\bg.theme.png" />
+    <Content Include="themes\default\images\controls\layerswitch\default.png" />
+    <Content Include="themes\default\images\controls\layerswitch\hongxian.png" />
+    <Content Include="themes\default\images\controls\layerswitch\lanxian.png" />
+    <Content Include="themes\default\images\controls\layerswitch\lvxian.png" />
+    <Content Include="themes\default\images\controls\layerswitch\sanwei.png" />
+    <Content Include="themes\default\images\controls\layerswitch\yingxiang.png" />
+    <Content Include="themes\default\images\controls\layertab\close.png" />
+    <Content Include="themes\default\images\controls\layertab\layers.png" />
+    <Content Include="themes\default\images\controls\layertab\next.png" />
+    <Content Include="themes\default\images\controls\layertab\pre.png" />
+    <Content Include="themes\default\images\controls\leaflet.defaultextent%402X.png" />
+    <Content Include="themes\default\images\controls\leaflet.defaultextent.png" />
+    <Content Include="themes\default\images\controls\loading.gif" />
+    <Content Include="themes\default\images\controls\nav\bisectrix.png" />
+    <Content Include="themes\default\images\controls\nav\Direction-circle.png" />
+    <Content Include="themes\default\images\controls\nav\pull-rod.png" />
+    <Content Include="themes\default\images\controls\nav\vertical-line1.png" />
+    <Content Include="themes\default\images\controls\nav\vertical-line2.png" />
+    <Content Include="themes\default\images\controls\nav\zoom-in.png" />
+    <Content Include="themes\default\images\controls\nav\Zoom-Out.png" />
+    <Content Include="themes\default\images\controls\pan-down.png" />
+    <Content Include="themes\default\images\controls\pan-left.png" />
+    <Content Include="themes\default\images\controls\pan-right.png" />
+    <Content Include="themes\default\images\controls\pan-up.png" />
+    <Content Include="themes\default\images\controls\toggle-toolbar.png" />
+    <Content Include="themes\default\images\controls\toggle.png" />
+    <Content Include="themes\default\images\cursor\hand.cur" />
+    <Content Include="themes\default\images\cursor\movehand.cur" />
+    <Content Include="themes\default\images\cursor\以图管控.cur" />
+    <Content Include="themes\default\images\cursor\全生命周期.cur" />
+    <Content Include="themes\default\images\cursor\属性查询.cur" />
+    <Content Include="themes\default\images\cursor\项目查看.cur" />
+    <Content Include="themes\default\images\dot-plotting-blue.png" />
+    <Content Include="themes\default\images\dot-plotting.png" />
+    <Content Include="themes\default\images\error\404photo.png" />
+    <Content Include="themes\default\images\favicon.ico" />
+    <Content Include="themes\default\images\feature\u15.png" />
+    <Content Include="themes\default\images\feature\u22.png" />
+    <Content Include="themes\default\images\feature\u29.png" />
+    <Content Include="themes\default\images\feature\u36.png" />
+    <Content Include="themes\default\images\feature\u8.png" />
+    <Content Include="themes\default\images\headimage\fg.jpg" />
+    <Content Include="themes\default\images\headimage\gh.jpg" />
+    <Content Include="themes\default\images\headimage\test.jpg" />
+    <Content Include="themes\default\images\layout\01.png" />
+    <Content Include="themes\default\images\layout\bianzhi-colour.png" />
+    <Content Include="themes\default\images\layout\bianzhi-icon.png" />
+    <Content Include="themes\default\images\layout\bianzhimap.png" />
+    <Content Include="themes\default\images\layout\dd-h.png" />
+    <Content Include="themes\default\images\layout\default-colour.png" />
+    <Content Include="themes\default\images\layout\default.png" />
+    <Content Include="themes\default\images\layout\dh-bg.png" />
+    <Content Include="themes\default\images\layout\guihuamap.png" />
+    <Content Include="themes\default\images\layout\js_fn13.jpg" />
+    <Content Include="themes\default\images\layout\js_fn2.jpg" />
+    <Content Include="themes\default\images\layout\js_fn3.jpg" />
+    <Content Include="themes\default\images\layout\js_fn7.jpg" />
+    <Content Include="themes\default\images\layout\js_fnrelitu.jpg" />
+    <Content Include="themes\default\images\layout\left-bg-img.png" />
+    <Content Include="themes\default\images\layout\legend.png" />
+    <Content Include="themes\default\images\layout\logotitle.png" />
+    <Content Include="themes\default\images\layout\n-xz.png" />
+    <Content Include="themes\default\images\layout\pihou-colour.png" />
+    <Content Include="themes\default\images\layout\pihou-icon.png" />
+    <Content Include="themes\default\images\layout\pihoumap.png" />
+    <Content Include="themes\default\images\layout\search-butt.png" />
+    <Content Include="themes\default\images\layout\search-collect.png" />
+    <Content Include="themes\default\images\layout\search02-butt.png" />
+    <Content Include="themes\default\images\layout\shishimap.png" />
+    <Content Include="themes\default\images\layout\shixian-colour.png" />
+    <Content Include="themes\default\images\layout\shixian-icon.png" />
+    <Content Include="themes\default\images\layout\titlebg.png" />
+    <Content Include="themes\default\images\layout\u107.png" />
+    <Content Include="themes\default\images\layout\u15.png" />
+    <Content Include="themes\default\images\layout\u22.png" />
+    <Content Include="themes\default\images\layout\u29.png" />
+    <Content Include="themes\default\images\layout\u36.png" />
+    <Content Include="themes\default\images\layout\u8.png" />
+    <Content Include="themes\default\images\layout\u89.png" />
+    <Content Include="themes\default\images\layout\u95.png" />
+    <Content Include="themes\default\images\layout\xiangmu-colour.png" />
+    <Content Include="themes\default\images\layout\xiangmu-icon.png" />
+    <Content Include="themes\default\images\layout\“多规融合”信息管理平台.png" />
+    <Content Include="themes\default\images\layout\城信所-多规融合平台.png" />
+    <Content Include="themes\default\images\layout\多规合一.png" />
+    <Content Include="themes\default\images\layout\左导航-2.png" />
+    <Content Include="themes\default\images\layout\左导航-3.png" />
+    <Content Include="themes\default\images\layout\左导航-1.png" />
+    <Content Include="themes\default\images\layout\左导航-gl1.png" />
+    <Content Include="themes\default\images\layout\左导航-gl2.png" />
+    <Content Include="themes\default\images\layout\左导航-gl3.png" />
+    <Content Include="themes\default\images\legend.png" />
+    <Content Include="themes\default\images\login\blue-bg.png" />
+    <Content Include="themes\default\images\login\gray-bg.png" />
+    <Content Include="themes\default\images\login\map-photo.png" />
+    <Content Include="themes\default\images\login\systemname.png" />
+    <Content Include="themes\default\images\manage\close.png" />
+    <Content Include="themes\default\images\manage\folder-close.png" />
+    <Content Include="themes\default\images\manage\folder-open.png" />
+    <Content Include="themes\default\images\manage\function.png" />
+    <Content Include="themes\default\images\manage\loading.gif" />
+    <Content Include="themes\default\images\manage\open.png" />
+    <Content Include="themes\default\images\manage\role.png" />
+    <Content Include="themes\default\images\manage\thematic.png" />
+    <Content Include="themes\default\images\manage\user.png" />
+    <Content Include="themes\default\images\marker-icon.png" />
+    <Content Include="themes\default\images\mCSB_buttons.png" />
+    <Content Include="themes\default\images\pihou-label.png" />
+    <Content Include="themes\default\images\point\point0.png" />
+    <Content Include="themes\default\images\point\point1.png" />
+    <Content Include="themes\default\images\point\point10.png" />
+    <Content Include="themes\default\images\point\point11.png" />
+    <Content Include="themes\default\images\point\point12.png" />
+    <Content Include="themes\default\images\point\point13.png" />
+    <Content Include="themes\default\images\point\point14.png" />
+    <Content Include="themes\default\images\point\point15.png" />
+    <Content Include="themes\default\images\point\point16.png" />
+    <Content Include="themes\default\images\point\point17.png" />
+    <Content Include="themes\default\images\point\point18.png" />
+    <Content Include="themes\default\images\point\point19.png" />
+    <Content Include="themes\default\images\point\point2.png" />
+    <Content Include="themes\default\images\point\point20.png" />
+    <Content Include="themes\default\images\point\point3.png" />
+    <Content Include="themes\default\images\point\point4.png" />
+    <Content Include="themes\default\images\point\point5.png" />
+    <Content Include="themes\default\images\point\point6.png" />
+    <Content Include="themes\default\images\point\point7.png" />
+    <Content Include="themes\default\images\point\point8.png" />
+    <Content Include="themes\default\images\point\point9.png" />
+    <Content Include="themes\default\images\point\t_marker.png" />
+    <Content Include="themes\default\images\print\model_blank.png" />
+    <Content Include="themes\default\images\print\model_info.png" />
+    <Content Include="themes\default\images\s-label1.png" />
+    <Content Include="themes\default\images\s-label2.png" />
+    <Content Include="themes\default\images\search-collect.png" />
+    <Content Include="themes\default\css\layout.home.css" />
+    <Content Include="themes\default\css\controls.groupedlayer.css" />
+    <Content Include="themes\default\css\output.print.css" />
+    <Content Include="themes\default\css\query.projectidentify.css" />
+    <Content Include="themes\default\css\query.resultpanel.css" />
+    <Content Include="themes\default\css\system.main.css" />
+    <Content Include="themes\default\images\shading.png" />
+    <Content Include="themes\default\images\shishi-label.png" />
+    <Content Include="themes\default\images\已处理修编-盖章.png" />
+    <Content Include="themes\default\images\水滴汇集.png" />
+    <Content Include="util\util.attachment.js" />
+    <Content Include="util\util.dialog.js" />
+    <Content Include="util\util.getxml.js" />
+    <Content Include="util\util.locate.js" />
+    <Content Include="util\util.log.js" />
+    <Content Include="util\util.base.js" />
+    <Content Include="util\util.mtip.js" />
+    <Content Include="util\util.tool.js" />
+    <Content Include="util\util.txls.js" />
+    <Content Include="util\util.user.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="basic.aspx.cs">
+      <DependentUpon>basic.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="basic.aspx.designer.cs">
+      <DependentUpon>basic.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="default.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="login.setting.ashx.cs">
+      <DependentUpon>login.setting.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="home.aspx.cs">
+      <DependentUpon>home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home.aspx.designer.cs">
+      <DependentUpon>home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manage.aspx.cs">
+      <DependentUpon>manage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage.aspx.designer.cs">
+      <DependentUpon>manage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manage\GetAllFeaturePicturesName.ashx.cs">
+      <DependentUpon>GetAllFeaturePicturesName.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="manage\varifyServerUrl.ashx.cs">
+      <DependentUpon>varifyServerUrl.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="modules\output\output.export.ashx.cs">
+      <DependentUpon>output.export.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="splitscreen.aspx.cs">
+      <DependentUpon>splitscreen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="splitscreen.aspx.designer.cs">
+      <DependentUpon>splitscreen.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="modules\output\output.export.ashx" />
+    <Content Include="login.setting.ashx" />
+    <Content Include="library\leaflet\proxy.ashx" />
+    <Content Include="layout\layout.tool.js" />
+    <Content Include="core\core.namespace.js" />
+    <Content Include="manage\GetAllFeaturePicturesName.ashx" />
+    <Content Include="manage\varifyServerUrl.ashx" />
+    <Content Include="library\leaflet\arcgis\proxy.ashx" />
+    <Content Include="library\layui\font\iconfont.eot" />
+    <Content Include="library\layui\font\iconfont.svg" />
+    <Content Include="library\layui\font\iconfont.ttf" />
+    <Content Include="library\layui\font\iconfont.woff" />
+    <None Include="Properties\PublishProfiles\DCI.Client.pubxml" />
+    <Content Include="themes\default\fonts\basic\icomoon.eot" />
+    <Content Include="themes\default\fonts\basic\icomoon.ttf" />
+    <Content Include="themes\default\fonts\basic\icomoon.woff" />
+    <Content Include="themes\default\fonts\premium\icomoon.eot" />
+    <Content Include="themes\default\fonts\premium\icomoon.ttf" />
+    <Content Include="themes\default\fonts\premium\icomoon.woff" />
+    <Content Include="themes\default\fonts\manage\icomoon.eot" />
+    <Content Include="themes\default\fonts\manage\icomoon.ttf" />
+    <Content Include="themes\default\fonts\manage\icomoon.woff" />
+    <Content Include="proxy\proxy.ashx" />
+    <Content Include="proxy\proxy.config" />
+    <None Include="Properties\PublishProfiles\OMV5.pubxml" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>4299</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/DCI.Client</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

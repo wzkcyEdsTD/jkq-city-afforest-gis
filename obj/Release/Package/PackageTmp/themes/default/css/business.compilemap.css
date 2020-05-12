@@ -1,0 +1,26 @@
+﻿.compilemap { width:100%;height:100%;}
+.compilemap_tab { height: 40px;}
+.compilemap_tabContent {height: 100%;padding-top: 40px; margin-top: -40px;}
+
+.compilemap_tab > span {float: left; width: 50%;height: 100%;font-size: 14px;text-align: center;padding: 10px;background-color: #ebebeb;color: #000000;border-right: 1px solid #fff; display: block;cursor:pointer;}
+.compilemap_tab > span.active,.compilemap_tab > span:hover { background-color:#ffb400;}
+
+.compilemap_tabContent > div { height:100%;display:none;}
+.compilemap_tabContent > div.active {display:block;}
+
+.compilemap .total-plan { margin-top: 20px; margin-bottom: 10px;}
+.compilemap .regulatory-plan { margin-bottom: 20px;}
+
+.compilemap_tabContent1 .title { display: block;height: 30px; background-color: #ebebeb; font-size: 16px; font-weight: bold; padding: 4px 0px 4px 10px;}
+.compilemap_tabContent1 .title.active{display: block;height: 30px; background-color: #ebebeb; font-size: 16px; font-weight: bold; padding: 4px 0px 4px 10px; cursor:pointer;}
+.compilemap_tabContent1 .title.active:hover { background-color:#b4e6ff;}
+.compilemap_tabContent1 .content {padding: 10px 0px; font-size: 12px; color: #505050;}
+
+.compilemap_tabContent1 .table {margin-bottom:0px; }
+.compilemap_tabContent1 .table>thead>tr,.compilemap_tabContent1 table>tbody>tr { min-height: 30px;height: 30px;}
+.compilemap_tabContent1 .table>thead>tr>th { border-bottom: none;vertical-align: middle;text-align: center;background-color: #f0f0f0;font-weight: normal; padding: 4px 4px;}
+.compilemap_tabContent1 .table>tbody>tr>td {vertical-align: middle;text-align: center;font-weight: normal; font-size: 12px; padding: 4px 4px; }
+.compilemap_tabContent1 .table>tbody>tr.trhighlight { background-color:#fafafa;}
+
+/*.compilemap .compilePie{ width:100%;height:150px; }*/
+.compilemap .compilePie{ width:100%;height:200px; margin-top:10px; }

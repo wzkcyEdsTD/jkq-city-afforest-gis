@@ -1,0 +1,60 @@
+﻿.acharts {position:relative; background:white;position:absolute;z-index:1305;top:32px;right:0px; bottom:0px; left:0px;overflow-y:auto;padding-bottom:10px;}
+.acharts-close{color:white; position:absolute;right:8px;top:8px;display: inline-block;height: 32px;width: 32px;text-align: center;line-height: 32px;font-size: 14px;background:#d2d2d2;border-radius:16px;}
+.acharts-close:hover{background:#f05028;}
+.acharts-yselector-container{text-align:center;margin-top:10px;}
+.acharts-yselector-axis{border-bottom:1px solid #d2d2d2;height:37px;display:inline-block;width:90%;}
+.acharts-yselector-block{display:inline-block;margin-left:10px; margin-right:10px;}
+.acharts-yselector-pin{display:block;height:6px;width:6px;background:#d2d2d2;border-radius:3px; margin:0px auto;}
+.acharts-yselector-year{cursor:pointer;color:#787878; display: block;height: 24px;width: 62px;margin: 4px auto 5px auto;text-align: center;font-size: 12px;line-height: 24px;border: 1px solid transparent;border-radius: 4px;}
+.acharts-yselector-year:hover{border: 1px solid #d2d2d2;transition: border 0.5s;-moz-transition: border 0.5s;-webkit-transition: border 0.5s;-o-transition: border 0.5s;}
+.acharts-yselector-year.selected{border: 1px solid #f05028;background:#f05028;color:white;transition: background 1s;-moz-transition: background 1s;-webkit-transition: background 1s;-o-transition: background 1s;}
+.acharts-yselector-year.selected + .acharts-yselector-pin{background:#f05028;transition: background 1s;-moz-transition: background 1s;-webkit-transition: background 1s;-o-transition: background 1s;}
+.acharts-yselector-switch2{display: block;}
+
+.acharts-yselector-switch{border:1px solid transparent; display: inline-block;height: 32px;width: 32px;text-align: center;line-height: 32px;font-size: 24px;color:#787878}
+.acharts-yselector-switch:hover{border:1px solid #d2d2d2;border-radius:2px;}
+
+.acharts-yselector-switch.icon-arrows{position: absolute;top: 30px;left: 26px;}
+.acharts-yselector-switch.icon-arrows-right{position: absolute;top: 30px;right: 28px;}
+
+
+.acharts-cswitch-container{text-align:center;margin-top:16px;}
+.acharts-cswitch-switch{text-align:center;background:#ebebeb;color:#505050;font-size:12px;padding:6px 40px 6px 40px;outline:none;border:1px solid #ebebeb;margin-left:16px;}
+.acharts-cswitch-switch:first-child{margin-left:0px;}
+.acharts-cswitch-switch:hover{border:1px solid #f05028;}
+.acharts-cswitch-switch.selected{border:1px solid #f05028;background:#f05028;color:white;transition: background 1s;-moz-transition: background 1s;-webkit-transition: background 1s;-o-transition: background 1s;}
+
+.acharts-charts-container{margin:0 auto;text-align:center;}
+.acharts-charts-tcontainer{margin:0 auto;width:90%;text-align:right;}
+#business-approval-charts-bar { height: 360px;width: 60%;margin:0 auto;display:inline-block;border:1px solid #d2d2d2;}
+#business-approval-charts-pie { height: 360px;width: 30%;margin:0 auto;display:inline-block;border:1px solid #d2d2d2;margin-left:6px;}
+
+.acharts-charts-tool{font-size:16px;color:#787878;margin-left:12px;}
+.acharts-charts-tool:hover{color:#64c8ff}
+.acharts-charts-tool:first-child{margin-left:0px;cursor: pointer;}
+
+.acharts h4{text-align:center}
+
+.acharts table { border-collapse: collapse;border: 1px solid #d2d2d2;margin:4px auto;width:90%}
+.acharts tr {border-bottom: 1px solid #d2d2d2;border-left: 1px solid #d2d2d2; border-right: 1px solid #d2d2d2;}
+.acharts td,th{border-left: 1px solid #d2d2d2;padding:4px 4px;font-size:12px;}
+.acharts td.margin{margin-left:4px;margin-right:4px;}
+.acharts td.margin:first-child{margin-left:0px;}
+.acharts td.margin:last-child{margin-right:0px;}
+.acharts-tselector-table{margin-top:16px !important;}
+.acharts-tselector-table td,
+.acharts-tselector-table th{cursor:pointer;text-align: center;}
+
+.acharts-tselector-table td:hover,
+.acharts-tselector-table th:hover,
+.acharts td.selected {border:1px solid #f05028;color:#f05028;}
+.acharts-charts-table th{text-align:left;}
+
+.hidden{display:none !important;}
+.visible {display:block !important;}
+
+@media only screen and (max-width: 1100px){
+.acharts{}
+#business-approval-charts-bar { height: 360px;width: 90%;margin:0 auto;display:block;border:1px solid #d2d2d2;}
+#business-approval-charts-pie { height: 360px;width: 90%;margin:0 auto;display:block;border:1px solid #d2d2d2;margin-top:10px;}
+}

@@ -1,0 +1,44 @@
+﻿<script type="text/x-template" id="xzqh-template" >
+    <div class="qyxz-nav-btn-wrap">
+      <button class="btn" href="#xzqh-Tepl" data-toggle="wz-collapse" aria-expanded="true" @click="collapse">行政区域</button>
+      <button class="btn" id="QYHZ">区域绘制</button>
+      <button class="btn" id="FWXSC" data-toggle="wz-collapse" aria-expanded="true">范围线上传</button></div>
+    <div class="qyxz-nav-collapse-wrap">
+      <div class="wz-collapse" id="xzqh-Tepl">
+        <div class="district">
+          <ul class="district-content">
+            <li class="RN-district-item" @click="ctrlClick" level='one' name="{{districtValue}}">{{districtShow}}</li></ul>
+        </div>
+        <div class="town">
+          <ul class="town-content">
+            <li class="RN-town-item" v-for="item in items" @click="ctrlClick" level='two' name="{{item.RegionName}}">{{item.RegionName}}</li></ul>
+        </div>
+        <div class="rhombuss"></div>
+        <div class="dciClear"></div>
+      </div>
+    </div>
+    <div class="optselected">
+        <button class="btn btn-selected" v-for="dist in selecteddistrict" name='{{dist}}'>{{dist}}<div class="optclose" @click='deleteDist' name='{{dist}}'>×</div></button>
+        <div class="dciClear"></div>
+    </div>
+</script>
+
+<style>
+    #xzqh-Tepl .rhombuss{left:48px;}
+    .qyxz-nav-btn-wrap .btn,.qyxz-nav-collapse-wrap .btn{width: 100px;line-height: 32px;margin-right: 20px;padding: 0;background-color: #ffffff;outline: 0;}
+    .qyxz-nav-btn-wrap .btn.collapsed,.qyxz-nav-btn-wrap .btn:active,.ydph-nav-collapse-wrap .btn.collapsed{color: #ffffff;border-color: #ffb400;background-color: #ffb400;}
+    .qyxz-nav-collapse-wrap{/*position: absolute*/; z-index: 1; background-color: #fff;}
+    .qyxz-nav-collapse-wrap .wz-collapse{position: relative;display: none;width: 100%;min-height: 60px;margin-top: 15px;padding: 10px;border: 1px solid #ffb400;border-radius: 4px;-moz-border-radius: 4px;-webkit-border-radius: 4px;text-align: center;}
+    .qyxz-nav-collapse-wrap .wz-collapse.active{display: table;}
+    .qyxz-nav-collapse-wrap .district{width: 15%;position: relative;display: inline-block;float: left;}
+    .qyxz-nav-collapse-wrap .town{position: relative;display: inline-block;float: left;width: 85%;border-left: 1px solid #ccc;}
+    .qyxz-nav-collapse-wrap .wz-collapse .rhombuss{position: absolute;top: -8px;left: 48px;width: 16px;height: 16px;border-left: 1px solid #ffb400;border-top: 1px solid #ffb400; border-radius: 1px;-moz-border-radius: 1px;-webkit-border-radius: 1px;background-color: #fff;transform: rotate(45deg);-ms-transform: rotate(45deg);-webkit-transform: rotate(45deg);-o-transform: rotate(45deg);-moz-transform: rotate(45deg); filter: progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand',M11=0.6, M12=-0.6,M21=0.6,M22=0.6);}
+    .RN-town-item,.RN-district-item{display: inline-block;float: left;width: 64px;margin: 2px 2px;border-radius: 4px;-moz-border-radius: 4px;-webkit-border-radius: 4px;color: #787878;cursor: pointer;}
+    .RN-district-item.active,.RN-town-item.active{background-color: #ffb400;color: #ffffff;}
+    .RN-district-item:hover,.RN-town-item:hover{background-color: antiquewhite;}
+    .RN-district-item,.RN-district-item{cursor:default; cursor:pointer}
+    .optselected{margin:5px 0;}
+    .btn-selected{background-color:#ffdc96;border-radius:3px;float: left;padding-right: 6px;min-width: 100px;margin:2px 3px 2px 0;}
+    .optclose{    float: right;color: #fff;padding-left: 5px;font-weight: bold;}
+    .optclose:hover{ color: #333;}
+</style>

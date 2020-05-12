@@ -1,0 +1,14 @@
+﻿.paging {}
+.paging.container {display: block; width: 100%; text-align: center;}
+.paging.number,
+.paging.button {margin-left: 4px;background: transparent;display: inline-block; width: 24px; height: 24px; line-height: 24px; border-radius: 12px; text-align: center;font-size: 14px;color: #505050;cursor: pointer;}
+.paging.button:first-child {margin-left: 0px;margin-top: 2px;}
+.paging.number.present{background: #ffb400 !important;}
+.paging.number.present,
+.paging.number:hover,
+.paging.button:hover {color: white;}
+.paging.number:hover,
+.paging.button:hover {background: #d2d2d2}
+.hidden{visibility:hidden}
+
+/*transparent*/

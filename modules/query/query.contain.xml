@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<node>
+<choose name="选取方式">
+  <contain name="点选择" class="icon-plotting-dot"></contain>
+  <contain name="线选择" class="icon-plotting-line"></contain>
+  <contain name="面选择" class="icon-plotting-polygon"></contain>
+</choose>
+<!--多选框class设为Multiselect，多选框class设为Multiselect，单选设为none-Multiselect-->  
+<attribute name="查询属性" class="Multiselect">
+  <name name="项目ID"></name>
+  <name name="项目名称"></name>
+  <name name="案件ID"></name>
+  <name name="案件名称"></name>
+  <name name="用地代码"></name>
+  <name name="用地性质"></name>
+  <name name="低碳生态指标"></name>
+  <name name="城市设计指标"></name>
+  <name name="编制时间"></name>
+  <name name="实体标识"></name>
+  <name name="分图则名称"></name>
+  <name name="建筑高度"></name>
+</attribute>
+<thirdchoose name="查询区域" class="none-Multiselect" url="">
+  <name name="临港街道"></name>
+  <name name="云亭街道"></name>
+  <name name="南闸街道"></name>
+  <name name="周庄镇"></name>
+  <name name="徐霞客镇"></name>
+  <name name="城东街道"></name>
+  <name name="新桥镇"></name>
+  <name name="月城镇"></name>
+  <name name="祝塘镇"></name>
+  <name name="澄江街道"></name>
+  <name name="璜土镇"></name>
+  <name name="祝塘镇"></name>
+  <name name="青阳镇"></name>
+  <name name="顾山镇"></name>
+</thirdchoose>
+</node>

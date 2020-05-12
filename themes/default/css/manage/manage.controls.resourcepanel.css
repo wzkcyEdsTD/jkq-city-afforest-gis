@@ -1,0 +1,119 @@
+﻿.registerResource {float:left;width:100%;height:100%;}
+/*整体*/
+.registerResource_search {   height: 30px;  margin-bottom:10px;}  /*这里添加了display隐藏了搜索栏，不要可以去掉*/
+.registerResource_content {height: 100%; width: 100%; padding-bottom: 95px; padding-top: 40px; margin-top: -40px;}
+.registerResource_content > div { width:100%;height:100%;}
+.registerResource_add {   height: 40px;margin-top:-90px;margin-bottom:10px;}
+.registerResource_paging { position: absolute;  bottom: 15px;  height: 30px;  width: 100%;}
+
+/*search*/
+.registerResource_search > div {  height: 100%;  width: 760px;  margin-left: auto;  margin-right: auto;}
+.registerResource_search input {   float: left;  width: 50%;  height: 30px;}
+.registerResource_search span {   float: left;  font-size: 18px;  margin-top: 6px;  margin-left: -27px;    cursor: pointer;}
+.showNumDropmenu { display: inline-block; float: right;}
+.showNumDropmenu > span {font-size: 16px; }
+.showNumDropmenu > select {width: 50px; margin-top: 6px;border-radius: 4px; }
+
+/*content*/
+.contentHide { display:none;}
+.resourceContent {   width: 760px;  height:60px;  margin:0px auto 10px auto;  border: 1px solid #d2d2d2;  border-radius: 4px;}
+.resourceContent:last-child {   margin-bottom:0px;}
+
+.resourceContent > span:first-child { float: left;  margin-left: -35px;  margin-top: 20px;  font-size: 18px; cursor:pointer;}
+.resourceContent >span.icon-hide { font-size:22px;color:#d2d2d2;}
+.resourceContent >span.icon-show { font-size:22px;color:#ffb400;}
+.resourceContent div.resourceImage {   float: left;  width: 120px;  height: 100%;  padding: 5px;}
+
+.resourceContent img {   width: 100%;  height: 100%;}
+
+.resourceContent > div.resourceAttribute {   float: left;  width: 500px;  height: 100%;}
+
+.resourceContent > div.resourceAttribute>p {   float: left;  width: 100%;  font-size:12px;  color:#323232;  display:inline;  /*margin-top: 5px;*/  margin-bottom: 0px;}
+
+.resourceContent > div.resourceAttribute>p:first-child {   margin-top: 5px;}
+    .resourceContent > div.resourceAttribute > p:first-child > span.attriuteValue { color:blue;font-weight:bold;}
+.resourceContent .attributeName {   float:left;  width:35px;}
+.resourceContent .attriuteValue {   float:left;  width:465px;  overflow:hidden;  text-overflow:ellipsis;}
+
+
+.resourceContent span.resourceDetail,
+.resourceContent span.icon-revamped,
+.resourceContent span.icon-clear { 
+  float: right;
+  font-size: 16px;
+  margin: 22px 20px 22px 0px;
+  cursor: pointer;
+}
+
+.resourceContent span.resourceDetail:hover,
+.resourceContent span.icon-revamped:hover,
+.resourceContent span.icon-clear:hover { 
+  color:#ffb400;
+}
+
+.resourceContent span.resourceDetail{ 
+    display:none;
+}
+
+
+/*add*/
+.addMoveTop { margin-top:0px;}
+.registerResource_add > p { 
+  width: 760px;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  border: 1px dashed #ffb400;
+  color: #a0a0a0;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.registerResource_add > p:hover { background-color: #ffb400; color:#fff;}
+
+.registerResource_add>p>span {  margin-right: 10px;}
+/*paging*/
+.myPagination { 
+    width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.myPagination > ul { 
+  display: inline-block;
+}
+
+
+
+
+
+
+
+
+/*添加服务对话框*/
+.addResource { padding:20px;}
+.star { color: red;  margin-right: 5px;}
+.addResource label { margin-right: 5px;}
+.addResource input { padding-left:3px;}
+.addResource .caret { margin-left: -15px;  border-top-color: #d2d2d2;}
+.addResource ul.dropdown-menu { top: auto;  left: 70px;  width: 174px;  border-top-left-radius: 0px;  border-top-right-radius: 0px;  margin-top: -1px;}
+.addResource ul > li > a { text-align:center;}
+.addResource ul > li > a:hover { background-color:#ffe696;color:#000;}
+.addResource .txtURL { width:310px;}
+.addResource > .tip{margin-top: 10px;  color: red;  padding-left: 48px; }
+.addResource > .tip > span { margin-left: 5px;}
+.addResource > div:last-child{ height: 30px;  margin-top: 20px;}
+.addResource > div:last-child > button {  float: right;}
+.addResource > div:last-child > button:hover { background-color:#64c8ff;}
+.addResource .saveResource { margin-right: 5px;}
+
+/*删除服务对话框*/
+
+.deleteResource { padding:20px;}
+.deleteResource > div:last-child{ height: 30px;  margin-top: 20px;}
+.deleteResource > div:last-child > button {  float: right;}
+.deleteResource > div:last-child > button:hover { background-color:#64c8ff;}
+.deleteResource .submitDeleteResource { margin-right: 5px;}
+.deleteResource > div:first-child > p { text-align:center; margin-top: 15px;}

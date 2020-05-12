@@ -1,0 +1,203 @@
+﻿.legend-hide
+{
+    width: 90px;
+    height: 36px;
+    left: 5px;
+    bottom: 5px;
+    position: absolute;
+    display: block;
+    border-radius: 4px;
+    margin: 0 !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.30);
+    z-index: 10;
+    font-family:'Microsoft YaHei';
+    cursor:pointer;
+}
+    .legend-hide > .header
+    {
+        color: #000000;
+        width: 100%;
+        opacity: 1;
+        background: #ebebeb;
+        -webkit-transition: all .8s ease;
+        -o-transition: all .8s ease;
+        transition: all .8s ease;
+        height: 36px;
+        line-height: 36px;
+        padding-right: 10px;
+        padding-left: 10px;
+        font-size: 14px;
+        font-weight: normal;
+    }
+        .legend-hide > .header > span
+        {
+            line-height: 36px;
+            float: right;
+            color: #505050;
+            font-size: 14px;
+        }
+/********************************************************/
+#legend-control1
+{
+    overflow: hidden;
+    position: absolute;
+    left: 105px;
+    width: 240px;
+    height: 350px;
+    bottom: 5px;
+    display: block;
+    z-index: 10;
+    margin: 0 !important;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.30);
+    font-family:'Microsoft YaHei';
+    cursor:default;
+}
+
+    #legend-control1 > .header
+    {
+        color: #000000;
+        width: 100%;
+        opacity: 1;
+        background: #ebebeb;
+        -webkit-transition: all .8s ease;
+        -o-transition: all .8s ease;
+        transition: all .8s ease;
+        height: 36px;
+        line-height: 36px;
+        padding-right: 10px;
+        padding-left: 10px;
+        font-size: 14px;
+        font-weight: normal;
+    }
+        #legend-control1 > .header > span
+        {
+            line-height: 36px;
+            float: right;
+            color: #505050;
+        }
+
+    #legend-control1 > .legend-body
+    {
+        background: white;
+        height: 494px;
+        display:table;
+        width:100%;
+    }
+
+.legend-control
+{
+    overflow: hidden;
+    position: absolute;
+    left: 5px;
+    width: 240px;
+    height: 350px;
+    bottom: 5px;
+    display: block;
+    z-index: 10;
+    margin: 0 !important;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.30);
+    font-family:'Microsoft YaHei';
+    cursor:default;
+}
+
+    .legend-control > .header
+    {
+        color: #000000;
+        width: 100%;
+        opacity: 1;
+        background: #ebebeb;
+        -webkit-transition: all .8s ease;
+        -o-transition: all .8s ease;
+        transition: all .8s ease;
+        height: 36px;
+        line-height: 36px;
+        padding-right: 10px;
+        padding-left: 10px;
+        font-size: 14px;
+        font-weight: normal;
+    }
+        .legend-control > .header > span
+        {
+            line-height: 36px;
+            float: right;
+            color: #505050;
+        }
+
+    .legend-control > .legend-body
+    {
+        background: white;
+        height: 494px;
+        display:table;
+        width:100%;
+    }
+.legend-body .lay-container
+{
+    width:100%;
+}
+
+.legend-body .laylabel
+{
+    height: 36px;
+    line-height: 36px;
+    font-size: 14px;
+    cursor: pointer;
+    color: #787878;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-top: 1px solid #d2d2d2;
+}
+    .legend-body .laylabel:hover
+    {
+        color: #32b4ff;
+    }
+.legend-body .checked
+{
+    color: #32b4ff;
+}
+.legend-body .laylabel > div
+{
+    float: left;
+}
+.legend-body .laylabel > span
+{
+    margin-top: 11px;
+    float: right;
+    color: #a0a0a0;
+}
+.legend-body .lay-legend
+{
+    display: none;
+    border-top: 1px solid #d2d2d2;
+    padding-right: 10px;
+    padding-left: 10px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+    width: 100%;
+}
+    .legend-body .lay-legend ul
+    {
+        margin-top:10px;
+        margin-bottom:10px;
+    }
+    .legend-body .lay-legend span
+    {
+        width:40px;
+        height:20px;
+        position:absolute;
+        background-size: 100% 100% !important;
+        background-repeat: no-repeat !important;
+        background-position: center !important;
+    }
+    .legend-body .lay-legend label
+    {
+        font-size:12px;
+        color:#787878;
+        margin-left:45px;
+        max-width:160px;
+        white-space:nowrap;overflow:hidden;
+        font-weight:normal;
+        text-overflow:ellipsis;-o-text-overflow:ellipsis;-icab-text-overflow: ellipsis;-khtml-text-overflow: ellipsis;-moz-text-overflow: ellipsis;-webkit-text-overflow: ellipsis;
+    }

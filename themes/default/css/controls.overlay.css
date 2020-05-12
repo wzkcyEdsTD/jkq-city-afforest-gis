@@ -1,0 +1,99 @@
+/*控件最底层样式*/
+.leaflet-control-overlay-container {
+    width: 300px;
+    height: auto;
+}
+
+.leaflet-control-overlay-title-container {
+    display: inline;
+}
+
+
+    .leaflet-control-overlay-title-container span {
+        color: #000;
+        width: 120px;
+    }
+
+    .leaflet-control-overlay-title-container a {
+        color: black;
+        font-size: 14px;
+        margin-left: 20px;
+        cursor: pointer;
+    }
+
+
+
+/*图层顺序调整操作区样式*/
+.leaflet-control-overlay-operator-container {
+    width: 100%;
+    height: 40px;
+    background-color: lightgray;
+}
+
+    .leaflet-control-overlay-operator-container a {
+        color: black;
+        margin-left: 20px;
+        font-size: 12px;
+    }
+
+        .leaflet-control-overlay-operator-container a:hover {
+            color: black;
+            font-size: 12px;
+            margin-left: 20px;
+            cursor: pointer;
+            background-color: lightblue;
+        }
+
+/*图层顺序调整按钮样式*/
+.leaflet-control-overlay-operator {
+}
+
+/*透明度调整条样式*/
+.leaflet-control-overlay-opacity-container {
+    margin-top: 10px;
+}
+
+    .leaflet-control-overlay-opacity-container .ui-slider-range {
+        background: #729fcf;
+    }
+
+    .leaflet-control-overlay-opacity-container .ui-slider-handle {
+        border-color: #729fcf;
+    }
+
+/*图层名列表区样式*/
+.leaflet-control-overlay-layer-list-container {
+    width: 100%;
+    height: 200px;
+    margin-top: 10px;
+}
+
+/*图层样式*/
+.leaflet-control-overlay-layer-container {
+    padding: 1px;
+}
+
+
+    .leaflet-control-overlay-layer-container label {
+        border-width: 1px;
+        border-style: solid;
+        border-color: black;
+        border-radius: 4px;
+        padding: 5px;
+    }
+
+        .leaflet-control-overlay-layer-container label:hover {
+            border-width: 1px;
+            border-color: lightblue;
+            border-style: solid;
+            border-radius: 4px;
+            padding: 5px;
+        }
+
+.leaflet-control-overlay-layer-checked {
+    background-color: lightblue;
+}
+
+/*图层列表分割线样式*/
+.leaflet-control-overlay-layer-list-separator {
+}

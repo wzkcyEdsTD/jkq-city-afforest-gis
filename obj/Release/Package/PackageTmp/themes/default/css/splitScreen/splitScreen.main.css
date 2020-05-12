@@ -1,0 +1,56 @@
+﻿@import url('../default.icon.css');
+html,body{width:100%;height: 100%; font-family:'Microsoft YaHei';text-shadow:none;min-width:1000px;overflow:hidden}
+
+html a:focus,body a:focus{outline:none !important}
+.out-container{position:relative;overflow:hidden;height:100%;}
+
+
+/***************** leftpanel ********************************/
+.leftpanel { position: absolute; height: 100%; width: 220px;margin:0;}
+.leftpanel > p { height: 50px; background-color: #ffb400; font-weight: bold; font-size: 16px; padding: 12px 20px; }
+.leftpanel li { list-style: none; float: left; height: 22px; margin-bottom: 10px; }
+.leftpanel li > span:first-child { float: left; width: 22px; height: 22px; background-color: #D5DBE0; border-radius: 50px; cursor: pointer; }
+.leftpanel li > span:nth-child(2) { float: left; width: 22px; height: 22px; color: #fff; margin-left: -18px; margin-top: 4px; display:none;}
+.leftpanel li > span:last-child { display: inline-block; margin-left: 5px; margin-top: 2px; font-size: 14px; cursor: pointer; }
+
+
+.leftpanel li.active > span:first-child { background-color: #54B1FF; color: #54B1FF; }
+.leftpanel li.active > span:nth-child(2) { display:block;}
+.leftpanel li.active > span:last-child { color: #000000; }
+/********************** mappanel ********************************/
+.mappanel { position: absolute; width: 100%; height: 100%; padding-right: 220px;margin-left:220px; }
+.leaflet-container{background: url(../../images/shading.png) repeat !important;}
+.mappanel > div { /*width: 50%; height: 50%;*/ border: 1px solid #DE6148; }
+.mappanel > div:first-child { float: left; }
+.mappanel > div:nth-child(2) { float: left; /*background-color:green;*/}
+.mappanel > div:nth-child(3) { float: right; /*background-color:blue;*/}
+.mappanel > div:last-child { float: right;/*background-color:yellow;*/ }
+
+.mapone > div:first-child { width: 100%; height: 100%; }
+.mapone > div:nth-child(2) { display:none; }
+.mapone > div:nth-child(3) { display:none; }
+.mapone > div:last-child { display:none; }
+
+.maptwo > div:first-child { width: 50%; height: 100%;  }
+.maptwo > div:nth-child(2) { width: 50%; height: 100%;  }
+.maptwo > div:nth-child(3) { display:none; }
+.maptwo > div:last-child { display:none; }
+
+.mapthree > div:first-child { width: 50%; height: 100%; }
+.mapthree > div:nth-child(2) { width:50%;height:50%;}
+.mapthree > div:nth-child(3) { width:50%;height:50%; }
+.mapthree > div:last-child { display:none; }
+
+.mapfour > div{ width:50%;height:50%;}
+
+/********************** 地图上的书签标题以及关闭按钮 ********************************/
+.mappanel .mapTool { width: 100%; position: absolute; z-index: 100; padding-top: 10px; margin-left: -15px;}
+.mappanel .mapTool > div { width: 100%; padding-left: 45px; height: 30px; margin-left: -35px; float: left; }
+.mappanel .mapTool > div > span { display: inline-block; background-color: #646464; color: #fff; padding: 3px 7px; float: left; margin-right: 5px; cursor:default;}
+.mappanel .mapTool > span { width: 25px; height: 25px; background-color: #646464; color: #fff; border-radius: 50px; padding: 7px 6px; display: inline-block;position: relative;cursor:pointer;}
+.mapone > div:first-child .closeScreen {right: -50px;}
+
+
+
+
+

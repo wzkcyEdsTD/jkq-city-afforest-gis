@@ -1,0 +1,68 @@
+﻿/*
+项目中右向箭头CSS
+示例：
+    <p>
+        <span class="proj-rarrow" >选址</span>
+        <span class="proj-rarrow selected">用地</span>
+        <span class="proj-rarrow" >工程</span>
+        <span class="proj-rarrow selected">验收</span>
+    </p>
+*/
+
+.proj-rarrow {
+    line-height: 22px;
+    text-align: center;
+     *vertical-align: 50%;
+    color: #fff;
+    position: relative;
+    padding-left: 16px;
+    padding-right: 10px;
+    overflow: hidden;
+    border: none;
+    background: #d2d2d2;
+    overflow: visible;
+    /*min-width: 40px;*/
+
+    display: inline-block;
+    min-height: 24px;
+    margin-left: 20px;
+    margin-top:8px;
+}
+    .proj-rarrow:after,
+    .proj-rarrow:before {
+        position: absolute;
+        content: "";
+        display: block;
+        width: 16px;
+        height: 16px;
+        top: 4px;
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+
+    .proj-rarrow:before {
+        left: -8px;
+        clip: rect(auto auto 28px 0px);
+    }
+
+    .proj-rarrow:after {
+        right: -8px;
+        clip: rect(auto auto 28px 0px);
+    }
+
+    .proj-rarrow:before {
+        background: white;
+    }
+
+    .proj-rarrow:after {
+        background: #d2d2d2;
+    }
+
+    .proj-rarrow.selected {
+        background: #ffb400;
+    }
+
+        .proj-rarrow.selected:after {
+            background: #ffb400;
+        }

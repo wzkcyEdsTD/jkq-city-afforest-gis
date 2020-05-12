@@ -1,0 +1,70 @@
+﻿.featurelist-triangle { 
+    filter: progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand',M11=0.6, M12=0.6,M21=-0.6,M22=0.6);/*旋转45度*/
+}
+.legend-hide > .header > span {
+    filter:progid:DXImageTransform.Microsoft.BasicImage(Rotation=2);/*旋转180度*/
+}
+.leaflet-control-layers-list-tip { 
+    filter: progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand',M11=0.57, M12=-0.57,M21=0.57,M22=0.57);
+}
+/*
+.ydph-nav-collapse-wrap .wz-collapse  .rhombuss {
+  filter: progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand',M11=0.6, M12=-0.6,M21=0.6,M22=0.6);
+}
+.ydkfqd-nav-collapse-wrap .wz-collapse  .rhombuss { 
+  filter: progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand',M11=0.6, M12=-0.6,M21=0.6,M22=0.6);
+}
+.gfss-nav-collapse-wrap .wz-collapse  .rhombuss {
+  filter: progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand',M11=0.6, M12=-0.6,M21=0.6,M22=0.6);
+}
+    */
+.rhombuss {
+    filter: progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand',M11=0.6, M12=-0.6,M21=0.6,M22=0.6);
+}
+/*.dropdown-user .dropdown-toggle
+    {
+        width: 100px;
+        height: 40px;
+        border-radius: 4px;
+        color: #000 !important;
+        background-color: #FFF;
+        padding: 1px 8px;
+        margin: 4px;
+
+        position: relative;
+        z-index: 1;
+        behavior: url(plugins/ie-css3.htc);
+        
+    }*/
+.center-panel-menu-item
+{
+    /*width: 27%;
+    height: 50px;
+    position: relative;
+    background-color: #fff;
+    float: left;
+    margin-right: 17px;
+    border-radius: 4px;
+    line-height: 50px;
+    margin-top: 20px;
+    cursor: pointer;
+    box-shadow: 0 0 3px rgba(0,0,0, .3);*/
+
+    /*z-index: 1;
+    behavior: url(plugins/ie-css3.htc);*/
+        
+}
+.center-panel-menu-item .tip
+{
+    /*width: 16px;
+    height: 50px;*/
+    /*background-color: #ff7850;*/
+    /*border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;*/
+    /*float: left;*/
+    
+    /*border-radius: 2px;
+    position: relative;
+    z-index: 1;
+    behavior: url(plugins/ie-css3.htc);*/ 
+}

@@ -1,0 +1,55 @@
+﻿.regulatoryplan,.regulatoryplan-detail { height:100%;width:100%;display:none;}
+.regulatoryplan.active, .regulatoryplan-detail.active { display:block;}
+
+.regulatoryplan > .top {height: 40px;width: 100%;display: table;}
+.regulatoryplan > .top > span { width: 90px; height: 100%;display: table-cell; vertical-align: middle; text-align: center; border: 1px solid #d2d2d2; border-left: none; color:#505050;background-color:#ffffff;cursor:pointer;}
+.regulatoryplan > .top > span:last-child { width:40px;}
+.regulatoryplan > .top > span.active,.regulatoryplan .top > span:hover { background-color:#ffe6a0;border-color:#ffb400;}
+
+.regulatoryplan > .searchBar { height: 30px; padding: 0px 20px; margin-top: 10px;  display: none; }
+.regulatoryplan > .searchBar.active { display:block;}
+.regulatoryplan .searchBarActive { padding-bottom:40px;}
+.regulatoryplan > .content { height: 100%;padding: 5px 0 70px 0;}
+.regulatoryplan > .bottom { position: absolute; bottom: 0px;  height: 30px; width: 100%; z-index: 2;background-color:#fff;text-align:center;}
+
+
+.regulatoryplan > .searchBar > input { width: 300px;height: 100%;}
+.regulatoryplan > .searchBar > span { display: block;float: right; width: 60px; height: 100%; background-color: #ebebeb; color:#787878; text-align: center; padding-top: 5px;  cursor: pointer; border: 1px solid #A9A9A9;border-left: none;}
+.regulatoryplan > .searchBar > span:hover { background-color:#ffb400;color:#fff;}
+
+.regulatoryplan .percontent {position: relative;width: 100%; height: auto;  border-bottom: 1px solid #d2d2d2; padding-bottom: 10px;padding-top: 10px;}
+.regulatoryplan .percontent .pic1 { position: absolute;left: -10px;top: 0;height: 100%; width: 40px;}
+.regulatoryplan .percontent .percontent-content { padding-left: 10px; }
+.regulatoryplan .percontent-content table >tbody > tr { }
+.regulatoryplan .percontent-content table >tbody > tr > td { font-size: 12px;text-align:left; border: none; padding:0;vertical-align: top;}
+.regulatoryplan .percontent-content table > tbody > tr > td:first-child { min-width: 80px;}
+.regulatoryplan .percontent-content table > tbody > tr > td:last-child { padding-left:3px;}
+.regulatoryplan .percontent .operation { position: absolute;top:0; right: 0; width: 70px; height: 100%;margin-right: 3px;}
+.regulatoryplan .percontent:hover{ background-color: #ebf5ff;cursor: pointer;}
+.regulatoryplan .selected{background-color: #ebf5ff;cursor: pointer;}
+
+.regulatoryplan .iconMark {display: block; float: right; width: 50px;height: 28px;background-image: url('../images/已处理修编-盖章.png');background-position: -50px 0px;}
+.regulatoryplan .viewDetail {position: absolute; bottom: 10px;right: 0; cursor: pointer; font-size: 12px;border: 1px solid #d2d2d2;border-radius: 4px;padding: 2px 5px;color: #d2d2d2;}
+.regulatoryplan .viewDetail:hover{ color: #fff;background-color: #ffb400;}
+.regulatoryplan .emptyResult{  margin: 50% auto;text-align: center;}
+
+/*详情*/
+.regulatoryplan-detail-title { width: 100%;height: 50px;border-bottom: 1px solid #d2d2d2; background-color: #fff;}
+.regulatoryplan-detail-content {height:100%;padding-bottom:50px;}
+
+
+.regulatoryplan-detail-title .turnback { font-size: 24px; color: #ffb400;  cursor: pointer;  margin: 13px 0px 13px 18px;  position: absolute;}
+.regulatoryplan-detail-title .titlecontent {width: 100%; height: 100%; padding: 13px 20px 0px 50px;}
+
+.regulatoryplan-detail-content .baseInfo {height: 100%;width:100%;display: inline-block;padding-bottom: 10px; }
+.regulatoryplan-detail-content .baseInfo-title { float: left; width: 50%; font-size: 14px; margin: 10px 0px; font-weight: bold; }
+.regulatoryplan-detail-content .baseInfo-button { float: right; width: 50%; text-align: right; margin: 15px 0px 0px 0px; }
+.regulatoryplan-detail-content .baseInfo-button span { font-size: 12px; color: #64c8ff; cursor: pointer; margin-left: 10px; }
+.regulatoryplan-detail-content .baseInfo-button span:hover { color: #428bca; }
+
+.regulatoryplan-detail-content .baseInfo > table { height: 100%; width:100%;border-left: 1px solid #d2d2d2; border-top: 1px solid #d2d2d2;}
+.regulatoryplan-detail-content .baseInfo > table td { border-right: 1px solid #d2d2d2; border-bottom: 1px solid #d2d2d2;/*height: 40px;*/ font-size: 12px;}
+.regulatoryplan-detail-content .baseInfo > table td.key { width: 70px; text-align: center; background-color: #f0f0f0;}
+.regulatoryplan-detail-content .baseInfo > table td.value {padding: 0px 5px; }
+.regulatoryplan-detail-content .baseInfo ~ span { float: right; background-color: #ffb400; border-radius: 5px; padding: 5px 0px; width: 80px; text-align: center; cursor:pointer;opacity:0.7;}
+.regulatoryplan-detail-content .baseInfo ~ span:hover { opacity: 1; }

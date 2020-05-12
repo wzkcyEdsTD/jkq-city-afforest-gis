@@ -1,0 +1,173 @@
+﻿@import url('manage.icon.css');
+html, body { width:100%;height:100%; min-width:1024px; min-height:768px;font-family:'Microsoft YaHei';}
+.main-container {position:relative; width:100%;height:100%;overflow-x: hidden;}
+
+input[type="text"]::-ms-clear{
+    display:none;
+}
+
+.container-fluid {
+     padding-right: 0px; 
+     padding-left: 0px; 
+     margin-right: 0px; 
+     margin-left: 0px; 
+}
+.row { margin:0;}
+.toppanel {position: absolute;top: 0px; height: 80px;width: 100%; text-align: center;background-color: #64C8FF;z-index:200;}
+.sitemappanel { position: absolute;top: 80px; height: 40px;width: 100%; background-color: #fff;}
+.mainpanel { height: 100%; padding-top: 120px;}
+/*toppanel*/
+.toppanel_left { position: absolute; top:15px; left:35px; width: auto; color: #fff; font-size: 22px; font-weight: bold;}
+
+.toppanel_middle {min-width:500px;width: auto; height: 32px; margin-top: 48px; margin-left: auto; margin-right: auto; display: inline-block;}
+.toppanel_middle .dci_navbar {margin:0; float: left;}
+.toppanel_middle .dci_navbar>li {margin-right:5px; float: left;}
+
+
+/*.toppanel_middle .dci_navbar>li.active {background-color: #fff;  border-top-left-radius: 4px;  border-top-right-radius: 4px;}
+.toppanel_middle .dci_navbar>li>a { width:120px; height: 32px;padding:5px 0px;margin:0;border-top-left-radius:4px;border-top-right-radius:4px; border-top: 1px solid #28aadc;border-left: 1px solid #28aadc;border-right: 1px solid #28aadc; }
+.toppanel_middle .dci_navbar>li>a:active { background-color:#fff;}
+.toppanel_middle .dci_navbar>li>a:hover { background-color:#fff;}
+.toppanel_middle .dci_navbar ul { min-width:120px;width:120px;}*/
+
+
+.toppanel_middle .menuLi, .toppanel_middle .subMenu {min-width:120px;width:120px; border-top: none;}
+.toppanel_middle .menuLi:nth-child(2)>a,.toppanel_middle .menuLi:nth-child(4)>a { padding-left:20px;}
+.toppanel_middle .menuLi>a { height: 32px;padding:5px 0px;margin:0;border-top-left-radius:4px;border-top-right-radius:4px; border-top: 1px solid #28aadc;border-left: 1px solid #28aadc;border-right: 1px solid #28aadc; color: #000000; font-weight: bold;}
+.toppanel_middle .menuLi.active>a {background-color: #fff;}
+.toppanel_middle .menuLi>a:hover,.toppanel_middle .menuLi>a:active  { background-color:#fff;} 
+.toppanel_middle .menuLi.active>a:visited{ background-color:#fff;} 
+.toppanel_middle .menuLi>a:visited:hover{ background-color:#fff;}
+.toppanel_middle .menuLi>a:visited{ background-color:#64C8FF;}
+.toppanel_middle .menuLi:hover .subMenu { display:block;min-width:120px;width:120px;}
+
+.toppanel_right .menuLi, .toppanel_right .subMenu {min-width:120px;width:120px; border-top: none;margin-top:-3px}
+.toppanel_right .menuLi:nth-child(2)>a,.toppanel_right .menuLi:nth-child(4)>a { padding-left:20px;}
+.toppanel_right .menuLi>a {color: #000000;  text-decoration:none;font-size: 12px;}
+.toppanel_right .menuLi.active>a {background-color: #fff;}
+.toppanel_right .menuLi>a:hover,.toppanel_right .menuLi>a:active  { background-color:#fff;} 
+.toppanel_right .menuLi.active>a:visited{ background-color:#fff;} 
+.toppanel_right .menuLi>a:visited:hover{ background-color:#fff;}
+.toppanel_right .menuLi:hover .subMenu { display:block;min-width:120px;width:120px;border: none;}
+.toppanel_right li > .dropdown-menu {margin-top: 0;border-top-right-radius: 0;border-top-left-radius: 0;}
+.userPanel .menuLi { width: 100px;height: 40px;border-radius: 4px;color: #000 !important;background-color: #FFF;padding: 1px 8px;margin: 4px;list-style: none;}
+.userPanel .menuLi:hover {border-bottom-right-radius: 0;border-bottom-left-radius: 0;}
+.userPanel {margin: 16px 16px 0 -16px;}
+
+.user-img {
+    margin: 5px 7px 5px -10px;
+    height: 30px;
+    width: 30px !important;
+    border-radius: 4px;
+    border: 1px solid white;
+}
+
+.toppanel_right {float: right;  width: auto; }
+
+/*sitemappanel*/
+.sitemappanel > div:first-child {width: 30%;  height: 100%;  float: left;  padding: 8px 0px 8px 20px; }
+.sitemappanel > div:last-child {width: 70%;  height: 100%;  float: left;}
+
+
+.waiting {
+    background-color: #FFE696;
+    width: 120px;
+    height: 35px;
+    float: right;
+    margin-top: 2px;
+    border-radius: 5px 0 0 5px
+}
+
+.waiting .loadingFlash { position: absolute; margin: 5px 0 5px 10px;}
+.waiting .icon-loading {display:block;font-size: 25px; color: #666;
+animation:myfirst 0.8s;
+animation-iteration-count: infinite;
+animation-play-state: running;
+animation-timing-function:linear;
+-webkit-animation:myfirst 0.8s; 
+-webkit-animation-iteration-count: infinite;
+-webkit-animation-play-state: running;
+-webkit-animation-timing-function:linear;
+-ms-animation:myfirst 0.8s; 
+-ms-animation-iteration-count: infinite;
+-ms-animation-play-state: running;
+-ms-animation-timing-function:linear;
+}
+.waiting .loadingText{  margin: 8px 0 0 42px;font-weight:bold;color: #666;}
+
+
+.sitemappanel .showload {
+        display:none;
+    }
+.sitemappanel .loaded {
+        display:none;
+    }
+.sitemappanel .loadfailed {
+        display:none;
+    }
+
+
+@keyframes myfirst
+{
+from {transform: rotate(0deg);-webkit-transform:rotate(0deg);-ms-transform:rotate(0deg);}
+to{transform: rotate(360deg); -webkit-transform:rotate(360deg);-ms-transform:rotate(360deg);}
+
+}
+
+@-webkit-keyframes myfirst /* Safari and Chrome */
+{
+from {transform: rotate(0deg);-webkit-transform:rotate(0deg);-ms-transform:rotate(0deg);}
+to {transform: rotate(360deg);-webkit-transform:rotate(360deg);-ms-transform:rotate(360deg);}
+}
+
+.use_manage,
+.resource_manage,
+.privilege_config,
+.log_manage { 
+    width:100%;
+    height:100%;
+    background-color:#fff;
+    display:none;
+}
+/*mainpanel*/
+.use_manage.active,
+.resource_manage.active,
+.privilege_config.active,
+.log_manage.active { 
+    display:block;
+}
+
+
+/**
+ * ie兼容文本框样式
+-----------------------------*/
+input {border: 1px solid #ccc;height: 24px;}
+textarea {border: 1px solid #ccc; }
+
+/**
+ * 树的三角图标(有线的情况)
+-----------------------------*/
+.ztree li span.root_close.button,.ztree li span.button.center_close,.ztree li span.bottom_close.button,.ztree li span.center_close.button{background-image:url(../../images/manage/close.png);background-position-x:0px; background-position-y:0px; background-position:0;      /* 兼容火狐 */}
+.ztree li span.button.root_open, .ztree li span.button.center_open,.ztree li span.bottom_open.button,.ztree li span.bottom_open.button{background-image:url(../../images/manage/open.png);background-position-x:0px; background-position-y:0px; background-position:0;      /* 兼容火狐 */    }
+.ztree li a.curSelectedNode{border:hidden;background-color:#FFF;}
+/**
+ * 树的三角图标(没线的情况)
+-----------------------------*/
+.ztree li span.button.noline_close { background-image:url(../../images/manage/close.png);background-position-x:0px; background-position-y:0px; background-position:0;}
+.ztree li span.button.noline_open { background-image:url(../../images/manage/open.png);background-position-x:0px; background-position-y:0px; background-position:0;}
+/**
+ * 树的文件夹图标
+-----------------------------*/
+.ztree li span.button.ico_open,.ztree li span.button.ico_close {background-size: 15px!important; }
+/*.useManage_Left .ztree li span.button.ico_open,.useManage_Left .ztree li span.button.ico_close {background-size: 15px!important; }
+.useManage_Middle .ztree li span.button.ico_open,.useManage_Middle .ztree li span.button.ico_close {background-size: 15px!important; }
+.featureConfig .ztree li span.button.ico_open,.resource_manage .ztree li span.button.ico_close {background-size: 15px!important; }*/
+/**
+ * 树的用户图标
+-----------------------------*/
+.useManage_Left .ztree li span.button.ico_docu {background-size: 13px!important; }
+.useManage_Middle .ztree li span.button.ico_docu {background-size: 13px!important; }
+.useManage_Right .ztree li span.button.ico_docu {background-size: 13px!important; }
+.featureConfig_Left .ztree li span.button.ico_docu {background-size: 13px!important; }
+.privilegeConfig .ztree li span.button.ico_docu {background-size: 13px!important; }
+.resFunction_Left .ztree li span.button.ico_docu {background-size: 13px!important; }

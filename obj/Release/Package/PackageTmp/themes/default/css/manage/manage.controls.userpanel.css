@@ -1,0 +1,160 @@
+﻿.useManage {height:100%;padding:0px 20px 20px 20px;}
+
+.useManage_Left,.useManage_Middle,.useManage_Right { float: left; width: 32%; height: 100%;}
+.useManage_LeftMiddle,.useManage_MiddleRight { float: left; width: 2%; height: 100%;display:table;}
+.useManage_LeftMiddle>span,.useManage_MiddleRight>span {   font-size: 18px; color: #ffb400;  vertical-align: middle;  display: table-cell;  text-align: center;cursor:pointer;}
+.useManage_Left > div:first-child ,
+.useManage_Middle > div:first-child,
+.useManage_Right > div:first-child
+{ position: relative; top: 0; width: 100%; height: 30px; background-color: #ffe696;border-top-left-radius:4px;border-top-right-radius:4px;}
+.useManage_Left > div:first-child + div,.useManage_Middle > div:first-child + div,.useManage_Right > div:first-child + div
+{  width: 100%; height: 100%; padding-top: 30px; margin-top: -30px; background-color: #fff; border-radius: 4px;  border: 1px solid #d2d2d2;}
+.useManage_Left_Title,.useManage_Middle_Title,.useManage_Right_Title{height: 100%; width: auto; float: left; font-size: 14px; padding: 4px 20px; }
+
+/*标题上删除样式*/
+.useManage .titleIcon{ float: right;width: 26px;height: 26px;margin-top: 2px;margin-right: 10px;text-align: center;font-size: 14px;padding: 6px 0px;border-radius: 25px;color:#a0a0a0;}
+.useManage .titleIconActive{ float: right;width: 26px;height: 26px;margin-top: 2px;margin-right: 10px;text-align: center;font-size: 14px;padding: 6px 0px;border-radius: 25px;cursor:pointer;color:#000000;}
+.useManage .titleIconActive:hover {background-color:#ffb400; }
+/*标题上单选、多选样式*/
+.useManage .treeCheckType {float: right;margin-top: 5px;margin-right: 20px;width: 40px;height: 22px; color: #787878;text-align: center;font-size: 14px;border-radius: 5px; cursor:pointer;}
+.useManage .treeCheckType:first-child {margin-right: 24px; }
+.useManage .treeCheckType.active {color:#fff;background-color:#c88c00; cursor:default;}
+.useManage .treeCheckType:not(.active):hover{ background-color:#c88c00;color:#fff;}
+
+#batchRemoveDepartment,#batchRemoveRole {   float: right; margin-top: 4px; margin-right: 20px; cursor: pointer;color:#a0a0a0;}
+#batchRemoveDepartment:hover,#batchRemoveRole:hover { color:#ffb400;}
+/*useManage_Left*/
+
+.useManage_Left_Search,
+.useManage_Middle_Search,
+.useManage_Right_Search
+ {display:none; height: 30px; margin-top: 10px; margin-bottom: 10px;  padding: 0px 20px;}
+.useManage_Left_Search.active,
+.useManage_Middle_Search.active,
+.useManage_Right_Search.active
+ { display:block;}
+/*默认添加容器样式*/
+#addUserDiv,#addOrgDiv,#addRoleDiv {display:none; height: 30px; margin-top: 10px; margin-bottom: 10px;  padding: 0px 20px;}
+#addUserDiv.active,#addOrgDiv.active,#addRoleDiv.active  { display:block;}
+#addUserDiv > div,#addOrgDiv > div,#addRoleDiv > div { border: 1px dashed #d2d2d2; height: 34px;border-radius: 4px; cursor: pointer;text-align: center; padding: 5px 0px;}
+#addUserDiv > div:hover,#addOrgDiv > div:hover,#addRoleDiv > div:hover {background-color:#b4e6ff; }
+#addUserDiv > div > span,#addOrgDiv > div > span,#addRoleDiv > div > span {  margin-right: 5px; }
+.changeMargin { margin-top:-40px;}
+
+
+.useManage_Left_Search > input ,
+.useManage_Middle_Search > input ,
+.useManage_Right_Search > input 
+{ float:left;}
+
+.useManage_Left_Search > span,
+.useManage_Middle_Search > span,
+.useManage_Right_Search > span
+{   float: left;  font-size: 18px;  margin-top: 8px;  margin-left: -27px;  cursor: pointer;}
+.useManage_Left_Container,
+.useManage_Middle_Container,
+.useManage_Right_Container
+{ height: 100%;  margin-top: -50px;  padding-top: 50px;}
+/*.useManage_Left_Container,
+.useManage_Middle_Container,
+.useManage_Right_Container
+{ height: 100%;}*/
+.useManage_Left_Container>div,
+.useManage_Middle_Container>div,
+.useManage_Right_Container>div {  height: 100%;}
+
+
+
+/*树容器样式*/
+#organizationTree,#userTree,#roleTree { padding:10px 20px;}
+
+/*
+添加部门对话框 
+编辑部门对话框 
+删除部门对话框
+*/
+.addDepartment,.editDepartment,.deleteDepartment { padding:20px;}
+.starRed { color: red;  margin-right: 5px;}
+.starWhite {margin-right: 10px;}
+.addDepartment label,.editDepartment label { margin-right: 5px;}
+.addDepartment input,.editDepartment input { padding-left:3px;}
+.addDepartment .caret,.editDepartment .caret { margin-left: -15px;  border-top-color: #d2d2d2;}
+.addDepartment > .tip,.editDepartment > .tip{margin-top: 10px;  color: red;  padding-left: 48px; }
+.addDepartment > div:last-child,.editDepartment > div:last-child,.deleteDepartment > div:last-child{ height: 30px;  margin-top: 20px;}
+.addDepartment > div:last-child > button,.editDepartment > div:last-child > button,.deleteDepartment > div:last-child > button {  float: right;}
+.addDepartment > div:last-child > button:hover,.editDepartment > div:last-child > button:hover,.deleteDepartment > div:last-child > button:hover { background-color:#64c8ff;}
+.addDepartment .saveAddDepartment,.editDepartment .saveEditDepartment,.deleteDepartment .submitDeleteDepartment { margin-right: 5px;}
+.deleteDepartment > div:first-child > p { text-align:center; margin-top: 15px;}
+
+
+/*
+添加角色对话框
+编辑角色对话框 
+删除角色对话框
+*/
+.addRole,.editRole,.deleteRole {padding:20px;}
+.starRed { color: red;  margin-right: 5px;}
+.starWhite {margin-right: 10px;}
+.addRole label,.editRole label { margin-right: 5px;}
+.addRole input,.editRole input { padding-left:3px;}
+.addRole .caret,.editRole .caret { margin-left: -15px;  border-top-color: #d2d2d2;}
+.addRole > .tip,.editRole > .tip{margin-top: 10px;  color: red;  padding-left: 48px; }
+.addRole > div:last-child,.editRole > div:last-child,.deleteRole > div:last-child{ height: 30px;  margin-top: 20px;}
+.addRole > div:last-child > button,.editRole > div:last-child > button,.deleteRole > div:last-child > button {  float: right;}
+.addRole > div:last-child > button:hover,.editRole > div:last-child > button:hover,.deleteRole > div:last-child > button:hover { background-color:#64c8ff;}
+.addRole .saveAddRole,.editRole .saveEditRole,.deleteRole .submitDeleteRole { margin-right: 5px;}
+.deleteRole > div:first-child > p { text-align:center; margin-top: 15px;}
+
+
+/*
+添加用户对话框 
+编辑用户对话框
+删除用户对话框
+*/
+.addUser,.editUser{ padding:20px;}
+.addUser .starRed,.editUser .starRed { color: red;  margin-right: 5px;}
+.addUser .starWhite,.editUser .starWhite {margin-right: 10px;}
+.addUser label,.editUser label{ margin-right: 5px;}
+.addUser input,.editUser input{ padding-left:3px;width: 220px;}
+.addUser .caret,.editUser .caret{ margin-left: -15px;  border-top-color: #d2d2d2;}
+.addUser > .tip,.editUser > .tip{margin-top: 10px;  color: red;  padding-left: 62px; }
+.addUserPadding { padding-left:14px;}
+.addUser > div:last-child,.editUser > div:last-child{ height: 30px;  margin-top: 20px;}
+.addUser > div:last-child > button,.editUser > div:last-child > button{  float: right;}
+.addUser > div:last-child > button:hover,.editUser > div:last-child > button:hover{ background-color:#64c8ff;}
+.addUser .saveAddUser,.editUser .saveEditUser{ margin-right: 5px;}
+.editUser > form > div:last-child { margin-left: -14px;}
+
+.deleteUser { padding:20px;}
+.deleteUser > div:last-child{ height: 30px;  margin-top: 20px;}
+.deleteUser > div:last-child > button {  float: right;}
+.deleteUser > div:last-child > button:hover { background-color:#64c8ff;}
+.deleteUser .submitDeleteUser { margin-right: 5px;}
+.deleteUser > div:first-child > p { text-align:center; margin-top: 15px;}
+
+
+
+
+
+/*节点编辑菜单*/
+.treeMenu {  margin-left: 8px; }
+.treeMenu > span { margin: 0 5px;cursor:pointer;}
+.treeMenu > span:hover { color:#006486;}
+.treeMenuActive { background-color:#2da5e6 !important;color:#fff !important;}
+
+
+/*oa同步按钮以及提示框*/
+.GetOAUser {display:none;float: right; height: 22px; margin-top: 4px; margin-right: 10px; text-align: center; font-size: 12px; padding: 2px 5px; border-radius: 25px; color: #787878; cursor: pointer;}
+.GetOAUser.active { display:block;}
+.GetOAUser:hover { color: #fff;background-color: #c88c00;}
+.hideButton { display:none;}
+
+.oaDialog { padding:20px;}
+.oaDialog > span { display: block;text-align: center;}
+.oaDialog > p {margin: 10px 0px 0px -18px;}
+.oaDialog > p > input {     margin-left: 76px;  display: inline-block;  float: left;}
+.oaDialog > p > span {display: inline-block; margin: 7px; font-size: 12px;}
+.oaDialog > div{ height: 30px;  margin-top: 20px;}
+.oaDialog > div > button {  float: right;}
+.oaDialog > div > button:hover { background-color:#64c8ff;}
+.oaDialog .submitOAInfo { margin-right: 5px;}

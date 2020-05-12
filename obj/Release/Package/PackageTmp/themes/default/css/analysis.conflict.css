@@ -1,0 +1,26 @@
+﻿/*.analysisConflict{width:600px;overflow-x:hidden;position:absolute;top:480px;left:795px;background:none;z-index:2000;display:none;}*/
+.analysisConflict{width:600px;overflow-x:hidden;position:absolute;background:none;z-index:2000;/*display:none;*/}
+.analysisConflict-position{bottom:10px;right:250px;}
+.analysisConflict header{cursor:pointer;height:20px;opacity:0;-webkit-transition:all .8s ease;-o-transition:all .8s ease;transition:all .8s ease;}
+.analysisConflict header:hover{opacity:1;background:#0AC8D5}
+.analysisConflict header:active{cursor:move;}
+.analysisConflict header span{padding:0;opacity:1;height:20px;width:35px;font-size:16px;text-align:center;color:white;float:right; padding:2px 0px;}
+
+.analysisConflict>div{background:white;margin-left:-1px;margin-right:-1px;}
+.analysisConflict ul{background:#06b0bc;display:table;width:100%;padding:0px;height:35px;cursor:pointer;margin-bottom:0;}
+.analysisConflict li{display:table-cell;vertical-align:middle;text-align:center;color:white;width:16.6666666%;}
+.analysisConflict li.active{background:#009ea8}
+.analysisConflict li:hover{background:#009ea8}
+.analysisConflict table{margin-bottom:0; cursor:pointer}
+.analysisConflict table tr.tractive{background:#aaaaaa}
+.analysisConflict table th,.analysisConflict table td{border-color:#aaaaaa;text-align:center;}
+
+.analysisConflict footer{height:35px;cursor:pointer;opacity:0;-webkit-transition:all .8s ease;-o-transition:all .8s ease;transition:all .8s ease;}
+.analysisConflict footer:hover{opacity:1;background:white}
+.analysisConflict footer button{float:right;background:#0AC8D5;border:none;height:35px;width:85px;margin:auto 0;}
+
+
+.dialog table th,.dialog table td{border-color:#aaaaaa;text-align:center;}
+.dialog table{margin-bottom:0;}
+.dialog .modal-header{background:#06b0bc;text-align:center;}
+.modal-backdrop{z-index:2000;}

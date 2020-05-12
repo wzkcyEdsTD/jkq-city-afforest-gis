@@ -1,0 +1,132 @@
+.leaflet-control-layers-group-name {
+  font-weight: bold;
+  margin-bottom: 10px;
+  display: block;
+  font-family:'Microsoft YaHei';
+}
+.leaflet-control-layers-group {
+  margin-bottom: 10px;
+}
+
+.leaflet-control-layers-group label {
+  padding-left: .5em;
+  font-weight:normal;
+  font-family:'Microsoft YaHei';
+  color:#787878;
+  width:100%;
+}
+.leaflet-control-layers-group label span
+{
+    margin-left:0.25em;
+}
+
+
+.leaflet-control-layers-base label
+{
+    font-weight:normal;
+    font-family:'Microsoft YaHei';
+}
+.leaflet-control-layers-separator
+{
+    clear:both;
+}
+.baselayer-control { 
+    background:none;
+    padding-left:0px!important;
+}
+
+.leaflet-control-layers-toggle{
+    background-image: url(../images/controls/grouplayer/map-xiao.png);
+    width: 40px;
+    height: 40px;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    display: block;
+    float: right;
+}
+.leaflet-control-layers > a { 
+    display:block!important;
+}
+.leaflet-control-layers > a:hover { 
+    border:1px solid #f05028;
+    border-radius:4px;
+}
+
+.leaflet-control-layers-open .leaflet-control-layers > a{ 
+    border:1px solid #f05028;
+    border-radius:4px;
+}
+
+
+
+.leaflet-control-layers-list { 
+    float: left;
+    position: relative;
+    display: none;
+    padding: 15px 15px 15px 15px;
+    color: #333;
+    background: #fff;
+    margin-right: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.30);
+    border-radius: 4px;
+}
+
+.leaflet-control-layers-list-tip { 
+    display: block;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: -10px;
+    top: 10px;
+    background: #fff;
+    transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    border-top: 1px solid rgba(0,0,0,0.10);
+    border-right: 1px solid rgba(0,0,0,0.10);
+}
+
+
+
+
+.leaflet-control-layers-group-tile
+{
+    width:72px;
+    height:60px;
+    border:solid 1px #32b4ff;
+    float:left;
+    margin-left:6px;
+    margin-bottom: 15px;
+    border-radius:4px;
+    cursor:pointer;
+}
+.leaflet-control-layers-group-tile .layer-group-tile-des
+{
+    position:relative;
+    width:70px;
+    height:20px;
+    background-color:rgba(120,120,120,0.7);
+    bottom:0px;
+    text-align:center;
+    line-height:20px;
+    vertical-align:middle;
+    border-bottom-left-radius:4px;
+    border-bottom-right-radius:4px;
+    margin-top:38px;
+    font-family:'Microsoft YaHei';
+}
+.leaflet-control-layers-group-tile span
+{
+    color:white;
+}
+.leaflet-control-layers-group-separator
+{
+    color:#d2d2d2;
+}
+.leaflet-control-layers
+{
+    box-shadow:none;
+}
+.leaflet-control-container .leaflet-right .baselayer-control {
+    border: none;
+}

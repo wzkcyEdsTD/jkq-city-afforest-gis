@@ -1,0 +1,30 @@
+﻿/*弹出面板*/
+.toolpanel{position:absolute;z-index:2000;display:none;}
+.toolpanel .header{}
+.toolpanel .content{}
+.toolpanel .footer{}
+
+
+/*图斑协调-具体样式*/
+.toolAnalysis{top:125px;right:95px;width:380px;height:420px;}
+.toolAnalysis .header{height:25px;}
+.toolAnalysis .header>span{width:30px; height:25px; float:right; color:white;background-color:#1aaabe; font-size:16px; text-align:center; padding:4px 0px; }
+.toolAnalysis .content{background-color:white; color:#646464; font-weight:bold; height:400px; box-shadow: 0px -3px 5px #1baadb;}
+.toolAnalysis .content > div:first-child {height:40px; padding-top:15px; text-align: center;font-size: 22px;color: #1aaabe;}
+.toolAnalysis .content > div:not(:first-child){ text-align: center; padding-top:20px;}
+.toolAnalysis .content input { width:240px;height:26px; padding-left:5px;}
+.toolAnalysis .content .caret{margin-left:-15px; font-size:18px;}
+.open > .dropdown-menu{height:auto;}
+.toolAnalysis span.dropdown-toggle{cursor:pointer;}
+.toolAnalysis .polygonArea,.toolAnalysis .polygonArea li{width:80px; min-width:80px;}                                 
+.toolAnalysis .landProperty,.toolAnalysis .differenceType,.toolAnalysis .firstOpinion,.toolAnalysis .secondOpinion,.toolAnalysis .thirdOpinion{width:240px;}
+.toolAnalysis .landProperty li,.toolAnalysis .differenceType li,.toolAnalysis .firstOpinion li,.toolAnalysis .secondOpinion li,.toolAnalysis .thirdOpinion li{width:100%;}
+.toolAnalysis .content button{border:0 solid white;width:200px; height: 35px;background:#00a0ac; color:white;border-radius: 5px;margin-left: 35px;font-size: 18px;font-weight: normal;}
+
+
+.toolAnalysis ul { 
+    border-left:hidden !important;
+    border-right:hidden !important;
+}
+
+.toolAnalysis .dropdown-menu>li> a:hover { background-color:#007daa !important;}

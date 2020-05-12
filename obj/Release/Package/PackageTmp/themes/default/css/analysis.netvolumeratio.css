@@ -1,0 +1,153 @@
+﻿.nlr_statebarSmallDiv
+{
+	float:left;
+	width:500px;height:40px;background-color:#fafafa;border-top:solid 1px #ddd;VERTICAL-ALIGN: middle;
+	margin-top:0px; 
+}
+
+.nlt_list_title {
+    left: 50px;
+    margin-top: 10px;
+    width: 200px;
+    height: 17px;
+    overflow: hidden;
+    position: absolute;
+}
+   
+.nlr_list_1 {
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    left: 20px;
+    margin-top: 10px;
+    color: #64c8ff;
+}
+
+.nlr_zhuji {
+margin-left: 20px;
+bottom: 10px;
+position: absolute;
+display:none;
+color:red;
+}
+
+.fcount {
+    right: 160px;
+    margin-top: 10px;
+    position: absolute;
+}
+
+.nlr_progressobj
+{
+	clear:both;
+	font-family:Verdana;
+    font-size:12px;
+
+    height:40px; 
+}
+
+.nlr_progressobj A {
+	COLOR: #0068B7; TEXT-DECORATION: underline
+}
+.nlr_progressobj A:hover {
+	COLOR: #0068B7
+}
+
+.nlr_progressq {
+    height:50px;
+}
+/* 
+ 新加与重写
+*/
+#nlr_main {width:500px;height:420px;top:180px;position:absolute;z-index:1400;right:30%;background:#FFF;border-radius:4px;border-width: 0px;box-shadow: 0 1px 4px rgba(0, 0, 0, 0.30);}
+.nlr_title {width:100%;height:40px;background:#ebebeb;border-top-left-radius: 4px;border-top-right-radius: 4px;border-bottom:1px solid #ddd;}
+.nlr_title p {
+   left: 20px;top:12px;float:left;font-size:16px;position: absolute;font-weight:bold;
+}
+
+.nlr_statebar
+{
+	width:10%;FONT-SIZE: 1px; OVERFLOW: hidden; LINE-HEIGHT: 39px;
+}  
+
+#nlr_close {font-size: 12px;
+   font-size: 15px;
+  color: #000;
+  top: 11px;
+  position: absolute;
+  right: 11px;
+  border-radius: 3px;
+  padding: 2px;}
+#nlr_close:hover
+{
+    background-color:red;
+    color:#fff;
+}
+#nlr_queding,#nlr_back {
+    width: 80px;
+    height: 32px;
+    position: absolute;
+    right: 20px;
+    bottom: 30px;
+    border-radius: 4px;
+    background-color: #64c8ff;
+    border-width: 0px;
+    font-size: 12px;
+    color: white;
+    font-weight: normal;
+} 
+
+#nlr_queding:hover {
+  background-color:#2aabd2
+    }
+#nlr_parcellist{
+    padding-top:15px;
+    border-bottom:solid 1px #ddd;
+    width: 100%;
+    height: 220px;
+    overflow-y: auto;
+    float: left;
+}
+
+#nlr_result{
+    padding-top:15px;
+    border-bottom:solid 1px #ddd;
+    width: 100%;
+    height: 220px;
+    overflow-y: auto;
+    float: left;
+}
+
+.choose-attribute-checkbox {
+  float: left;
+  width: 119px;
+  margin-left: 0px;
+}
+
+
+.nlr_left {
+    float: left;
+    padding-right: 10px;
+}
+
+.nlr_list_control {
+    float: left;
+    padding-top:10px;
+    padding-left: 20px;
+}
+
+.nlr_list_control input[type=button] {
+    display: block;margin: 0 auto;width: 40px;height: 24px;background-color: white; border: 1px solid #d2d2d2;color: #a0a0a0;border-radius: 4px; font-size: 10px; 
+}
+
+.nlr_list_control input[type=button]:hover { background-color: #ffb400;color: white;border:1px;}
+
+.fxfw_title {
+    padding-left: 20px;
+}
+
+/*重写*/
+/*.mCSB_container {
+    padding-right: 0px; 
+    padding-left: 0px;  
+}*/

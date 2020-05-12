@@ -1,0 +1,41 @@
+﻿<!--分析表格模板-->
+<script type="text/x-template" id="ydlx-template" >
+
+        <button class="btn btn-selected" v-for="lx in selectedlx" name='{{lx.name}}' mark = '{{lx.mark}}'>{{lx.name}}<div class="optclose" @click='deleteYdlx' name='{{lx.name}}'>×</div></button>
+
+    <div class="ydlx-table-wrap hidden" id="ydlxTpl">
+        <table class="table table-hover table-bordered" id="ydlxTable">
+            <thead>
+                <tr>
+                  <th colspan="2">#</th>
+                  <th>用地代码</th>
+                  <th>用地性质</th>
+                </tr>
+              </thead>
+              <tbody class="ydlx-talbe-tbody">
+                <tr v-for="item in xmlData" v-show="item.level==1" class="level{{item.level}}" name = '{{item.name}}' mark='{{item.mark}}' parentmark ='{{item.parentmark}}'>
+                      <td class="td-check" @click='ydlxChecked'><input type="checkbox" class="ydlx-select"></td>
+                      <td class="td-collapse"><span class="ydlxcollapse "  v-show="item.level!=3"  @click="ydlxCollapse" >+</span></td>
+                      <td>{{item.mark}}</td>
+                      <td>{{item.name}}</td>
+                   </tr>
+              </tbody>
+        </table>
+    </div>    
+</script>
+
+<style>
+    /*.ydlx-select{width:90%;height:90%;cursor:pointer}*/
+    .td-check{cursor:pointer;width:50px}
+    .td-collapse {width:50px;color: #8cd200; font-size: 20px; font-weight: bold;}
+    .level1{}
+    .level2{background-color:#eee}
+    .level3{background-color:#e5e5e5}
+    .level2 span{padding-left:10px}
+    .ydlxcollapse{cursor:pointer;}
+    .ydlxcollapse:hover{color:#6da006;}
+    .optselected{margin:5px 0;}
+    .btn-selected{background-color:#ffdc96;border-radius:3px;float: left;padding-right: 6px;min-width: 100px;margin:2px;}
+    .optclose{    float: right;color: #fff;padding-left: 5px;font-weight: bold;}
+    .optclose:hover{ color: #333;}
+</style>

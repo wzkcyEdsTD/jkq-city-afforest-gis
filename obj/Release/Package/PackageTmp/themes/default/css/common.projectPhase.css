@@ -1,0 +1,85 @@
+﻿.projectPhase { width:100%;height:auto;}
+.projectPhase p { margin:8px 0px;}
+.projectPhase p:first-child>span { display: inline-block;}
+/*.projectPhase p:first-child >span:last-child { font-size: 12px; color: #64c8ff; cursor: pointer; float: right;}*/
+/*.projectPhase p:first-child >span:last-child:hover {color: #428bca;}*/
+
+.projectPhase > div > p { float:right;}
+.projectPhase > div > p > span { font-size: 12px; color: #64c8ff; cursor: pointer;}
+.projectPhase > div > p > span:hover { color: #428bca;}
+
+.project-rarrow { 
+    position: relative;
+    display: inline-block;
+    line-height: 30px;
+    height: 30px;
+    text-align: center;
+    color: #000000;
+    padding-left: 20px;
+    padding-right: 5px;
+    background: #d2d2d2;
+    margin-right: 5px;
+    margin-top: 5px;
+    cursor:default;
+}
+.project-rarrow::before { 
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    display: block;
+    width: 0;
+    height: 0;
+    content: "";
+    border-top: 15px solid transparent;
+    border-left: 15px solid #fff;
+    border-bottom: 15px solid transparent;
+}
+.project-rarrow::after { 
+    position: absolute;
+    right: -15px;
+    top: 0px;
+    display: block;
+    width: 0;
+    height: 0;
+    content: "";
+    border-top: 15px solid transparent;
+    border-left: 15px solid #d2d2d2;
+    border-bottom: 15px solid transparent;
+    cursor:default;
+    z-index:2;
+}
+
+.project-rarrow.pass {
+    background-color: #ffe6a0;
+    cursor:pointer;
+}
+.project-rarrow.pass:before {
+    cursor:default;
+}
+.project-rarrow.pass::after {
+    border-left: 15px solid #ffe6a0;
+    cursor:pointer;
+}
+
+.project-rarrow.select {
+    background-color: #ffb400;
+    cursor:default;
+}
+.project-rarrow.select:before {
+    cursor:default;
+}
+.project-rarrow.select::after {
+    border-left: 15px solid #ffb400;
+    cursor:default;
+}
+
+.projectPhase > div { width:100%;display:inline;height:auto;}
+.projectPhase > div > table { width:100%; /*margin-top: 15px;*/}
+.projectPhase > div > table.noProjectFrom { width:100%; margin-top: 15px;}
+.projectPhase > div > table tr:first-child { border-top: 1px solid #d2d2d2;}
+.projectPhase > div > table tr {border-bottom: 1px solid #d2d2d2; border-left: 1px solid #d2d2d2; border-right: 1px solid #d2d2d2; }
+.projectPhase > div > table td { padding: 4px 8px 4px 8px; font-size: 12px; background: #f5f5f5; }
+.projectPhase > div > table td:first-child { background: #f5f5f5; border-right: 1px solid #d2d2d2; width:120px;}
+.projectPhase > div > table td:last-child{ background: #fff; }
+.projectPhase > div > table td.emptyPhaseInfo { text-align: center;background: #fff;}
+

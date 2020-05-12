@@ -1,0 +1,223 @@
+﻿<div class="Auxiliary">
+    <div class="lpcover" opttitle ="{{opttitle}}">
+        <h5>{{opttitle}}</h5>
+        <div class="rowsblock">
+            <label class="optionsType">设施距离等级：</label>
+                <div class="options">
+                <div class="btn-group"   v-for="opt in optdata"  v-if="opt.name == opttitle">
+		            <button type="button" class="btn btn-dciGroup" @click="ssdjselect" v-bind:class="{ 'selected': optdistance[optid] == oitem.value}"   v-for="oitem in opt.level" title="{{oitem.toolTip}}" value="{{oitem.value}}">{{oitem.name}}</button>
+	            </div>
+                </div>
+        </div>
+        <div class="rowsblock ssyq">
+            <label class="optionsType">设施要求：</label>
+            <div class="options table-responsive">
+                <table  class="table table-bordered"  v-for="opt in optdata"  v-if="opt.name == opttitle">
+                    <tr v-for="oitem in opt.condition">
+                        <td class="typetop"><div class="cond"" @click="ctrlactive" name="{{oitem.name}}"   v-if="oitem.name != ''">{{ oitem.name }}</div></td>
+                        <td class="typetop">
+                            <table  class="subtable">
+                                <tr v-for="(ckey,citem) in oitem.items">
+                                    <td class="typesec"><div class="cond"" @click="ctrlactive" name="{{ckey}}" parentname="{{oitem.name}}">{{ckey}}</div></td>
+                                    <td class="typethir">
+                                        <div class="cond" v-for="iitem in citem.items" @click="ctrlactive" name="{{iitem}}" parentname="{{ckey}}">{{iitem}}</div>
+                                    </td>
+                                </tr>                            
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="rowsblock">
+            <div class="options"  v-for="opt in selectedopt" type="opttitle" v-if="opt.title == opttitle">
+            <div class="TypeInput" name="{{opt.selected}}" parent="opttitle">
+              <span class="TypeInput-delete icon-hide"></span>
+              <label class="optname">{{opt.selected}}</label>
+              <label class="optinfo">本次选址
+                <span class="TypeInput-distance">{{optdistance[optid]}}</span>米范围内
+                <select>
+                  <option value="需要" selected="true">需要</option>
+                  <option value="不需要">不需要</option>
+                </select>
+                  该设施项
+              </label>
+              <label class="optinfo2">(需要时最少需要
+                <input type="number" v-model="opt.num" style="width:50px;">个)。<!--该设施服务半径大于等于
+                <input type="number" value="0" style="width:50px;">米。-->
+              </label>
+            </div>
+            </div>
+        </div>
+        <div class="rowsblock">
+            <div class="confirmblock">
+                <button type="button" class="btn btn-dciNormal" @click="hideCover">确定</button>
+            </div>            
+        </div>
+
+
+    </div>
+    <div class="alPanel">
+        <div>
+<!--        <h4>基本筛选</h4>-->
+        <div class="rowsblock xzdx">
+            <label class="optionsType">选址对象：</label>
+            <div class="options">
+                <div class="btn-group">
+		            <button type="button" class="btn btn-dciGroup" @click="ctrlselect" ghType="zg">总规</button>
+		            <button type="button" class="btn btn-dciGroup" @click="ctrlselect" ghType="kg">控规</button>
+	            </div>
+            </div>
+        </div>
+        <div class="rowsblock fwxz">
+            <label class="optionsType">范围选择：</label>            
+            <div class="options">
+                <!--<button type="button" class="btn btn-dciNormal">行政区划</button>-->    
+                <xzqh-template></xzqh-template>                
+                <div class="dciClear"></div>
+            </div>          
+        </div>
+        <div class="rowsblock ydlx">
+            <label class="optionsType">用地类型：</label>
+            <div class="options">
+                <button type="button" class="btn btn-dciNormal" href="#ydlxTpl"  @click="collapse">选择用地类型 ></button>                
+                <ydlx-template></ydlx-template>      
+                <div class="dciClear"></div>
+            </div>
+        </div>
+        <div class="rowsblock xzzb">
+            <label class="optionsType">选址指标：</label>
+            <div class="options">
+                <div class="option ydmj">
+                    <label>用地面积：</label><input type="type" name="name" value="" placeholder="必填" style="width: 145px;" /><label>㎡*</label>
+                </div>
+                <div class="option jzmd">
+                    <label> 建筑密度：</label><input type="type" class="rangeOption lower" name="name" value="" />%~<input type="type" name="name" value="" class="rangeOption upper"/>%
+                </div>
+                <br />
+                <div class="option ldl">
+                    <label>绿地率　：</label><input type="type" class="rangeOption lower" name="name" value=""/>%~<input type="type" name="name" value="" class="rangeOption upper"/>%
+                </div>
+                <div class="option rjl">
+                    <label>容积率　：</label><input type="type" class="rangeOption lower" name="name" value=""/>~　<input type="type" name="name" value="" class="rangeOption upper"/>
+                </div>
+            </div>
+            <div class="dciClear"></div>
+        </div>
+    </div>
+    <hr style="height:1px;border:none;border-top:1px solid #d2d2d2;" />
+    <div class="jzyg" style="display:none;">
+        <div class="rowsblock jzyg">
+            <label class="optionsType">禁止压盖：</label>
+            <div class="options">
+                <div class="checkbox">
+                    <label style="min-width: 120px;" name="基本农田保护区"><input type="checkbox">基本农田保护区</label>           
+                    <label style="min-width: 120px;" name="禁止建设区"><input type="checkbox"> 禁止建设区</label>
+                </div>
+                <div class="checkbox">
+                    <label style="min-width: 120px;" name="生态保护红线"><input type="checkbox"> 生态保护红线</label>             
+                    <label style="min-width: 120px;" name="一级林业保护区"><input type="checkbox"> 一级林业保护区</label>
+                </div>
+            </div>            
+        </div>
+    </div>
+    <hr style="height:1px;border:none;border-top:1px solid #d2d2d2;display:none;" />
+    <div class="gdsx" style="display:none;">
+        <label class="optionsType" >更多筛选：</label>
+        <div class="options">
+            <button type="button" class="btn btn-dciNormal" v-for="opt in optdata" optid="{{opt.id}}" @click="showCover">{{opt.name}}</button>
+        </div>
+    </div>
+    <div class="rowsblock">
+        <div class="confirmblock">
+            <button type="button" class="btn start" @click="xuanzhi">开始选址</button>
+        </div>        
+    </div>
+    <div class="rowsblock dkresult">
+        <div class="dkList">
+            <div class="dk" v-for="(index, dk) in auxiDks | limitBy fenye.num fenye.num*(fenye.index-1)" dknum="{{fenye.num*(fenye.index-1)+index}}" @click="dkLoca">
+                <span class="dciCircle pull-left">{{fenye.num*(fenye.index-1)+index+1}}</span>
+                <div class="dkInfo pull-left">
+                    <div>地块编号：{{dk.attributes.DKBH}}</div>
+                    <div>地块类型：{{dk.attributes.YDXZ}}({{dk.attributes.YDDM}})</div>
+                    <div>地块面积：{{(dk.attributes.DKMJ).toFixed(2)}}㎡</div>
+                </div>
+                <div class="dkHgxjc pull-right">        
+		            <!--<button type="button" class="btn btn-dciSmall" @click="">合规性检查</button>--> 
+                </div>
+            </div>            
+            <div class="dciClear"></div>
+        </div>
+        <div class="pagebar" v-show="auxiDks.length!=0">
+          <ul class="pagination">
+            <li><a href="#" @click="pagination" type="per">&laquo;</a></li>
+            <li v-for="index in indexs" v-bind:class="{ 'actived': fenye.index == index}"><a href="#" @click="pagination" pageindex="{{index}}">{{index}}</a></li>
+            <li><a href="#" @click="pagination" type="next">&raquo;</a></li>
+            <li><a href="#" type="all">共{{fenye.all}}页</a></li>
+          </ul>
+        </div>
+    </div>
+    </div>
+    
+    </div>
+</div>
+
+<style>  
+    .Auxiliary{width:98%;height:98%;margin:10px}
+    .alPanel{height:98%;}
+    .rowsblock{margin:5px;position:relative;}
+    .dkresult{min-height:60px}
+    .optionsType{float:left}
+    .options{margin-left:80px}
+    .option{min-width:49%;float:left}
+    .rangeOption{width:75px}
+    .btn-dciNormal,.btn-dciGroup{background-color:#fff;border-color:#ffa500;min-width:80px;}
+    .btn-dciNormal{margin:5px;}
+    .btn-dciNormal:hover,.btn-dciGroup:hover{background-color:#ffa500;}
+    .btn-dciNormal.selected,.btn-dciGroup.selected{color:#fff;border-color:#ffa500;background-color:#ffb400}
+    .btn-dciSmall{background-color:#fff;border-color:#ffa500;min-width:60px;margin:5px 2px;font-size:12px;}
+    .btn-selected{background-color:#ffa500;border-radius:3px;float: left;padding-right: 6px;min-width: 100px;}
+    .ydlx .btn-dciNormal{margin:2px;float:left;}
+    .checkbox{width:350px}
+
+    .lpcover {left:-700px; height: 98%;width: 100%;position: absolute;z-index: 10;background-color: #fff;}
+    .cond{float:left;padding: 3px;margin:1px; cursor:pointer; border-radius: 3px; background-color: #eee;}
+    .cond:hover{background-color: #ffa500;}
+    .cond.active{background-color: #ffa500;}
+    .options .table td{vertical-align: middle;}
+
+    .options .table-bordered .typetop{border: 1px solid #ffa500;}
+    .subtable{width: 100%;height: 100%;border-collapse: initial;border-spacing: 6px;}
+    .typetop{text-align:center;}
+    .typesec{width:100px;border: 0px;border-right:1px solid #ffa500;}
+    .typethir{border: 0px;}
+
+    .optname{display:inline;font-weight:bold;margin-left:8px;font-size:16px;}
+    .optinfo{display:inline;font-weight:normal;margin-left:8px;}
+    .optinfo{font-weight:normal;font-size:16px;margin-top:5px;}
+    .TypeInput-delete{ height: 25px; width: 25px; border-radius: 16px; -moz-border-radius: 16px; -webkit-border-radius: 16px; color: #fff; cursor: pointer; background-color: #d2d2d2; padding: 5px 5.5px; font-family: 'icomoon';}
+    .icon-hide:before {color:#555;}
+    .optselected{margin:5px 0;}
+    .optclose{    float: right;color: #fff;padding-left: 5px;font-weight: bold;}
+
+    .qyxz-nav-btn-wrap .btn{border: 1px solid #ffa500}
+
+    .confirmblock{width:100%;height:80px}
+    .confirmblock button{position: absolute;left: 45%;margin-top: 20px;}
+
+    .dkList{}
+    .dkInfo{margin:5px 2px;max-width: 200px;}
+    .dk{width: 50%;float: left;height: 100px;border: 1px solid #ededed;cursor:pointer;}
+    .dkHgxjc{margin:5px 2px;}
+    .dciCircle {margin:5px 2px;text-align: center;width: 20px;height: 20px;background: #ffa500;-moz-border-radius: 10px;-webkit-border-radius: 10px;border-radius: 10px;}
+
+    .pagination .actived a,.pagination .actived a:hover,.pagination .actived a:focus{color: #fff; cursor: default; background-color: #ffa500; border-color: #ffa500;}
+    .pagination>li>a,.pagination>li>a:hover,.pagination>li>a:focus{color: #222;}
+    /*.pagebar{width:390px;margin:0 auto;}*/
+    /*.pagebar{float:right;}*/
+    
+    .ydlx{min-height: 38px;}
+    .Auxiliary .mCSB_container{padding:0 10px;}
+    .start{background-color:#64c8ff;min-width:80px;}
+    .start:hover{background-color:#00a5ff;}
+</style>

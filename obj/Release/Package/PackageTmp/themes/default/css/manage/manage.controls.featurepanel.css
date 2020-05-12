@@ -1,0 +1,150 @@
+﻿.featureConfig {height:100%;padding:0px 20px 20px 20px;}
+
+.featureConfig_Left,
+.featureConfig_Middle,
+.featureConfig_Right { float: left; width: 32%; height: 100%;}
+.featureConfig_LeftMiddle,
+.featureConfig_MiddleRight { float: left; width: 2%; height: 100%;display:table;}
+
+.featureConfig_LeftMiddle>span,
+.featureConfig_MiddleRight>span {   font-size: 18px;  color: #d2d2d2;/*color: #ffb400;*/  vertical-align: middle;  display: table-cell;  text-align: center;}
+.featureConfig_MiddleRight > span { cursor:pointer; color: #ffb400;}
+
+.featureConfig_Left_Container>div,
+.featureConfig_Middle_Container>div,
+.featureConfig_Right_Container>div {
+      height: 100%;
+}
+#featureTree,#resourceTree,#featureResourceTree { padding:10px 20px;}
+
+/*标题上删除样式*/
+.featureConfig .titleIcon{ float: right;width: 26px;height: 26px;margin-top: 2px;margin-right: 10px;text-align: center;font-size: 14px;padding: 6px 0px;border-radius: 25px;color:#a0a0a0;}
+.featureConfig .titleIconActive{ float: right;width: 26px;height: 26px;margin-top: 2px;margin-right: 10px;text-align: center;font-size: 14px;padding: 6px 0px;border-radius: 25px;cursor:pointer;color:#000000;}
+.featureConfig .titleIconActive:hover {background-color:#ffb400; }
+
+
+
+.featureConfig_Left > div:first-child ,
+.featureConfig_Middle > div:first-child,
+.featureConfig_Right > div:first-child
+{ position: relative; top: 0; width: 100%; height: 30px; background-color: #ffe696;border-top-left-radius:4px;border-top-right-radius:4px;}
+.featureConfig_Left > div:first-child + div,
+.featureConfig_Middle > div:first-child + div,
+.featureConfig_Right > div:first-child + div
+{  width: 100%; height: 100%; padding-top: 30px; margin-top: -30px; background-color: #fff; border-radius: 4px;  border: 1px solid #d2d2d2;}
+
+
+.featureConfig_Left .featureConfig_Left_Title,
+.featureConfig_Middle .featureConfig_Middle_Title,
+.featureConfig_Right .featureConfig_Right_Title
+ {height: 100%; width: auto; float: left; font-size: 14px; padding: 4px 20px; }
+
+/*featureConfig_Left*/
+
+.featureConfig_Left_Search,
+.featureConfig_Middle_Search,
+.featureConfig_Right_Search
+ { height: 30px; margin-top: 10px; margin-bottom: 10px;  padding: 0px 20px;}
+
+/*默认添加容器样式*/
+#addFeatureDiv{display:none; height: 30px; margin-top: 10px; margin-bottom: 10px;  padding: 0px 20px;}
+#addFeatureDiv.active{ display:block;}
+#addFeatureDiv > div{ border: 1px dashed #d2d2d2; height: 34px;border-radius: 4px; cursor: pointer;text-align: center; padding: 5px 0px;}
+#addFeatureDiv > div:hover{background-color:#b4e6ff; }
+#addFeatureDiv > div > span {  margin-right: 5px; }
+.changeMargin { margin-top:-40px;}
+
+
+
+.featureConfig_Left_Search > input ,
+.featureConfig_Middle_Search > input ,
+.featureConfig_Right_Search > input 
+{ float:left;}
+
+.featureConfig_Left_Search > span,
+.featureConfig_Middle_Search > span,
+.featureConfig_Right_Search > span
+{   float: left;  font-size: 18px;  margin-top: 8px;  margin-left: -27px;  cursor: pointer;}
+/*.featureConfig_Left_Container,
+.featureConfig_Middle_Container,
+.featureConfig_Right_Container
+{ height: 100%;}*/
+.featureConfig_Left_Container,
+.featureConfig_Middle_Container,
+.featureConfig_Right_Container
+{ height: 100%;  margin-top: -50px;  padding-top: 50px;}
+.featureConfig_Left_Container>div {  height: 100%;}
+
+
+/*添加专题对话框、添加专题对话框(带图片)、删除对话框*/
+.addFeature,.addFeatureWithImg,.deleteFeature{ padding:20px;}
+.addFeature .starRed,.addFeatureWithImg .starRed { color: red;  margin-right: 5px;}
+.addFeature label,.addFeatureWithImg label{ margin-right: 5px;}
+.addFeature input,.addFeatureWithImg input{ padding-left:3px;}
+.addFeature .caret,.addFeatureWithImg .caret{ margin-left: -15px;  border-top-color: #d2d2d2;}
+.addFeature > div:last-child,.addFeatureWithImg > div:last-child,.deleteFeature > div:last-child{ height: 30px;  margin-top: 20px;}
+.addFeature > div:last-child > button,.addFeatureWithImg > div:last-child > button,.deleteFeature > div:last-child > button{  float: right;}
+.addFeature > div:last-child > button:hover,.addFeatureWithImg > div:last-child > button:hover,.deleteFeature > div:last-child > button:hover{ background-color:#64c8ff;}
+.addFeature .saveAddFeature,.addFeatureWithImg .saveAddFeatureWithImg,.deleteFeature .submitDeleteFeature{ margin-right: 5px;}
+/*添加专题对话框*/
+.addFeature .starWhite {margin-right: 10px;}
+.addFeature .tip{margin-top: 10px;  color: red;  padding-left: 48px; }
+/*添加专题对话框(带图片)*/
+.addFeatureWithImg .errorText{margin-left: 10px;  color: red;}
+.addFeatureWithImg .imageContainer {width: 100%; margin-top: 10px; display: inline-block;}
+.addFeatureWithImg .imageContainer > div {   border: 1px solid #d2d2d2; border-radius: 4px; min-height: 85px; max-height: 170px;}
+.addFeatureWithImg .picBox {float: left;  width: 101px;  height: 80px;  margin: 2px; cursor:pointer; }
+.addFeatureWithImg .picBox.picBoxHighlight {border: 1px solid rgb(255,0,0); }
+.addFeatureWithImg .picBox:hover {border: 1px solid rgb(255,0,0); }
+.addFeatureWithImg .picBox > img {   width: 100%; height:59px; float: left;}
+.addFeatureWithImg .picBox > span { width: 100%;  float: left;  display: block;  text-align: center;background-color: #d2d2d2;margin-top: -1px;white-space: nowrap;
+  text-overflow: ellipsis; overflow: hidden;}
+/*删除对话框*/
+.deleteFeature > div:first-child > p { text-align:center; margin-top: 15px;}
+
+/* 
+删除专题配置对话框
+*/
+.deleteFeatureResult { padding:20px;}
+.deleteFeatureResult > div:last-child{ height: 30px;  margin-top: 20px;}
+.deleteFeatureResult > div:last-child > button {  float: right;}
+.deleteFeatureResult > div:last-child > button:hover { background-color:#64c8ff;}
+.deleteFeatureResult .submitDeleteFeatureResult { margin-right: 5px;}
+.deleteFeatureResult > div:first-child > p { text-align:center; margin-top: 15px;}
+
+/* 
+添加专题对话框(带下拉菜单)
+*/
+.addFeatureWithDropMenu { padding:20px;}
+.addFeatureWithDropMenu .menuType { }
+.addFeatureWithDropMenu .starRed {color: red;  margin-right: 5px;}
+.addFeatureWithDropMenu .starWhite {margin-right: 5px; color:#ffffff;}
+.addFeatureWithDropMenu .menuType > select { width: 175px; height: 25px;}
+.addFeatureWithDropMenu .content { }
+.addFeatureWithDropMenu input{ padding-left:3px;}
+.addFeatureWithDropMenu .caret{ margin-left: -15px;  border-top-color: #d2d2d2;}
+.addFeatureWithDropMenu .errorText{margin-left: 10px;  color: red;}
+
+.addFeatureWithDropMenu .imageContainer {width: 100%; margin-top: 10px; display: inline-block;}
+.addFeatureWithDropMenu .imageContainer > div {   border: 1px solid #d2d2d2; border-radius: 4px; min-height: 85px; max-height: 170px;}
+.addFeatureWithDropMenu .picBox {float: left;  width: 101px;  height: 80px;  margin: 2px; cursor:pointer; }
+.addFeatureWithDropMenu .picBox.picBoxHighlight {border: 1px solid rgb(255,0,0); }
+.addFeatureWithDropMenu .picBox:hover {border: 1px solid rgb(255,0,0); }
+.addFeatureWithDropMenu .picBox > img {   width: 100%; height:59px; float: left;}
+.addFeatureWithDropMenu .picBox > span { width: 100%;  float: left;  display: block;  text-align: center;background-color: #d2d2d2;margin-top: -1px;white-space: nowrap;
+  text-overflow: ellipsis; overflow: hidden;}
+
+.addFeatureWithDropMenu > div:last-child{ height: 30px;  margin-top: 20px;}
+.addFeatureWithDropMenu > div:last-child > button{  float: right;}
+.addFeatureWithDropMenu > div:last-child > button:hover{ background-color:#64c8ff;}
+.addFeatureWithDropMenu .saveAddFeatureWithDropMenu{ margin-right: 5px;}
+
+
+
+
+
+
+
+
+
+

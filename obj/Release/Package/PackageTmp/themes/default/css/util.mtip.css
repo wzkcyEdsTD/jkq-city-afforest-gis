@@ -1,0 +1,48 @@
+﻿
+.usetip {
+    background-color: #FFE696;
+    min-width: 120px;
+    height: 35px;
+    margin-top: 2px;
+    border-radius: 5px 0 0 5px;
+    position: absolute;
+    top: 0px;
+    right: -120px;
+    z-index:9999;
+    display:none;
+}
+
+.usetip .loadingFlash { position: absolute; margin: 5px 0 5px 10px;}
+.usetip .icon-loading {display:block;font-size: 25px; color: #666;
+animation:myfirst 0.8s;
+animation-iteration-count: infinite;
+animation-play-state: running;
+animation-timing-function:linear;
+-webkit-animation:myfirst 0.8s; 
+-webkit-animation-iteration-count: infinite;
+-webkit-animation-play-state: running;
+-webkit-animation-timing-function:linear;
+-ms-animation:myfirst 0.8s; 
+-ms-animation-iteration-count: infinite;
+-ms-animation-play-state: running;
+-ms-animation-timing-function:linear;
+}
+
+.usetip .loadingText{  margin: 8px 0 0 42px;font-weight:bold;color: #666;padding-right:6px;}
+
+.sitemappanel .usetip {
+        display:none;
+    }
+
+@keyframes myfirst
+{
+from {transform: rotate(0deg);-webkit-transform:rotate(0deg);-ms-transform:rotate(0deg);}
+to{transform: rotate(360deg); -webkit-transform:rotate(360deg);-ms-transform:rotate(360deg);}
+
+}
+
+@-webkit-keyframes myfirst /* Safari and Chrome */
+{
+from {transform: rotate(0deg);-webkit-transform:rotate(0deg);-ms-transform:rotate(0deg);}
+to {transform: rotate(360deg);-webkit-transform:rotate(360deg);-ms-transform:rotate(360deg);}
+}

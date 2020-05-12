@@ -1,0 +1,211 @@
+﻿<div class="FacilitiesStatistics">
+   
+    <div class="alPanel">
+        <div>
+          <!--<h4 class="alPanleHead">统计内容</h4>-->
+            <div class="radio">
+              <label>
+                <input type="radio" name="statisticType" id="lxtjRadios" value="lxtj" checked>
+                按类型统计
+              </label>
+            </div>
+            <form class="form-horizontal" id="lxtjRadios-content">
+            <div class="form-group form-group-sm">
+                <label class="col-sm-2 control-label" for="tjTypeSelect">统计类型</label>
+                <div class="col-sm-10">
+                  <select id="tjTypeSelect" class="tjTypeSelect">
+                      <option value="-1">请选择</option>
+                   </select>
+                </div>
+              </div>
+                </form>
+            <div class="radio">
+              <label>
+                <input type="radio" name="statisticType" id="zdtjRadios" value="zdtj">
+                按字段统计
+              </label>
+            </div>
+            <form class="form-horizontal" id="zdtjRadios-content"  style="display:none;">
+              <div class="form-group form-group-sm">
+                <label class="col-sm-2 control-label" for="layerSelect">选择图层</label>
+                <div class="col-sm-10">
+                  <select id="layerSelect" class="statisticsSelect">
+                      <option value="-1">请选择</option>
+                   </select>
+                </div>
+              </div>
+              <div class="form-group form-group-sm">
+                <label class="col-sm-2 control-label" for="groupByFieldSelect">分类字段</label>
+                <div class="col-sm-10">
+                  <select id="groupByFieldSelect" class="statisticsSelect">
+                      <option value="-1">请选择</option>
+                   </select>
+                </div>
+              </div>
+              <div class="form-group form-group-sm">
+                <label class="col-sm-2 control-label" for="statisticsFieldSelect">统计字段</label>
+                <div class="col-sm-10">
+                  <select id="statisticsFieldSelect" class="statisticsSelect">
+                      <option value="-1">请选择</option>
+                   </select>
+                </div>
+              </div>
+            </form>
+            
+            <hr style="height:1px;border:none;border-top:1px solid #d2d2d2;" />
+            <!--地图上绘制图形-->
+            <form class="form-horizontal">
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="drawType" id="dxfwOption" value="dxfw">
+                    点选范围
+                  </label>
+                </div>
+            
+                <div class="form-group form-group-sm option-content" id="dxfwOption-content"  style="display:none;">
+                     <label class="col-sm-2 control-label" for="dxfwInput">设置范围</label>
+                     <div class="col-sm-8">
+                            <input class="form-control statisticsInput" type="text" id="dxfwInput" placeholder="">
+                     </div>
+                     <label class="col-sm-2 control-label" for="dxfwInput" style="text-align:left;">米</label>
+                 </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="drawType" id="kxfwOption" value="kxfw">
+                    框选范围
+                  </label>
+                </div>
+                <div class="switch-box is-info option-content" id="kxfwOption-content"  style="display:none;">
+		            <input id="info" class="switch-box-input" type="checkbox"/>
+                    <label>矩形</label>
+		            <label for="info" class="switch-box-slider" style="margin-left:10px;"></label>
+		            <label for="info" class="switch-box-label">多边形</label>
+	            </div>
+
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="drawType" id="xxfwOption" value="xxfw">
+                    线选范围
+                  </label>
+                </div>
+                <div class="form-group form-group-sm option-content" id="xxfwOption-content" style="display:none;">
+                     <label class="col-sm-2 control-label" for="xxfwInput">设置范围</label>
+                     <div class="col-sm-8">
+                            <input class="form-control statisticsInput" type="text" id="xxfwInput" placeholder="">
+                     </div>
+                     <label class="col-sm-2 control-label" for="xxfwInput" style="text-align:left;">米</label>
+                </div>
+
+                
+                <!--<div class="radio">
+                  <label>
+                    <input type="radio" name="drawType" id="sjfwOption" value="sjfw">
+                    数据范围
+                  </label>
+                </div>
+            
+                <div class="form-group form-group-sm">
+                    <label class="col-sm-2 control-label" for="sjfwInput">设置范围</label>
+                        <div class="col-sm-8">
+                            <input class="form-control statisticsInput" type="text" id="sjfwInput" placeholder="">
+                        </div>
+                     <label class="col-sm-2 control-label" for="sjfwInput" style="text-align:left;">米</label>
+                 </div>-->
+             </form>
+        </div>
+    <div class="rowsblock">
+        
+        <div class="confirmblock">
+             <button type="button" class="btn drawGeo" id="drawGeo" style="left:100px;">绘制查询范围</button>
+            <button type="button" class="btn start" id="tongji">开始统计</button>
+        </div>        
+    </div>
+    <hr style="height:1px;border:none;border-top:1px solid #d2d2d2;" />
+    <label>统计结果</label>
+    <div class="rowsblock tjresult" id="tjresult">
+        <!--<table class="table table-bordered">
+            <thead>
+                <tr><th>aaa</th><th>aaa</th></tr>
+            </thead>
+            <tr><td>aaa</td><td>aaa</td></tr>
+            <tr><td>aaa</td><td>aaa</td></tr>
+        </table>-->
+    </div>
+   </div>
+    
+</div>
+
+
+<style>  
+    .FacilitiesStatistics{width:98%;height:98%;margin:10px}
+    .alPanel{height:98%;    margin-left: 20px;}
+    .alPanleHead {text-align:center;background-color:#D7D7D7;}
+    .statisticsSelect {
+        width:98%;
+    }
+    .tjTypeSelect {
+        width:98%;
+    }
+
+    .rowsblock{margin:5px;position:relative;}
+    .tjresult{min-height:60px}
+    .confirmblock{width:100%;height:50px}
+    .confirmblock button{position: absolute;left: 45%;margin-top: 20px;}
+    .FacilitiesStatistics .mCSB_container{padding:0 10px;}
+    .start{background-color:#64c8ff;min-width:80px;}
+    .start:hover{background-color:#00a5ff;}
+   
+    /*开关按钮样式*/
+    .switch-box {
+      display: block;
+      margin-top: 24px;
+      margin-left: 30px;
+    }
+    .switch-box .switch-box-slider {
+      position: relative;
+      display: inline-block;
+      height: 8px;
+      width: 32px;
+      background: #d5d5d5;
+      border-radius: 8px;
+      cursor: pointer;
+      -webkit-transition: all 0.2s ease;
+      transition: all 0.2s ease;
+    }
+    .switch-box .switch-box-slider:after {
+      position: absolute;
+      left: -8px;
+      top: -8px;
+      display: block;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #eeeeee;
+      box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+      content: '';
+      -webkit-transition: all 0.2s ease;
+      transition: all 0.2s ease;
+    }
+    .switch-box .switch-box-input {
+      display: none;
+    }
+    .switch-box .switch-box-input ~ .switch-box-label {
+      margin-left: 8px;
+    }
+    .switch-box .switch-box-input:checked ~ .switch-box-slider:after {
+      left: 16px;
+    }
+    .switch-box .switch-box-input:disabled ~ .switch-box-slider {
+      background: #e2e2e2;
+      cursor: default;
+    }
+    .switch-box .switch-box-input:disabled ~ .switch-box-slider:after {
+      background: #d5d5d5;
+    }
+    .switch-box.is-info .switch-box-input:checked:not(:disabled) ~ .switch-box-slider {
+      background: #5faee3;
+    }
+    .switch-box.is-info .switch-box-input:checked:not(:disabled) ~ .switch-box-slider:after {
+      background: #3498db;
+    }
+</style>

@@ -1,0 +1,104 @@
+﻿.attahtml {
+        display: none;
+}
+
+.attahtml.show{
+        display: block;
+}
+
+#attachmentTree {
+    padding: 20px;
+}
+.ztree li span.button.icon06 {
+    margin: 0;
+    background: url(../../../library/zTree/css/zTreeStyle/img/diy/6.png) no-repeat scroll 0 0 transparent;
+    vertical-align: top;
+}
+
+.dicon {
+    color: #FFFFFF;
+    margin: auto;
+    font-size: 14px;
+    background-color: #64C8FF;
+    border-radius: 2px;
+    padding: 1px;
+}
+
+    .dicon:hover {
+        font-weight: bold;
+    }
+#attaimg {
+    cursor: move;
+    width: 550px;
+    height: 400px;
+    position: absolute;
+    top: 150px;
+    left: 25%;
+    z-index: 1400;
+}
+#atta_scnum {
+    left: 20px;
+    top: 12px;
+    float: left;
+    font-size: 16px;
+    position: absolute;
+    font-weight: bold;
+}
+
+#atta_close {
+    font-size: 15px;
+    color: #000;
+    top: 11px;
+    position: absolute;
+    right: 11px;
+    border-radius: 3px;
+    padding: 2px;
+    cursor:pointer;
+}
+
+#atta_close:hover
+    {
+        background-color:red;
+        color:#fff;
+    }
+
+.atta_title {
+    width: 100%;
+    height: 40px;
+    background: #EBEBEB;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom: 1px solid #ddd;
+}
+
+.viewImg {
+    position: absolute;
+    left: 0px;
+    top: 40px;
+    width: 100%;
+    -webkit-box-shadow: 10px 10px 25px #ccc;
+    -moz-box-shadow: 10px 10px 25px #ccc;
+    box-shadow: 10px 10px 25px #ccc;
+}
+
+#coor {
+    bottom: -39px;
+    right: 1px;
+    overflow: hidden;
+    cursor: se-resize;
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    overflow: hidden;
+    border-top: 15px solid rgba(255, 255, 255, 0);
+    border-right: 15px solid #ebebeb;
+
+}
+
+
+/*详情*/
+.attahtml-title {display:table; width: 100%;height: 50px;border-bottom: 1px solid #d2d2d2; background-color: #fff;}
+.attahtml-content {height:100%;padding-bottom:50px;}
+
+.attahtml-title .turnback { font-size: 24px; color: #ffb400;  cursor: pointer;  margin: 13px 0px 13px 18px;  position: absolute;}
+.attahtml-title .titlecontent {display: table-cell;width: 100%;height: 50px;vertical-align: middle; padding-left: 50px; padding-right: 20px;}

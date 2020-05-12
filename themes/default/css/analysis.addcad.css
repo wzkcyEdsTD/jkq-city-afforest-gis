@@ -1,0 +1,226 @@
+﻿
+.Ico {
+	BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; BACKGROUND-COLOR: transparent; WIDTH: 16px; HEIGHT: 16px; VERTICAL-ALIGN: middle; BORDER-TOP: 0px; BORDER-RIGHT: 0px
+}
+
+.IcoNormal
+{
+	float:left;
+	BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; BACKGROUND-COLOR: transparent; WIDTH: 16px; HEIGHT: 16px; VERTICAL-ALIGN: middle; BORDER-TOP: 0px; BORDER-RIGHT: 0px;
+	/*background-image:url(../images/CAD-ICON.png);*/background-repeat:no-repeat;
+}
+
+.IcoWaiting
+{
+	float:left;
+	BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; BACKGROUND-COLOR: transparent; WIDTH: 16px; HEIGHT: 16px; VERTICAL-ALIGN: middle; BORDER-TOP: 0px; BORDER-RIGHT: 0px;
+	/*background-image:url(../images/CAD-ICON.png);*/background-repeat:no-repeat;
+}
+
+.IcoUpload 
+{
+	float:left;
+	BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; BACKGROUND-COLOR: transparent; WIDTH: 16px; HEIGHT: 16px; VERTICAL-ALIGN: middle; BORDER-TOP: 0px; BORDER-RIGHT: 0px;
+	/*BACKGROUND-IMAGE:url(../images/CAD-ICON.png);*/ BACKGROUND-REPEAT: no-repeat
+}
+
+.theFont
+{
+	color:#0068B7;
+}
+.fle {
+}
+
+.statebarSmallDiv
+{
+	float:left;
+	width:500px;height:40px;background-color:#fafafa;border-top:solid 1px #ddd;VERTICAL-ALIGN: middle;
+	margin-top:0px; 
+    
+}
+.statebarBigDiv
+{
+	float:left;
+	width:500px;height:40px;background-color:#fafafa;border:solid 1px #ddd;VERTICAL-ALIGN: middle;
+	margin-left:-3px;margin-top:-20px; 
+}
+.statebar
+{
+	background-color:#beebff;width:10%;FONT-SIZE: 1px; OVERFLOW: hidden; LINE-HEIGHT: 39px;
+}  
+
+.ftt
+{
+	position: absolute;
+}
+
+.fper {
+    right:70px;
+    margin-top:10px;
+}
+.progressobj
+{
+	clear:both;
+	font-family:Verdana;
+    font-size:12px;
+
+    height:40px; 
+}
+
+.progressobj A {
+	COLOR: #0068B7; TEXT-DECORATION: underline
+}
+.progressobj A:hover {
+	COLOR: #0068B7
+}
+
+.progressq {
+    height:50px;
+}
+
+#fsize {
+    right:160px;
+   margin-top: 10px;
+}
+
+.fle {
+    left:50px;
+   margin-top: 10px;
+width: 200px;
+height: 17px;
+overflow: hidden;
+}
+
+.fle::after {
+ content:"...";    
+    }
+.fd1 {
+   font-size: 7px;
+   right: 20px;
+}
+.fd2 {
+    font-size: 13px;
+    right: 20px;
+}
+#fdelete {
+   margin-top: 10px;
+   color: #64c8ff;
+}
+*{margin:0;padding:0;}
+#frmMain>ul{
+    list-style:none;
+    height: 206px;
+    overflow: hidden;
+}
+
+
+/*op*/
+.op{position:relative;margin:10%;border:1px solid #ddd;width:140px;height:30px;top:0px;left:10px}
+.op-result{width:170px;padding:12px 15px;border:none;outline:none;}
+.op-list{position:absolute;right:0px;top:30px;width:100%;border-right:1px solid #ddd;border-bottom:1px solid #ccc;border-left:1px solid #ddd;}
+.hide{display:none !important;}
+.op-list-item{padding:10px 3px;background-color:#f3f3f3;cursor:pointer;}
+.op-list-item:hover{background-color:#beebff;}
+#scnum {
+   left: 20px;top:12px;float:left;font-size:16px;position: absolute;font-weight:bold;
+}
+
+#scnum1 {
+   margin-left: 20px;top:12px;font-size:16px;position: absolute;
+}
+#djcad {width:500px;height:420px;top:180px;position:absolute;z-index:1400;right:30%;background:#FFF;border-radius:4px;border-width: 0px;box-shadow: 0 1px 4px rgba(0, 0, 0, 0.30);}
+.dj_title {width:100%;height:40px;background:#ebebeb;border-top-left-radius: 4px;border-top-right-radius: 4px;border-bottom:1px solid #ddd}
+
+.op1 {width:461px;height:100px;position:absolute;top:290px;margin-left:20px;border:1px solid #ddd;z-index:10}
+#close {font-size: 12px;
+   font-size: 15px;
+  color: #000;
+  cursor:pointer;
+  top: 11px;
+  position: absolute;
+  right: 11px;
+  border-radius: 3px;
+  padding: 2px;}
+    #close:hover
+    {
+        background-color:red;
+        color:#fff;
+    }
+#jieguo {width:110px;height:30px;float: left}
+#num {width:15px;margin-top: 5px;float: left;}
+#line {border-top: 1px solid #000;margin-top: 15px; margin-bottom: 5px; width:80px;}
+.linetogg {width: 23px;
+height: 28px;
+font-size: 21px;
+color: #787878;
+float: right;
+background: #ddd;
+margin-top: 0px;}
+.linetogg:hover {
+    background: #ccc;
+    }
+    .linetogg span {
+    clear: both;
+font-size: 21px;
+float: left;
+margin-top: 4px;
+margin-left: 1px;
+    }
+#custom {height:30px;width:50px;top: 45px;position: absolute;left: 270px;}
+#custom:hover {
+  border-color:#64c8ff;
+      }
+
+#yanse {width:30px;height:30px;top:40px;right:60px;position:absolute;background:#000;}
+#djcad .op1 div:last-child {top:45px;}
+
+#queding {
+    width: 80px;
+height: 32px;
+position: absolute;
+right: 20px;
+top: 400px;
+border-radius: 4px;
+background-color: #64c8ff;
+border-width: 0px;
+font-size: 12px;
+color: white;
+font-weight: normal;}
+
+.zhuji {
+margin-left: 20px;
+bottom: 14px;
+position: absolute;
+display:none;
+color:red;
+}
+#queding:hover {
+  background-color:#2aabd2
+    }
+
+#lbcad {
+    width:200px;
+    top:65px;
+    position:absolute;
+    z-index:1400;
+    left:180px;
+    background:#FFF;
+}
+
+#fbu {
+/*BACKGROUND-IMAGE:url(../images/CAD-ICON.png);*/
+height: 20px;
+width: 20px;
+position: absolute;
+left: 20px;
+margin-top: 10px;
+color:#64c8ff;
+}
+
+.divprogress1{
+margin-top:5px; border-bottom:solid 1px #ddd;
+}
+
+.divprogress{
+margin-top:5px; 
+}

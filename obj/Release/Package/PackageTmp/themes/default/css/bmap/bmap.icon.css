@@ -1,0 +1,263 @@
+
+@font-face {
+	font-family: 'icomoon';
+	src:url('../fonts/basic/icomoon.eot?qjc908');
+	src:url('../fonts/basic/icomoon.eot?#iefixqjc908') format('embedded-opentype'),
+		url('../fonts/basic/icomoon.woff?qjc908') format('woff'),
+		url('../fonts/basic/icomoon.ttf?qjc908') format('truetype'),
+		url('../fonts/basic/icomoon.svg?qjc908#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-tool:before {
+	content: "\e624";
+}
+
+.icon-split-screen:before {
+	content: "\e61f";
+}
+
+.icon-plotting:before {
+	content: "\e61a";
+}
+
+.icon-more:before {
+	content: "\e616";
+}
+
+.icon-measure-distance:before {
+	content: "\e623";
+}
+
+.icon-measure-acreage:before {
+	content: "\e622";
+}
+
+.icon-attribute-inquire:before {
+	content: "\e621";
+}
+
+.icon-clear:before {
+	content: "\e620";
+}
+
+.icon-one-screen:before {
+	content: "\e61e";
+}
+
+.icon-two-screen:before {
+	content: "\e61d";
+}
+
+.icon-three-screen:before {
+	content: "\e61c";
+}
+
+.icon-four-screen:before {
+	content: "\e61b";
+}
+
+.icon-Annotation:before {
+	content: "\e639";
+}
+
+.icon-plotting-dot:before {
+	content: "\e619";
+}
+
+.icon-plotting-line:before {
+	content: "\e618";
+}
+
+.icon-plotting-circle:before {
+	content: "\e60a";
+}
+
+.icon-plotting-rectangle:before {
+	content: "\e609";
+}
+
+.icon-plotting-polygon:before {
+	content: "\e600";
+}
+
+.icon-item-information:before {
+	content: "\e615";
+}
+
+.icon-add-CAD:before {
+	content: "\e614";
+}
+
+.icon-add-SHP:before {
+	content: "\e604";
+}
+
+.icon-print:before {
+	content: "\e613";
+}
+
+.icon-pitch-on:before {
+	content: "\e60b";
+}
+
+.icon-zoom-out:before {
+	content: "\e60c";
+}
+
+.icon-zoom-in:before {
+	content: "\e60d";
+}
+
+.icon-triangle:before {
+	content: "\e60e";
+}
+
+.icon-close2:before {
+	content: "\e60f";
+}
+
+.icon-close1:before {
+	content: "\e610";
+}
+
+.icon-exit-full-screen:before {
+	content: "\e611";
+}
+
+.icon-full-screen:before {
+	content: "\e612";
+}
+
+.icon-full-figure:before {
+	content: "\e63a";
+}
+
+.icon-arrows:before {
+	content: "\e607";
+}
+
+.icon-arrows-right:before {
+	content: "\e625";
+}
+
+.icon-arrows-down:before {
+	content: "\e626";
+}
+
+.icon-arrows-up:before {
+	content: "\e629";
+}
+
+.icon-previous-page:before {
+	content: "\e606";
+}
+
+.icon-next-page:before {
+	content: "\e605";
+}
+
+.icon-SHPicon:before {
+	content: "\e602";
+}
+
+.icon-CADicon:before {
+	content: "\e603";
+}
+
+.icon-location:before {
+	content: "\e608";
+}
+
+.icon-Paint-bucket:before {
+	content: "\e617";
+}
+
+.icon-flag:before {
+	content: "\e627";
+}
+
+.icon-edit:before {
+	content: "\e601";
+}
+
+.icon-return:before {
+	content: "\e628";
+}
+
+.icon-arrows-unfold:before {
+	content: "\e62a";
+}
+
+.icon-arrows-shrink:before {
+	content: "\e62b";
+}
+
+.icon-business-analysis:before {
+	content: "\e62c";
+}
+
+.icon-land-query:before {
+	content: "\e62d";
+}
+
+.icon-land-use-analysis:before {
+	content: "\e62e";
+}
+
+.icon-prev-view:before {
+	content: "\e62f";
+}
+
+.icon-next-view:before {
+	content: "\e630";
+}
+
+.icon-set:before {
+	content: "\e631";
+}
+
+.icon-exit:before {
+	content: "\e632";
+}
+
+.icon-user-icon:before {
+	content: "\e633";
+}
+
+.icon-password-icon:before {
+	content: "\e634";
+}
+
+.icon-exportform:before {
+	content: "\e636";
+}
+
+.icon-Viewform:before {
+	content: "\e637";
+}
+
+.icon-close-circle:before {
+	content: "\e638";
+}
+
+.icon-home-icon:before {
+	content: "\e635";
+}
+
+

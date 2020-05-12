@@ -1,0 +1,180 @@
+﻿
+.leaflet-control-layertab{
+	width: 940px; 
+	height:auto;
+    left:110px;
+    top:0px;
+    background-color:transparent;
+    position:absolute;
+    /*overflow-y: hidden; 
+    overflow-x:hidden;*/
+    font-family:'Microsoft YaHei',宋体;
+}
+
+.leaflet-control-layertab-tab{
+    font-size:13px;
+    display: inline-block;
+    background-color:white;
+    width:180px;
+    height:30px;
+    border:1px solid #808080;
+    /*border-top-right-radius:4px;*/
+}
+
+
+.leaflet-control-layertab-tab-text{
+    
+    float:left;
+    width:105px;
+    height:30px;
+    line-height:30px;
+    margin-right:10px;
+    margin-left:10px;
+    display: inline-block;
+    text-overflow:ellipsis;-o-text-overflow:ellipsis;-icab-text-overflow: ellipsis;-khtml-text-overflow: ellipsis;-moz-text-overflow: ellipsis;-webkit-text-overflow: ellipsis;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:default;
+}
+
+.leaflet-control-layertab-tab-selected {
+    color: #32b4ff;
+    border: 1px solid #32b4ff;
+}
+.leaflet-control-layertab-tab-toggle {
+    width:30px;
+    height:30px;
+    float:left;
+    border-right:solid 1px #d2d2d2;
+}
+
+.leaflet-control-layertab-tab-toggle-c {
+    width:30px;
+    height:30px;
+    float:left;
+    border-right:solid 1px #d2d2d2;
+}
+
+.leaflet-control-layertab-tab-toggle::after {
+        display: block;
+        content: " ";
+        float: right;
+        width: 0;
+        height: 0;
+        border-color: transparent;
+        border-style: solid;
+        border-width: 5px 0 5px 5px;
+        border-left-color: #b4b4b4;
+        margin-top: 8px;
+        margin-right: 10px;
+}
+
+.leaflet-control-layertab-tab-toggle-c::after {
+        display: block;
+        content: " ";
+        float: right;
+        width: 0;
+        height: 0;
+        border-color: transparent;
+        border-style: solid;
+        border-width: 5px 5px 0px 5px;
+        border-top-color: #b4b4b4;
+        margin-top: 11px;
+        margin-right: 10px;
+    }
+.leaflet-control-layertab-tab-toggle:after {
+        display: block;
+        content: " ";
+        float: right;
+        width: 0;
+        height: 0;
+        border-color: transparent;
+        border-style: solid;
+        border-width: 5px 0 5px 5px;
+        border-left-color: #b4b4b4;
+        margin-top: 8px;
+        margin-right: 10px;
+}
+
+.leaflet-control-layertab-tab-toggle-c:after {
+        display: block;
+        content: " ";
+        float: right;
+        width: 0;
+        height: 0;
+        border-color: transparent;
+        border-style: solid;
+        border-width: 5px 5px 0px 5px;
+        border-top-color: #b4b4b4;
+        margin-top: 11px;
+        margin-right: 10px;
+    }
+
+.leaflet-control-layertab-tab-close{
+    float:right;
+    width:12px;
+    height:12px;
+    margin-top:7px;
+    margin-right:10px;
+    display: inline-block;
+    cursor:pointer;
+}
+
+.layer-choose-tab {
+   position:absolute;
+   margin-top:29px;
+   margin-left:-1px;
+   width:180px;
+   background-color:#fff;
+   border-left:solid 1px #787878;
+   border-right:solid 1px #787878;
+   border-bottom:solid 1px #787878;
+}
+
+.layer-choose-tab-children{
+   height:30px;
+   width:178px;
+   background-color:#fff;
+   border-bottom:solid 1px #d2d2d2;
+   padding-top: 5px;
+}
+
+.layer-choose-tab-children div{
+   margin-left: 10px;
+}
+
+.layer-choose-tab input {
+  margin-top: 8px;
+  margin-left: 10px;
+}
+
+.layer-choose-tab span {
+  margin-left: 15px;
+}
+
+.leaflet-control-layertab-show {
+  display:block;
+}
+
+.leaflet-control-layertab-hide {
+  display:none;
+}
+
+.leaflet-control-layertab-more{
+    float: right;
+position: absolute;
+background-color: white;
+width: 40px;
+height: 30px;
+top: 0px;
+right: 0px;
+line-height: 30px;
+cursor: pointer;
+border: 1px solid #808080;
+border-top-right-radius: 4px;
+}
+    .leaflet-control-layertab-more:hover
+    {
+        background:#787878;
+        color:white;
+    }

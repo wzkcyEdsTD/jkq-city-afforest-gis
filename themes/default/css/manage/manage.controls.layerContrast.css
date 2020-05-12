@@ -1,0 +1,95 @@
+﻿.layerContrast {height:100%;padding:0px 20px 20px 20px;}
+
+.layerContrast_Left{ float: left; width: 32%; height: 100%;}
+.layerContrast_LeftMiddle{ float: left; width: 2%; height: 100%;}
+.layerContrast_Right { float: left; width: 66%; height: 100%;    border: 1px solid #d2d2d2;text-align: center;/*padding-top: 35px;*/  border-radius: 4px;}
+.layerContrast_Right > div.title {   width: 100%;  height: 30px; background-color:#ffe696;  text-align: left;  font-size: 14px;  padding: 4px 20px;}
+.layerContrast_Right > div.layerContrast_Right_Body { width: 100%; height: 100%; margin-top: -30px; padding-top: 30px;}
+.layerContrast_Right_BodyContent { height:100%;}
+.layerContrast_Right_BodyContent > p {margin: 20px 0px; padding-left: 20px;text-align: left;color: #0096e6; height: 20px;}
+.layerContrast_Right_BodyContent > div{float: left;height: 100%; padding-top: 60px;margin-top: -60px; width: 482px;}
+.layerContrast_Right_BodyContent>div.contentChoose { width: 60%;} 
+.layerContrast_Right_BodyContent>div.contentTree{width: 40%;padding-top: 100px;padding-right: 20px;padding-bottom: 20px; }
+.layerContrast_Right_BodyContent > div.contentChoose > div { text-align: left;padding: 0px 10px 40px 40px;}
+.layerContrast_Right_BodyContent .resultConfig > span,
+.layerContrast_Right_BodyContent .tempConfig > span { width: 80px;height: 30px;display: block;background-color: #ffe696;border-radius: 4px;padding: 5px 12px;border-bottom-left-radius: 0px;border-bottom-right-radius: 0px;}
+
+.layerContrast_Right_BodyContent .resultConfig > div,
+.layerContrast_Right_BodyContent .tempConfig > div { /*margin-top: 10px;*/background-color: #ebebeb;border-radius: 4px; padding: 30px 0px;border-top-left-radius: 0;}
+.layerContrast_Right_BodyContent .saveLayerContrast {width: 80px; height: 30px; display: block;  background-color: #ffe696;  border-radius: 4px; padding: 5px 12px;
+    float: right;  margin-right: 10px;cursor:pointer;}
+.layerContrast_Right_BodyContent .saveLayerContrast:hover {background-color: #ffb400; }
+
+
+.contentChooseDiv {height: 30px; margin-bottom:10px;}
+.contentChooseDiv > span {height: 30px;display: block;text-align: center; padding: 5px 0px;}
+.contentChooseDiv > p { position:relative;}
+.contentChooseDiv > p > input {width: 100%;height: 30px;border-radius: 4px;padding-left: 3px;cursor:pointer;}
+.contentChooseDiv > p > span.itemChoose {position: absolute; right: 15px; top: 0px; width: 30px; height: 30px; background: #d2d2d2; color: #000;font-weight: bold;padding: 4px 8px;
+    border-top-right-radius: 4px; border-bottom-right-radius: 4px;cursor:pointer;}
+/*.contentChooseDiv > p > span.itemChoose:hover { background-color:#a0deff;}
+.contentChooseDiv > p > span.itemChoose.active { background-color:#a0deff;}*/
+.contentChooseDiv > p:hover > span.itemChoose{ background-color:#a0deff;}
+.contentChooseDiv > p.active > span.itemChoose{ background-color:#a0deff;}
+
+.contentTree {}
+.contentTree > p {position: relative;height: 32px;border-bottom: 1px solid #a0dcff;width: 100%;margin:0;background: #fff;z-index: 2;border-top: 1px solid #a0dcff;border-left: 1px solid #a0dcff;border-right: 1px solid #a0dcff;border-top-left-radius: 4px;border-top-right-radius: 4px;}
+.contentTree > p > span:first-child {float: left;padding: 6px 20px; }
+.contentTree > p > span:last-child {display: block;float: right; cursor:pointer;border-radius: 50%;width: 25px;height: 25px;margin-top: 3px;margin-right: 3px; padding: 2px 0px;}
+.contentTree > p > span:last-child:hover {background-color:#ffb400;}
+.contentTree > div {position: relative;height: 100%;width: 100%;border: 1px solid #a0dcff;border-radius: 4px;margin-top: -32px;padding-top: 32px;}
+
+
+
+.layerContrast_Left > div:first-child
+{ position: relative; top: 0; width: 100%; height: 30px; background-color: #ffe696;border-top-left-radius:4px;border-top-right-radius:4px;}
+.layerContrast_Left > div:first-child + div
+{  width: 100%; height: 100%; padding-top: 30px; margin-top: -30px; background-color: #fff; border-radius: 4px;  border: 1px solid #d2d2d2;}
+
+
+.layerContrast_Left .layerContrast_Left_Title
+ {height: 100%; width: auto; float: left; font-size: 14px; padding: 4px 20px; }
+
+/*标题上删除样式*/
+.layerContrast_Left .titleIcon{ float: right;width: 26px;height: 26px;margin-top: 2px;margin-right: 10px;text-align: center;font-size: 14px;padding: 6px 0px;border-radius: 25px;color:#a0a0a0;}
+.layerContrast_Left .titleIconActive{ float: right;width: 26px;height: 26px;margin-top: 2px;margin-right: 10px;text-align: center;font-size: 14px;padding: 6px 0px;border-radius: 25px;cursor:pointer;color:#000000;}
+.layerContrast_Left .titleIconActive:hover {background-color:#ffb400; }
+
+
+
+.layerContrast_Left_Search{display:none; height: 30px; margin-top: 10px; margin-bottom: 10px;  padding: 0px 20px;}
+.layerContrast_Left_Search.active{ display:block;}
+/*默认添加容器样式*/
+#addFunctionTypeDiv{display:none; height: 30px; margin-top: 10px; margin-bottom: 10px;  padding: 0px 20px;}
+#addFunctionTypeDiv.active { display:block;}
+#addFunctionTypeDiv > div{ border: 1px dashed #d2d2d2; height: 34px;border-radius: 4px; cursor: pointer;text-align: center; padding: 5px 0px;}
+#addFunctionTypeDiv > div:hover{background-color:#b4e6ff; }
+#addFunctionTypeDiv > div > span{  margin-right: 5px; }
+.changeMargin { margin-top:-40px;}
+
+
+.layerContrast_Left_Search > input 
+{ float:left;}
+
+.layerContrast_Left_Search > span
+{   float: left;  font-size: 18px;  margin-top: 8px;  margin-left: -27px;  cursor: pointer;}
+.layerContrast_Left_Container
+{ height: 100%;  margin-top: -50px;  padding-top: 50px;}
+
+.layerContrast_Left_Container>div
+{
+      height: 100%;padding: 0px 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

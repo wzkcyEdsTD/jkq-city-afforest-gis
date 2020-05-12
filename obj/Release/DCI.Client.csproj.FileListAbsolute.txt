@@ -1,0 +1,5 @@
+E:\Documents\DCI2015\ONEMAP\Code\DCI.Client\bin\Client.dll
+E:\Documents\DCI2015\ONEMAP\Code\DCI.Client\bin\Client.pdb
+E:\Documents\DCI2015\ONEMAP\Code\DCI.Client\obj\Release\DCI.Client.csprojResolveAssemblyReference.cache
+E:\Documents\DCI2015\ONEMAP\Code\DCI.Client\obj\Release\Client.dll
+E:\Documents\DCI2015\ONEMAP\Code\DCI.Client\obj\Release\Client.pdb

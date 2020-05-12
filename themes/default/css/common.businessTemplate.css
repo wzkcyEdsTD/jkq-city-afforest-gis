@@ -1,0 +1,24 @@
+﻿.businessTemplate {display: inline-block; width: 100%;}
+.businessTemplate>p { font-size: 14px; margin: 10px 0px; font-weight: bold; }
+.businessTemplateLeft { position: absolute; z-index: 2; display: inline-block;width:30px; }
+.businessTemplateRight {float: right;margin-top: -20px;width: 100%; padding-right: 40px; margin-right: -40px; }
+/*.businessTemplateLeft > div { position: relative; display: table; height: 30px; background-color: #d2d2d2; color: #000000; border-radius: 50px; padding: 5px 11px; font-size: 14px; margin-bottom: 5px; cursor: default; }*/
+.businessTemplateLeft > div { position: relative; display: flex;width:100%; height: 30px; background-color: #d2d2d2; color: #000000; border-radius: 50px; padding: 5px 11px; font-size: 14px; margin-bottom: 5px; cursor: default; overflow: hidden; white-space: nowrap; text-overflow:clip;}
+.businessTemplateLeft > div.passedStep { background-color:#afe6ff ;cursor:pointer;}
+.businessTemplateLeft > div.otherStep { cursor:pointer;}
+.businessTemplateLeft > div.currentStep {background-color:#64c8ff;cursor:default;}
+/*.businessTemplateLeft > div > span { margin-left: 10px; display: none;}
+.businessTemplateLeft > div > span.hover { display:inline;}*/
+.businessTemplateLeft > div > span { margin-left: 11px;/*display: block;*/}
+
+.businessTemplateRight > div { margin-bottom: 20px; }
+.businessTemplateRight >div> p {text-align: right; width: 100%; margin: 0px 0px 5px 0px;}
+.businessTemplateRight >div> p > span { font-size: 12px; color: #64c8ff; cursor: pointer; margin-left: 10px; }
+.businessTemplateRight >div> p > span:hover { color: #428bca; }
+
+.businessTemplateRight > div > table { width: 100%; }
+.businessTemplateRight >div> table tr:first-child {border-top: 1px solid #d2d2d2;}
+.businessTemplateRight >div> table tr { border-bottom: 1px solid #d2d2d2; border-left: 1px solid #d2d2d2; border-right: 1px solid #d2d2d2; }
+.businessTemplateRight >div> table td:first-child { background: #f5f5f5; border-right: 1px solid #d2d2d2; width: 120px; }
+.businessTemplateRight >div> table > tbody > tr > td { padding: 4px 8px 4px 8px; font-size: 12px; }
+.businessTemplateRight > div > table .emptyContent { text-align: center; }

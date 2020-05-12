@@ -1,0 +1,46 @@
+﻿.loggingpanel { position:relative;width:100%;height:100%;}
+
+.loggingpanel .top { width:100%; height:35px;text-align:center;}
+.loggingpanel .top .loggingPanel_Search {width: 90%;height: 100%;display: inline-block;}
+.loggingpanel .top .loggingPanel_Search > input { float:left;width: 50%;}
+.loggingpanel .top .loggingPanel_Search > span { float: left; font-size: 18px; margin-top: 8px; margin-left: -27px; cursor: pointer;}
+
+
+.loggingpanel .content { width:100%;height:100%;padding: 45px 0px 40px 0px;margin-top:-35px;}
+.loggingpanel .content .logginglist { position:relative; width:100%; height:100%;padding:0px;}
+.loggingpanel .content .mainContent { position:absolute; width:100%;height:100%; z-index:100;}
+.loggingpanel .content .mainContent .loggingContentTitle { height: 30px; width: 100%;}
+.loggingpanel .content .mainContent .loggingContentBody { width: 100%; height: 100%;padding-top: 30px; margin-top: -30px;}
+
+
+.loggingpanel .content .mainContent-flash { position:absolute; width:100%;height:100%; text-align:center; z-index:1;}
+.loggingpanel .mainContent-flash > span { position:relative; top:50%; margin-top:-50px; display:block; width:100px; height:100px; margin-left:auto;margin-right:auto;}
+
+
+.loggingpanel thead {
+    position: relative;
+    top: 0;
+    width: 100%;
+    height: 30px;
+    background-color: #ffe696;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+
+    }
+.loggingpanel table {
+    margin:0 auto;
+    width: 90%;
+    text-align: center;
+    table-layout:fixed;
+}
+.loggingpanel .table thead > tr > th,.table tbody > tr > td {
+    height:30px;
+    min-height:30px;
+    max-height:30px;
+    padding: 5px;
+    vertical-align: bottom;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.loggingpanel .pagination { position:absolute; bottom:0px; width:100%; height:40px; z-index:50;margin:0;padding:5px 0px;}

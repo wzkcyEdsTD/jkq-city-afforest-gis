@@ -1,0 +1,76 @@
+﻿/*工具栏*/
+.leaflet-control-toolbar{position:absolute;right:-60px; top: 150px; width:96px;height:300px; z-index:200; display:none;}
+.leaflet-control-toolbar .toggle{width:20px; height:100%; float:left;}
+.leaflet-control-toolbar .toggle>img{width:20px; height:36px; text-align:center; position:relative;top:100px;background-color:#00a0ac; cursor:pointer;}
+.leaflet-control-toolbar .toolbar{width:76px; height:100%; float:left;}
+.leaflet-control-toolbar .toolbar-content{position:relative;list-style:none;margin:0;padding:0;width:100%;height:100%;text-align:center;}
+.leaflet-control-toolbar .toolbar-content li{background-color:black; opacity:0.20; padding:10px 0px 10px 0px; color:white;}
+/*.leaflet-control-toolbar .toolbar-content li{background-color:white; opacity:1; padding:10px 0px 10px 0px; color:#007daa;}*/
+/*工具栏提示*/
+.qtip{background:white;color: green;border-radius:5px;border-color:white;}
+.qtip-content{text-align: center;font-size: 16px; padding:8px 0px 8px 0px;}
+
+
+/*弹出面板*/
+.toolpanel{position:absolute;z-index:2000;/*background:white;*/display:none;}
+.toolpanel .header{/*background:#06b0bc;height:25px;line-height:25px;*/}
+.toolpanel .content{}
+.toolpanel .footer{}
+
+
+/*图斑协调-具体样式*/
+.toolAnalysis{top:125px;right:95px;width:380px;height:420px;}
+.toolAnalysis .header{height:25px;}
+.toolAnalysis .header>span{width:30px; height:25px; float:right; color:white;background-color:#1aaabe; font-size:18px; text-align:center; padding-left:5px; }
+.toolAnalysis .content{background-color:white; color:#646464; font-weight:bold; height:400px; box-shadow: 0px -3px 5px #1baadb;}
+.toolAnalysis .content > div:first-child {height:40px; padding-top:15px; text-align: center;font-size: 22px;color: #1aaabe;}
+.toolAnalysis .content > div:not(:first-child){ text-align: center; padding-top:20px;}
+.toolAnalysis .content input { width:240px;height:26px; padding-left:20px;}
+.toolAnalysis .content .caret{margin-left:-15px; font-size:18px;}
+.open > .dropdown-menu{height:auto;}
+.toolAnalysis span.dropdown-toggle{cursor:pointer;}
+.toolAnalysis .polygonArea,.toolAnalysis .polygonArea li{width:80px; min-width:80px;}                                 
+.toolAnalysis .landProperty,.toolAnalysis .differenceType,.toolAnalysis .firstOpinion,.toolAnalysis .secondOpinion,.toolAnalysis .thirdOpinion{width:240px;}
+.toolAnalysis .landProperty li,.toolAnalysis .differenceType li,.toolAnalysis .firstOpinion li,.toolAnalysis .secondOpinion li,.toolAnalysis .thirdOpinion li{width:100%;}
+.toolAnalysis .content button{border:0 solid white;width:200px; height: 35px;background:#00a0ac; color:white;border-radius: 5px;margin-left: 35px;font-size: 18px;font-weight: normal;}
+
+
+/*分析结果-具体样式*/
+.toolAnalysisResult{ bottom:5px; right:200px; width:900px;height:343px; }
+.toolAnalysisResult .header{height:30px; width:100%;background-color:#1aaabe; border-top-left-radius: 5px;border-top-right-radius: 5px;color: white;font-size: 14px;padding: 3px 7px 3px 5px;}
+.toolAnalysisResult .content{height:270px; width:100%; overflow-x:auto; overflow-y:hidden;background-color:white; }
+.toolAnalysisResult .footer { height:35px; width:100%;}
+
+.toolAnalysisResult .content>div:first-child{height:25px; width:1500px;margin:0; padding:0; color: #1aaabe;}
+.toolAnalysisResult .content>div:nth-child(2){height:240px; width:100%; margin:0; padding:0;}
+.toolAnalysisResult .content>div:nth-child(2)>div{height:240px; width:1500px; overflow-y: auto;}
+
+
+.toolAnalysisResult .titleTable tr,.toolAnalysisResult .titleTable th{height:25px; text-align:center; vertical-align:middle; padding:0; margin:0;}
+.toolAnalysisResult .dataTable { table-layout:fixed; }
+.toolAnalysisResult .dataTable .resultTr { height:25px; max-height:25px;}
+.toolAnalysisResult .dataTable tr,.toolAnalysisResult .dataTable td{height:25px; text-align:center; vertical-align:middle; padding:0; margin:0;}
+/*.toolAnalysisResult .dataTable tr { height:25px; padding:0;margin:0; text-align:center; vertical-align:middle;}*/
+.toolAnalysisResult .dataTable td{ padding:0;margin:0; text-align:center; vertical-align:middle; white-space: nowrap;text-overflow: ellipsis;overflow: hidden;}
+
+.toolAnalysisResult .dataTable .resultTr input { height:20px; max-height:25px;}
+.toolAnalysisResult .content .one{width:30px;}
+.toolAnalysisResult .content .two{width:70px; }
+.toolAnalysisResult .content .three{width:90px; }
+.toolAnalysisResult .content .four{width:90px; }
+.toolAnalysisResult .content .five{width:100px;}
+.toolAnalysisResult .content .six{width:100px;}
+.toolAnalysisResult .content .seven{width:200px;}
+.toolAnalysisResult .content .eight{width:200px; }
+.toolAnalysisResult .content .nine{width:100px; }
+.toolAnalysisResult .content .ten{width:100px; }
+.toolAnalysisResult .content .eleven{width:100px; }
+/*.toolAnalysisResult .resultTr .seven,.toolAnalysisResult .resultTr .eight,.toolAnalysisResult .resultTr .nine,.toolAnalysisResult .resultTr .ten,.toolAnalysisResult .resultTr .eleven,.toolAnalysisResult .resultTr .twelve{padding:2px 2px;}*/
+/*.toolAnalysisResult .content .resultTr .twelve textarea{height:100%; padding:0px; border-color:white;}*/
+/*.toolAnalysisResult .content textarea { width:100%;height:100%; padding:0px; border-color:white;}
+.resultHighlight { background-color:#72c8ce;}*/
+
+.toolAnalysisResult .footer button{border:0 solid white;float:right;width:100px; height: 35px;background:#00a0ac; color:white;border-radius: 5px;font-size: 18px;font-weight: normal;}
+/*.toolAnalysisResult .content .twelve{width:100px; }*/
+/*.toolAnalysisResult thead{ height:50px; width:100%; }
+.toolAnalysisResult tbody{ overflow-y:auto; min-height:200px; }*/

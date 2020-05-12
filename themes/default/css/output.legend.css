@@ -1,0 +1,125 @@
+﻿.output-legend-show
+{
+    height:100%;
+    width:100%;
+    margin:0 !important;
+    font-size:12px;
+}
+    .output-legend-show .body-show
+    {
+        left:0;
+        height:100%;
+        min-width:100%;
+        position:relative;
+        background:white;
+    }
+.output-legend-show .ul-legend-show{
+    position:relative;
+    padding-top:5px;
+    height:100%;
+    padding-left:0;
+    display:table-cell;
+
+}
+.output-legend-show .ul-legend-show li {
+    vertical-align:middle;
+    position:relative;
+    padding-left:32px;
+    height:30px;
+    width:143px;
+    line-height:30px;
+    padding-right:5px;
+    display:block;
+
+}
+
+.output-legend-show .ul-legend-show li img{
+    position:absolute;
+    height:30px;
+    width:27px;
+    margin-left:-13px;
+    background-size: 100% auto !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+
+}
+.output-legend-show .ul-legend-show li label{
+    white-space:nowrap;
+    overflow:hidden;
+    margin-bottom:0;
+    margin-left: 25px;
+    height:30px;
+    font-weight:normal;
+    width:113px;
+    text-overflow:ellipsis;-o-text-overflow:ellipsis;-icab-text-overflow: ellipsis;-khtml-text-overflow: ellipsis;-moz-text-overflow: ellipsis;-webkit-text-overflow: ellipsis;
+
+}
+
+/*==========================================================================================*/
+
+
+.output-legend-control{
+    height:100%;
+    width:100%;
+    margin:0 !important
+}
+
+.output-legend-control .body{
+    left:0;
+    height:100%;
+    position:relative;
+    background:white;
+    min-width:100%;
+
+}
+.output-legend-control-tran{-webkit-transition:left .25s;-o-transition:left .25s;transition:left .25s;}
+
+.output-legend-control .ul-legend{
+    position:relative;
+    padding-top:5px;
+    height:100%;
+    padding-left:0;
+    display:table-cell;
+}
+
+.output-legend-control .ul-legend li {
+    vertical-align:middle;
+    position:relative;
+    padding-left:32px;
+    height:30px;
+    width:173px;
+    line-height:30px;
+    padding-right:5px;
+    display:block;
+
+}
+
+.output-legend-control .ul-legend li input{
+    position:absolute;
+    margin-left:-30px; 
+    background-size: 100% auto !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+
+}
+.output-legend-control .ul-legend li img{
+    position:absolute;
+    height:30px;
+    width:27px;
+    margin-left:-13px;
+    background-size: 100% auto !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+
+}
+.output-legend-control .ul-legend li label{
+    white-space:nowrap;
+    overflow:hidden;
+    margin-bottom:0;
+    margin-left: 25px;
+    height:30px;
+    font-weight:normal;
+    width:113px;
+    text-overflow:ellipsis;-o-text-overflow:ellipsis;-icab-text-overflow: ellipsis;-khtml-text-overflow: ellipsis;-moz-text-overflow: ellipsis;-webkit-text-overflow: ellipsis;
+
+}

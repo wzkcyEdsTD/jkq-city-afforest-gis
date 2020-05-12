@@ -1,0 +1,8 @@
+﻿.myPagination { height:30px; margin-left:auto; margin-right:auto;text-align: center;}
+.myPagination ul { height:100%; width:auto; padding: 3px 0px;margin:0px; list-style:none;display: inline-block;}
+.myPagination li { float:left; width:24px; height:24px; margin-right:5px;}
+.myPagination li > a {display:block; width:100%; height:100%; border-radius:50%; color:#000000; cursor:pointer;padding-top: 2px;text-align: center;
+text-decoration: none;font-size: 14px;}
+.myPagination li > a:hover { background-color:#d2d2d2; color:#fff;}
+
+.pageHighlight { background-color:#ffb400; color:#fff;}
