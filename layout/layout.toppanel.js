@@ -128,9 +128,16 @@ define("layout/toppanel", [
                 }
             };
             this._setSystemType();
+            //  bind toppanel event
+            this._toppanelEvent();
         },
 
+        /**
+         * 头部点击事件绑定
+         * */
+        _toppanelEvent: function () {
 
+        },
 
         /**
         *显示用户信息

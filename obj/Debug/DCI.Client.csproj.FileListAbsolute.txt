@@ -22,3 +22,10 @@ F:\PROJECTS\市政园林\map_bak_0508\map\obj\Debug\DCI.Client.csprojAssemblyRef
 F:\PROJECTS\市政园林\map_bak_0508\map\obj\Debug\DCI.Client.csproj.CoreCompileInputs.cache
 F:\PROJECTS\市政园林\map_bak_0508\map\obj\Debug\Client.dll
 F:\PROJECTS\市政园林\map_bak_0508\map\obj\Debug\Client.pdb
+F:\PROJECTS\github\jkq-city-afforest-gis\bin\Client.dll.config
+F:\PROJECTS\github\jkq-city-afforest-gis\bin\Client.dll
+F:\PROJECTS\github\jkq-city-afforest-gis\bin\Client.pdb
+F:\PROJECTS\github\jkq-city-afforest-gis\obj\Debug\DCI.Client.csprojAssemblyReference.cache
+F:\PROJECTS\github\jkq-city-afforest-gis\obj\Debug\DCI.Client.csproj.CoreCompileInputs.cache
+F:\PROJECTS\github\jkq-city-afforest-gis\obj\Debug\Client.dll
+F:\PROJECTS\github\jkq-city-afforest-gis\obj\Debug\Client.pdb

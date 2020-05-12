@@ -922,8 +922,12 @@ display:none !important;
 	.slideMenuBar .navbar-nav>li {
 		float: left;
 		margin-top: 15px;
-		margin-right: 0px;!important;
+		margin-right: 0px!important;
 	}
+        /* 强制白色 */
+        .slideMenuBar .navbar-nav > li > a{
+            color: white!important;
+        }
 	
 	#carousel-projectYhzp .carousel-indicators .active {
 		background-color: gray;

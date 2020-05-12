@@ -780,7 +780,9 @@
       <DependentUpon>splitscreen.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="modules\tables\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="modules\output\output.export.ashx" />
     <Content Include="login.setting.ashx" />
