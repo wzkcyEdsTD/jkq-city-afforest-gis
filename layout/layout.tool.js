@@ -37,6 +37,7 @@ define("layout/tool", [
     "query/projectquery",
     "query/propertyquery",
     "analysis/greenSpaceAnalysis",
+    "tables/extraQuery"
 ], function (L) {
 
     L.DCI.Tool = L.DCI.BaseObject.extend({
@@ -769,21 +770,6 @@ define("layout/tool", [
             }, 3000);
         },
         /**
-       *市政设施统计分析
-       *@method facilitiesStatistics
-       */
-        facilitiesStatistics: function () {
-            if (L.dci.app.pool.has("LeftContentPanel") == false) {
-                var leftcontentpanel = new L.DCI.Layout.LeftContentPanel();
-                L.dci.app.pool.add(leftcontentpanel);
-            }
-            if (L.dci.app.pool.has("FacilitiesStatistics") == true) {//如果可用地存量存在，则清除用地强度开发的缓存
-                L.dci.app.pool.remove('FacilitiesStatistics');
-            }
-            var facilitiesStatistics = new L.DCI.FacilitiesStatistics();
-            L.dci.app.pool.add(facilitiesStatistics);
-        },
-        /**
         **绿地变化分析
        **/
         greenSpaceAnalysis: function () {
@@ -797,6 +783,51 @@ define("layout/tool", [
                 greenSpaceAnalysis = L.dci.app.pool.get("greenSpaceAnalysis");
             }
             greenSpaceAnalysis.startAnalyze();
+        },
+        /**
+         * 数据搜索
+         * */
+        DataQuery: function () {
+            const extraQuery = new L.DCI.ExtraQuery();
+            console.log(extraQuery)
+        },
+        /**
+         * 统计分析
+         * */
+        facilitiesStatistics: function () {
+            if (L.dci.app.pool.has("LeftContentPanel") == false) {
+                var leftcontentpanel = new L.DCI.Layout.LeftContentPanel();
+                L.dci.app.pool.add(leftcontentpanel);
+            }
+            if (L.dci.app.pool.has("FacilitiesStatistics") == true) {//如果可用地存量存在，则清除用地强度开发的缓存
+                L.dci.app.pool.remove('FacilitiesStatistics');
+            }
+            var facilitiesStatistics = new L.DCI.FacilitiesStatistics();
+            L.dci.app.pool.add(facilitiesStatistics);
+        },
+        /**
+         * 病虫害
+         * */
+        WithDiseased: function () {
+            L.dci.app.util.dialog.alert("提示", "该服务正在开发中");
+        },
+        /**
+         * 日常巡检
+         * */
+        DailyInspection: function () {
+            L.dci.app.util.dialog.alert("提示", "该服务正在开发中");
+        },
+        /**
+         * 公众服务
+         * */
+        PublicServiceNew: function () {
+            L.dci.app.util.dialog.alert("提示", "该服务正在开发中");
+        },
+        /**
+         * 全景点
+         * */
+        ScenicSpot: function () {
+            L.dci.app.util.dialog.alert("提示", "该服务正在开发中");
         }
     });
 

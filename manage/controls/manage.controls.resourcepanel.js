@@ -122,9 +122,9 @@ define("manage/controls/registerresource", [
         *@method saveResource
         *@param e {Object} 事件对象
         */
-        saveResource: function (e) {
+        saveResource: async function (e) {
             var name = $.trim($(".addResource .txtName").val());
-            var obj = this.verifyResourceName(name);
+            var obj = await this.verifyResourceName(name);
             if (obj.verifyName == false)
             {
                 $(".errorText").text(obj.errorText);
@@ -195,47 +195,45 @@ define("manage/controls/registerresource", [
         *@return {Object} 服务名称验证结果以及提示内容
         */
         verifyResourceName: function (name) {
-            if (name == "")
-                return { "verifyName": false, "errorText": "服务名称不能为空" };
-            if (name.indexOf(" ") > -1)
-                return { "verifyName": false, "errorText": "服务名称不能包含空格" };
-            if (name.length > 10)
-            {
-                return { "verifyName": false, "errorText": "服务名称长度不能大于10" };
-            }
-            var result = null;
-            L.baseservice.getResource({
-                async: false,
-                context: this,
-                success: function (resource) {
-                    if (resource == null)
-                    {
-                        result = { "verifyName": true, "errorText": "" };
-                    }
-                    else
-                    {
-                        var data = resource;
-                        var count = 0;
-                        for (var i = 0; i < data.length; i++)
-                        {
-                            if (data[i].RESOURCENAME == name)
-                            {
-                                result = { "verifyName": false, "errorText": "服务名称已使用，请重新重新输入" };
-                                count = 1;
-                                break;
-                            }
-                        }
-                        if (count == 0)
-                        {
+            const _this = this;
+            return new Promise(function (resolve, reject) {
+                if (name == "")
+                    return { "verifyName": false, "errorText": "服务名称不能为空" };
+                if (name.indexOf(" ") > -1)
+                    return { "verifyName": false, "errorText": "服务名称不能包含空格" };
+                if (name.length > 10) {
+                    return { "verifyName": false, "errorText": "服务名称长度不能大于10" };
+                }
+                var result = null;
+                L.baseservice.getResource({
+                    async: false,
+                    context: _this,
+                    success: function (resource) {
+                        if (resource == null) {
                             result = { "verifyName": true, "errorText": "" };
                         }
+                        else {
+                            var data = resource;
+                            var count = 0;
+                            for (var i = 0; i < data.length; i++) {
+                                if (data[i].RESOURCENAME == name) {
+                                    result = { "verifyName": false, "errorText": "服务名称已使用，请重新重新输入" };
+                                    count = 1;
+                                    break;
+                                }
+                            }
+                            if (count == 0) {
+                                result = { "verifyName": true, "errorText": "" };
+                            }
+                        }
+                        resolve(result);
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        result = { "verifyName": false, "errorText": "获取所有资源信息失败" };
+                        resolve(result);
                     }
-                },
-                error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    result = { "verifyName": false, "errorText": "获取所有资源信息失败" };
-                }
-            });
-            return result;
+                });
+            })
         },
         /**
         *更新锁定状态
@@ -626,7 +624,7 @@ define("manage/controls/registerresource", [
         *@method saveUpdateResource
         *@param options {Object} 参数（resourceId:服务id，name:服务名称，type:服务类型，url:服务地址）
         */
-        saveUpdateResource: function (resourceId, name, type, url) {
+        saveUpdateResource: async function (resourceId, name, type, url) {
             var newName = $.trim($(".txtName").val());
             var newUrl = $.trim($(".txtURL").val());
             var newType = parseInt($.trim($("#addResourcedropdownMenuText").attr("data-info")));
@@ -665,7 +663,7 @@ define("manage/controls/registerresource", [
                 //服务名称改变
                 if (name != newName)
                 {
-                    var obj = this.verifyResourceName(newName);
+                    var obj = await this.verifyResourceName(newName);
                     if (obj.verifyName == false)
                     {
                         $(".errorText").text(obj.errorText);

@@ -108,7 +108,13 @@ define("core/map", [
          *@private
          */
         _highLightLayer: null,
-
+        /**
+         *临时图标图层
+         *@property _labelLayer
+         *@type {Object}
+         *@private
+         */
+        _labelLayer: null,
          /**
          *高亮图层集合
          *@property _HLLayer
@@ -304,7 +310,7 @@ define("core/map", [
             this._addContextmenu();
             this.map = L.map(this.container, this.options);
             this.map.options.baseLayerUrl = options.baseLayer.url;
-            this.map.setView(centerPoint, options.zoom);
+            this.map.setView({ lat: 27.970294330371438, lng: 120.69105770072038 }, options.zoom);
 
             //=======================添加底图 this._baseLayer 存在异步请求的情况=================/
             if (this._baseLayer) {
@@ -334,11 +340,15 @@ define("core/map", [
             //======================保存视图=========================/
             this._viewHistory = [{ center: centerPoint, zoom: options.zoom }];
             this._curIndx = 0;
+            this.map.on('click', function (e) { console.log(e)}, this);
             this.map.on('moveend', this._updateHistory, this);
             //=========================保存视图=======================/
 
             this._highLightLayer = new L.layerGroup();
             this._highLightLayer.addTo(this.map);
+
+            this._labelLayer = new L.layerGroup();
+            this._labelLayer.addTo(this.map);
 
             this._geoJsonLayerGroup = new L.geoJson();
             this._geoJsonLayerGroup.addTo(this.map);
@@ -928,6 +938,7 @@ define("core/map", [
             if (this._query) this._query.clear();
             if (this._popup) this.map.removeLayer(this._popup);
             if (this._highLightLayer) this._highLightLayer.clearLayers();
+            if (this._labelLayer) this._labelLayer.clearLayers();
             if (this._geoJsonLayerGroup) this._geoJsonLayerGroup.clearLayers();
             this.clearAllHLLayer();
             this.removeAllCad();
@@ -1240,7 +1251,14 @@ define("core/map", [
         getHighLightLayer: function () {
             return this._highLightLayer;
         },
-
+        /**
+        *获取图层
+        *@method getLabelLayer
+        *@return {Object} 返回图层对象
+        */
+        getLabelLayer: function () {
+            return this._labelLayer;
+        },
         /**
         *第二版获取高亮图层方法，防止互斥
         *@method getHLLayer

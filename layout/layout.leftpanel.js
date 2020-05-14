@@ -14,7 +14,8 @@ define("layout/leftpanel", [
     "layout/base",
     "plugins/mousewheel",
     "query/resultpanel",
-    "plugins/scrollbar"
+    "plugins/scrollbar",
+    "tables/dataTables",
 ], function (L, heatmap, HeatmapOverlay) {
 
     L.DCI.Layout.LeftPanel = L.DCI.Layout.extend({
@@ -101,6 +102,7 @@ define("layout/leftpanel", [
             $("#leftpanel").on('click', 'div.shrinknenu', { context: this }, function (e) {
                 e.data.context._shrinkMenu(e)
             });
+            const etable = new L.DCI.DataTables();
         },
         /**
         *默认加载的图层

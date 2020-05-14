@@ -13,6 +13,7 @@ define("core/application", [
     "core/symbol",
     "data/baseservice",
     "data/services",
+    "data/arcgisxhr",
     "util/base",
     "core/multimap",
     "common/sview",
@@ -135,6 +136,7 @@ define("core/application", [
                 this.menu = new L.DCI.Menu(this.util,this.services);
                 this.symbol = new L.DCI.Symbol();
                 this.tool = new L.DCI.Tool();
+                this.arcgisXhr = new L.DCI.ArcgisXhr();
                 this.pool.add(this.tool);
                 //document.body.innerHTML += this.getBodyHtml(options);
             } catch (e) {

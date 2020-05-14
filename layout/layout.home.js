@@ -26,6 +26,7 @@
         "plugins/scrollbar": { deps: ['jquery'] },
         "plugins/bxslider": { deps: ['jquery'] },
         "plugins/form": { deps: ['jquery'] },
+
         "util/locate": { deps: ['leaflet'] }
     }
 });

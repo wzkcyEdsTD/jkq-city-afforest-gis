@@ -171,7 +171,7 @@ var Project_ParamConfig = {
     *@property defaultCoreServiceUrl
     *@type {String}
     */
-    defaultCoreServiceUrl: "http://192.168.39.41/GGSS/mapServices/v1",
+    defaultCoreServiceUrl: "http://192.168.0.139/DCI.Services/v1",
     /**
     *附件服务地址
     *@property defaultServiceUrl
@@ -273,7 +273,8 @@ var Project_ParamConfig = {
         *@type {String}
         */
         //url: 'http://192.168.20.54:6080/arcgis/rest/services/WZLSYX_WZ/25DYX_wz3q/MapServer',
-        url: 'http://192.168.39.134:6080/arcgis/rest/services/kfq_basemap_wz2000/kfq_erwei/MapServer',
+        //url: 'http://192.168.39.134:6080/arcgis/rest/services/kfq_basemap_wz2000/kfq_erwei/MapServer',
+        url: 'http://10.36.160.161:8080/OneMapServer/rest/services/shiliang_wz2000/MapServer',
         //url: 'http://' + UrlConfig.IP2 + '/arcgis/rest/services/basemap/kfq_slwz2000/MapServer',
         /**
         *原点
@@ -375,27 +376,17 @@ var Project_ParamConfig = {
             //origin: [-40451.4885089805, 64140.9319180626],
             origin: [-5123300.0 , 1.00023E7],
             //url: 'http://' + UrlConfig.IP2 + '/arcgis/rest/services/basemap/kfq_yxwz2000/MapServer'
-            url: 'http://192.168.39.134:6080/arcgis/rest/services/kfq_basemap_wz2000/kfq_yingxiang/MapServer'
-        },
-		{
-            id: 'baseLayer-zt',//切图
-            name: '专题图',
-            tiled: true,
-            img: 'yingxiangtu.png',
-            tileSize: 256,
-            //origin: [-40451.4885089805, 64140.9319180626],
-            origin: [-5123200.0, 1.00021E7],
-            url: 'http://' + UrlConfig.IP2 + '/arcgis/rest/services/kfq_basemap_wz2000/kfq_zong/MapServer'
+            url: 'http://10.36.160.161:8080/OneMapServer/rest/services/yingxiang_wz2000/MapServer'
         },
 		 {
             id: 'baseLayer-25D',//25维
-            name: '2D维',
+            name: '25D维',
             tiled: true,
             img: 'dixingtu.png',
             tileSize: 256,
             //origin: [-40451.4885089805, 64140.9319180626],
             origin: [-5123200.0, 1.00021E7],
-            url: 'http://' + UrlConfig.IP2 + '/arcgis/rest/services/kfq_basemap_wz2000/kfq_25dwei/MapServer'
+             url: 'http://10.36.160.161:8080/OneMapServer/rest/services/25D_wz2000/MapServer'
         },
         {
             id: 'baseLayer-bai',//25维

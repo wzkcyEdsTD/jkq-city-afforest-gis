@@ -34,6 +34,7 @@ var Default_Paths = {
     "core/symbol": '../core/core.symbol',
 
     "data/ajax": '../data/data.ajax',
+    "data/arcgisxhr": '../data/data.arcgisxhr',
     "data/services": '../data/data.services',
     "data/baseservice": '../data/data.baseservice',
     "data/analysis": '../data/data.analysis',
@@ -84,6 +85,8 @@ var Default_Paths = {
     "query/projectquery": '../modules/query/query.projectquery',
 	"query/propertyquery": '../modules/query/query.propertyquery',
 
+    "tables/dataTables": '../modules/tables/tables.dataTables',
+    "tables/extraQuery": '../modules/tables/tables.extraQuery',
 
     "analysis/addcad": '../modules/analysis/analysis.addcad',
     "analysis/colorpick": '../modules/analysis/colorpick/jquery.cxcolor',
@@ -127,8 +130,7 @@ var Default_Paths = {
     "plugins/bxslider": "../plugins/jquery.bxslider/jquery.bxslider",
     "plugins/pagination":"../plugins/plugins.pagination",
     "plugins/datetimepicker": "../plugins/My97DatePicker/WdatePicker",
-    "piugins/datatables":"../plugins/jquery.dataTables.min",
-    
+    "plugins/datatables":"../plugins/jquery.dataTables.min",
     "util/dialog": '../util/util.dialog',
     "util/log": '../util/util.log',
     "util/getxml": '../util/util.getxml',
@@ -158,7 +160,7 @@ var Default_Paths = {
     "business/wholelifecycleapproval": '../modules/business/business.wholelifecycle.approval',
     "business/indexcontrast": '../modules/business/business.indexcontrast',
     "business/mapmonitor": '../modules/business/business.mapmonitor',
-    "leafletHeat": '../library/leaflet/leaflet-heat'
+    "leafletHeat": '../library/leaflet/leaflet-heat',
     //"leafletHeat": '../library/leaflet/leaflet-div-heatmap'
     //"leaflet/heatmap": '../library/leaflet/heatmap/heatmap',
     //"leaflet/leafletheatmap": '../library/leaflet/heatmap/leaflet-heatmap'

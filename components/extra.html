@@ -1,0 +1,78 @@
+﻿<div class="extra_details">
+    <header>属性<span class="extra_close">×</span></header>
+    <div class="extra_details_body">
+        <div class="extra_details_body_left">
+            <div class="extra_details_body_left_tip" data-info="basic">基本信息</div>
+            <div class="extra_details_body_left_tip" data-info="maintain">养护信息</div>
+        </div>
+        <div class="extra_details_body_main"></div>
+    </div>
+</div>
+
+<style>
+    .extra_details {
+        position: fixed;
+        right: 50px;
+        top: 100px;
+        height: 360px;
+        width: 280px;
+        background-color: white;
+        z-index: 1999;
+        border-radius: 8px;
+    }
+        .extra_details > header {
+            height: 40px;
+            line-height: 40px;
+            background-color: #30305a;
+            color: white;
+            font-size: 16px;
+            padding:0 10px;
+            box-sizing:border-box;
+        }
+            .extra_details > header > span {
+                float:right;
+                font-size:20px;
+                font-weight:bold;
+                cursor:pointer;
+            }
+        .extra_details .extra_details_body{
+            height:360px;
+            position:relative;
+            height:100%;
+        }
+            .extra_details .extra_details_body > div {
+                display: inline-block;
+                vertical-align: top;
+                width: 30px;
+            }
+
+            .extra_details .extra_details_body .extra_details_body_left {
+                word-break: break-all;
+                position: absolute;
+                left: -29px;
+            }
+                .extra_details .extra_details_body .extra_details_body_left > div {
+                    border: 1px #ccc solid;
+                    border-radius: 4px 0 0 4px;
+                    margin-bottom: 2px;
+                    padding: 4px 6px;
+                    background-color: white;
+                    cursor: pointer;
+                }
+                    .extra_details .extra_details_body .extra_details_body_left > div:hover{
+                        border:1px #48a5ff solid;
+                    }
+            .extra_details .extra_details_body .extra_details_body_main {
+                box-sizing: border-box;
+                padding: 10px;
+                height: 100%;
+                width: 100%;
+                border:1px #ccc solid;
+                background-color:white;
+                overflow:auto;
+            }
+                .extra_details .extra_details_body .extra_details_body_main label {
+                    width: 100px;
+                }
+
+</style>

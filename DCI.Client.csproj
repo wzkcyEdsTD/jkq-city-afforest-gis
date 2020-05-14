@@ -66,6 +66,7 @@
   <ItemGroup>
     <Content Include="basic.aspx" />
     <Content Include="bmap\bmap.business.js" />
+    <Content Include="components\extra.html" />
     <Content Include="components\tcxz.vue.html">
       <SubType>Designer</SubType>
     </Content>
@@ -84,7 +85,6 @@
     <Content Include="controls\controls.spotAnalysis.js" />
     <Content Include="controls\controls.timeslider.js" />
     <Content Include="controls\controls.toolbar.js" />
-    <Content Include="data\data.arcgis.xhr.js" />
     <Content Include="data\data.manage.baseservice.js" />
     <Content Include="data\data.manage.handledata.js" />
     <Content Include="data\data.util.js" />
@@ -479,6 +479,7 @@
     <Content Include="themes\default\css\business.sxonemap.css" />
     <Content Include="themes\default\css\business.wholelifecycle.css" />
     <Content Include="themes\default\css\common.businessTemplate.css" />
+    <Content Include="themes\default\css\common.css" />
     <Content Include="themes\default\css\common.plotting.css" />
     <Content Include="themes\default\css\common.projectListTemplate.css" />
     <Content Include="themes\default\css\common.projectPhase.css" />

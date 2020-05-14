@@ -136,7 +136,9 @@ define("layout/toppanel", [
          * 头部点击事件绑定
          * */
         _toppanelEvent: function () {
-
+            $('body').on('click', '.top_manager_mapLayer', function () {
+                $("#shrinknenu").click();
+            });
         },
 
         /**
@@ -284,9 +286,9 @@ define("layout/toppanel", [
 
             $("#loginout-toppanel").on("click", function () {
                 L.dci.app.util.dialog.confirm("温馨提示", "确认要退出系统？", function () {
-                    //location.href = "login.aspx";
+                    location.href = "login.aspx";
                     //退出登录，返回审批平台登录页面
-                    location.href ="/GGSS/JGSP/User/Login";
+                    //location.href ="/GGSS/JGSP/User/Login";
                 });
             });
             $("#login-settings").on("click", function () {

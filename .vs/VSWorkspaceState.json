@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\bmap",
+    "\\core",
+    "\\data",
+    "\\modules",
+    "\\modules\\analysis",
+    "\\modules\\query",
+    "\\modules\\statistics",
+    "\\modules\\tables",
+    "\\projects"
+  ],
+  "SelectedNode": "\\DCI.Client.csproj",
+  "PreviewInSolutionExplorer": false
+}

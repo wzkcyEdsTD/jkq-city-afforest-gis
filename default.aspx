@@ -10,7 +10,9 @@
     <link rel="shortcut icon" href="themes/default/images/favicon.ico">
     <link rel="stylesheet" type="text/css" href="library/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="library/bootstrap/bootstrap-theme.min.css">
-	
+	<link href="themes/default/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="themes/default/css/common.css" rel="stylesheet" />
+
     <%--<link rel="stylesheet" type="text/css" href="themes/default/css/system.main.css">--%>
     <link type="text/css" rel="stylesheet" href="projects/layout/../../themes/default/css/layout.leftcontentpanel.css">
     <link type="text/css" rel="stylesheet" href="projects/layout/../../themes/default/css/layout.toolbar.css">
