@@ -1107,8 +1107,8 @@ define("controls/draw", [
                 if (this.Tools[tool] != null) this.Tools[tool].clear();
             }
             //刷新地图
-            this._map.panBy([10, 10]);
-            this._map.panBy([-10, -10]);
+            //this._map.panBy([10, 10]);
+            //this._map.panBy([-10, -10]);
           
         },
         //修复删除单个标绘之后，其他标绘信息无法删除的问题

@@ -26,8 +26,6 @@ define("layout/leftpanel", [
         *@private
         */
         tempHtml: '<div>'
-                    + '<p></p>'
-                    + '<div id="shrinknenu" class="shrinknenu icon-previous-page open"></div>'
                     + '<div id="leftpanelcontent" class="leftpanelcontent">'
                         + '<div id="leftpanelcontent_base" class="leftpanelcontent_base">'
                             + '<ul class="leftpanelcontent_base_sub"></ul>'
@@ -37,6 +35,7 @@ define("layout/leftpanel", [
                             + '<ul></ul>'
                         + '</div>'
                     + '</div>'
+                    + '<div id="shrinknenu" class="shrinknenu icon-previous-page open"></div>'
                 + '</div>',
         /**
         *专题目录
@@ -66,7 +65,13 @@ define("layout/leftpanel", [
         *@private
         */
         _fea_type: "",
-
+        /**
+        *要素类型
+        *@property _fea_type
+        *@type {Object}
+        *@private
+        */
+        _table:null,
         /**
         *已打开主题集的专题名称
         *@property _subjectFeatureName
@@ -102,7 +107,6 @@ define("layout/leftpanel", [
             $("#leftpanel").on('click', 'div.shrinknenu', { context: this }, function (e) {
                 e.data.context._shrinkMenu(e)
             });
-            const etable = new L.DCI.DataTables();
         },
         /**
         *默认加载的图层
@@ -399,7 +403,8 @@ define("layout/leftpanel", [
             //刷新三级菜单的高度
             //this.refreshBaseMenuHeight();
             //绑定地图集三级菜单事件
-            $("#leftpanelcontent_base").on('click', 'li.baseFeatureLayer[data-info="map-layer"]', { context: this }, function (e) { e.data.context._addBaseLayer(e); });
+            $("#leftpanelcontent_base").on('click', 'li.baseFeatureLayer[data-info="map-layer"] .hk-bg', { context: this }, function (e) { e.data.context._addBaseLayer(e); });
+            $("#leftpanelcontent_base").on('click', 'li.baseFeatureLayer[data-info="map-layer"] .baseFeatureLayerDetails', { context: this }, function (e) { e.data.context._addBaseTable(e); });
             $('#leftpanelcontent_base').on('click', 'li.baseFeatureLayer[data-info="map-layer_l"]', { context: this }, this._addLayer_lin);
             $('#leftpanelcontent_base').on('click', 'li.baseFeatureLayer[data-info="map-layer_l_s"]', { obj: this }, this._addLayer_lin_s);
         
@@ -506,7 +511,7 @@ define("layout/leftpanel", [
                 }
                 var num = data.length;
                 for (var k = 0; k < data.length; k++) {
-                    html += '<li class="baseFeatureLayer" id="layer-base-' + data[k]["FEATUREID"] + '" title="' + data[k]["FEATURENAME"] + '" data-info="map-layer"><span class="hk-bg"><span class="hk"></span></span><div class="baseFeatureLayerTitle">' + data[k]["FEATURENAME"] + '</div></li>';
+                    html += '<li class="baseFeatureLayer" id="layer-base-' + data[k]["FEATUREID"] + '" title="' + data[k]["FEATURENAME"] + '" data-info="map-layer"><span class="hk-bg"><span class="hk"></span></span><div class="baseFeatureLayerTitle">' + data[k]["FEATURENAME"] + '<span class="baseFeatureLayerDetails">详细信息</span></div></li>';
                 }
                 if (name == "SHP加载数据") {
                     $.each(map.shpLayerGroups, function (a, group) {
@@ -743,12 +748,35 @@ define("layout/leftpanel", [
             }
         },
         /**
+        *添加表格
+        *@method _addBaseTable
+        *@private
+        */
+        _addBaseTable: function (e) {
+            const _this = this;
+            const target = $(e.currentTarget).parent().parent(".baseFeatureLayer")[0];
+            const id = target.id.split("-")[2];
+            console.log(id);
+            L.dci.app.services.baseService.getFeatureLayerById({
+                id,
+                context: _this,
+                success: function (res) {
+                    if (res != "0" && res.length > 0) {
+                        _this._table && _this._table.doDestroy();
+                        _this._table = new L.DCI.DataTables(id,res[0] );
+                    } else {
+                        L.dci.app.util.dialog.alert("提示", "该服务已被禁用");
+                    }
+                }
+            });
+        },
+        /**
         *添加地图集里的三级专题菜单,叠加服务（分为图集叠加和热力图叠加）
         *@method _addBaseLayer
         *@private
         */
         _addBaseLayer: function (e) {
-            var target = e.currentTarget;
+            var target = $(e.currentTarget).parent(".baseFeatureLayer")[0];
             var id = target.id.split("-")[2];
             if ($(target).hasClass("active")) {
                 $(target).find(".hk").animate({ left: "0px" }, 100);

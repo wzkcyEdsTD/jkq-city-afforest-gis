@@ -37,7 +37,8 @@ define("layout/tool", [
     "query/projectquery",
     "query/propertyquery",
     "analysis/greenSpaceAnalysis",
-    "tables/extraQuery"
+    "tables/extraQuery",
+    "tables/withDiseased"
 ], function (L) {
 
     L.DCI.Tool = L.DCI.BaseObject.extend({
@@ -789,7 +790,6 @@ define("layout/tool", [
          * */
         DataQuery: function () {
             const extraQuery = new L.DCI.ExtraQuery();
-            console.log(extraQuery)
         },
         /**
          * 统计分析
@@ -809,7 +809,8 @@ define("layout/tool", [
          * 病虫害
          * */
         WithDiseased: function () {
-            L.dci.app.util.dialog.alert("提示", "该服务正在开发中");
+            const withDiseased = new L.DCI.WithDiseased();
+            // L.dci.app.util.dialog.alert("提示", "该服务正在开发中");
         },
         /**
          * 日常巡检

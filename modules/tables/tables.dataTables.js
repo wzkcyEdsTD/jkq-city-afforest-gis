@@ -23,10 +23,12 @@ define("tables/dataTables", [
         _hash: {},
         __fieldAliases: {},
         _force: null,
+        _config : null,
         /**
          * 表模板
          */
         _template: `<div class='extra_obj extra_dataTable extra_dataTable_###'><div>
+            <h4>%%%</h4>
             <div class="extra_header form-inline">
                 <div class="form-group mb-2"><label>街道: </label><input data-info="street" class="form-control"/></div>
                 <button class='btn btn-primary extra_dataTable_search'>搜索</button>
@@ -41,24 +43,26 @@ define("tables/dataTables", [
          * 过滤字段
          */
         _banned: ["FEATUREGUID","PICTURE"],
-        initialize: function (id = 'extra_dataTables') {
+        initialize: function (id = 'extra_dataTables', config) {
             //  this._table = $(`#${id}`).DataTables();
             this._id = id;
+            this._config = config;
             this._timestamp = + new Date();
             this.tableDefault();
             this.tableEvent();
             this.doTable();
         },
         doTable: function () {
-            const template = this._template.replace(/@@/g, this._id).replace(/###/g, this._timestamp);
+            const template = this._template.replace(/@@/g, this._id).replace(/###/g, this._timestamp).replace(/%%%/g, this._config.FeatureName);
             $(".extra_obj").remove();   // DOM删除 无注销内存
             $("body").append(template);
             this.queryTable();
         },
         queryTable: function () {
             const that = this;
+            const { Url, LayerIndex } = that._config;
             const arcgisxhr = new L.DCI.ArcgisXhr();
-            arcgisxhr.getArcgisByXhr("http://192.168.0.158:6080/arcgis/rest/services/YLGIS/ZHYL/MapServer/0/query", ({ fieldAliases, features }) => {
+            arcgisxhr.getArcgisByXhr(`${Url}/${LayerIndex}/query`, ({ fieldAliases, features }) => {
                 const _hash = {};
                 const data = features.map((v, index) => {
                     _hash[v.attributes.OBJECTID] = v;
@@ -97,6 +101,10 @@ define("tables/dataTables", [
             oSettings.aiDisplay = oSettings.aiDisplayMaster.slice();
             table.fnDraw();
         },
+        doTransform: function ({ x, y }) {
+            const crs = new L.Proj.CRS(Project_ParamConfig.crs.code, Project_ParamConfig.crs.defs);
+            return crs.projection.unproject(L.point(x, y));
+        },
         tableEvent: function () {
             const that = this;
             //  [表格]   搜索
@@ -109,7 +117,7 @@ define("tables/dataTables", [
                 //  赋值
                 that._force = data.attributes;
                 //  定位
-                const _geometry = { lat: data.geometry.y, lng: data.geometry.x }
+                const _geometry = that.doTransform(data.geometry);
                 const map = L.DCI.App.pool.get('MultiMap').getActiveMap();
                 const hlLayer = map.getLabelLayer();
                 hlLayer.clearLayers();
@@ -118,7 +126,7 @@ define("tables/dataTables", [
                     .setLatLng(_geometry)
                     .setContent(`${data.attributes.ADDRESS} - [${data.attributes.ZWM}]`)
                     .openOn(map.map);
-                map.map.panTo({ ..._geometry, lat: data.geometry.y - 0.02 });
+                map.map.panTo({ ..._geometry, lat: _geometry.lat - 0.02 });
                 
                 //  弹框
                 $(".extra_details").remove();
@@ -127,9 +135,7 @@ define("tables/dataTables", [
             });
             //  [表格]   点击退出
             $('body').on('click', `.extra_dataTable_${that._timestamp} .extra_dataTable_close`, function () {
-                that._table.api().destroy();
-                $(".extra_dataTable").remove();
-                
+                that.doDestroy();
             })
             //  [表格]   点击导出
             $('body').on('click', `.extra_dataTable_${that._timestamp} .extra_dataTable_export`, function () {
@@ -156,6 +162,10 @@ define("tables/dataTables", [
                     }
                 }
             })
+        },
+        doDestroy: function () {
+            this._table.api().destroy();
+            $(".extra_dataTable").remove();
         },
         doBasicDisplay: function () {
             $('.extra_details_body_main').html(`<div><header>基本信息</header><ul>${Object.keys(this._force).filter(v => !~this._banned.indexOf(v)).map(v => { return `<li><label>${this._fieldAliases[v]}</label><span>${this._force[v]}</span></li>` }).join('')}</ul></div>`);

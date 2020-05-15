@@ -6,13 +6,13 @@
  * @name extratables
  */
 
-define("tables/extraQuery", [
+define("tables/withDiseased", [
     "leaflet",
     'rqtext!../../components/extra.html',
     "core/dcins",
     "plugins/datatables",
 ], function (L, extra) {
-    L.DCI.ExtraQuery = L.DCI.Layout.extend({
+        L.DCI.WithDiseased = L.DCI.Layout.extend({
         /**
          * 表格对象集
          */
@@ -27,19 +27,13 @@ define("tables/extraQuery", [
         /**
          * 表模板
          */
-        _template: `<div class='extra_obj extra_query extra_query_###'><div>
-            <h4>数据搜索</h4>
+        _template: `<div class='extra_obj extra_withDiseased extra_withDiseased_###'><div>
+            <h4>病虫害</h4>
                <div class="extra_header form-inline">
-                <div class="form-group mb-3"><label>类型: </label><select class="form-control extra_query_select">
-                    <option value=1954 selected >公园绿地</option>
-                    <option value=1960>道路绿地</option>
-                    <option value=1947>古木名树</option>
-                    <option value=1983>地名地址</option>
-                </select></div>
                 <div class="form-group mb-3"><label>名称搜索: </label><input data-info="street" class="form-control"/></div>
-                <button class='btn btn-primary extra_query_search'>搜索</button>
-                <button class='btn btn-primary extra_query_export'>导出</button>
-                <span class="extra_query_close">x<span>
+                <button class='btn btn-primary extra_withDiseased_search'>搜索</button>
+                <button class='btn btn-primary extra_withDiseased_export'>导出</button>
+                <span class="extra_withDiseased_close">x<span>
             </div>
             <table id='@@'></table></div>`,
         _detail: `<div class='extra_detail'>
@@ -49,7 +43,7 @@ define("tables/extraQuery", [
          * 过滤字段
          */
         _banned: ["FEATUREGUID", "PICTURE"],
-        initialize: function (id = 'extra_querys') {
+        initialize: function (id = 'extra_withDiseaseds') {
             //  this._table = $(`#${id}`).DataTables();
             this._id = id;
             this._timestamp = + new Date();
@@ -65,7 +59,7 @@ define("tables/extraQuery", [
         queryTable: function () {
             const that = this;
             const arcgisxhr = new L.DCI.ArcgisXhr();
-            const id = $(".extra_query_select").val() || 1954;
+            const id = $(".extra_withDiseased_select").val() || 1954;
             L.dci.app.services.baseService.getFeatureLayerById({
                 id,
                 context: that,
@@ -86,7 +80,7 @@ define("tables/extraQuery", [
                             if (isNew) {
                                 that._table && that._table.api().destroy();
                                 $(`#${that._id}`).remove();
-                                $('.extra_query').append(`<table id='${that._id}'></table>`);
+                                $('.extra_withDiseased').append(`<table id='${that._id}'></table>`);
                                 that.initTable(data)
                             } else {
                                 that.initDetailTableData(data);
@@ -125,18 +119,18 @@ define("tables/extraQuery", [
             oSettings.aiDisplay = oSettings.aiDisplayMaster.slice();
             table.fnDraw();//绘制表格
         },
-        doTransform: function ({ x, y }){
+        doTransform: function ({ x, y }) {
             const crs = new L.Proj.CRS(Project_ParamConfig.crs.code, Project_ParamConfig.crs.defs);
             return crs.projection.unproject(L.point(x, y));
         },
         tableEvent: function () {
             const that = this;
             //  [表格]   搜索
-            $('body').on('click', `.extra_query_${that._timestamp} .extra_query_search`, function () {
+            $('body').on('click', `.extra_withDiseased_${that._timestamp} .extra_withDiseased_search`, function () {
                 that.queryTable();
             })
             //  [表格] 点击条目
-            $('body').on('click', `.extra_query_${that._timestamp} tbody tr`, function () {
+            $('body').on('click', `.extra_withDiseased_${that._timestamp} tbody tr`, function () {
                 const data = that._hash[that._table.fnGetData(this).OBJECTID];
                 //  赋值
                 that._force = data.attributes;
@@ -158,12 +152,12 @@ define("tables/extraQuery", [
                 that.doBasicDisplay();
             });
             //  [表格]   点击退出
-            $('body').on('click', `.extra_query_${that._timestamp} .extra_query_close`, function () {
+            $('body').on('click', `.extra_withDiseased_${that._timestamp} .extra_withDiseased_close`, function () {
                 that._table.api().destroy();
-                $(".extra_query").remove();
+                $(".extra_withDiseased").remove();
             })
             //  [表格]   点击导出
-            $('body').on('click', `.extra_query_${that._timestamp} .extra_query_export`, function () {
+            $('body').on('click', `.extra_withDiseased_${that._timestamp} .extra_withDiseased_export`, function () {
                 that.exportTable(that._data.map((v) => {
                     that._hash[v.attributes.OBJECTID] = v;
                     return v.attributes;
@@ -221,6 +215,6 @@ define("tables/extraQuery", [
             };
         },
     });
-    return L.DCI.ExtraQuery;
+        return L.DCI.WithDiseased;
 });
 

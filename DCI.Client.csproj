@@ -286,6 +286,7 @@
     <Content Include="modules\query\query.contain.xml" />
     <Content Include="modules\query\query.spatialIdentify.js" />
     <Content Include="modules\query\query.relatedidentify.js" />
+    <Content Include="modules\tables\tables.extraQuery.js" />
     <Content Include="plugins\bootstrap-datetimepicker\bootstrap-datetimepicker.css" />
     <Content Include="plugins\bootstrap-datetimepicker\bootstrap-datetimepicker.js" />
     <Content Include="plugins\bootstrap-datetimepicker\bootstrap-datetimepicker.min.css" />
@@ -781,9 +782,7 @@
       <DependentUpon>splitscreen.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="modules\tables\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="modules\output\output.export.ashx" />
     <Content Include="login.setting.ashx" />

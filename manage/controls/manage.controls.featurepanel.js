@@ -653,10 +653,7 @@ define("manage/controls/featurepanel", [
                         break;
                     default:
                         break;
-
                 };
-
-
             }
         },
         /**
@@ -867,18 +864,18 @@ define("manage/controls/featurepanel", [
             if (length > 0)
                 sIndex = nodes[0].children[length - 1].sIndex + 1;
             var name = $.trim($(".addFeature .txtName").val());
-            var obj = this.verifyFeatureName(name);
-            if (obj.verifyName == false)
-            {
-                $(".errorText").text(obj.errorText);
-                return;
-            }
-            //删除对话框
-            this.cancelAddFeature();
-            //显示保存中提示信息
-            L.mtip.usetip(1, "保存中...", 1234);
-            //提交保存信息
-            this.AddFeature(pId, name, type, sIndex, extent,image);
+            this.verifyFeatureName(name, 50, (obj) => {
+                if (obj.verifyName == false) {
+                    $(".errorText").text(obj.errorText);
+                    return;
+                }
+                //删除对话框
+                this.cancelAddFeature();
+                //显示保存中提示信息
+                L.mtip.usetip(1, "保存中...", 1234);
+                //提交保存信息
+                this.AddFeature(pId, name, type, sIndex, extent, image);
+            });
         },
         /**
         *保存按钮--添加专题对话框(带下拉菜单)
@@ -898,29 +895,28 @@ define("manage/controls/featurepanel", [
             if (length > 0)
                 sIndex = nodes[0].children[length - 1].sIndex + 1;
             var name = $.trim($(".addFeatureWithDropMenu .txtName").val());
-            var obj = this.verifyFeatureName(name,10);
-            if (obj.verifyName == false)
-            {
-                $(".errorText").text(obj.errorText);
-                return;
-            }
-            var typeName = $(".addFeatureWithDropMenu select").val();
-            image = $(".picBoxHighlight").attr("data-info");
-            if (typeName == "专题集")
-            {
-                type = 'mapset_class';
-            }
-            else
-            {
-                type = 'mapset_layer';
-            }
+            this.verifyFeatureName(name, 10, (obj) => {
+                if (obj.verifyName == false) {
+                    $(".errorText").text(obj.errorText);
+                    return;
+                }
+                var typeName = $(".addFeatureWithDropMenu select").val();
+                image = $(".picBoxHighlight").attr("data-info");
+                if (typeName == "专题集") {
+                    type = 'mapset_class';
+                }
+                else {
+                    type = 'mapset_layer';
+                }
 
-            //删除对话框
-            this.cancelAddFeatureWithDropMenu();
-            //显示保存中提示信息
-            L.mtip.usetip(1, "保存中...", 1234);
-            //提交保存信息
-            this.AddFeature(pId, name, type, sIndex, extent, image);
+                //删除对话框
+                this.cancelAddFeatureWithDropMenu();
+                //显示保存中提示信息
+                L.mtip.usetip(1, "保存中...", 1234);
+                //提交保存信息
+                this.AddFeature(pId, name, type, sIndex, extent, image);
+            });
+            
         },
         /**
         *保存按钮--编辑专题对话框
@@ -1064,7 +1060,7 @@ define("manage/controls/featurepanel", [
         *@param length {String} 长度限制
         *@return {Object} 专题名称验证结果以及提示内容
         */
-        verifyFeatureName: function (name,length) {
+        verifyFeatureName: function (name, length = 50, fn) {
             if (name == "")
                 return { "verifyName": false, "errorText": "专题名称不能为空" };
             if (name.indexOf(" ") > -1)
@@ -1102,12 +1098,13 @@ define("manage/controls/featurepanel", [
                             result = { "verifyName": true, "errorText": "" };
                         }
                     }
+                    fn && fn(result);
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
                     result = { "verifyName": false, "errorText": "获取所有专题信息失败" };
+                    fn && fn(result);
                 }
             });
-            return result;
         },
         /**
         *获取专题图片名称集

@@ -171,7 +171,7 @@ var Project_ParamConfig = {
     *@property defaultCoreServiceUrl
     *@type {String}
     */
-    defaultCoreServiceUrl: "http://192.168.0.139/DCI.Services/v1",
+    defaultCoreServiceUrl: "http://192.168.0.158/DCI.Services/v1",
     /**
     *附件服务地址
     *@property defaultServiceUrl

@@ -87,6 +87,7 @@ var Default_Paths = {
 
     "tables/dataTables": '../modules/tables/tables.dataTables',
     "tables/extraQuery": '../modules/tables/tables.extraQuery',
+    "tables/withDiseased": '../modules/tables/tables.withDiseased',
 
     "analysis/addcad": '../modules/analysis/analysis.addcad',
     "analysis/colorpick": '../modules/analysis/colorpick/jquery.cxcolor',
