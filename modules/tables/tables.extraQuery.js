@@ -24,6 +24,7 @@ define("tables/extraQuery", [
         __fieldAliases: {},
         _force: null,
         _config: null,
+        _index:null,
         /**
          * 表模板
          */
@@ -31,12 +32,12 @@ define("tables/extraQuery", [
             <h4>数据搜索</h4>
                <div class="extra_header form-inline">
                 <div class="form-group mb-3"><label>类型: </label><select class="form-control extra_query_select">
-                    <option value=1954 selected >公园绿地</option>
-                    <option value=1960>道路绿地</option>
-                    <option value=1947>古木名树</option>
-                    <option value=1983>地名地址</option>
+                    <option value='1954@LDGS' selected >公园绿地</option>
+                    <option value='1960@LDGS'>道路绿地</option>
+                    <option value='1947@NAME'>古木名树</option>
+                    <option value='1983@NAME'>地名地址</option>
                 </select></div>
-                <div class="form-group mb-3"><label>名称搜索: </label><input data-info="street" class="form-control"/></div>
+                <div class="form-group mb-3"><label>名称搜索: </label><input class="form-control searchName"/></div>
                 <button class='btn btn-primary extra_query_search'>搜索</button>
                 <button class='btn btn-primary extra_query_export'>导出</button>
                 <span class="extra_query_close">x<span>
@@ -65,7 +66,9 @@ define("tables/extraQuery", [
         queryTable: function () {
             const that = this;
             const arcgisxhr = new L.DCI.ArcgisXhr();
-            const id = $(".extra_query_select").val() || 1954;
+            const [id, index] = ($(".extra_query_select").val() || '1954@LDGS').split('@');
+            this._index = index;
+            const searchName = $(".searchName").val().trim();
             L.dci.app.services.baseService.getFeatureLayerById({
                 id,
                 context: that,
@@ -91,7 +94,7 @@ define("tables/extraQuery", [
                             } else {
                                 that.initDetailTableData(data);
                             }
-                        }, "1=1");
+                        }, !searchName ? "1=1" : encodeURIComponent(`${index} like '%${searchName}%'`));
                     } else {
                         L.dci.app.util.dialog.alert("提示", "该服务已被禁用");
                     }
@@ -103,14 +106,14 @@ define("tables/extraQuery", [
                 serverSide: false,
                 data,
                 ordering: true,
-                scrollY: 240,
+                scrollY: 160,
                 scrollX: true,
                 bSort: true,
                 searching: false,
                 lengthChange: false,
                 columns: Object.keys(this._fieldAliases).filter(v => !~this._banned.indexOf(v)).map(v => {
                     return {
-                        title: this._fieldAliases[v], data: v, width: 120
+                        title: this._fieldAliases[v], data: v, width: 100
                     }
                 })
             })
@@ -125,9 +128,24 @@ define("tables/extraQuery", [
             oSettings.aiDisplay = oSettings.aiDisplayMaster.slice();
             table.fnDraw();//绘制表格
         },
-        doTransform: function ({ x, y }){
+        doTransform: function (geometry) {
             const crs = new L.Proj.CRS(Project_ParamConfig.crs.code, Project_ParamConfig.crs.defs);
-            return crs.projection.unproject(L.point(x, y));
+            if (geometry.rings) {
+                const { rings } = geometry;
+                const sum = [0, 0];
+                const polygon = rings[0].map(v => {
+                    const { lat, lng } = crs.projection.unproject(L.point(v[0], v[1]));
+                    sum[0] += lat;
+                    sum[1] += lng;
+                    return [lat, lng];
+                })
+                const center = [sum[0] / polygon.length, sum[1] / polygon.length];
+                return { type: 'polygon', geometry: polygon, center };
+            } else {
+                const { x, y } = geometry;
+                const point = crs.projection.unproject(L.point(x, y));
+                return { type: 'point', geometry: point, center: point }
+            }
         },
         tableEvent: function () {
             const that = this;
@@ -141,16 +159,22 @@ define("tables/extraQuery", [
                 //  赋值
                 that._force = data.attributes;
                 //  定位
-                const _geometry = that.doTransform(data.geometry);
+                const { type, geometry } = that.doTransform(data.geometry);
                 const map = L.DCI.App.pool.get('MultiMap').getActiveMap();
                 const hlLayer = map.getLabelLayer();
                 hlLayer.clearLayers();
-                L.marker(_geometry).addTo(hlLayer);
-                L.popup({ maxWidth: 80, offsety: 10, className: 'popupLittleUp' })
-                    .setLatLng(_geometry)
-                    .setContent(`${data.attributes.ADDRESS} - [${data.attributes.ZWM}]`)
-                    .openOn(map.map);
-                map.map.panTo({ ..._geometry, lat: _geometry.lat - 0.02 });
+                if (type == 'point') {
+                    L.marker(geometry).addTo(hlLayer);
+                    L.popup({ maxWidth: 80, offsety: 10, className: 'popupLittleUp' })
+                        .setLatLng(geometry)
+                        .setContent(`${data.attributes.ADDRESS} - [${data.attributes[that._index]}]`)
+                        .openOn(map.map);
+                    map.map.panTo(geometry);
+                } else if (type == 'polygon') {
+                    const polygon = L.polygon(geometry, { color: 'red' }).addTo(hlLayer);
+                    console.log(polygon.getBounds());
+                    map.map.fitBounds(polygon.getBounds());
+                }
 
                 //  弹框
                 $(".extra_details").remove();
@@ -185,6 +209,10 @@ define("tables/extraQuery", [
                         that.doMaintainDisplay();
                         break;
                     }
+                    case 'image': {
+                        that.doImageDisplay();
+                        break;
+                    }
                 }
             })
         },
@@ -194,6 +222,9 @@ define("tables/extraQuery", [
         doMaintainDisplay: function () {
             $('.extra_details_body_main').html(`<div><header>养护信息</header></div>`);
         },
+        doImageDisplay: function () {
+            $('.extra_details_body_main').html(`<div><header>图片展示</header></div>`);
+        }, 
         tableDefault: function () {
             $.fn.dataTable.defaults.oLanguage = {
                 "sProcessing": "处理中...",
@@ -220,6 +251,37 @@ define("tables/extraQuery", [
                 }
             };
         },
+        exportTable: function (jsonData, worksheet = +new Date()) {
+            const excelContent = `<tr>${Object.keys(jsonData[0])
+                .map((v) => `<td>${this._fieldAliases[v] || ``}</td>`)
+                .join(``)}</tr>${jsonData
+                    .map(
+                        (v) =>
+                            `<tr>${Object.keys(v)
+                                .map((d) => `<td>${v[d] || ``}</td>`)
+                                .join(``)}</tr>`
+                    )
+                    .join(``)}`;
+            const uri = "data:application/vnd.ms-excel;base64,";
+            const template = `<html xmlns:o="urn:schemas-microsoft-com:office:office" 
+  xmlns:x="urn:schemas-microsoft-com:office:excel" 
+  xmlns="http://www.w3.org/TR/REC-html40">
+  <head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet>
+    <x:Name>${worksheet}</x:Name>
+    <x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet>
+    </x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]-->
+    </head><body><table>${excelContent}</table></body></html>`;
+            //下载模板
+            // window.location.href = ;
+            const link = document.createElement("a");
+            link.href = uri + encodeURIComponent(window.btoa(unescape(encodeURIComponent(template))));
+            //对下载的文件命名
+            link.download = `${worksheet}.xls`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+        }
     });
     return L.DCI.ExtraQuery;
 });

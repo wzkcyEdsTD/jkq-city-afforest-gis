@@ -26,6 +26,7 @@ define("data/arcgisxhr", [
             this.ajax = new L.DCI.Ajax();
         },
         getArcgisByXhr: function (url, fn, where = "1=1", outFields = "*") {
+            console.log(where);
             this.ajax.get(url, {
                 f: "json",
                 outFields,

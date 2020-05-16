@@ -79,14 +79,14 @@ define("tables/dataTables", [
                 serverSide: false,
                 data,
                 ordering: true,
-                scrollY: 240,
+                scrollY: 160,
                 scrollX: true,
                 bSort: true,
                 searching: false,
                 lengthChange: false,
                 columns: Object.keys(this._fieldAliases).filter(v => !~this._banned.indexOf(v)).map(v => {
                     return {
-                        title: this._fieldAliases[v], data: v, width: 120
+                        title: this._fieldAliases[v], data: v, width: 100
                     }
                 })
             })
@@ -101,9 +101,24 @@ define("tables/dataTables", [
             oSettings.aiDisplay = oSettings.aiDisplayMaster.slice();
             table.fnDraw();
         },
-        doTransform: function ({ x, y }) {
+        doTransform: function (geometry) {
             const crs = new L.Proj.CRS(Project_ParamConfig.crs.code, Project_ParamConfig.crs.defs);
-            return crs.projection.unproject(L.point(x, y));
+            if (geometry.rings) {
+                const { rings } = geometry;
+                const sum = [0, 0];
+                const polygon = rings[0].map(v => {
+                    const { lat, lng } = crs.projection.unproject(L.point(v[0], v[1]));
+                    sum[0] += lat;
+                    sum[1] += lng;
+                    return [lat, lng];
+                })
+                const center = [sum[0] / polygon.length, sum[1] / polygon.length];
+                return { type: 'polygon', geometry: polygon, center };
+            } else {
+                const { x, y } = geometry;
+                const point = crs.projection.unproject(L.point(x, y));
+                return { type: 'point', geometry: point, center: point }
+            }
         },
         tableEvent: function () {
             const that = this;
@@ -117,16 +132,22 @@ define("tables/dataTables", [
                 //  赋值
                 that._force = data.attributes;
                 //  定位
-                const _geometry = that.doTransform(data.geometry);
+                const { type, geometry } = that.doTransform(data.geometry);
                 const map = L.DCI.App.pool.get('MultiMap').getActiveMap();
                 const hlLayer = map.getLabelLayer();
                 hlLayer.clearLayers();
-                L.marker(_geometry).addTo(hlLayer);
-                L.popup({ maxWidth: 80, offsety:10, className: 'popupLittleUp' })
-                    .setLatLng(_geometry)
-                    .setContent(`${data.attributes.ADDRESS} - [${data.attributes.ZWM}]`)
-                    .openOn(map.map);
-                map.map.panTo({ ..._geometry, lat: _geometry.lat - 0.02 });
+                if (type == 'point') {
+                    L.marker(geometry).addTo(hlLayer);
+                    L.popup({ maxWidth: 80, offsety: 10, className: 'popupLittleUp' })
+                        .setLatLng(geometry)
+                        .setContent(`${data.attributes.ADDRESS} - [${data.attributes.ZWM}]`)
+                        .openOn(map.map);
+                    map.map.panTo(geometry);
+                } else if (type == 'polygon') {
+                    const polygon = L.polygon(geometry, { color: 'red' }).addTo(hlLayer);
+                    console.log(polygon.getBounds());
+                    map.map.fitBounds(polygon.getBounds());
+                }
                 
                 //  弹框
                 $(".extra_details").remove();
@@ -160,6 +181,10 @@ define("tables/dataTables", [
                         that.doMaintainDisplay();
                         break;
                     }
+                    case 'image': {
+                        that.doImageDisplay();
+                        break;
+                    }
                 }
             })
         },
@@ -172,6 +197,9 @@ define("tables/dataTables", [
         },
         doMaintainDisplay: function () {
             $('.extra_details_body_main').html(`<div><header>养护信息</header></div>`);
+        },
+        doImageDisplay: function () {
+            $('.extra_details_body_main').html(`<div><header>图片展示</header></div>`);
         },
         tableDefault: function () {
             $.fn.dataTable.defaults.oLanguage = {

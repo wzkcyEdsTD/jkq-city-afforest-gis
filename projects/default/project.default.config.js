@@ -153,6 +153,7 @@ var Project_ParamConfig = {
     *@type {String}
     */
     isCache: 'fasle',
+    imgHost: 'http://117.149.224.66/wzyl/images',
     /**
     *cadserver路径
     *@property cadserver

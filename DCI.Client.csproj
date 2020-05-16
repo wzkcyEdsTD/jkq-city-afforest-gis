@@ -287,6 +287,7 @@
     <Content Include="modules\query\query.spatialIdentify.js" />
     <Content Include="modules\query\query.relatedidentify.js" />
     <Content Include="modules\tables\tables.extraQuery.js" />
+    <Content Include="modules\tables\tables.withDiseased.js" />
     <Content Include="plugins\bootstrap-datetimepicker\bootstrap-datetimepicker.css" />
     <Content Include="plugins\bootstrap-datetimepicker\bootstrap-datetimepicker.js" />
     <Content Include="plugins\bootstrap-datetimepicker\bootstrap-datetimepicker.min.css" />
