@@ -21,7 +21,7 @@ define("tables/withDiseased", [
         _timestamp: null,
         _data: [],
         _hash: {},
-        __fieldAliases: {},
+        _fieldAliases: {},
         _force: null,
         _config: null,
         _resourceId: 1986,
@@ -71,7 +71,6 @@ define("tables/withDiseased", [
                         that._config = res[0];
                         const { Url, LayerIndex } = that._config;
                         const diseasedName = $('.diseasedName').val().trim();
-                        console.log(diseasedName);
                         arcgisxhr.getArcgisByXhr(`${Url}/${LayerIndex}/query`, ({ fieldAliases, features }) => {
                             const _hash = {};
                             const data = features.map((v, index) => {
@@ -101,7 +100,8 @@ define("tables/withDiseased", [
                 serverSide: false,
                 data,
                 ordering: true,
-                scrollY: 160,
+                scrollY: 340,
+                pageLength: 20,
                 scrollX: true,
                 bSort: true,
                 searching: false,
@@ -148,34 +148,6 @@ define("tables/withDiseased", [
             $('body').on('click', `.extra_withDiseased_${that._timestamp} .extra_withDiseased_search`, function () {
                 that.queryTable();
             })
-            //  [表格] 点击条目
-            $('body').on('click', `.extra_withDiseased_${that._timestamp} tbody tr`, function () {
-                const data = that._hash[that._table.fnGetData(this).OBJECTID];
-                //  赋值
-                that._force = data.attributes;
-                //  定位
-                const { type, geometry } = that.doTransform(data.geometry);
-                const map = L.DCI.App.pool.get('MultiMap').getActiveMap();
-                const hlLayer = map.getLabelLayer();
-                hlLayer.clearLayers();
-                if (type == 'point') {
-                    L.marker(geometry).addTo(hlLayer);
-                    L.popup({ maxWidth: 80, offsety: 10, className: 'popupLittleUp' })
-                        .setLatLng(geometry)
-                        .setContent(`${data.attributes.ADDRESS} - [${data.attributes.ZWM}]`)
-                        .openOn(map.map);
-                    map.map.panTo(geometry);
-                } else if (type == 'polygon') {
-                    const polygon = L.polygon(geometry, { color: 'red' }).addTo(hlLayer);
-                    console.log(polygon.getBounds());
-                    map.map.fitBounds(polygon.getBounds());
-                }
-
-                //  弹框
-                $(".extra_details").remove();
-                $("body").append(extra);
-                that.doBasicDisplay();
-            });
             //  [表格]   点击退出
             $('body').on('click', `.extra_withDiseased_${that._timestamp} .extra_withDiseased_close`, function () {
                 that._table.api().destroy();
@@ -188,39 +160,9 @@ define("tables/withDiseased", [
                     return v.attributes;
                 }))
             })
-            //  [弹出框] 点击退出
-            $('body').on('click', '.extra_close', function () {
-                $('.extra_details').remove();
-            })
-            //  [弹出框] 切换
-            $('body').on('click', '.extra_details_body_left_tip', function () {
-                const type = $(this).attr('data-info');
-                switch (type) {
-                    case 'basic': {
-                        that.doBasicDisplay();
-                        break;
-                    }
-                    case 'maintain': {
-                        that.doMaintainDisplay();
-                        break;
-                    }
-                    case 'image': {
-                        that.doImageDisplay();
-                        break;
-                    }
-                }
-            })
         },
-        doBasicDisplay: function () {
-            $('.extra_details_body_main').html(`<div><header>基本信息</header><ul>${Object.keys(this._force).filter(v => !~this._banned.indexOf(v)).map(v => { return `<li><label>${this._fieldAliases[v]}</label><span>${this._force[v]}</span></li>` }).join('')}</ul></div>`);
-        },
-        doMaintainDisplay: function () {
-            $('.extra_details_body_main').html(`<div><header>养护信息</header></div>`);
-        },
-        doImageDisplay: function () {
-            $('.extra_details_body_main').html(`<div><header>图片展示</header></div>`);
-        },            
         tableDefault: function () {
+            $.fn.dataTable.defaults.fnFormatNumber = function (v) { return v };
             $.fn.dataTable.defaults.oLanguage = {
                 "sProcessing": "处理中...",
                 "sLengthMenu": "显示 _MENU_ 项结果",
@@ -247,6 +189,27 @@ define("tables/withDiseased", [
             };
         },
             exportTable: function (jsonData, worksheet = +new Date()) {
+                const str = `${Object.keys(jsonData[0])
+                    .map((v) => `${this._fieldAliases[v] || ``},`)
+                    .join(``)}\n${jsonData
+                        .map(
+                            (v) =>
+                                `${Object.keys(v)
+                                    .map((d) => `${v[d] || ``}`)
+                                    .join(`,`)}`
+                        )
+                        .join(`\n`)}`;
+                var link = document.createElement("a");
+                var csvContent = "data:text/csv;charset=utf-8,\uFEFF" + str;
+                var encodedUri = csvContent;
+                console.log(encodedUri.length)
+                link.setAttribute("href", encodedUri);
+                link.setAttribute("download", `${this._config.LayerName}-${worksheet}.csv`);
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            },
+            exportTable_: function (jsonData, worksheet = +new Date()) {
                 const excelContent = `<tr>${Object.keys(jsonData[0])
                     .map((v) => `<td>${this._fieldAliases[v] || ``}</td>`)
                     .join(``)}</tr>${jsonData
@@ -269,9 +232,9 @@ define("tables/withDiseased", [
                 //下载模板
                 // window.location.href = ;
                 const link = document.createElement("a");
-                link.href = uri + encodeURIComponent(window.btoa(unescape(encodeURIComponent(template))));
+                link.href = uri + window.btoa(unescape(encodeURIComponent(template)));
                 //对下载的文件命名
-                link.download = `${worksheet}.xls`;
+                link.download = `${this._config.LayerName}-${worksheet}.xls`;
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);

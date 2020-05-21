@@ -340,7 +340,10 @@ define("core/map", [
             //======================保存视图=========================/
             this._viewHistory = [{ center: centerPoint, zoom: options.zoom }];
             this._curIndx = 0;
-            this.map.on('click', function (e) { console.log(e)}, this);
+            this.map.on('click', (e) => {
+                !this._spatialIdentify && (this._spatialIdentify = new L.DCI.SpatialIdentify(this));
+                this._spatialIdentify._callback(e);
+            }, this);
             this.map.on('moveend', this._updateHistory, this);
             //=========================保存视图=======================/
 

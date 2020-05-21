@@ -211,8 +211,8 @@ define("analysis/facilitiesStatistics", [
             $("#layerSelect").change(function () {
                 if (this.value == "-1") {
                     $("#groupByFieldSelect").empty();
-                    $("#groupByFieldSelect").append("<option value='-1'>请选择</option>");
                     $("#statisticsFieldSelect").empty();
+                    $("#groupByFieldSelect").append("<option value='-1'>请选择</option>");
                     $("#statisticsFieldSelect").append("<option value='-1'>请选择</option>");
                 }
                 else {
@@ -440,8 +440,8 @@ define("analysis/facilitiesStatistics", [
                 this.ajax = new L.DCI.Ajax();
                 this._queryLayerUrl = url + "/" + index;
                 var newUrl = url + "/" + index + "?f=pjson";
-                    
-
+                $("#groupByFieldSelect").empty();
+                $("#statisticsFieldSelect").empty();
                 this.ajax.get(newUrl, null, true, this, function (res) {
                     var fields = res.fields;
                     for (var j in fields) {
@@ -456,12 +456,7 @@ define("analysis/facilitiesStatistics", [
                             }
                         }
                         if (field.type == "esriFieldTypeDouble" || field.type == "esriFieldTypeSmallInteger") {
-                            if (field.name == "SHAPE_Length ") {
-                                $("#statisticsFieldSelect").append("<option value='" + field.name + "'>长度</option>");
-                            }
-                            else {
-                                $("#statisticsFieldSelect").append("<option value='" + field.name + "'>" + field.alias + "</option>");
-                            }
+                            $("#statisticsFieldSelect").append("<option value='" + field.name + "'>" + field.alias + "</option>");
                         }
                     }
                     
@@ -808,28 +803,17 @@ define("analysis/facilitiesStatistics", [
 			//var query = new L.esri.Tasks.query(this._queryLayerUrl);
 			//query.where("objectId in ("+ids+")");
 			var tjParam=this._tjParam;
-			var outStatistics = [{
-				"statisticType": "sum",
-				"onStatisticField": tjParam.statisticsField,
-				"outStatisticFieldName": "sum"
-			},
-			{
-				"statisticType": "count",
-				"onStatisticField": "OBJECTID",
-				"outStatisticFieldName": "count"
-			}];
 			var newUrl = this._queryLayerUrl + "/query";
-			var outStatistics = [{
-				"statisticType": "sum",
-				"onStatisticField": tjParam.statisticsField,
-				"outStatisticFieldName": "sum"
-			},
-			{
-				"statisticType": "count",
-				"onStatisticField": "OBJECTID",
-				"outStatisticFieldName": "count"
-			}];
-			var outStatisticsStr = JSON.stringify(outStatistics);
+            var outStatisticsStr = JSON.stringify([{
+                "statisticType": "sum",
+                "onStatisticField": tjParam.statisticsField,
+                "outStatisticFieldName": "sum"
+            },
+            {
+                "statisticType": "count",
+                "onStatisticField": "OBJECTID",
+                "outStatisticFieldName": "count"
+            }]);
 			var queryJson = {
 				where: "objectId in ("+ids+")",
 				text: "",
@@ -851,7 +835,7 @@ define("analysis/facilitiesStatistics", [
 				orderByFields: "",
 				//groupByFieldsForStatistics: tjParam.groupByField,
 				groupByFieldsForStatistics: "",
-				outStatistics: outStatisticsStr,
+			    outStatistics: outStatisticsStr,
 				returnZ: false,
 				returnM: false,
 				gdbVersion: "",
@@ -860,8 +844,8 @@ define("analysis/facilitiesStatistics", [
 			};
 			this.ajax.get(newUrl, queryJson, true, this, function (res) {
 						//debugger;
-						Psum+= res.features[0].attributes.SUM;
-						Pcount+= res.features[0].attributes.COUNT;
+						Psum+= res.features[0].attributes.sum;
+						Pcount+= res.features[0].attributes.count;
 						Page++;
 						if(totalPage>Page){
 							var begin = pageInfo.recordsPerPage * (Page);
@@ -870,12 +854,11 @@ define("analysis/facilitiesStatistics", [
 							_this.queryByIds(ids);
 						}
 						else{
-							 //alert("Psum="+Psum+",Pcount="+Pcount+",Page="+Page);
 							 var content = '<table class="table table-bordered"><thead><tr>';
-							 content += '<th>统计名称</th><th>个数</th><th>面积</th></tr>';
+							 content += '<th>统计名称</th><th>个数</th></tr>';
 							 content += '<tr><td>'+ $("#layerSelect").find("option:selected").text()+'</td>';
 							 content += '<td>'+Pcount+'</td>';
-							 content += '<td>'+Psum+'</td>';
+							 //content += '<td>'+Psum+'</td>';
 							 content += '</tr>';
 							 content += '</table>';
 							 $("#tjresult").append(content);
@@ -883,16 +866,6 @@ define("analysis/facilitiesStatistics", [
 							 var obj = $('.tjresult');
 							_this._loaded(obj);
 						}
-						
-						/*
-                        _this.showResult(res);
-                        var map = L.DCI.App.pool.get('MultiMap').getActiveMap();
-                        map.deactivate();
-                        //$("input[name='drawType']").prop('checked', false);
-                        //$("#info").attr("disabled", "disabled");
-                        var obj = $('.tjresult');
-                        _this._loaded(obj);
-						*/
                     }, function (err) {
                         L.dci.app.util.dialog.alert("提示", "服务查询出错");
                         //L.dci.app.util.hideLoading();
@@ -969,7 +942,7 @@ define("analysis/facilitiesStatistics", [
             var results = this._results;
             var resultsLayerName = this._resultsLayerName;
             var content = '<table class="table table-bordered"><thead><tr>';
-            content += '<th>市政设施类型</th><th>个数</th><th>面积（㎡）</th><th>长度（m）</th>';
+            content += '<th>市政设施类型</th><th>个数</th>';
             content += '</tr>';
             for (var j in results) {
 				var result=results[j];
@@ -986,8 +959,8 @@ define("analysis/facilitiesStatistics", [
                 content += '<tr>';
                 content += '<td>' + result.featureName + '</td>';
                 content += '<td>' + count + '</td>';
-				content += '<td>' + area.toFixed(2) + '</td>';
-				content += '<td>' + length.toFixed(2) + '</td>';
+				//content += '<td>' + area.toFixed(2) + '</td>';
+				//content += '<td>' + length.toFixed(2) + '</td>';
                 content += '</tr>';
             }
             content += '</table>';
@@ -1026,52 +999,45 @@ define("analysis/facilitiesStatistics", [
             this._drawType= null;
             this._count = null;
             $("#tjresult").empty();
-			 //$("input[name='drawType']").removeAttr("checked");
 			 var map = L.DCI.App.pool.get('MultiMap').getActiveMap();
 			 $(".option-content").hide();
-            //map.clearHLLayer("buffdk");
-            //map.clearHLLayer("dkloc");
-            //map.clearHLLayer("auxiXzqh");
-            //map.clearHLLayer("auxiliaryloc");
         }
-
-       
 
     });
     return L.DCI.FacilitiesStatistics;
 });
 
 
-function  queryTT2(featureLayer,arrayUtils,ids){
-	debugger;
-	   	var queryParams = new esri.tasks.Query();
-					queryParams.where ="objectId in ("+ids+")";
-					var statDef = new esri.tasks.StatisticDefinition();
-					  statDef.statisticType = "SUM";
-					  statDef.onStatisticField = "GREENAREA";//统计字段
-					  statDef.outStatisticFieldName = "SUM";//自己取名字
-					  queryParams.outFields = ["*"];
-					  var statDef1 = new esri.tasks.StatisticDefinition();
-					  statDef1.statisticType = "COUNT";
-					  statDef1.onStatisticField = "GREENAREA";//统计字段
-					  statDef1.outStatisticFieldName = "COUNT";//自己取名字
-					  queryParams.outFields = ["*"];
-					  queryParams.outStatistics = [statDef,statDef1];
-					  queryParams.groupByFieldsForStatistics = ["SECONDTYPE"];//分组字段
-					  featureLayer.queryFeatures(queryParams, function (featureSet) {
-						var data = arrayUtils.map(featureSet.features, function (entry, i) {
-						Psum+= entry.attributes.SUM;
-						Pcount+= entry.attributes.COUNT;
-						Page++;
-						if(totalPage>Page){
-							var begin = pageInfo.recordsPerPage * (Page);
-							var end = begin + pageInfo.recordsPerPage;
-						    var ids=pageInfo.objectIds.slice(begin, end);
-							queryTT2(featureLayer,arrayUtils,ids,totalPage);
-						}
-						else{
-							 alert("Psum="+Psum+",Pcount="+Pcount+",Page="+Page);
-						}
-					 });
-					});
+function queryTT2(featureLayer, arrayUtils, ids) {
+    debugger;
+    var queryParams = new esri.tasks.Query();
+    queryParams.where = "objectId in (" + ids + ")";
+    var statDef = new esri.tasks.StatisticDefinition();
+    statDef.statisticType = "SUM";
+    statDef.onStatisticField = "GREENAREA";//统计字段
+    statDef.outStatisticFieldName = "SUM";//自己取名字
+    queryParams.outFields = ["*"];
+    var statDef1 = new esri.tasks.StatisticDefinition();
+    statDef1.statisticType = "COUNT";
+    statDef1.onStatisticField = "GREENAREA";//统计字段
+    statDef1.outStatisticFieldName = "COUNT";//自己取名字
+    queryParams.outFields = ["*"];
+    queryParams.outStatistics = [statDef, statDef1];
+    queryParams.groupByFieldsForStatistics = ["SECONDTYPE"];//分组字段
+    featureLayer.queryFeatures(queryParams, function (featureSet) {
+        var data = arrayUtils.map(featureSet.features, function (entry, i) {
+            Psum += entry.attributes.sum;
+            Pcount += entry.attributes.count;
+            Page++;
+            if (totalPage > Page) {
+                var begin = pageInfo.recordsPerPage * (Page);
+                var end = begin + pageInfo.recordsPerPage;
+                var ids = pageInfo.objectIds.slice(begin, end);
+                queryTT2(featureLayer, arrayUtils, ids, totalPage);
+            }
+            else {
+                alert("Psum=" + Psum + ",Pcount=" + Pcount + ",Page=" + Page);
+            }
+        });
+    });
 }

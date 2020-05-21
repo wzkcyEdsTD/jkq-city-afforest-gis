@@ -114,16 +114,17 @@ define("query/spatialIdentify", [
             if (evt.type == "mousedown") {
                 this._mousedown = evt.latlng;   //设置鼠标落下坐标
 
-            } else if (evt.type == "mouseup" && this._mousedown != null) {
-                this._mouseup = evt.latlng;   //设置鼠标收起坐标
+            } else if ((evt.type == "mouseup" && this._mousedown != null) || evt.type == 'click') {
+                if (evt.type == "mouseup") {
+                    this._mouseup = evt.latlng;   //设置鼠标收起坐标
+                } else if (evt.type == 'click') {
+                    this._mousedown = evt.latlng;   //设置鼠标收起坐标
+                    this._mouseup = evt.latlng;   //设置鼠标收起坐标
+                }
 
-                //弹出面板
-                if (this._queryResult == null)
-                    this._queryResult = new L.DCI.QueryResult();
-                this._queryResult.showTo('空间查询');
                 //显示加载动画
                 var obj = $('.result-list-group-loadflash');
-                L.dci.app.util.showLoadFlash(obj);
+                //L.dci.app.util.showLoadFlash(obj);
 
                 this.clear();
                 var map = this._map.getMap();
@@ -149,59 +150,35 @@ define("query/spatialIdentify", [
                                 .tolerance(this._tolerance);
                         }
                         if (layer.options.opacity && layer.options.opacity != 0) {
-                            //if (layer.getLayers && layer.getLayers()) {
-                            //    //identify.layers('visible:' + layer.getLayers()[0]);
-                            //    identify.layers('visible');
-                            //} else {
-                            //    if (layer.options.layers)
-                            //        identify.layers('visible:' + layer.options.layers.join(','));
-                            //};
-                            
                             if (layer.options.layers) {
                                 identify.layers('visible:' + layer.options.layers.join(','));
                             } else {
                                 identify.layers('visible');
                             }
-
-                            //for (var index in layer.options.layerDefs)
-                            //{
-                            //    if (index == "all")
-                            //    {
-                            //        identify.layerDef(0, layer.options.layerDefs[index]);
-                            //        break;
-                            //    }
-                            //    else
-                            //    {
-                            //        identify.layerDef(parseInt(index), layer.options.layerDefs[index]);
-                            //    }
-                            //}
                             identify.run(function (error, featureCollection, response) {
                                 this._count--;
                                 if (response && response.results)
                                     this._results = this._results.concat(response.results);
-                                if (this._count == 0)
-                                    this._showResult();
+                                if (this._count == 0) {
+                                    if (this._results.length) {
+                                        if (this._queryResult == null) {
+                                            $(".extra_details").remove();
+                                            this._queryResult = new L.DCI.QueryResult();
+                                        }
+                                        this._queryResult.showTo('空间查询');
+                                        this._showResult();
+                                    }
+                                }
                             }, this);
                         }
                         else {
                             this._count--;
                         }
-                        //if (layer.getLayers && layer.getLayers()) {
-                        //    //identify.layers('visible:' + layer.getLayers()[0]);
-                        //    identify.layers('visible');
-                        //} else {
-                        //    if (layer.options.layers)
-                        //        identify.layers('visible:' + layer.options.layers.join(','));
-                        //};
-                        //for (var index in layer.options.layerDefs) {
-                        //    identify.layerDef(parseInt(index), layer.options.layerDefs[index]);
-                        //}
-
                     } else {
                         this._count--;
                         if (this._count == 0) {
                             if (this._results.length == 0) {
-                                this._queryResult.load(this._results);
+                                //this._queryResult.load(this._results);
                             }
                             var obj = $('.result-list-group-loadflash');
                             L.dci.app.util.hideLoadFlash(obj);

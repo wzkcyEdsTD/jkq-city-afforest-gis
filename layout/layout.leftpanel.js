@@ -511,7 +511,7 @@ define("layout/leftpanel", [
                 }
                 var num = data.length;
                 for (var k = 0; k < data.length; k++) {
-                    html += '<li class="baseFeatureLayer" id="layer-base-' + data[k]["FEATUREID"] + '" title="' + data[k]["FEATURENAME"] + '" data-info="map-layer"><span class="hk-bg"><span class="hk"></span></span><div class="baseFeatureLayerTitle">' + data[k]["FEATURENAME"] + '<span class="baseFeatureLayerDetails">详细信息</span></div></li>';
+                    html += '<li class="baseFeatureLayer" id="layer-base-' + data[k]["FEATUREID"] + '" title="' + data[k]["FEATURENAME"] + '" data-info="map-layer"><span class="hk-bg"><span class="hk"></span></span><div class="baseFeatureLayerTitle">' + data[k]["FEATURENAME"] + '<span class="baseFeatureLayerDetails">属性</span></div></li>';
                 }
                 if (name == "SHP加载数据") {
                     $.each(map.shpLayerGroups, function (a, group) {
@@ -756,7 +756,6 @@ define("layout/leftpanel", [
             const _this = this;
             const target = $(e.currentTarget).parent().parent(".baseFeatureLayer")[0];
             const id = target.id.split("-")[2];
-            console.log(id);
             L.dci.app.services.baseService.getFeatureLayerById({
                 id,
                 context: _this,

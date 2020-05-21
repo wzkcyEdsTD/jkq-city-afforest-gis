@@ -132,28 +132,29 @@ define("controls/legend", [
                     var _layers = response.layers;
                     if (_layers.length == 0) return;
                     this.layers[id].legends = [];
-					//bychenx
-					if(layerIndexArr.length>0){
-						for(var i in layerIndexArr){
-							var j=layerIndexArr[i];
-							if(j.indexOf(",")>-1){
-								var jArr=j.split(",");
-								for(var k in jArr){
-									if (_layers[k].legend) {
-										for (var l = 0, m = _layers[k].legend.length; l < m; l++) {
-											if (_layers[k].legend[l].label == '<all other values>') continue;
-											_layers[k].legend[l].showLabel=_layers[k].layerName;
-											this.layers[id].legends.push(_layers[k].legend[l]);
-										}
-									}
-								}
-							}
-							else{
-								if (_layers[j].legend) {
-									for (var l = 0, m = _layers[j].legend.length; l < m; l++) {
-										if (_layers[j].legend[l].label == '<all other values>') continue;
-										_layers[j].legend[l].showLabel=_layers[j].layerName;
-										this.layers[id].legends.push(_layers[j].legend[l]);
+                    //bychenx
+                    if (layerIndexArr.length > 0) {
+                        for (var i in layerIndexArr) {
+                            var j = layerIndexArr[i];
+                            if (j.indexOf(",") > -1) {
+                                var jArr = j.split(",");
+                                for (var k in jArr) {
+                                    if (_layers[k].legend) {
+                                        for (var l = 0, m = _layers[k].legend.length; l < m; l++) {
+                                            if (_layers[k].legend[l].label == '<all other values>') continue;
+                                            _layers[k].legend[l].showLabel = _layers[k].layerName;
+                                            this.layers[id].legends.push(_layers[k].legend[l]);
+                                        }
+                                    }
+                                }
+                            }
+                            else {
+                                const leg = _layers.filter(v => v.layerId == j)[0];
+                                if (leg) {
+                                    for (var l = 0, m = leg.legend.length; l < m; l++) {
+                                        if (leg.legend[l].label == '<all other values>') continue;
+                                        leg.legend[l].showLabel = leg.layerName;
+                                        this.layers[id].legends.push(leg.legend[l]);
 									}
 								}
 							}

@@ -265,7 +265,7 @@ define("manage/controls/userpanelRoleTree", [
         *@param name {String} 角色名称
         *@return {Object} 角色名称验证结果以及提示内容
         */
-        verifyRoleName: function (name) {
+        verifyRoleName: function (name,fn) {
             if (name == "")
                 return { "verifyName": false, "errorText": "角色名称不能为空" };
             if (name.indexOf(" ") > -1)
@@ -301,12 +301,13 @@ define("manage/controls/userpanelRoleTree", [
                             result = { "verifyName": true, "errorText": "" };
                         }
                     }
+                    fn && fn(result);
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
                     result = { "verifyName": false, "errorText": "获取所有角色信息失败" };
+                    fn && fn(result);
                 }
             });
-            return result;
         },
         /**
         *默认添加角色(只有没有角色数据的时候才调用)
@@ -329,43 +330,43 @@ define("manage/controls/userpanelRoleTree", [
         saveDefaultAdd: function (e) {
             var name = $.trim($(".addRole .txtName").val());
             var description = $.trim($(".addRole .txtDecription").val());
-            var obj = this.verifyRoleName(name);
-            if (obj.verifyName == false)
-            {
-                $(".errorText").text(obj.errorText);
-                return;
-            }
-            //删除对话框
-            this.cancelAddRole();
-            //显示保存中提示信息
-            L.mtip.usetip(1, "保存中...", 1234);
-            //提交信息
-            var data = '{"ROLEID":1, "ROLEPARENTID":1, "ROLENAME":"' + name + '","DISPLAYNAME": "", "DESCRIPTION":"' + description + '", "SINDEX":1, "ROLETYPEID":1}';
-            L.baseservice.addRole({
-                async: true,
-                data: data,
-                context: this,
-                success: function (id) {
-                    //隐藏默认添加框
-                    this.closeDefaultStatus();
-
-                    var newNodeId = JSON.parse(JSON.parse(id));
-                    var dataNodes = new Array();
-                    //先添加根节点
-                    dataNodes.push(this.handleData.roleTreeRoot());
-                    dataNodes.push(this.handleData.roleTreeRole(newNodeId, name, description, 1));
-
-                    //生成树
-                    var containerObj = $("#roleTree");
-                    this.tree.show({ "elementObj": containerObj, "setting": this.roleTreeSetting(), "nodes": dataNodes });
-
-                    //显示保存成功提示信息
-                    L.mtip.usetip(2, "添加成功", 1234);
-                },
-                error: function (XMLHttpRequest, errorThrown) {
-                    //L.dialog.errorDialogModel("添加角色失败");
-                    L.mtip.usetip(3, "添加角色失败", 1234);
+            this.verifyRoleName(name, obj => {
+                if (obj.verifyName == false) {
+                    $(".errorText").text(obj.errorText);
+                    return;
                 }
+                //删除对话框
+                this.cancelAddRole();
+                //显示保存中提示信息
+                L.mtip.usetip(1, "保存中...", 1234);
+                //提交信息
+                var data = '{"ROLEID":1, "ROLEPARENTID":1, "ROLENAME":"' + name + '","DISPLAYNAME": "", "DESCRIPTION":"' + description + '", "SINDEX":1, "ROLETYPEID":1}';
+                L.baseservice.addRole({
+                    async: true,
+                    data: data,
+                    context: this,
+                    success: function (id) {
+                        //隐藏默认添加框
+                        this.closeDefaultStatus();
+
+                        var newNodeId = JSON.parse(JSON.parse(id));
+                        var dataNodes = new Array();
+                        //先添加根节点
+                        dataNodes.push(this.handleData.roleTreeRoot());
+                        dataNodes.push(this.handleData.roleTreeRole(newNodeId, name, description, 1));
+
+                        //生成树
+                        var containerObj = $("#roleTree");
+                        this.tree.show({ "elementObj": containerObj, "setting": this.roleTreeSetting(), "nodes": dataNodes });
+
+                        //显示保存成功提示信息
+                        L.mtip.usetip(2, "添加成功", 1234);
+                    },
+                    error: function (XMLHttpRequest, errorThrown) {
+                        //L.dialog.errorDialogModel("添加角色失败");
+                        L.mtip.usetip(3, "添加角色失败", 1234);
+                    }
+                });
             });
         },
 
@@ -391,24 +392,23 @@ define("manage/controls/userpanelRoleTree", [
         saveAddRole: function (treeNode) {
             var name = $.trim($(".addRole .txtName").val());
             var description = $.trim($(".addRole .txtDecription").val());
-            var obj = this.verifyRoleName(name);
-            if (obj.verifyName == false)
-            {
-                $(".errorText").text(obj.errorText);
-                return;
-            }
-            //通过根节点获取新增节点的索引
-            var length = treeNode.children.length;
-            var sIndex = 1;
-            if (length > 0)
-            {
-                sIndex = treeNode.children[length - 1].sIndex + 1;
-            }
-            //删除对话框
-            this.cancelAddRole();
-            //显示保存中提示信息
-            L.mtip.usetip(1, "保存中...", 1234);
-            this.addRole(name, description, sIndex);
+            this.verifyRoleName(name, (obj) => {
+                if (obj.verifyName == false) {
+                    $(".errorText").text(obj.errorText);
+                    return;
+                }
+                //通过根节点获取新增节点的索引
+                var length = treeNode.children.length;
+                var sIndex = 1;
+                if (length > 0) {
+                    sIndex = treeNode.children[length - 1].sIndex + 1;
+                }
+                //删除对话框
+                this.cancelAddRole();
+                //显示保存中提示信息
+                L.mtip.usetip(1, "保存中...", 1234);
+                this.addRole(name, description, sIndex);
+            });
         },
         /**
         *取消按钮--添加角色对话框
@@ -489,12 +489,13 @@ define("manage/controls/userpanelRoleTree", [
             {
                 if (name != oldName)
                 {
-                    var obj = this.verifyRoleName(name);
-                    if (obj.verifyName == false)
-                    {
-                        $(".errorText").text(obj.errorText);
-                        return;
-                    }
+                    this.verifyRoleName(name, (obj) => {
+                        if (obj.verifyName == false) {
+                            $(".errorText").text(obj.errorText);
+                            return;
+                        }
+                    });
+                    
                 }
                 var treeObj = this.tree.getTreeObj("roleTree");
                 //删除对话框

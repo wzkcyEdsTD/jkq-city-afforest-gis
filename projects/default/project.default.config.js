@@ -172,7 +172,7 @@ var Project_ParamConfig = {
     *@property defaultCoreServiceUrl
     *@type {String}
     */
-    defaultCoreServiceUrl: "http://192.168.0.158/DCI.Services/v1",
+    defaultCoreServiceUrl: "http://192.168.0.158/GGSS/mapServices/v1",
     /**
     *附件服务地址
     *@property defaultServiceUrl
@@ -233,7 +233,7 @@ var Project_ParamConfig = {
         *@property code
         *@type {String}
         */
-       code:'EPSG: {"wks": "PROJCS["wenzhou2000",GEOGCS["GCS_China_Geodetic_Coordinate_System_2000",DATUM["D_China_2000",SPHEROID["CGCS2000",6378137.0,298.257222101]],PRIMEM["Greenwich",0.0],UNIT["Degree",0.0174532925199433]],PROJECTION["Gauss_Kruger"],PARAMETER["False_Easting",500000.0],PARAMETER["False_Northing",0.0],PARAMETER["Central_Meridian",120.666666666667],PARAMETER["Scale_Factor",1.0],PARAMETER["Latitude_Of_Origin",0.0],UNIT["Meter",1.0]]"}',
+        code:'EPSG: {"wks": "PROJCS["wenzhou2000",GEOGCS["GCS_China_Geodetic_Coordinate_System_2000",DATUM["D_China_2000",SPHEROID["CGCS2000",6378137.0,298.257222101]],PRIMEM["Greenwich",0.0],UNIT["Degree",0.0174532925199433]],PROJECTION["Gauss_Kruger"],PARAMETER["False_Easting",500000.0],PARAMETER["False_Northing",0.0],PARAMETER["Central_Meridian",120.666666666667],PARAMETER["Scale_Factor",1.0],PARAMETER["Latitude_Of_Origin",0.0],UNIT["Meter",1.0]]"}',
 
 	  /**
         *投影坐标系引用
@@ -282,12 +282,12 @@ var Project_ParamConfig = {
         *@property origin
         *@type {Array}
         */
-        origin: [-5123300.0 , 1.00023E7],
+        origin: [-5123200.0, 1.00021E7],
         //origin: [-5123300.0, 1.00023E7],
         /**
         *初始范围
         *@property fullextent
-        *@type {Array}
+        *@type {Array} 
         */
         //fullextent: [507575.909, 3077625.757, 516296.593, 3085171.689],
        fullextent: [475120.7994806275,3077037.3853657073,556946.4706471281,3125089.9118644656],

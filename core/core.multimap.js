@@ -347,13 +347,13 @@ define("core/multimap", [
             if (this._objMap.mapThree) { this._objMap.mapThree.map.on('mouseout', this._mouseoutEvent, this); }
             if (this._objMap.mapFour) { this._objMap.mapFour.map.on('mouseout', this._mouseoutEvent, this); }
 
-            if (this._objMap.mapOne && !this.clickOne) { this._objMap.mapOne.map.on('click', this._clickEventOne, this); this.clickOne = true; }
+            /*if (this._objMap.mapOne && !this.clickOne) { this._objMap.mapOne.map.on('click', this._clickEventOne, this); this.clickOne = true; }
             if (this._objMap.mapTow && !this.clickTow) { this._objMap.mapTow.map.on('click', this._clickEventTow, this); this.clickTow = true; }
             if (this._objMap.mapThree && !this.clickTree) { this._objMap.mapThree.map.on('click', this._clickEventThree, this); this.clickTree = true; }
-            if (this._objMap.mapFour && !this.clickFour) { this._objMap.mapFour.map.on('click', this._clickEventFour, this); this.clickFour = true; }
+            if (this._objMap.mapFour && !this.clickFour) { this._objMap.mapFour.map.on('click', this._clickEventFour, this); this.clickFour = true; }*/
 
             //初始化 触发click
-            this._objMap.mapOne.map.fireEvent('click');
+            //this._objMap.mapOne.map.fireEvent('click');
         },
 
         /**

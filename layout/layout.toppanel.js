@@ -137,7 +137,25 @@ define("layout/toppanel", [
          * */
         _toppanelEvent: function () {
             $('body').on('click', '.top_manager_mapLayer', function () {
-                $("#shrinknenu").click();
+                const icon = $("#shrinknenu")
+                icon.hasClass("icon-next-page") && icon.click();
+                $("#mCSB_1_container > ul > li:nth-child(1) > a").click();
+            });
+            $('body').on('click', '.top_manager_data', function () {
+                const icon = $("#shrinknenu")
+                icon.hasClass("icon-next-page") && icon.click();
+                $("#mCSB_1_container > ul > li:nth-child(3) > a").click();
+            });
+            $('body').on('click', '.top_manager_division', function () {
+                const icon = $("#shrinknenu")
+                icon.hasClass("icon-next-page") && icon.click();
+                $("#mCSB_1_container > ul > li:nth-child(2) > a").click();
+            });
+            $('body').on('click', '.top_manager_project', function () {
+                L.dci.app.util.dialog.alert("提示", "该服务正在开发中");
+            });
+            $('body').on('click', '.top_manager_system', function () {
+                L.dci.app.util.dialog.alert("提示", "该服务正在开发中");
             });
         },
 

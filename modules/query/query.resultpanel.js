@@ -646,7 +646,7 @@ define("query/resultpanel", [
                 } else {
                     latlng = L.latLng(geo._latlng.lat, geo._latlng.lng);
                 }
-                map.map.setView(latlng, 18);
+                map.map.setView(latlng);
                 //var popupHtml = this.openPopup(obj);
                 //var marker = L.marker(latlng)
                 //        .setIcon(L.dci.app.symbol.highlightPointSymbol.icon)
@@ -747,10 +747,10 @@ define("query/resultpanel", [
 
             // 加载图片
             //var _imgStr = _this.loadImg(obj.attributes["照片"]);
-			_this.loadImg(obj.attributes["照片"],function(_imgStr){
+            _this.loadImg(obj.attributes["照片编号"], obj.layerName, function (_imgStr) {
 				 //console.log("_imgStr:" + _imgStr);
 				 var OBJCODE=obj.attributes["标识码"]== undefined ? obj.attributes["OBJCODE"] : obj.attributes["标识码"];
-				 _this.getYhList(OBJCODE, function (yhListStr) {
+				 //_this.getYhList(OBJCODE, function (yhListStr) {
 					//console.log("yhListStr:" + yhListStr);
 					var html = "<div class='rightpanel-details-info'>"
 					+ '<div class="details-title">'
@@ -763,7 +763,7 @@ define("query/resultpanel", [
 					+ '<div class="datails-table">'
 						+ '<ul class="nav nav-tabs" role="tablist">'
 						+ '<li role="presentation" class="active"><a href="#datails-table-info" aria-controls="datails-table-info" role="tab" data-toggle="tab">详情</a></li>'
-						+ '<li role="presentation"><a href="#yhList" aria-controls="yhList" role="tab" data-toggle="tab">养护列表</a></li>'
+						/*+ '<li role="presentation"><a href="#yhList" aria-controls="yhList" role="tab" data-toggle="tab">养护列表</a></li>'*/
 						+ '<li role="presentation"><a href="#loadImg" aria-controls="loadImg" role="tab" data-toggle="tab">图片</a></li>'
 						+ '</ul>'
 						+ '<div class="tab-content" style="margin-left: 10px;">'
@@ -774,9 +774,9 @@ define("query/resultpanel", [
 							+ '</table>'
 							+ '</div>'
 							//养护列表
-							+ '<div role="tabpanel" class="tab-pane datails-table-info" id="yhList" OBJCODE="' + obj.attributes["OBJCODE"] + '">'
+							/*+ '<div role="tabpanel" class="tab-pane datails-table-info" id="yhList" OBJCODE="' + obj.attributes["OBJCODE"] + '">'
 							+ yhListStr
-							+ '</div>';
+							+ '</div>'*/;
 					html = html
 						+ '<div role="tabpanel" class="tab-pane datails-table-info" id="loadImg" OBJCODE="' + obj.attributes["OBJCODE"] + '">'
 						+ _imgStr
@@ -839,7 +839,7 @@ define("query/resultpanel", [
 					});
 					//关闭加载动画
 					L.dci.app.util.hideLoadFlash(loadingObj);
-				});
+				//});
 			});
         },
 
@@ -882,7 +882,7 @@ define("query/resultpanel", [
 					location.href ="/GGSS/JGSP/User/Login";
 				}
 				else{
-					L.dci.app.util.dialog.alert("提示", "服务查询出错");
+					//L.dci.app.util.dialog.alert("提示", "服务查询出错");
 					if (callback) {
 						callback("查询出错");
 					}
@@ -897,36 +897,16 @@ define("query/resultpanel", [
        *@param OBJCODE {String} 惟一值
        *@param callback {Object} 回调函数
        */
-        loadImg: function (picUrl,callback) {
-			var returnStr="暂无图片";
-            if (picUrl != null && picUrl != "" && picUrl.toLowerCase() != "null") {
-				//picUrl = picUrl.substring(picUrl.search("picture"));
-				picUrl=picUrl.replace(/\\/g,"/");
-				var picUrlArr=picUrl.split("$");
-				var imgUrl=Project_ParamConfig.getYhImgUrl + '/' + picUrlArr[0];
-				var img = new Image(); 
-				img.src = imgUrl;
-				img.onload = function() { 
-					returnStr = '<table><tr>' +
-                               '<td><img title="点击放大" src="' + imgUrl + '" style="width: 380px;margin-top: 10px;cursor: pointer;" id="projectYhzp" picUrl="'+picUrl+'"/></td>'
-                               //+ '<td><button style="display:none" type="button" class="layui-btn layui-btn-danger remove-btn" onclick="imageDelect(this);">删除</button></td>'
-                               + '</tr></table>';
-					if (callback) {
-						callback(returnStr);
-					}
-				}; 
-				img.onerror = function() { 
-					if (callback) {
-						callback(returnStr);
-					}
-				} 
-				//console.log(Project_ParamConfig.getYhImgUrl + "\\" + picUrl);
-            } 
-			else{
-				if (callback) {
-					callback(returnStr);
-				}
-			}
+        loadImg: function (picUrl,layerName,callback) {
+            const imgConfig = {
+                '古树名木点': 'gsmm',
+                '公园配套设施': 'gyptss',
+                '行道树调查': 'hds',
+                '问题行道树': 'wthds'
+            };
+            const folder = imgConfig[layerName];
+            const returnStr = picUrl && folder ? picUrl.split(';').map(v => `<img style='width:100%;margin-bottom:6px;' src='${Project_ParamConfig.imgHost}/${folder}/${v.toLowerCase().includes('.jpg') ? v : `${v}.jpg`}' />`).join('') : '暂无图片';
+            return callback(`<div>${returnStr}</div>`);
         },
 		/**
         *图片轮播

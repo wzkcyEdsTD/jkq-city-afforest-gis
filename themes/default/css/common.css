@@ -1,4 +1,8 @@
-﻿.extra_obj {
+﻿.extra_obj_hidden {
+    height: 50px !important;
+}
+
+.extra_obj {
     position: fixed;
     bottom: 20px;
     right: 30px;
@@ -11,39 +15,73 @@
     overflow: hidden;
     padding: 10px;
 }
+
     .extra_obj > div {
-        position:relative;
+        position: relative;
     }
 
-    .extra_obj .extra_header{
-        margin-bottom:6px;
-        box-sizing:border-box;
+    .extra_obj h4 {
+        margin-top: 6px;
+        margin-bottom: 14px;
     }
-        .extra_obj .extra_header > span {
-            position:absolute;
-            top:2px;
-            right:2px;
-            line-height:1px;
+
+        .extra_obj h4 > .btn-updown {
+            padding: 0px 8px !important;
+            vertical-align: text-bottom;
+            margin-left: 10px !important;
+        }
+
+    .extra_obj .extra_header {
+        margin-bottom: 6px;
+        box-sizing: border-box;
+    }
+
+        .extra_obj .extra_header > .extra_dataTable_close {
+            position: absolute;
+            top: 4px;
+            right: 2px;
+            line-height: 1px;
             font-size: 24px;
             cursor: pointer;
         }
-    .extra_obj thead tr th {
-        padding: 6px 6px;
-    }
+
+        .extra_obj .extra_header > .extra_query_close {
+            position: absolute;
+            top: 4px;
+            right: 2px;
+            line-height: 1px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .extra_obj .extra_header > .extra_withDiseased_close {
+            position: absolute;
+            top: 4px;
+            right: 2px;
+            line-height: 1px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+
+.extra_obj thead tr th {
+    padding: 6px 6px;
+}
 
 
     .extra_obj tbody tr {
         cursor: pointer;
     }
 
-    .extra_obj tbody tr td {
-        padding:0px;
-    }
+        .extra_obj tbody tr td {
+            padding: 2px;
+            border-top: 1px #ccc solid;
+        }
 
     .extra_obj .dataTables_scrollBody thead tr th {
         padding: 0;
     }
 
 .popupLittleUp {
-    bottom:20px!important;
+    bottom: 20px !important;
 }

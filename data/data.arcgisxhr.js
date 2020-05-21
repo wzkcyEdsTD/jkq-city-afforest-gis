@@ -25,13 +25,12 @@ define("data/arcgisxhr", [
         initialize: function () {
             this.ajax = new L.DCI.Ajax();
         },
-        getArcgisByXhr: function (url, fn, where = "1=1", outFields = "*") {
-            console.log(where);
+        getArcgisByXhr: function (url, fn, where = "1=1", returnGeometry = false) {
             this.ajax.get(url, {
                 f: "json",
-                outFields,
+                outFields : "*",
                 where,
-                returnGeometry: true,
+                returnGeometry,
                 spatialRel: "esriSpatialRelIntersects",
                 relationParameter: (+new Date()).toString()
             }, true, this, function (data) {

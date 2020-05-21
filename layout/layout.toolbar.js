@@ -309,6 +309,7 @@ define("layout/toolbar", [
         */
         tool: function (e) {
             e.stopPropagation();
+            e.preventDefault()
             L.DomEvent.stopPropagation(e);
             var id = e.currentTarget.id;
             if (id != "") {
