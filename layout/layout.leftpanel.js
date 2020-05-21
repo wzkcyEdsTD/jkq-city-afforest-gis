@@ -509,9 +509,10 @@ define("layout/leftpanel", [
                     if (id == data2[j]["FEATUREPARENTID"])
                         data.push(data2[j]);
                 }
+                const FEATUREPARENTID = data1[0].FEATUREPARENTID;
                 var num = data.length;
                 for (var k = 0; k < data.length; k++) {
-                    html += '<li class="baseFeatureLayer" id="layer-base-' + data[k]["FEATUREID"] + '" title="' + data[k]["FEATURENAME"] + '" data-info="map-layer"><span class="hk-bg"><span class="hk"></span></span><div class="baseFeatureLayerTitle">' + data[k]["FEATURENAME"] + '<span class="baseFeatureLayerDetails">属性</span></div></li>';
+                    html += `<li class="baseFeatureLayer" id="layer-base-${data[k]["FEATUREID"]}" title="${data[k]["FEATURENAME"]}" data-info="map-layer" data-FEATUREPARENTID="${FEATUREPARENTID}">${FEATUREPARENTID != 2059 ? `<span class="hk-bg"><span class="hk"></span></span>`:``}<div class="baseFeatureLayerTitle"><i>${data[k]["FEATURENAME"]}</i><span class="baseFeatureLayerDetails">属性</span></div></li>`;
                 }
                 if (name == "SHP加载数据") {
                     $.each(map.shpLayerGroups, function (a, group) {
@@ -756,13 +757,14 @@ define("layout/leftpanel", [
             const _this = this;
             const target = $(e.currentTarget).parent().parent(".baseFeatureLayer")[0];
             const id = target.id.split("-")[2];
+            const FEATUREPARENTID = $(target).attr("data-FEATUREPARENTID");
             L.dci.app.services.baseService.getFeatureLayerById({
                 id,
                 context: _this,
                 success: function (res) {
                     if (res != "0" && res.length > 0) {
                         _this._table && _this._table.doDestroy();
-                        _this._table = new L.DCI.DataTables(id,res[0] );
+                        _this._table = new L.DCI.DataTables(id, res[0], FEATUREPARENTID);
                     } else {
                         L.dci.app.util.dialog.alert("提示", "该服务已被禁用");
                     }

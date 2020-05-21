@@ -54,6 +54,7 @@ define("tables/withDiseased", [
         },
         doTable: function () {
             const template = this._template.replace(/@@/g, this._id).replace(/###/g, this._timestamp);
+            $(".extra_details").remove();
             $(".extra_obj").remove();   // DOM删除 无注销内存
             $("body").append(template);
             this.queryTable();

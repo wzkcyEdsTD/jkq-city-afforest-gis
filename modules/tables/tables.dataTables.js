@@ -44,8 +44,9 @@ define("tables/dataTables", [
         /**
          * 过滤字段
          */
-        _banned: ["OBJECTID", "OBJECTID_1", "WD", "JD", "CONTENT", "FEATUREGUID", "PICTURE"],
-        initialize: function (id = 'extra_dataTables', config) {
+        _banned: ["OBJECTID_1", "WD", "JD", "CONTENT", "FEATUREGUID", "PICTURE"],
+        initialize: function (id = 'extra_dataTables', config, FEATUREPARENTID) {
+            this._FEATUREPARENTID = FEATUREPARENTID;
             this._id = id;
             this._formConfig = formConfig[id];
             this._config = config;
@@ -60,6 +61,7 @@ define("tables/dataTables", [
             const _template_ = template.replace(/@formConfig@/g, formConfig?formConfig.h.map(v => {
                 return `<div class="form-group mb-2"><label>${v.n}: </label>${v.t == 'input' ? `<input class="form-control form-data-${v.k}"/>` : `<select class="form-control form-data-${v.k}">${v.v.map(d=> `<option value="${d.v}">${d.n}</option>`).join('')}</select>`}</div>`
             }).join('') : '');
+            $(".extra_details").remove();
             $(".extra_obj").remove();   // DOM删除 无注销内存
             $("body").append(_template_);
             this.queryTable();
@@ -145,6 +147,7 @@ define("tables/dataTables", [
             })
             //  [表格] 点击条目
             $('body').on('click', `.extra_dataTable_${that._timestamp} tbody tr`, function () {
+                if (that._FEATUREPARENTID == 2059) return;
                 const data = that._hash[that._table.fnGetData(this).OBJECTID];
                 //  赋值
                 that._force = data.attributes;
@@ -232,7 +235,7 @@ define("tables/dataTables", [
             $('.extra_details_body_main').html(`<div><header>养护信息</header></div>`);
         },
         doImageDisplay: function () {
-            $('.extra_details_body_main').html(`<div><header>图片展示</header><div>${this._formConfig.img ? this._force.PICTURE.split(';').map(v => `<img src='${Project_ParamConfig.imgHost}/${this._formConfig.img}/${v.toLowerCase().includes('.jpg') ? v : `${v}.jpg`}'/>`).join('') : ''}</div></div>`);
+            $('.extra_details_body_main').html(`<div><header>图片展示</header><div>${this._formConfig && this._formConfig.img ? this._force.PICTURE.split(';').map(v => `<img src='${Project_ParamConfig.imgHost}/${this._formConfig.img}/${v.toLowerCase().includes('.jpg') ? v : `${v}.jpg`}'/>`).join('') : ''}</div></div>`);
         },
         tableDefault: function () {
             $.fn.dataTable.defaults.fnFormatNumber = function (v) { return v };

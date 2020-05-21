@@ -895,7 +895,7 @@ define("manage/controls/featurepanel", [
             if (length > 0)
                 sIndex = nodes[0].children[length - 1].sIndex + 1;
             var name = $.trim($(".addFeatureWithDropMenu .txtName").val());
-            this.verifyFeatureName(name, 10, (obj) => {
+            this.verifyFeatureName(name, 50, (obj) => {
                 if (obj.verifyName == false) {
                     $(".errorText").text(obj.errorText);
                     return;
@@ -933,7 +933,7 @@ define("manage/controls/featurepanel", [
             {
                 if (name != oldName)
                 {
-                    var obj = this.verifyFeatureName(name,20);
+                    var obj = this.verifyFeatureName(name,50);
                     if (obj.verifyName == false)
                     {
                         $(".errorText").text(obj.errorText);
@@ -973,7 +973,7 @@ define("manage/controls/featurepanel", [
             {
                 if (name != oldName)
                 {
-                    var obj = this.verifyFeatureName(name,10);
+                    var obj = this.verifyFeatureName(name,50);
                     if (obj.verifyName == false)
                     {
                         $(".errorText").text(obj.errorText);

@@ -150,9 +150,9 @@ input:-ms-input-placeholder{color:#abdae1 !important;}
     }
 
 
-.leftpanelcontent { height: 100%!important;  position: relative;display:inline-block;width:150px; }
+.leftpanelcontent { height: 100%!important;  position: relative;display:inline-block;width:160px; }
 .leftpanelcontent > div { height: 100%; display:none;}
-.leftpanelcontent.base .leftpanelcontent_base { display:block;max-width: 150px;background-color: #fff;}
+.leftpanelcontent.base .leftpanelcontent_base { display:block;max-width: 160px;background-color: #fff;}
 .leftpanelcontent.subject .leftpanelcontent_subject {width:152px;background-color:#fff; display:block; border-right: 1px solid #d2d2d2;}
 
 
@@ -171,12 +171,12 @@ input:-ms-input-placeholder{color:#abdae1 !important;}
 
 .leftpanelcontent_base > ul { float: left;height: 100%; list-style: none; }
 .leftpanelcontent_base > div { float: left;height: 100%; list-style: none; }
-.leftpanelcontent_base_sub { 
-	width: 100%;
-	/*background-color: #bec8d2;*/ 
-   /*background-image: url(../images/layout/index/bg.png);*/
-	max-width: 150px;
-    border-right: 1px solid #ddd
+.leftpanelcontent_base_sub {
+    width: 100%;
+    /*background-color: #bec8d2;*/
+    /*background-image: url(../images/layout/index/bg.png);*/
+    /*max-width: 150px;*/
+    border-right: 1px solid #ddd;
 }
 .baseFeatureSub a {
      border-top: 1px solid #ddd;
@@ -184,7 +184,7 @@ input:-ms-input-placeholder{color:#abdae1 !important;}
     color: #000;
     cursor: pointer;
     display: inline-block;
-    padding: 11px 0;
+    padding: 10px;
     text-align: center;
     width: 100%;
 }
@@ -225,7 +225,7 @@ input:-ms-input-placeholder{color:#abdae1 !important;}
                           -webkit-transition: width .35s ease; -o-transition: width .35s ease; transition: width .35s ease;background-color: #247299;
                            border-top: 1px solid #a0a0a0; border-right: none; border-bottom: 1px solid #a0a0a0; border-top-right-radius: 4px; 
                            border-bottom-right-radius: 4px; cursor: pointer; color: #fff;}
-.baseFeatureClass > ul.active {border-left: 1px solid #d2d2d2; border-right: 1px solid #a0a0a0; width:240px;overflow-y:auto;max-height:500px;}
+.baseFeatureClass > ul.active {border-left: 1px solid #d2d2d2; border-right: 1px solid #a0a0a0; width:280px;overflow-y:auto;max-height:500px;}
  .baseFeatureClass > ul.active::-webkit-scrollbar {/*滚动条整体样式*/
             width: 10px;     /*高宽分别对应横竖滚动条的尺寸*/
             height: 10px;
@@ -240,10 +240,18 @@ input:-ms-input-placeholder{color:#abdae1 !important;}
             border-radius: 0;
             background:rgba(0,0,0,0.2);
         } 
-.baseFeatureClass > ul > li { overflow: hidden; width: 240px; text-overflow: ellipsis; -o-text-overflow: ellipsis; -icab-text-overflow: ellipsis; -khtml-text-overflow: ellipsis; -moz-text-overflow: ellipsis; -webkit-text-overflow: ellipsis; border: none; padding: 8px 15px; white-space: nowrap; cursor: pointer; }
+.baseFeatureClass > ul > li { overflow: hidden; width: 280px; text-overflow: ellipsis; -o-text-overflow: ellipsis; -icab-text-overflow: ellipsis; -khtml-text-overflow: ellipsis; -moz-text-overflow: ellipsis; -webkit-text-overflow: ellipsis; border: none; padding: 8px 15px; white-space: nowrap; cursor: pointer; }
 
 
-.baseFeatureClass > ul > li { padding: 8px 10px; white-space: nowrap; cursor: pointer; text-align:left; position: relative;}
+    .baseFeatureClass > ul > li {
+        padding: 8px 10px;
+        white-space: nowrap;
+        cursor: pointer;
+        text-align: left;
+        position: relative;
+        display: flex;
+        flex-direction: row;
+    }
 /*.baseFeatureClass > ul > li > span:first-child { margin-right:6px;font-size:10px;visibility:hidden;}*/
 .baseFeatureClass > ul > li:hover { color: #f5c046; background-color:#0f4563;}
 .baseFeatureClass > ul > li.active { color: #f5c046;}
@@ -286,15 +294,14 @@ input:-ms-input-placeholder{color:#abdae1 !important;}
     -ms-animation-play-state: running;
     -ms-animation-timing-function: linear;
 }
-.baseFeatureLayer .hk-bg
-{
-	width: 45px;
+.baseFeatureLayer .hk-bg {
+    width: 45px;
     height: 22px;
     border-radius: 15px;
-    display: block;
-    position: absolute;
-    top: 7px;
-    left: 6px;
+    display: inline-block;
+    /* position: absolute; */
+    /* top: 7px; */
+    /* left: 6px; */
     background-color: #ddd;
     float: left;
 }
@@ -310,13 +317,24 @@ input:-ms-input-placeholder{color:#abdae1 !important;}
 .baseFeatureLayer .baseFeatureLayerTitle {
     text-overflow: ellipsis;
     overflow: hidden;
-     float: right; 
-    /*left: 45px;*/
+    display: inline-flex;
+    /* float: right; */
+    /* left: 45px; */
     position: relative;
     width: 180px;
     white-space: nowrap;
     padding-left: 15px;
+    flex: 1;
 }
+    .baseFeatureLayer .baseFeatureLayerTitle i {
+        display: inline-block;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        flex: 1;
+        font-style: normal;
+        box-sizing: border-box;
+        padding: 0 4px;
+    }
 .baseFeatureLayer .baseFeatureLayerDetails {
     display: inline-block;
     text-align: center;

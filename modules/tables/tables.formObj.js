@@ -71,53 +71,158 @@ const COUNTY = [
 // 所属街道
 const TOWN = [];
 // 问题分类
-const problemType = [];
+const problemType = [
+    { n: '全部', v: '' },
+    { n: '缺失', v: '缺失' },
+    { n: '病害', v: '病害' },
+    { n: '分叉', v: '分叉' },
+    { n: '畸形', v: '畸形' },
+    { n: '枯萎', v: '枯萎' },
+    { n: '倾斜', v: '倾斜' },
+    { n: '有坑无树', v: '有坑无树' }
+];
 define("tables/formObj", [], function () {
     const config = {
-        // 古树名木
-        1947: {
-            h: [{ n: '名称', t: 'input', k: 'NAME' }, { n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' },{ n: '所属街道', t: 'select', v: [], k: 'TOWN' }, { n: '地址', t: 'input', k: 'ADDRESS' }],
-            img: "gsmm",
-            s: ['COUNTY','TOWN']
+        // 温州市绿化资源普查面
+        2021: {
+            h: [],
+            s: []
         },
-        // 古树名木覆盖面
-        1948: {
-            h: [{ n: '名称', t: 'input', k: 'NAME' }, { n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' },{ n: '所属街道', t: 'select', v: [], k: 'TOWN' }, { n: '地址', t: 'input', k: 'ADDRESS' }],
+        // 温州市绿地覆盖
+        2036: {
+            h: [{ n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' }, { n: '所属街道', t: 'select', v: [], k: 'TOWN' }],
             img: "",
             s: ['COUNTY', 'TOWN']
         },
-        // 问题行道树
-        1949: {
-            h: [{ n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' },{ n: '所属街道', t: 'select', v: [], k: 'TOWN' }],
-            img: "wthds",
+        // 温州市绿地现状
+        2024: {
+            h: [{ n: '类别名称', t: 'input', k: 'CLASSNAME' }, { n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' }, { n: '所属街道', t: 'select', v: [], k: 'TOWN' }],
+            img: "",
+            s: ['COUNTY', 'TOWN', "CLASSNAME"]
+        },
+        // 公园绿地
+        2025: {
+            h: [ { n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' }, { n: '所属街道', t: 'select', v: [], k: 'TOWN' }],
+            img: "",
+            s: ['COUNTY', 'TOWN']
+        },
+        // 生产绿地
+        2026: {
+            h: [ { n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' }, { n: '所属街道', t: 'select', v: [], k: 'TOWN' }],
+            img: "",
+            s: ['COUNTY', 'TOWN']
+        },
+        // 防护绿地
+        2027: {
+            h: [ { n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' }, { n: '所属街道', t: 'select', v: [], k: 'TOWN' }],
+            img: "",
+            s: ['COUNTY', 'TOWN']
+        },
+        // 其他绿地
+        2028: {
+            h: [{ n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' }, { n: '所属街道', t: 'select', v: [], k: 'TOWN' }],
+            img: "",
+            s: ['COUNTY', 'TOWN']
+        },
+        // 附属绿地
+        2029: {
+            h: [{ n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' }, { n: '所属街道', t: 'select', v: [], k: 'TOWN' }],
+            img: "",
+            s: ['COUNTY', 'TOWN']
+        },
+        // 居住绿地
+        2030: {
+            h: [{ n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' }, { n: '所属街道', t: 'select', v: [], k: 'TOWN' }],
+            img: "",
+            s: ['COUNTY', 'TOWN']
+        },
+        // 单位绿地
+        2031: {
+            h: [{ n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' }, { n: '所属街道', t: 'select', v: [], k: 'TOWN' }],
+            img: "",
+            s: ['COUNTY', 'TOWN']
+        },
+        // 道路绿地
+        2032: {
+            h: [{ n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' }, { n: '所属街道', t: 'select', v: [], k: 'TOWN' }],
+            img: "",
+            s: ['COUNTY', 'TOWN']
+        },
+        // 分车绿带
+        2033: {
+            h: [{ n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' }, { n: '所属街道', t: 'select', v: [], k: 'TOWN' }],
+            img: "",
             s: ['COUNTY', 'TOWN']
         },
         // 行道树调查
-        1950: {
-            h: [{ n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' },{ n: '所属街道', t: 'select', v: [], k: 'TOWN' }],
-            img: "hds",
+        2034: {
+            h: [{ n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' }, { n: '所属街道', t: 'select', v: [], k: 'TOWN' }],
+            img: "",
             s: ['COUNTY', 'TOWN']
         },
+        // 古树名木
+        2038: {
+            h: [{ n: '名称', t: 'input', k: 'NAME' }, { n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' },{ n: '所属街道', t: 'select', v: [], k: 'TOWN' }, { n: '地址', t: 'input', k: 'ADDRESS' }],
+            img: "gsmm",
+            s: ['COUNTY', 'TOWN', 'ADDRESS']
+        },
+        // 古树名木覆盖面
+        2039: {
+            h: [{ n: '名称', t: 'input', k: 'NAME' }, { n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' },{ n: '所属街道', t: 'select', v: [], k: 'TOWN' }, { n: '地址', t: 'input', k: 'ADDRESS' }],
+            img: "",
+            s: ['COUNTY', 'TOWN', 'ADDRESS']
+        },
+        // 后备古树名木点
+        2040: {
+            h: [{ n: '名称', t: 'input', k: 'NAME' }, { n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' }, { n: '所属街道', t: 'select', v: [], k: 'TOWN' }, { n: '地址', t: 'input', k: 'ADDRESS' }],
+            img: "",
+            s: ['COUNTY', 'TOWN', 'ADDRESS']
+        },
+        // 居住区面
+        2043: {
+            h: [{ n: '名称', t: 'input', k: 'NAME' }, { n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' }, { n: '所属街道', t: 'select', v: [], k: 'TOWN' }, { n: '地址', t: 'input', k: 'ADDRESS' }],
+            img: "",
+            s: ['COUNTY', 'TOWN', 'ADDRESS']
+        },
+        // 公共服务单位面
+        2044: {
+            h: [{ n: '名称', t: 'input', k: 'NAME' }, { n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' }, { n: '所属街道', t: 'select', v: [], k: 'TOWN' }, { n: '地址', t: 'input', k: 'ADDRESS' }],
+            img: "",
+            s: ['COUNTY', 'TOWN', 'ADDRESS']
+        },
         // 行道树调查路段面
-        1951: {
+        2045: {
             h: [{ n: '名称', t: 'input', k: 'NAME' }],
             img: "",
             s: ['NAME']
         },
+        // 问题行道树
+        2053: {
+            h: [{ n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' }, { n: '所属街道', t: 'select', v: [], k: 'TOWN' }, { n: '问题分类', t: 'select', v: problemType, k: 'TYPE' }],
+            img: "wthds",
+            s: ['COUNTY', 'TOWN']
+        },
+        // 人行道、自行车道线
+        2046: {
+            h: [{ n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' },{ n: '所属街道', t: 'select', v: [], k: 'TOWN' }],
+            img: "",
+            s: ['COUNTY', 'TOWN']
+        },
+        
         // 公园配套设施
-        1952: {
+        2050: {
             h: [{ n: '名称', t: 'input', k: 'NAME' }, { n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' },{ n: '所属街道', t: 'select', v: [], k: 'TOWN' }, { n: '所属公园', t: 'input', k: 'LDGS' }],
             img: "gyptss",
             s: ['COUNTY', 'TOWN']
         },
-        // 主要公园范围面
-        1953: {
+        // 公园范围面
+        2051: {
             h: [{ n: '名称', t: 'input', k: 'NAME' }, { n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' },{ n: '所属街道', t: 'select', v: [], k: 'TOWN' }, { n: '地址', t: 'input', k: 'ADDRESS' }],
             img: "",
             s: ['COUNTY', 'TOWN']
         },
         // 主要公园绿地精细图斑
-        1954: {
+        2052: {
             h: [{ n: '所属公园', t: 'input', k: 'LDGS' }, { n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' },{ n: '所属街道', t: 'select', v: [], k: 'TOWN' }],
             img: "ldjxtb",
             s: ['COUNTY', 'TOWN']
@@ -125,60 +230,6 @@ define("tables/formObj", [], function () {
         // 公共服务单位面
         1955: {
             h: [{ n: '名称', t: 'input', k: 'NAME' }, { n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' },{ n: '所属街道', t: 'select', v: [], k: 'TOWN' }, { n: '地址', t: 'input', k: 'ADDRESS' }],
-            img: "",
-            s: ['COUNTY', 'TOWN']
-        },
-        // 单位绿地
-        1956: {
-            h: [{ n: '绿地归属', t: 'input', k: 'LDGS' }, { n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' },{ n: '所属街道', t: 'select', v: [], k: 'TOWN' }],
-            img: "",
-            s: ['COUNTY', 'TOWN']
-        },
-        // 居住区面
-        1957: {
-            h: [{ n: '名称', t: 'input', k: 'NAME' }, { n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' },{ n: '所属街道', t: 'select', v: [], k: 'TOWN' }, { n: '地址', t: 'input', k: 'ADDRESS' }],
-            img: "",
-            s: ['COUNTY', 'TOWN']
-        },
-        // 居住绿地
-        1958: {
-            h: [{ n: '类别名称', t: 'input', k: 'CLASSNAME' }, { n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' }, { n: '所属街道', t: 'select', v: [], k: 'TOWN' }],
-            img: "",
-            s: ['COUNTY', 'TOWN']
-        },
-        // 人行道与自行车道
-        1959: {
-            h: [{ n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' }, { n: '所属街道', t: 'select', v: [], k: 'TOWN' }],
-            img: "",
-            s: ['COUNTY', 'TOWN']
-        },
-        // 道路绿地
-        1960: {
-            h: [{ n: '类别名称', t: 'input', k: 'CLASSNAME' }, { n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' }, { n: '所属街道', t: 'select', v: [], k: 'TOWN' }],
-            img: "",
-            s: ['COUNTY', 'TOWN']
-        },
-        // 分车绿带
-        1961: {
-            h: [{ n: '类别名称', t: 'input', k: 'CLASSNAME' }, { n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' }, { n: '所属街道', t: 'select', v: [], k: 'TOWN' }],
-            img: "",
-            s: ['COUNTY', 'TOWN']
-        },
-        // 温州市绿地现状
-        1962: {
-            h: [{ n: '类别名称', t: 'input', k: 'CLASSNAME' }, { n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' }, { n: '所属街道', t: 'select', v: [], k: 'TOWN' }],
-            img: "",
-            s: ['COUNTY', 'TOWN']
-        },
-        // 温州市绿地覆盖
-        1963: {
-            h: [{ n: '类别名称', t: 'input', k: 'CLASSNAME' }, { n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' }, { n: '所属街道', t: 'select', v: [], k: 'TOWN' }],
-            img: "",
-            s: ['COUNTY', 'TOWN']
-        },
-        // 温州市绿化资源普查面
-        1964: {
-            h: [{ n: '类别名称', t: 'input', k: 'CLASSNAME' }, { n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' }, { n: '所属街道', t: 'select', v: [], k: 'TOWN' }],
             img: "",
             s: ['COUNTY', 'TOWN']
         },
