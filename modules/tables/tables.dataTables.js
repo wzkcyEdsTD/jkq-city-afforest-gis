@@ -154,7 +154,7 @@ define("tables/dataTables", [
                 //  定位
                 const { Url, LayerIndex } = that._config;
                 const arcgisxhr = new L.DCI.ArcgisXhr();
-                arcgisxhr.getArcgisByXhr(`${Url}/${LayerIndex}/query`, ({ features }) => {
+                !that._formConfig.nolocate && arcgisxhr.getArcgisByXhr(`${Url}/${LayerIndex}/query`, ({ features }) => {
                     const { type, geometry } = that.doTransform(features[0].geometry);
                     const map = L.DCI.App.pool.get('MultiMap').getActiveMap();
                     const hlLayer = map.getLabelLayer();
@@ -170,12 +170,12 @@ define("tables/dataTables", [
                         const polygon = L.polygon(geometry, { color: 'red' }).addTo(hlLayer);
                         map.map.fitBounds(polygon.getBounds());
                     };
-                    //  弹框
-                    $(".extra_details").remove();
-                    $("body").append(extra);
-                    $(".extra_obj").addClass("extra_obj_hidden") && $(".btn-updown").attr("data-info", "off").text("展开")
-                    that.doExtraEvent();
-                }, `OBJECTID=${data.attributes.OBJECTID}`,true);
+                }, `OBJECTID=${data.attributes.OBJECTID}`, true);
+                //  弹框
+                $(".extra_details").remove();
+                $("body").append(extra);
+                !that._formConfig.nolocate && $(".extra_obj").addClass("extra_obj_hidden") && $(".btn-updown").attr("data-info", "off").text("展开")
+                that.doExtraEvent();
             });
             //  [表格]   选择区划
             $('body').on('change', `.extra_dataTable_${that._timestamp} .form-data-COUNTY`, function () {

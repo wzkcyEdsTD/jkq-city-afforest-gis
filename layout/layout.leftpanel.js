@@ -165,7 +165,7 @@ define("layout/leftpanel", [
                 obj.removeClass("open");
                 obj.removeClass("icon-previous-page").addClass("icon-next-page");
                 leftPaneObj.animate({
-                    left: "-137px"
+                    left: "-185px"
                 }, "fast");
                 mapControlObj.animate({
                     left: "0px"
@@ -178,7 +178,7 @@ define("layout/leftpanel", [
                     left: "15px"
                 }, "fast");
                 mapControlObj.animate({
-                    left: "150px"
+                    left: "195px"
                 }, "fast");
             }
         },
@@ -512,7 +512,7 @@ define("layout/leftpanel", [
                 const FEATUREPARENTID = data1[0].FEATUREPARENTID;
                 var num = data.length;
                 for (var k = 0; k < data.length; k++) {
-                    html += `<li class="baseFeatureLayer" id="layer-base-${data[k]["FEATUREID"]}" title="${data[k]["FEATURENAME"]}" data-info="map-layer" data-FEATUREPARENTID="${FEATUREPARENTID}">${FEATUREPARENTID != 2059 ? `<span class="hk-bg"><span class="hk"></span></span>`:``}<div class="baseFeatureLayerTitle"><i>${data[k]["FEATURENAME"]}</i><span class="baseFeatureLayerDetails">属性</span></div></li>`;
+                    html += `<li class="baseFeatureLayer" id="layer-base-${data[k]["FEATUREID"]}" title="${data[k]["FEATURENAME"]}" data-info="map-layer" data-FEATUREPARENTID="${FEATUREPARENTID}">${~[2059, 1819].indexOf(FEATUREPARENTID)  ? `<span class="hk-bg"><span class="hk"></span></span>` : ``}<div class="baseFeatureLayerTitle"><i>${data[k]["FEATURENAME"]}</i><span class="baseFeatureLayerDetails">属性</span></div></li>`;
                 }
                 if (name == "SHP加载数据") {
                     $.each(map.shpLayerGroups, function (a, group) {
@@ -626,7 +626,7 @@ define("layout/leftpanel", [
             e.stopPropagation();
             var liEle = $(e.currentTarget).find("li");
             if (liEle.length > 0) {
-                $(".leftpanelcontent_base_class").css("width", "270px");
+                // $(".leftpanelcontent_base_class").css("width", "200px");
                 $(e.currentTarget).children("ul").addClass("active");
             }
 
@@ -758,6 +758,7 @@ define("layout/leftpanel", [
             const target = $(e.currentTarget).parent().parent(".baseFeatureLayer")[0];
             const id = target.id.split("-")[2];
             const FEATUREPARENTID = $(target).attr("data-FEATUREPARENTID");
+            console.log(id, FEATUREPARENTID)
             L.dci.app.services.baseService.getFeatureLayerById({
                 id,
                 context: _this,

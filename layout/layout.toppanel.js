@@ -51,7 +51,12 @@ define("layout/toppanel", [
                                     +'<a href="javascript:" class="top_manager_division">'
 										+'行政区划'
 									+'</a>'
-								+'</li>'
+                                + '</li>'
+                                + '<li class="nav-item ">'
+                                    + '<a href="javascript:" class="top_manager_diseased">'
+                                        + '病虫害'
+                                    + '</a>'
+                                + '</li>'
                                 + '<li class="nav-item ">'
                                     + '<a href="javascript:" class="top_manager_project">'
                                         + '项目管理'
@@ -144,12 +149,17 @@ define("layout/toppanel", [
             $('body').on('click', '.top_manager_data', function () {
                 const icon = $("#shrinknenu")
                 icon.hasClass("icon-next-page") && icon.click();
-                $("#mCSB_1_container > ul > li:nth-child(3) > a").click();
+                $("#mCSB_1_container > ul > li:nth-child(2) > a").click();
             });
             $('body').on('click', '.top_manager_division', function () {
                 const icon = $("#shrinknenu")
                 icon.hasClass("icon-next-page") && icon.click();
-                $("#mCSB_1_container > ul > li:nth-child(2) > a").click();
+                $("#mCSB_1_container > ul > li:nth-child(3) > a").click();
+            });
+            $('body').on('click', '.top_manager_diseased', function () {
+                const icon = $("#shrinknenu")
+                icon.hasClass("icon-next-page") && icon.click();
+                $("#mCSB_1_container > ul > li:nth-child(4) > a").click();
             });
             $('body').on('click', '.top_manager_project', function () {
                 L.dci.app.util.dialog.alert("提示", "该服务正在开发中");

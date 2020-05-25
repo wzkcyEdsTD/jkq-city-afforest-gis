@@ -172,7 +172,7 @@ var Project_ParamConfig = {
     *@property defaultCoreServiceUrl
     *@type {String}
     */
-    defaultCoreServiceUrl: "http://192.168.0.158/GGSS/mapServices/v1",
+    defaultCoreServiceUrl: "http://zhyl.wzyl.gov.cn/mapServices/v1",
     /**
     *附件服务地址
     *@property defaultServiceUrl

@@ -325,11 +325,6 @@ define("layout/toolbar", [
                         var eleObj = $(e.currentTarget);
                         e.data.obj.createToolInputContent_PQ(name, eleObj);
                     }
-                    else if (id == "GreenSpaceAnalysis") {
-                        var name = $(e.currentTarget).children("span:eq(1)").html();
-                        var eleObj = $(e.currentTarget);
-                        e.data.obj.createToolInputContent_GSA(name, eleObj);
-                    }
                     else {
                         L.dci.app.menu.excuteTool(id);
                     }
@@ -605,7 +600,7 @@ define("layout/toolbar", [
             } else {
                 greenSpaceAnalysis = L.dci.app.pool.get("greenSpaceAnalysis");
             }
-            $('#GreenSpaceAnalysis').on('click', { obj: this }, this.tool);
+            //$('#GreenSpaceAnalysis').on('click', { obj: this }, this.tool);
         },
         /**
         *分析下来菜单html

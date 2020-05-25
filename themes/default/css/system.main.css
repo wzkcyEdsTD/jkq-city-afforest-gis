@@ -150,9 +150,9 @@ input:-ms-input-placeholder{color:#abdae1 !important;}
     }
 
 
-.leftpanelcontent { height: 100%!important;  position: relative;display:inline-block;width:160px; }
+.leftpanelcontent { height: 100%!important;  position: relative;display:inline-block;width:200px; }
 .leftpanelcontent > div { height: 100%; display:none;}
-.leftpanelcontent.base .leftpanelcontent_base { display:block;max-width: 160px;background-color: #fff;}
+.leftpanelcontent.base .leftpanelcontent_base { display:block;width: 100%;background-color: #fff;}
 .leftpanelcontent.subject .leftpanelcontent_subject {width:152px;background-color:#fff; display:block; border-right: 1px solid #d2d2d2;}
 
 
@@ -179,7 +179,7 @@ input:-ms-input-placeholder{color:#abdae1 !important;}
     border-right: 1px solid #ddd;
 }
 .baseFeatureSub a {
-     border-top: 1px solid #ddd;
+    border-top: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
     color: #000;
     cursor: pointer;
@@ -187,13 +187,18 @@ input:-ms-input-placeholder{color:#abdae1 !important;}
     padding: 10px;
     text-align: center;
     width: 100%;
+    font-size: 16px;
+    font-weight: bold;
 }
 .baseFeatureSub a span{
     float: right;
     margin-right: 10px;
 }
-.leftpanelcontent_base_class { min-width: 119px; display: none; }
-.leftpanelcontent_base_class.active { min-width: 119px; display: inline-block; } 
+.leftpanelcontent_base_class { width: 100%; display: none; }
+    .leftpanelcontent_base_class.active {
+        width: 100%;
+        display: inline-block;
+    } 
 /**
 .leftpanelcontent_base_sub a { font-size: 15px; text-align: center; text-decoration: none; position: relative; display: table-cell; vertical-align: middle; height: 110px; color: black; padding: 0px 10px 0px 7px; word-wrap: break-word; word-break: break-all; }
 **/
@@ -213,15 +218,15 @@ input:-ms-input-placeholder{color:#abdae1 !important;}
 .leftpanelcontent_base_sub .mCSB_dragger { display: none!important; }
 
 .leftpanelcontent_base_class_ul { 
-    width: 119px; float: left; 
+    width: 100%; float: left; 
      /*border-right: 1px solid #d2d2d2;*/
 }
-.baseFeatureClass { position: relative; width: 119px; color: #000; padding-top: 10px; border: none; text-align: center; }
+.baseFeatureClass { position: relative; width: 100%; color: #000; padding-top: 10px; border: none; text-align: center; }
 .baseFeatureClass > img { width: 80px; height: 60px; border: 2px solid #787878; margin-bottom: 5px; cursor: pointer; }
 .baseFeatureClass > p { margin: 0; }
 .baseFeatureClass:hover > img { border: 2px solid #f5c046; }
 .baseFeatureClass:hover > p { color: #f5c046; }
-.baseFeatureClass > ul { position: absolute; overflow: hidden; text-align: left; left: 119px; top: 0; z-index: 11; width: 0;
+.baseFeatureClass > ul { position: absolute; overflow: hidden; text-align: left; left: 160px; top: 0; z-index: 11; width: 0;
                           -webkit-transition: width .35s ease; -o-transition: width .35s ease; transition: width .35s ease;background-color: #247299;
                            border-top: 1px solid #a0a0a0; border-right: none; border-bottom: 1px solid #a0a0a0; border-top-right-radius: 4px; 
                            border-bottom-right-radius: 4px; cursor: pointer; color: #fff;}
@@ -848,7 +853,7 @@ margin-right: 20px;
 .leaflet-dragging .leaflet-clickable {cursor: url(../images/cursor/movehand.cur),move;}
 
 #map-main .leaflet-control-container .leaflet-left {
-    left: 150px;
+    left: 195px;
 }
 .navbar-container .nav-button { position: absolute; right: 150px; top: 15px; }
 .navbar-container .nav-button .btn{

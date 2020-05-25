@@ -38,7 +38,8 @@ define("layout/tool", [
     "query/propertyquery",
     "analysis/greenSpaceAnalysis",
     "tables/extraQuery",
-    "tables/withDiseased"
+    "tables/withDiseased",
+    "tables/dataTables"
 ], function (L) {
 
     L.DCI.Tool = L.DCI.BaseObject.extend({
@@ -774,16 +775,21 @@ define("layout/tool", [
         **绿地变化分析
        **/
         greenSpaceAnalysis: function () {
-            var greenSpaceAnalysis;
-            if (L.dci.app.pool.has("greenSpaceAnalysis") == false) {
-                var mapGroup = L.DCI.App.pool.get("MultiMap");
-                var map = mapGroup.getActiveMap();
-                greenSpaceAnalysis = new L.DCI.GreenSpaceAnalysis(map);
-                L.dci.app.pool.add(greenSpaceAnalysis);
-            } else {
-                greenSpaceAnalysis = L.dci.app.pool.get("greenSpaceAnalysis");
-            }
-            greenSpaceAnalysis.startAnalyze();
+            const _this = this;
+            const id = 2024;
+            const FEATUREPARENTID = 2019;
+            L.dci.app.services.baseService.getFeatureLayerById({
+                id: '2024',
+                context: _this,
+                success: function (res) {
+                    if (res != "0" && res.length > 0) {
+                        _this._table && _this._table.doDestroy();
+                        _this._table = new L.DCI.DataTables(id, res[0], FEATUREPARENTID);
+                    } else {
+                        L.dci.app.util.dialog.alert("提示", "该服务已被禁用");
+                    }
+                }
+            });
         },
         /**
          * 数据搜索

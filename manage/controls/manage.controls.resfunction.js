@@ -630,59 +630,57 @@ define("manage/controls/resfunction", [
             var description = $.trim($(".description").val());
             var functionTypeId = treeNode.functionTypeId;
             //验证功能名称
-            var functionNameObj = this.verifyFunctionName(functionName);
-            if (functionNameObj.verifyName == false)
-            {
-                $(".errorText").text(functionNameObj.errorText);
-                return;
-            }
-            //验证显示名称
-            var displayNameObj = this.verifyDisplayName(displayName);
-            if (displayNameObj.verifyName == false)
-            {
-                $(".errorText").text(displayNameObj.errorText);
-                return;
-            }
-            //验证执行函数名称
-            var codeFunctionNameObj = this.verifyCodeFunctionName(codeFunctionName);
-            if (codeFunctionNameObj.verifyName == false)
-            {
-                $(".errorText").text(codeFunctionNameObj.errorText);
-                return;
-            }
-            //验证样式名称
-            var themeNameObj = this.verifyThemeName(themeName);
-            if (themeNameObj.verifyName == false)
-            {
-                $(".errorText").text(themeNameObj.errorText);
-                return;
-            }
-
-            //显示保存中提示信息
-            L.mtip.usetip(1, "保存中...", 1234);
-            //提交保存内容
-            var data = '{"FUNCTIONID":1, "FUNCTIONNAME":"' + functionName + '", "DISPLAYNAME":"' + displayName + '","FUNCTIONTYPEID": ' + functionTypeId + ', "DESCRIPTION":"' + description + '","EXECUTE":"' + codeFunctionName + '","CLSNAME":"' + themeName + '","SINDEX":' + sIndex + '}';
-
-            L.baseservice.addFunction({
-                async: true,
-                data: data,
-                context: this,
-                success: function (id) {
-                    var newNodeId = JSON.parse(JSON.parse(id));
-                    var treeObj = this.tree.getTreeObj("resFunctionFunctionTree");
-                    treeNode.children.push(this.handleData.functionTreeFunction(newNodeId, functionTypeId, functionName,displayName,codeFunctionName, themeName, description, sIndex));
-                    //取消勾选项
-                    treeNode.checked = false;
-                    this.tree.refresh(treeObj);
-                    //清空内容模版
-                    this.clearContentTemp();
-                    //显示保存成功提示信息
-                    L.mtip.usetip(2, "添加成功", 1234);
-                },
-                error: function (XMLHttpRequest, errorThrown) {
-                    L.mtip.usetip(3, "添加功能失败", 1234);
+            this.verifyFunctionName(functionName, functionNameObj => {
+                if (functionNameObj.verifyName == false) {
+                    $(".errorText").text(functionNameObj.errorText);
+                    return;
                 }
+                //验证显示名称
+                var displayNameObj = this.verifyDisplayName(displayName);
+                if (displayNameObj.verifyName == false) {
+                    $(".errorText").text(displayNameObj.errorText);
+                    return;
+                }
+                //验证执行函数名称
+                var codeFunctionNameObj = this.verifyCodeFunctionName(codeFunctionName);
+                if (codeFunctionNameObj.verifyName == false) {
+                    $(".errorText").text(codeFunctionNameObj.errorText);
+                    return;
+                }
+                //验证样式名称
+                var themeNameObj = this.verifyThemeName(themeName);
+                if (themeNameObj.verifyName == false) {
+                    $(".errorText").text(themeNameObj.errorText);
+                    return;
+                }
+
+                //显示保存中提示信息
+                L.mtip.usetip(1, "保存中...", 1234);
+                //提交保存内容
+                var data = '{"FUNCTIONID":1, "FUNCTIONNAME":"' + functionName + '", "DISPLAYNAME":"' + displayName + '","FUNCTIONTYPEID": ' + functionTypeId + ', "DESCRIPTION":"' + description + '","EXECUTE":"' + codeFunctionName + '","CLSNAME":"' + themeName + '","SINDEX":' + sIndex + '}';
+
+                L.baseservice.addFunction({
+                    async: true,
+                    data: data,
+                    context: this,
+                    success: function (id) {
+                        var newNodeId = JSON.parse(JSON.parse(id));
+                        var treeObj = this.tree.getTreeObj("resFunctionFunctionTree");
+                        treeNode.children.push(this.handleData.functionTreeFunction(newNodeId, functionTypeId, functionName, displayName, codeFunctionName, themeName, description, sIndex));
+                        //取消勾选项
+                        treeNode.checked = false;
+                        this.tree.refresh(treeObj);
+                        //清空内容模版
+                        this.clearContentTemp();
+                        //显示保存成功提示信息
+                        L.mtip.usetip(2, "添加成功", 1234);
+                    },
+                    error: function (XMLHttpRequest, errorThrown) {
+                        L.mtip.usetip(3, "添加功能失败", 1234);
+                    }
+                });
             });
+            
         },
 
 
@@ -1099,7 +1097,7 @@ define("manage/controls/resfunction", [
         *@param name {String} 功能类型名
         *@return {Object} 功能名验证结果以及提示内容
         */
-        verifyFunctionName: function (name) {
+        verifyFunctionName: function (name,fn) {
             if (name == "")
                 return { "verifyName": false, "errorText": "功能名称不能为空" };
             if (name.indexOf(" ") > -1)
@@ -1142,13 +1140,14 @@ define("manage/controls/resfunction", [
                         {
                             result = { "verifyName": true, "errorText": "" };
                         }
+                        fn && fn(result);
                     }
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
                     result = { "verifyName": false, "errorText": "获取功能信息失败" };
+                    fn && fn(result);
                 }
             });
-            return result;
         },
 
         /**
