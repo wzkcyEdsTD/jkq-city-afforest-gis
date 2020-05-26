@@ -42,7 +42,7 @@ var Manage_ParamConfig = {
    *@property defaultTitle
    *@type {String}
    */
-    defaultTitle: '二三维一体化运维管理系统',
+    defaultTitle: '城市绿化管理信息系统运维管理系统',
     /* 
     *是否使用OA组织用户数据
     *@property isUseOAUserInfo
@@ -87,7 +87,7 @@ var Project_ParamConfig = {
     *@property title
     *@type {String}
     */
-    title: '二三维一体化',
+    title: '城市绿化管理信息系统',
     /**
     *左面板配置
     *@property left

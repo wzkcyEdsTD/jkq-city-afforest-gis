@@ -117,6 +117,7 @@ define("query/resultpanel", [
         *@param features {Object} 要素
         */
         load: function (features) {
+            console.log(features);
             try {
                 //$(this._container).html(this.temphtml);
                 var quicksearch = $(".qrtop-right");
@@ -833,9 +834,10 @@ define("query/resultpanel", [
 					//});
 					//点击照片，放大轮播
 					$("#projectYhzp").click(function(){
-						var picUrl=$(this).attr("picUrl");
-						var picUrlArr=picUrl.split("$");
-						_this.showPicPane(picUrlArr);
+                        var picUrl = $(this).attr("picUrl");
+                        var folder = $(this).attr("folder");
+						var picUrlArr=picUrl.split(";");
+                        _this.showPicPane(picUrlArr, folder);
 					});
 					//关闭加载动画
 					L.dci.app.util.hideLoadFlash(loadingObj);
@@ -906,14 +908,14 @@ define("query/resultpanel", [
             };
             const folder = imgConfig[layerName];
             const returnStr = picUrl && folder ? picUrl.split(';').map(v => `<img style='width:100%;margin-bottom:6px;' src='${Project_ParamConfig.imgHost}/${folder}/${v.toLowerCase().includes('.jpg') ? v : `${v}.jpg`}' />`).join('') : '暂无图片';
-            return callback(`<div>${returnStr}</div>`);
+            return callback(`<div id="projectYhzp" picUrl="${picUrl}" folder="${folder}">${returnStr}</div>`);
         },
 		/**
         *图片轮播
         *@method detailsHtml
         *@param obj {Object} 要素
         */
-		showPicPane:function(picUrlArr){
+        showPicPane: function (picUrlArr, folder){
 			var content='<div id="carousel-projectYhzp" class="carousel slide" data-ride="carousel" style="width:100%;height:96%;">'
 			    +'<ol class="carousel-indicators">';
 			for(var i in picUrlArr){
@@ -932,8 +934,9 @@ define("query/resultpanel", [
 				}
 				else{
 					content+='<div class="item" style="width:100%;height:100%;">';
-				}
-				var imgUrl=Project_ParamConfig.getYhImgUrl + '/' + picUrlArr[j];
+                }
+                const v = picUrlArr[j];
+                var imgUrl = `${Project_ParamConfig.imgHost}/${folder}/${v.toLowerCase().includes('.jpg') ? v : `${v}.jpg`}`;
 				content+='<img src="'+imgUrl+'" alt="" style="width:100%;height:100%;">'
 				  +'<div class="carousel-caption">'
 				  +'</div>'

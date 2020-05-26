@@ -130,6 +130,7 @@ define("query/spatialIdentify", [
                 var map = this._map.getMap();
                 this._count = this._map.getLayers().length;
                 var _this = this;
+                $(".extra_details").remove();
                 map.eachLayer(function (layer) {
                     if (layer.options && layer.options.id != "baseLayer"
                         && layer.options.id != null
@@ -162,7 +163,7 @@ define("query/spatialIdentify", [
                                 if (this._count == 0) {
                                     if (this._results.length) {
                                         if (this._queryResult == null) {
-                                            $(".extra_details").remove();
+                                            
                                             this._queryResult = new L.DCI.QueryResult();
                                         }
                                         this._queryResult.showTo('空间查询');

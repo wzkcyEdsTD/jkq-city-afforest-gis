@@ -511,8 +511,9 @@ define("layout/leftpanel", [
                 }
                 const FEATUREPARENTID = data1[0].FEATUREPARENTID;
                 var num = data.length;
+                console.log(FEATUREPARENTID);
                 for (var k = 0; k < data.length; k++) {
-                    html += `<li class="baseFeatureLayer" id="layer-base-${data[k]["FEATUREID"]}" title="${data[k]["FEATURENAME"]}" data-info="map-layer" data-FEATUREPARENTID="${FEATUREPARENTID}">${~[2059, 1819].indexOf(FEATUREPARENTID)  ? `<span class="hk-bg"><span class="hk"></span></span>` : ``}<div class="baseFeatureLayerTitle"><i>${data[k]["FEATURENAME"]}</i><span class="baseFeatureLayerDetails">属性</span></div></li>`;
+                    html += `<li class="baseFeatureLayer" id="layer-base-${data[k]["FEATUREID"]}" title="${data[k]["FEATURENAME"]}" data-info="map-layer" data-FEATUREPARENTID="${FEATUREPARENTID}">${~[2059, 1984].indexOf(FEATUREPARENTID) ? `` : `<span class="hk-bg"><span class="hk"></span></span>`}<div class="baseFeatureLayerTitle"><i>${data[k]["FEATURENAME"]}</i><span class="baseFeatureLayerDetails">属性</span></div></li>`;
                 }
                 if (name == "SHP加载数据") {
                     $.each(map.shpLayerGroups, function (a, group) {

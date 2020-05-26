@@ -6,7 +6,7 @@
     position: fixed;
     bottom: 20px;
     right: 30px;
-    left: 200px;
+    left: 240px;
     z-index: 10;
     height: auto;
     background-color: white;
@@ -16,8 +16,31 @@
     padding: 10px;
 }
 
+    .extra_obj .loading {
+        position: absolute;
+        top: 76px;
+        bottom: 0px;
+        background-color: rgba(0,0,0,.1);
+        z-index: 1;
+        width: 100%;
+        border-radius: 4px;
+        overflow: hidden;
+    }
+
+        .extra_obj .loading > img {
+            height: 40px;
+            width: 40px;
+            background: url(../images/loading_f.gif);
+            background-size: cover;
+            position: relative;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+
     .extra_obj > div {
         position: relative;
+        min-height: 300px;
     }
 
     .extra_obj h4 {
@@ -63,10 +86,12 @@
             cursor: pointer;
         }
 
-
-.extra_obj thead tr th {
-    padding: 6px 6px;
-}
+    .extra_obj > table {
+        min-height : 200px;
+    }
+    .extra_obj thead tr th {
+        padding: 6px 6px;
+    }
 
 
     .extra_obj tbody tr {

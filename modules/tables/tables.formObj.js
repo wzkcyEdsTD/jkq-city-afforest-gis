@@ -53,7 +53,8 @@ const COUNTY = [
             { n: '仙岩街道', v: '仙岩' },
             { n: '新桥街道', v: '新桥' },
             { n: '泽雅镇', v: '泽雅' },
-        ] },
+        ]
+    },
     {
         n: '洞头区', v: '洞头', child: [
             { n: '全部', v: '' },
@@ -64,7 +65,6 @@ const COUNTY = [
             { n: '鹿西乡', v: '鹿西' },
             { n: '霓屿街道', v: '霓屿' },
             { n: '元觉街道', v: '元觉' },
-
         ]
     }
 ]
@@ -89,6 +89,11 @@ const problemType = [
 ];
 define("tables/formObj", [], function () {
     const config = {
+        // 地名地址
+        1983: {
+            h: [],
+            s: ['ADDRESS']
+        },
         // 温州市绿化资源普查面
         2021: {
             h: [],
@@ -104,6 +109,7 @@ define("tables/formObj", [], function () {
         2024: {
             h: [
                 { n: '类别名称', t: 'input', k: 'CLASSNAME' },
+                { n: '绿地归属', t: 'input', k: 'LDGS' },
                 { n: '更新状态', t: 'select', v: UPDATESTATE, k: 'UPDATESTATE' },
                 { n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' },
                 { n: '所属街道', t: 'select', v: [], k: 'TOWN' }
@@ -113,61 +119,101 @@ define("tables/formObj", [], function () {
         },
         // 公园绿地
         2025: {
-            h: [{ n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' }, { n: '所属街道', t: 'select', v: [], k: 'TOWN' }],
+            h: [
+                { n: '绿地归属', t: 'input', k: 'LDGS' },
+                { n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' },
+                { n: '所属街道', t: 'select', v: [], k: 'TOWN' }
+            ],
             img: "",
             s: ['COUNTY', 'TOWN']
         },
         // 生产绿地
         2026: {
-            h: [{ n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' }, { n: '所属街道', t: 'select', v: [], k: 'TOWN' }],
+            h: [
+                { n: '绿地归属', t: 'input', k: 'LDGS' },
+                { n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' },
+                { n: '所属街道', t: 'select', v: [], k: 'TOWN' }
+            ],
             img: "",
             s: ['COUNTY', 'TOWN']
         },
         // 防护绿地
         2027: {
-            h: [{ n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' }, { n: '所属街道', t: 'select', v: [], k: 'TOWN' }],
+            h: [
+                { n: '绿地归属', t: 'input', k: 'LDGS' },
+                { n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' },
+                { n: '所属街道', t: 'select', v: [], k: 'TOWN' }
+            ],
             img: "",
             s: ['COUNTY', 'TOWN']
         },
         // 其他绿地
         2028: {
-            h: [{ n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' }, { n: '所属街道', t: 'select', v: [], k: 'TOWN' }],
+            h: [
+                { n: '绿地归属', t: 'input', k: 'LDGS' },
+                { n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' },
+                { n: '所属街道', t: 'select', v: [], k: 'TOWN' }
+            ],
             img: "",
             s: ['COUNTY', 'TOWN']
         },
         // 附属绿地
         2029: {
-            h: [{ n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' }, { n: '所属街道', t: 'select', v: [], k: 'TOWN' }],
+            h: [
+                { n: '绿地归属', t: 'input', k: 'LDGS' },
+                { n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' },
+                { n: '所属街道', t: 'select', v: [], k: 'TOWN' }
+            ],
             img: "",
             s: ['COUNTY', 'TOWN']
         },
         // 居住绿地
         2030: {
-            h: [{ n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' }, { n: '所属街道', t: 'select', v: [], k: 'TOWN' }],
+            h: [
+                { n: '绿地归属', t: 'input', k: 'LDGS' },
+                { n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' },
+                { n: '所属街道', t: 'select', v: [], k: 'TOWN' }
+            ],
             img: "",
             s: ['COUNTY', 'TOWN']
         },
         // 单位绿地
         2031: {
-            h: [{ n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' }, { n: '所属街道', t: 'select', v: [], k: 'TOWN' }],
+            h: [
+                { n: '绿地归属', t: 'input', k: 'LDGS' },
+                { n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' },
+                { n: '所属街道', t: 'select', v: [], k: 'TOWN' }
+            ],
             img: "",
             s: ['COUNTY', 'TOWN']
         },
         // 道路绿地
         2032: {
-            h: [{ n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' }, { n: '所属街道', t: 'select', v: [], k: 'TOWN' }],
+            h: [
+                { n: '绿地归属', t: 'input', k: 'LDGS' },
+                { n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' },
+                { n: '所属街道', t: 'select', v: [], k: 'TOWN' }
+            ],
             img: "",
             s: ['COUNTY', 'TOWN']
         },
         // 分车绿带
         2033: {
-            h: [{ n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' }, { n: '所属街道', t: 'select', v: [], k: 'TOWN' }],
+            h: [
+                { n: '绿地归属', t: 'input', k: 'LDGS' },
+                { n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' },
+                { n: '所属街道', t: 'select', v: [], k: 'TOWN' }
+            ],
             img: "",
             s: ['COUNTY', 'TOWN']
         },
         // 行道树调查
         2034: {
-            h: [{ n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' }, { n: '所属街道', t: 'select', v: [], k: 'TOWN' }],
+            h: [
+                { n: '绿地归属', t: 'input', k: 'LDGS' },
+                { n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' },
+                { n: '所属街道', t: 'select', v: [], k: 'TOWN' }
+            ],
             img: "",
             s: ['COUNTY', 'TOWN']
         },
@@ -191,13 +237,25 @@ define("tables/formObj", [], function () {
         },
         // 居住区面
         2043: {
-            h: [{ n: '名称', t: 'input', k: 'NAME' }, { n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' }, { n: '所属街道', t: 'select', v: [], k: 'TOWN' }, { n: '地址', t: 'input', k: 'ADDRESS' }],
+            h: [
+                { n: '绿地归属', t: 'input', k: 'DEPTNAME1' },
+                { n: '名称', t: 'input', k: 'NAME' },
+                { n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' },
+                { n: '所属街道', t: 'select', v: [], k: 'TOWN' },
+                { n: '地址', t: 'input', k: 'ADDRESS' }
+            ],
             img: "",
             s: ['COUNTY', 'TOWN', 'ADDRESS']
         },
         // 公共服务单位面
         2044: {
-            h: [{ n: '名称', t: 'input', k: 'NAME' }, { n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' }, { n: '所属街道', t: 'select', v: [], k: 'TOWN' }, { n: '地址', t: 'input', k: 'ADDRESS' }],
+            h: [
+                { n: '绿地归属', t: 'input', k: 'DEPTNAME1' },
+                { n: '名称', t: 'input', k: 'NAME' },
+                { n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' },
+                { n: '所属街道', t: 'select', v: [], k: 'TOWN' },
+                { n: '地址', t: 'input', k: 'ADDRESS' }
+            ],
             img: "",
             s: ['COUNTY', 'TOWN', 'ADDRESS']
         },
@@ -222,13 +280,25 @@ define("tables/formObj", [], function () {
 
         // 公园配套设施
         2050: {
-            h: [{ n: '名称', t: 'input', k: 'NAME' }, { n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' }, { n: '所属街道', t: 'select', v: [], k: 'TOWN' }, { n: '所属公园', t: 'input', k: 'LDGS' }],
+            h: [
+                { n: '所属公园', t: 'input', k: 'LDGS' },
+                { n: '设施名称', t: 'input', k: 'NAME' },
+                { n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' },
+                { n: '所属街道', t: 'select', v: [], k: 'TOWN' },
+                { n: '所属公园', t: 'input', k: 'LDGS' }
+            ],
             img: "gyptss",
             s: ['COUNTY', 'TOWN']
         },
         // 公园范围面
         2051: {
-            h: [{ n: '名称', t: 'input', k: 'NAME' }, { n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' }, { n: '所属街道', t: 'select', v: [], k: 'TOWN' }, { n: '地址', t: 'input', k: 'ADDRESS' }],
+            h: [
+                { n: '绿地归属', t: 'input', k: 'DEPTNAME1' },
+                { n: '公园名称', t: 'input', k: 'NAME' },
+                { n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' },
+                { n: '所属街道', t: 'select', v: [], k: 'TOWN' },
+                { n: '地址', t: 'input', k: 'ADDRESS' }
+            ],
             img: "",
             s: ['COUNTY', 'TOWN']
         },

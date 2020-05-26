@@ -31,7 +31,7 @@ define("layout/toppanel", [
                         //+ '<img  class="navbar-header-title"/>'
 							+'<div class="logo-menu pull-left">'
 								+'<a class="logo" href="/GGSS/JGSP">'
-                                    + '城市绿化管理信息系统（绿地动态监管GIS平台）'
+                                    + '城市绿化管理信息系统<i style="font-style:normal;font-size:18px;font-weight:300;">（绿地动态监管GIS平台）</i>'
 								+'</a>'
 							+'</div>'
                         + '</div>'  

@@ -20,9 +20,11 @@
         <div class="systemname">
             <!--系统名称-->
             <div class="nameimg">
-                <a class="pull-right">
-                    <img class="systemImg" src="themes/default/images/Login/systemname.png" />
+                <a>
+                    <img class="systemImg" src="themes/default/images/title.png" />
                 </a>
+                <!--<h4>城市绿化管理信息系统</h4><br />
+                <p>(绿地动态监管GIS平台)</p>-->
             </div>
             <!--登录form-->
             <div class="login-box">
@@ -48,11 +50,11 @@
             <img class="img-bg" src="themes/default/images/Login/blue-bg.png" />
         </div>
         <!--背景div-->
-        <div class="map-photo">
+        <!--<div class="map-photo">
             <a class="pull-left">
                 <img class="img-bg2" src="themes/default/images/Login/map-photo.png" />
             </a>
-        </div>
+        </div>-->
     </div>
 </body>
 </html>

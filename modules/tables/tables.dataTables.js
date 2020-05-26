@@ -26,6 +26,8 @@ define("tables/dataTables", [
         _force: null,
         _config: null,
         _formConfig: {},
+        _displayFieldName : '',
+        _queryResult : null,
         /**
          * 表模板
          */
@@ -33,10 +35,10 @@ define("tables/dataTables", [
             <h4>%%%<button class='btn btn-primary btn-updown' data-info="on">收起</button></h4>
             <div class="extra_header form-inline">
                 @formConfig@
-                <button class='btn btn-primary extra_dataTable_search'>搜索</button>
                 <button class='btn btn-primary extra_dataTable_export'>导出</button>
                 <span class="extra_dataTable_close">x<span>
             </div>
+            <div class="loading" style="display:none;"><img /></div>
             <table id='@@'></table></div>` ,
         _detail: `<div class='extra_detail'>
                 <header>属性</header>
@@ -44,7 +46,7 @@ define("tables/dataTables", [
         /**
          * 过滤字段
          */
-        _banned: ["OBJECTID_1", "WD", "JD", "CONTENT", "FEATUREGUID", "PICTURE"],
+        _banned: ["OBJECTID_1", "WD", "JD", "CONTENT", "FEATUREGUID", "SHAPE.LEN","PICTURE"],
         initialize: function (id = 'extra_dataTables', config, FEATUREPARENTID) {
             this._FEATUREPARENTID = FEATUREPARENTID;
             this._id = id;
@@ -58,9 +60,9 @@ define("tables/dataTables", [
         doTable: function () {
             const formConfig = this._formConfig;
             const template = this._template.replace(/@@/g, this._id).replace(/###/g, this._timestamp).replace(/%%%/g, this._config.FeatureName);
-            const _template_ = template.replace(/@formConfig@/g, formConfig?formConfig.h.map(v => {
-                return `<div class="form-group mb-2"><label>${v.n}: </label>${v.t == 'input' ? `<input class="form-control form-data-${v.k}"/>` : `<select class="form-control form-data-${v.k}">${v.v.map(d=> `<option value="${d.v}">${d.n}</option>`).join('')}</select>`}</div>`
-            }).join('') : '');
+            const _template_ = template.replace(/@formConfig@/g, formConfig?(formConfig.h.map(v => {
+                return `<div class="form-group mb-2"><label>${v.n}: </label>${v.t == 'input' ? `<input class="form-control form-data-${v.k}"/>` : `<select class="form-control form-data-${v.k}">${v.v.map(d => `<option value="${d.v}">${d.n}</option>`).join('')}</select>`}</div>`
+            }).join('') + (formConfig.h.length ? `<button class='btn btn-primary extra_dataTable_search'>搜索</button>` : ``)) : '');
             $(".extra_details").remove();
             $(".extra_obj").remove();   // DOM删除 无注销内存
             $("body").append(_template_);
@@ -74,19 +76,30 @@ define("tables/dataTables", [
             }).filter(v => v).join(' and ') : '';
             const { Url, LayerIndex } = that._config;
             const arcgisxhr = new L.DCI.ArcgisXhr();
-            arcgisxhr.getArcgisByXhr(`${Url}/${LayerIndex}/query`, ({ fieldAliases, features }) => {
-                const _hash = {};
-                const data = features.map((v, index) => {
-                    _hash[v.attributes.OBJECTID] = v;
-                    return v.attributes;
-                });
-                that._fieldAliases = fieldAliases;
-                that._hash = _hash;
-                that._data = features;
-                !that._table ? that.initTable(data) : that.initDetailTableData(data);
+            $(".loading").show();
+            arcgisxhr.countArcgisByXhr(`${Url}/${LayerIndex}/query`, ({ count }) => {
+                $.fn.dataTable.defaults.oLanguage["sInfo"] = "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项".replace(/_TOTAL_/g, count),
+                    arcgisxhr.getArcgisByXhr(`${Url}/${LayerIndex}/query`, ({ displayFieldName,fieldAliases, features }) => {
+                    const _hash = {};
+                    const data = features.map((v, index) => {
+                        for (const d in v.attributes) {
+                            !~that._banned.concat(['OBJECTID']).indexOf(d) && typeof v.attributes[d] === 'number' && (v.attributes[d] = v.attributes[d].toFixed(2));
+                        }
+                        _hash[v.attributes.OBJECTID] = v;
+                        return v.attributes;
+                    });
+                        that._displayFieldName = displayFieldName;
+                    that._fieldAliases = fieldAliases;
+                    that._hash = _hash;
+                    that._data = features;
+                    // !that._table ? that.initTable(data) : that.initDetailTableData(data);
+                    that.initTable(data);
+                    $(".loading").hide();
+                }, encodeURIComponent(query || "1=1"));
             }, encodeURIComponent(query || "1=1"));
         },
         initTable: function (data) {
+            this._table && this._table.api && this._table.api().destroy();
             this._table = $(`#${this._id}`).dataTable({
                 serverSide: false,
                 data,
@@ -94,6 +107,7 @@ define("tables/dataTables", [
                 scrollY: 340,
                 pageLength : 20,
                 scrollX: true,
+                bProcessing: true,
                 bSort: true,
                 searching: false,
                 lengthChange: false,
@@ -113,20 +127,37 @@ define("tables/dataTables", [
             }
             oSettings.aiDisplay = oSettings.aiDisplayMaster.slice();
             table.fnDraw();
+            table.oApi._fnProcessingDisplay(oSettings, false);
         },
         doTransform: function (geometry) {
             const crs = new L.Proj.CRS(Project_ParamConfig.crs.code, Project_ParamConfig.crs.defs);
             if (geometry.rings) {
                 const { rings } = geometry;
-                const sum = [0, 0];
-                const polygon = rings[rings.length -1].map(v => {
+                const polygon = rings.map(item => {
+                    return item.map(v => {
+                        const { lat, lng } = crs.projection.unproject(L.point(v[0], v[1]));
+                        return [lat, lng];
+                    })
+                })
+                /*const polygon = rings[rings.length - 1].map(v => {
                     const { lat, lng } = crs.projection.unproject(L.point(v[0], v[1]));
                     sum[0] += lat;
                     sum[1] += lng;
                     return [lat, lng];
                 })
-                const center = [sum[0] / polygon.length, sum[1] / polygon.length];
-                return { type: 'polygon', geometry: polygon, center };
+                const center = [sum[0] / polygon.length, sum[1] / polygon.length];*/
+                return { type: 'polygon', geometry: polygon };
+            } else if (geometry.paths) {
+                const { paths } = geometry;
+                const sum = [0, 0];
+                const polyline = paths[paths.length - 1].map(v => {
+                    const { lat, lng } = crs.projection.unproject(L.point(v[0], v[1]));
+                    sum[0] += lat;
+                    sum[1] += lng;
+                    return [lat, lng];
+                })
+                const center = [sum[0] / polyline.length, sum[1] / polyline.length];
+                return { type: 'polyline', geometry: polyline, center };
             } else {
                 const { x, y } = geometry;
                 const point = crs.projection.unproject(L.point(x, y));
@@ -154,7 +185,7 @@ define("tables/dataTables", [
                 //  定位
                 const { Url, LayerIndex } = that._config;
                 const arcgisxhr = new L.DCI.ArcgisXhr();
-                !that._formConfig.nolocate && arcgisxhr.getArcgisByXhr(`${Url}/${LayerIndex}/query`, ({ features }) => {
+                !(that._formConfig && that._formConfig.nolocate) && arcgisxhr.getArcgisByXhr(`${Url}/${LayerIndex}/query`, ({ features }) => {
                     const { type, geometry } = that.doTransform(features[0].geometry);
                     const map = L.DCI.App.pool.get('MultiMap').getActiveMap();
                     const hlLayer = map.getLabelLayer();
@@ -167,14 +198,25 @@ define("tables/dataTables", [
                             .openOn(map.map);
                         map.map.panTo(geometry);
                     } else if (type == 'polygon') {
-                        const polygon = L.polygon(geometry, { color: 'red' }).addTo(hlLayer);
-                        map.map.fitBounds(polygon.getBounds());
-                    };
+                        const _path_ = [];
+                        let _center_ = null;
+                        geometry.map(v => {
+                            _path_.push(v[0]);
+                            _path_.push(v[Math.floor(v.length / 4 * 1)]);
+                            _path_.push(v[Math.floor(v.length / 4 * 2)]);
+                            _path_.push(v[Math.floor(v.length / 4 * 3)]);
+                            _center_ = L.polygon(v, { color: 'red' }).addTo(hlLayer);
+                        })
+                        geometry.length > 1 && (_center_ = L.polyline(_path_, { color: 'rgba(0,0,0,0)', width: 1 }).addTo(hlLayer));
+                        map.map.fitBounds(_center_.getBounds());
+                    } else if (type == 'polyline') {
+                        const polyline = L.polyline(geometry, { color: 'red' }).addTo(hlLayer);
+                        map.map.fitBounds(polyline.getBounds());
+                    }
                 }, `OBJECTID=${data.attributes.OBJECTID}`, true);
                 //  弹框
-                $(".extra_details").remove();
-                $("body").append(extra);
-                !that._formConfig.nolocate && $(".extra_obj").addClass("extra_obj_hidden") && $(".btn-updown").attr("data-info", "off").text("展开")
+                that.showDetails(data);
+                !(that._formConfig && that._formConfig.nolocate) && $(".extra_obj").addClass("extra_obj_hidden") && $(".btn-updown").attr("data-info", "off").text("展开")
                 that.doExtraEvent();
             });
             //  [表格]   选择区划
@@ -195,7 +237,18 @@ define("tables/dataTables", [
                     return v.attributes;
                 }))
             })
-            
+        },
+        showDetails: function (data) {
+            const that = this;
+            const attributes = {};
+            Object.keys(data.attributes).map(item => { attributes[that._fieldAliases[item]] = data.attributes[item] });
+            this._queryResult = new L.DCI.QueryResult();
+            this._queryResult.showTo('空间查询');
+            this._queryResult.load([{ attributes, layerName: that._config.LayerName, displayFieldName: that._displayFieldName, value: data.attributes[that._displayFieldName] }]);
+            L.dci.app.util.hideLoadFlash($('.result-list-group-loadflash'));
+            setTimeout(() => {
+                $(".resultselect-list:nth-child(1) .resultselect-list-view").click();
+            }, 0)
         },
         doDestroy: function () {
             this._table && this._table.api && this._table.api().destroy();
@@ -265,6 +318,9 @@ define("tables/dataTables", [
             };
         },
         exportTable: function (jsonData, worksheet = +new Date()) {
+            if (jsonData.length > 2000) {
+                return L.dci.app.util.dialog.alert("提示", "该表格最多支持2000条数据导出");
+            }
             const str = `${Object.keys(jsonData[0])
                 .map((v) => `${this._fieldAliases[v] || ``},`)
                 .join(``)}\n${jsonData
@@ -278,44 +334,12 @@ define("tables/dataTables", [
             var link = document.createElement("a");
             var csvContent = "data:text/csv;charset=utf-8,\uFEFF" + str;
             var encodedUri = csvContent;
-            console.log(encodedUri.length)
             link.setAttribute("href", encodedUri);
             link.setAttribute("download", `${this._config.LayerName}-${worksheet}.csv`);
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
         },
-        exportTable_: function (jsonData, worksheet = +new Date()) {
-            const excelContent = `<tr>${Object.keys(jsonData[0])
-                .map((v) => `<td>${this._fieldAliases[v] || ``}</td>`)
-                    .join(``)}</tr>${jsonData
-                        .map(
-                            (v) =>
-                                `<tr>${Object.keys(v)
-                                    .map((d) => `<td>${v[d] || ``}</td>`)
-                                    .join(``)}</tr>`
-                        )
-                        .join(``)}`;
-                const uri = "data:application/vnd.ms-excel;base64,";
-                const template = `<html xmlns:o="urn:schemas-microsoft-com:office:office" 
-  xmlns:x="urn:schemas-microsoft-com:office:excel" 
-  xmlns="http://www.w3.org/TR/REC-html40">
-  <head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet>
-    <x:Name>${worksheet}</x:Name>
-    <x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet>
-    </x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]-->
-    </head><body><table>${excelContent}</table></body></html>`;
-                //下载模板
-                // window.location.href = ;
-                const link = document.createElement("a");
-            link.href = uri + window.btoa(unescape(encodeURIComponent(template)));
-            //对下载的文件命名
-            link.download = `${this._config.LayerName}-${worksheet}.xls`;
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-            
-        }
     });
     return L.DCI.DataTables;
 });

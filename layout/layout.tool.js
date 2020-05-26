@@ -779,7 +779,7 @@ define("layout/tool", [
             const id = 2024;
             const FEATUREPARENTID = 2019;
             L.dci.app.services.baseService.getFeatureLayerById({
-                id: '2024',
+                id,
                 context: _this,
                 success: function (res) {
                     if (res != "0" && res.length > 0) {
@@ -795,7 +795,21 @@ define("layout/tool", [
          * 数据搜索
          * */
         DataQuery: function () {
-            const extraQuery = new L.DCI.ExtraQuery();
+            const _this = this;
+            const id = 1983;
+            const FEATUREPARENTID = 1819;
+            L.dci.app.services.baseService.getFeatureLayerById({
+                id,
+                context: _this,
+                success: function (res) {
+                    if (res != "0" && res.length > 0) {
+                        _this._table && _this._table.doDestroy();
+                        _this._table = new L.DCI.DataTables(id, res[0], FEATUREPARENTID);
+                    } else {
+                        L.dci.app.util.dialog.alert("提示", "该服务已被禁用");
+                    }
+                }
+            });
         },
         /**
          * 统计分析
