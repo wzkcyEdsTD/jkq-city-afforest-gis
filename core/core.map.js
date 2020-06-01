@@ -341,6 +341,15 @@ define("core/map", [
             this._viewHistory = [{ center: centerPoint, zoom: options.zoom }];
             this._curIndx = 0;
             this.map.on('click', (e) => {
+                //  分屏选中
+                switch (e.target.options.id) {
+                    case 'map':
+                        L.DCI.App.pool.get('MultiMap')._clickEventOne();
+                        break;
+                    case 'mapTow':
+                        L.DCI.App.pool.get('MultiMap')._clickEventTow();
+                        break;
+                };
                 !this._spatialIdentify && (this._spatialIdentify = new L.DCI.SpatialIdentify(this));
                 this._spatialIdentify._callback(e);
             }, this);

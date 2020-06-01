@@ -91,7 +91,7 @@ define("tables/formObj", [], function () {
     const config = {
         // 地名地址
         1983: {
-            h: [],
+            h: [{ n: '名称', t: 'input', k: 'NAME' }],
             s: ['ADDRESS']
         },
         // 温州市绿化资源普查面
@@ -319,21 +319,24 @@ define("tables/formObj", [], function () {
             h: [{ n: '名称', t: 'input', k: 'MC' }],
             img: "/",
             s: ['MC'],
-            nolocate : true
+            nolocate: true,
+            noanalyse: true
         },
         // 虫害
         2107: {
             h: [{ n: '名称', t: 'input', k: 'MC' }],
             img: "/",
             s: ['MC'],
-            nolocate: true
+            nolocate: true,
+            noanalyse: true
         },
         // 其它生物危害
         2108: {
             h: [{ n: '名称', t: 'input', k: 'MC' }],
             img: "/",
             s: ['MC'],
-            nolocate: true
+            nolocate: true,
+            noanalyse: true
         },
     };
     return config;

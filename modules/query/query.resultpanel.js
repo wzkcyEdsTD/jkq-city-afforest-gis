@@ -117,7 +117,6 @@ define("query/resultpanel", [
         *@param features {Object} 要素
         */
         load: function (features) {
-            console.log(features);
             try {
                 //$(this._container).html(this.temphtml);
                 var quicksearch = $(".qrtop-right");
@@ -904,7 +903,10 @@ define("query/resultpanel", [
                 '古树名木点': 'gsmm',
                 '公园配套设施': 'gyptss',
                 '行道树调查': 'hds',
-                '问题行道树': 'wthds'
+                '问题行道树': 'wthds',
+                "病害": '/',
+                "虫害": '/',
+                "其他": '/',
             };
             const folder = imgConfig[layerName];
             const returnStr = picUrl && folder ? picUrl.split(';').map(v => `<img style='width:100%;margin-bottom:6px;' src='${Project_ParamConfig.imgHost}/${folder}/${v.toLowerCase().includes('.jpg') ? v : `${v}.jpg`}' />`).join('') : '暂无图片';

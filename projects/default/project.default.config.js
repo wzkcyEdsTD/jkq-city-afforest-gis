@@ -375,7 +375,7 @@ var Project_ParamConfig = {
             img: 'yingxiangtu.png',
             tileSize: 256,
             //origin: [-40451.4885089805, 64140.9319180626],
-            origin: [-5123300.0 , 1.00023E7],
+            origin: [-5123200.0, 1.00021E7],
             //url: 'http://' + UrlConfig.IP2 + '/arcgis/rest/services/basemap/kfq_yxwz2000/MapServer'
             url: 'http://10.36.160.161:8080/OneMapServer/rest/services/yingxiang_wz2000/MapServer'
         },
@@ -386,7 +386,7 @@ var Project_ParamConfig = {
             img: 'dixingtu.png',
             tileSize: 256,
             //origin: [-40451.4885089805, 64140.9319180626],
-            origin: [-5123200.0, 1.00021E7],
+             origin: [-5123200.0, 1.00021E7],
              url: 'http://10.36.160.161:8080/OneMapServer/rest/services/25D_wz2000/MapServer'
         },
         {
@@ -395,7 +395,7 @@ var Project_ParamConfig = {
             tiled: true,
             img: 'yingxiangtu1.png',
             tileSize: 256,
-            origin: [-5123300.0, 1.00023E7],
+            origin: [-5123200.0, 1.00021E7],
             url: 'http://'+ UrlConfig.IP2+'/arcgis/rest/services/basemap/kfq_vector/MapServer'
         }
     ],

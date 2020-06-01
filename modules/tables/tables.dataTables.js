@@ -23,6 +23,7 @@ define("tables/dataTables", [
         _data: [],
         _hash: {},
         _fieldAliases: {},
+        _field_ : [],
         _force: null,
         _config: null,
         _formConfig: {},
@@ -35,7 +36,8 @@ define("tables/dataTables", [
             <h4>%%%<button class='btn btn-primary btn-updown' data-info="on">收起</button></h4>
             <div class="extra_header form-inline">
                 @formConfig@
-                <button class='btn btn-primary extra_dataTable_export'>导出</button>
+                <button class='btn btn-primary extra_dataTable_export'>导出</button><br />
+                <div data-tag='@analyseConfig@'></div>
                 <span class="extra_dataTable_close">x<span>
             </div>
             <div class="loading" style="display:none;"><img /></div>
@@ -79,7 +81,7 @@ define("tables/dataTables", [
             $(".loading").show();
             arcgisxhr.countArcgisByXhr(`${Url}/${LayerIndex}/query`, ({ count }) => {
                 $.fn.dataTable.defaults.oLanguage["sInfo"] = "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项".replace(/_TOTAL_/g, count),
-                    arcgisxhr.getArcgisByXhr(`${Url}/${LayerIndex}/query`, ({ displayFieldName,fieldAliases, features }) => {
+                    arcgisxhr.getArcgisByXhr(`${Url}/${LayerIndex}/query`, ({ displayFieldName, fieldAliases, fields, features }) => {
                     const _hash = {};
                     const data = features.map((v, index) => {
                         for (const d in v.attributes) {
@@ -88,15 +90,49 @@ define("tables/dataTables", [
                         _hash[v.attributes.OBJECTID] = v;
                         return v.attributes;
                     });
-                        that._displayFieldName = displayFieldName;
+                    that._displayFieldName = displayFieldName;
                     that._fieldAliases = fieldAliases;
                     that._hash = _hash;
                     that._data = features;
                     // !that._table ? that.initTable(data) : that.initDetailTableData(data);
+                        !(that._formConfig && that._formConfig.noanalyse) && that.initAnalyze(fields);
                     that.initTable(data);
                     $(".loading").hide();
                 }, encodeURIComponent(query || "1=1"));
             }, encodeURIComponent(query || "1=1"));
+        },
+        doAnalyse: function () {
+            const [name, nameAlias] = $(".analyse-title").val().split("/");
+            const [able, ableAlias] = $(".analyse-able").val().split("/");
+            if (!able) return L.dci.app.util.dialog.alert("提示", "无可用统计字段");
+            const countJson = {};
+            this._data.map(({ attributes }) => {
+                const val = parseFloat(attributes[able]);
+                const _name_ = name ? attributes[name] : nameAlias;
+                !countJson[_name_] && (countJson[_name_] = 0);
+                countJson[_name_] += val;
+            })
+            this.showAnalyse(nameAlias, ableAlias, countJson);
+        },
+        /**
+         * 添加统计分析按钮
+         * */
+        initAnalyze: function (fields) {
+            if (this._fields_) return;
+            const analyzeUnit = ["esriFieldTypeDouble", "esriFieldTypeSmallInteger"];
+            const analyseTitleUnit = ["esriFieldTypeString"];
+            const analyzeAble = fields.filter(v => ~analyzeUnit.indexOf(v.type) && !v.alias.includes('率') && !v.alias.includes('系数'));
+            const analyzeTitle = fields.filter(v => ~analyseTitleUnit.indexOf(v.type));
+            $(".extra_header div[data-tag='@analyseConfig@']").html(`
+                <div class="form-group mb-2"><label>分类字段: </label>
+                    <select class="form-control analyse-title">${[{ name: "", alias: "全部" }].concat(analyzeTitle).map(v => `<option value="${v.name}/${v.alias}">${v.alias}</option>`).join('')}</select>
+                </div>
+                <div class="form-group mb-2"><label>统计字段: </label>
+                    <select class="form-control analyse-able">${analyzeAble.map(v => `<option value="${v.name}/${v.alias}">${v.alias}</option>`).join('')}</select>
+                </div>
+                <button class='btn btn-primary extra_dataTable_analyse'>统计分析</button>
+            `).addClass('extra_dataTable_analyseFrame');
+            this._fields_ = fields;
         },
         initTable: function (data) {
             this._table && this._table.api && this._table.api().destroy();
@@ -139,13 +175,6 @@ define("tables/dataTables", [
                         return [lat, lng];
                     })
                 })
-                /*const polygon = rings[rings.length - 1].map(v => {
-                    const { lat, lng } = crs.projection.unproject(L.point(v[0], v[1]));
-                    sum[0] += lat;
-                    sum[1] += lng;
-                    return [lat, lng];
-                })
-                const center = [sum[0] / polygon.length, sum[1] / polygon.length];*/
                 return { type: 'polygon', geometry: polygon };
             } else if (geometry.paths) {
                 const { paths } = geometry;
@@ -169,6 +198,10 @@ define("tables/dataTables", [
             //  [表格]   搜索
             $('body').on('click', `.extra_dataTable_${that._timestamp} .extra_dataTable_search`, function () {
                 that.queryTable();
+            })
+            //  [表格]   统计分析
+            $('body').on('click', `.extra_dataTable_${that._timestamp} .extra_dataTable_analyse`, function () {
+                that.doAnalyse();
             })
             //  [表格] 收起&展开
             $('body').on('click', `.extra_dataTable_${that._timestamp} .btn-updown`, function () {
@@ -217,7 +250,6 @@ define("tables/dataTables", [
                 //  弹框
                 that.showDetails(data);
                 !(that._formConfig && that._formConfig.nolocate) && $(".extra_obj").addClass("extra_obj_hidden") && $(".btn-updown").attr("data-info", "off").text("展开")
-                that.doExtraEvent();
             });
             //  [表格]   选择区划
             $('body').on('change', `.extra_dataTable_${that._timestamp} .form-data-COUNTY`, function () {
@@ -238,6 +270,12 @@ define("tables/dataTables", [
                 }))
             })
         },
+        showAnalyse: function (nameAlias, ableAlias, data) {
+            $(".extra_details").remove();
+            $("body").append(extra);
+            $(".extra_details_body_main").html(`<table border=1 style="width:100%;"><thead><tr><th>${nameAlias}</th><th>${ableAlias}</th></tr></thead><tbody>${Object.keys(data).map(v => `<tr><td>${v}</td><td>${parseFloat(data[v]).toFixed(2)}</td></tr>`).join('')}</tbody></table>`);
+            this.doExtraEvent();
+        },
         showDetails: function (data) {
             const that = this;
             const attributes = {};
@@ -255,40 +293,11 @@ define("tables/dataTables", [
             $(".extra_dataTable").remove();
         },
         doExtraEvent: function () {
-            const that = this;
             $(".extra_details").unbind();
             //  [弹出框] 点击退出
             $('.extra_details').on('click', '.extra_close', function () {
                 $('.extra_details').remove();
             })
-            //  [弹出框] 切换
-            $('.extra_details').on('click', '.extra_details_body_left_tip', function () {
-                const type = $(this).attr('data-info');
-                switch (type) {
-                    case 'basic': {
-                        that.doBasicDisplay();
-                        break;
-                    }
-                    case 'maintain': {
-                        that.doMaintainDisplay();
-                        break;
-                    }
-                    case 'image': {
-                        that.doImageDisplay();
-                        break;
-                    }
-                }
-            });
-            that.doBasicDisplay();
-        },
-        doBasicDisplay: function () {
-            $('.extra_details_body_main').html(`<div><header>基本信息</header><ul>${Object.keys(this._force).filter(v => !~this._banned.indexOf(v)).map(v => { return `<li><label>${this._fieldAliases[v]}</label><span>${this._force[v]}</span></li>` }).join('')}</ul></div>`);
-        },
-        doMaintainDisplay: function () {
-            $('.extra_details_body_main').html(`<div><header>养护信息</header></div>`);
-        },
-        doImageDisplay: function () {
-            $('.extra_details_body_main').html(`<div><header>图片展示</header><div>${this._formConfig && this._formConfig.img ? this._force.PICTURE.split(';').map(v => `<img src='${Project_ParamConfig.imgHost}/${this._formConfig.img}/${v.toLowerCase().includes('.jpg') ? v : `${v}.jpg`}'/>`).join('') : ''}</div></div>`);
         },
         tableDefault: function () {
             $.fn.dataTable.defaults.fnFormatNumber = function (v) { return v };
