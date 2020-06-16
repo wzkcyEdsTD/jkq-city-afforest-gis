@@ -736,13 +736,16 @@ define("query/resultpanel", [
             var _this = this;
 			//显示加载动画
 			var loadingObj = $('.result-list-group-loadflash');
-			L.dci.app.util.showLoadFlash(loadingObj);
+            L.dci.app.util.showLoadFlash(loadingObj);
+            // const _banned_ = ["OBJECTID_1", "WD", "JD", "CONTENT", "FEATUREGUID", "SHAPE.LEN", "PICTURE"];
+            const _banned_ = ["照片编号"];
             //获取属性
             for (var att in obj.attributes) {
+                console.log(att);
                 if (L.dci.app.util.isContain(att) == true)
                     continue;
                 var value = L.dci.app.util.isNull(obj.attributes[att]);
-                trHtml += '<tr class="datails-table-info-tr"><td class="key">' + att + '</td><td class="key-value">' + value + '</td></tr>';
+                trHtml += (~_banned_.indexOf(att) ? '' : '<tr class="datails-table-info-tr"><td class="key">' + att + '</td><td class="key-value">' + value + '</td></tr>');
             }
 
             // 加载图片
@@ -902,6 +905,7 @@ define("query/resultpanel", [
             const imgConfig = {
                 '古树名木点': 'gsmm',
                 '公园配套设施': 'gyptss',
+                '后备古树名木点': '/',
                 '行道树调查': 'hds',
                 '问题行道树': 'wthds',
                 "病害": '/',

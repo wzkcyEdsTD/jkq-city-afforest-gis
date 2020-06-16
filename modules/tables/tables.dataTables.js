@@ -107,8 +107,8 @@ define("tables/dataTables", [
             if (!able) return L.dci.app.util.dialog.alert("提示", "无可用统计字段");
             const countJson = {};
             this._data.map(({ attributes }) => {
-                const val = parseFloat(attributes[able]);
-                const _name_ = name ? attributes[name] : nameAlias;
+                const val = attributes[able] ? parseFloat(attributes[able]) : 0;
+                const _name_ = name ? (attributes[name] || '其他') : nameAlias;
                 !countJson[_name_] && (countJson[_name_] = 0);
                 countJson[_name_] += val;
             })
@@ -119,7 +119,7 @@ define("tables/dataTables", [
          * */
         initAnalyze: function (fields) {
             if (this._fields_) return;
-            const analyzeUnit = ["esriFieldTypeDouble", "esriFieldTypeSmallInteger"];
+            const analyzeUnit = ["esriFieldTypeDouble", "esriFieldTypeSmallInteger", "esriFieldTypeInteger"];
             const analyseTitleUnit = ["esriFieldTypeString"];
             const analyzeAble = fields.filter(v => ~analyzeUnit.indexOf(v.type) && !v.alias.includes('率') && !v.alias.includes('系数'));
             const analyzeTitle = fields.filter(v => ~analyseTitleUnit.indexOf(v.type));

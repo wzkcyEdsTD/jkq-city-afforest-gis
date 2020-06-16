@@ -274,7 +274,7 @@ define("core/multimap", [
                     this.enabledTool();
                     break;
             }
-            this._splitControlsView(splitNum);
+            // this._splitControlsView(splitNum);
             this._invalidateSize();
 
             //if (hid) {

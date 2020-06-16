@@ -95,14 +95,15 @@ define("controls/timeslider", [
             var mapId = this._map.options.id;
             var conclass = 'timeslider-control';
             this.container = L.DomUtil.create('div', conclass);
-            this.container.id = mapId+"-timeslider-control";
+            this.container.id = mapId + "-timeslider-control";
+            this.container.style.display = 'none';
             var link = this._layersLink = L.DomUtil.create('a', conclass + '-toggle', this.container);
             
             //link.id = mapId + '$' + conclass + '-toggle';
             link.id =  conclass + '-toggle';
             link.href = '#';
             link.title = '时间轴展示';
-            this.silider = $('<div id="' + mapId + '-time-selector" class="time-selector"><div class="yearselector-container"><span id="preYear-select" class="yearselector-switch icon-arrows"></span><div class="yearselector-axis" id="' + mapId + '-yearselector-axis"></div><span id="nextYear-select" class="yearselector-switch icon-arrows-right"></span></div></div>');
+            this.silider = $('<div style="display:none;" id="' + mapId + '-time-selector" class="time-selector"><div class="yearselector-container"><span id="preYear-select" class="yearselector-switch icon-arrows"></span><div class="yearselector-axis" id="' + mapId + '-yearselector-axis"></div><span id="nextYear-select" class="yearselector-switch icon-arrows-right"></span></div></div>');
             this.typegroup = $('<div id="type-select" class="type-group-selector"></div>');
             var tipHtml = $('<span class="timeslider-tip"></span>');
             $(this.container).append(this.silider);

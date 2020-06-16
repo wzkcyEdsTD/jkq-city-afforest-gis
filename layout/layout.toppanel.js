@@ -30,7 +30,7 @@ define("layout/toppanel", [
                         //+ '<span class="navbar-header-home icon-home-icon" title="主页"></span>'
                         //+ '<img  class="navbar-header-title"/>'
 							+'<div class="logo-menu pull-left">'
-								+'<a class="logo" href="/GGSS/JGSP">'
+								+'<a class="logo" href="javascript:void()">'
                                     + '城市绿化管理信息系统<i style="font-style:normal;font-size:18px;font-weight:300;">（绿地动态监管GIS平台）</i>'
 								+'</a>'
 							+'</div>'
