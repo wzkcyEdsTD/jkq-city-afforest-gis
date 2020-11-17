@@ -284,8 +284,7 @@ define("tables/formObj", [], function () {
                 { n: '所属公园', t: 'input', k: 'LDGS' },
                 { n: '设施名称', t: 'input', k: 'NAME' },
                 { n: '行政区划', t: 'select', v: COUNTY, k: 'COUNTY' },
-                { n: '所属街道', t: 'select', v: [], k: 'TOWN' },
-                { n: '所属公园', t: 'input', k: 'LDGS' }
+                { n: '所属街道', t: 'select', v: [], k: 'TOWN' }
             ],
             img: "gyptss",
             s: ['COUNTY', 'TOWN']

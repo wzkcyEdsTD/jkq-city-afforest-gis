@@ -118,9 +118,7 @@ define("controls/timeslider", [
             L.DomEvent.on(nextYear, 'click', this._nextYearClick, this);
             L.DomEvent.addListener(link, 'click', function (e) { L.DomEvent.stopPropagation(e); });
             L.DomEvent.addListener(link, 'dblclick', function (e) { L.DomEvent.stopPropagation(e); });
-
         },
-
         /**
         *展开或隐藏控件
         *@method _expandOrCollapse
@@ -163,8 +161,6 @@ define("controls/timeslider", [
 
             };
         },
-
-
         /**
         *创建图层选择菜单
         *@method _creatLayerSelect

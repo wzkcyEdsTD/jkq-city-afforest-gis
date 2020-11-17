@@ -727,6 +727,9 @@ float: left;
     width:300px;
     left: -50%;
 }
+    #modal-dialog .modal-dialog #modal-text {
+        text-align : left;
+    }
 .modal-open {
     padding-right: 0 !important;
 }

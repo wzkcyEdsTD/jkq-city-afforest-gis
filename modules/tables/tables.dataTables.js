@@ -85,7 +85,7 @@ define("tables/dataTables", [
                     const _hash = {};
                     const data = features.map((v, index) => {
                         for (const d in v.attributes) {
-                            !~that._banned.concat(['OBJECTID']).indexOf(d) && typeof v.attributes[d] === 'number' && (v.attributes[d] = v.attributes[d].toFixed(2));
+                            !~that._banned.concat(['OBJECTID']).indexOf(d) && typeof v.attributes[d] === 'number' && (v.attributes[d] = parseFloat(v.attributes[d].toFixed(2)));
                         }
                         _hash[v.attributes.OBJECTID] = v;
                         return v.attributes;
