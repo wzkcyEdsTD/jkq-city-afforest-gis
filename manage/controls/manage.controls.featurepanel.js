@@ -933,28 +933,45 @@ define("manage/controls/featurepanel", [
             {
                 if (name != oldName)
                 {
-                    var obj = this.verifyFeatureName(name,50);
-                    if (obj.verifyName == false)
-                    {
-                        $(".errorText").text(obj.errorText);
-                        return;
-                    }
-                }
-                //获取勾选中的节点
-                var featureTreeObj = this.tree.getTreeObj("featureTree");
-                var nodes = this.tree.getCheckedNodes({ "treeObj": featureTreeObj, "checked": true });
-                var id = nodes[0].id;
-                var pId = nodes[0].pId;
-                var type = nodes[0].type;
-                var sIndex = nodes[0].sIndex;
-                var extent = nodes[0].extent == null ? "" : nodes[0].extent;
-                var image = nodes[0].image == null ? "" : nodes[0].image;
-                //删除对话框
-                this.cancelAddFeature();
-                //显示保存中提示信息
-                L.mtip.usetip(1, "保存中...", 1234);
-                //提交保存信息
-                this.editFeature(id, pId, name, type, sIndex, extent, image);
+                    this.verifyFeatureName(name,50,(obj) => {
+						if (obj.verifyName == false)
+						{
+							$(".errorText").text(obj.errorText);
+							return;
+						}
+						 //获取勾选中的节点
+						var featureTreeObj = this.tree.getTreeObj("featureTree");
+						var nodes = this.tree.getCheckedNodes({ "treeObj": featureTreeObj, "checked": true });
+						var id = nodes[0].id;
+						var pId = nodes[0].pId;
+						var type = nodes[0].type;
+						var sIndex = nodes[0].sIndex;
+						var extent = nodes[0].extent == null ? "" : nodes[0].extent;
+						var image = nodes[0].image == null ? "" : nodes[0].image;
+						//删除对话框
+						this.cancelAddFeature();
+						//显示保存中提示信息
+						L.mtip.usetip(1, "保存中...", 1234);
+						//提交保存信息
+						this.editFeature(id, pId, name, type, sIndex, extent, image);
+					});
+                }else{
+					//获取勾选中的节点
+					var featureTreeObj = this.tree.getTreeObj("featureTree");
+					var nodes = this.tree.getCheckedNodes({ "treeObj": featureTreeObj, "checked": true });
+					var id = nodes[0].id;
+					var pId = nodes[0].pId;
+					var type = nodes[0].type;
+					var sIndex = nodes[0].sIndex;
+					var extent = nodes[0].extent == null ? "" : nodes[0].extent;
+					var image = nodes[0].image == null ? "" : nodes[0].image;
+					//删除对话框
+					this.cancelAddFeature();
+					//显示保存中提示信息
+					L.mtip.usetip(1, "保存中...", 1234);
+					//提交保存信息
+					this.editFeature(id, pId, name, type, sIndex, extent, image);
+				}
             }
         },
         /**
@@ -973,27 +990,45 @@ define("manage/controls/featurepanel", [
             {
                 if (name != oldName)
                 {
-                    var obj = this.verifyFeatureName(name,50);
-                    if (obj.verifyName == false)
+                    var obj = this.verifyFeatureName(name,50,obj=>{
+						if (obj.verifyName == false)
                     {
                         $(".errorText").text(obj.errorText);
                         return;
                     }
-                }
-                //获取勾选中的节点
-                var featureTreeObj = this.tree.getTreeObj("featureTree");
-                var nodes = this.tree.getCheckedNodes({ "treeObj": featureTreeObj, "checked": true });
-                var id = nodes[0].id;
-                var pId = nodes[0].pId;
-                var type = nodes[0].type;
-                var sIndex = nodes[0].sIndex;
-                var extent = nodes[0].extent == null ? "" : nodes[0].extent;
-                //删除对话框
-                this.cancelAddFeatureWithImg();
-                //显示保存中提示信息
-                L.mtip.usetip(1, "保存中...", 1234);
-                //提交保存信息
-                this.editFeature(id, pId, name, type, sIndex, extent, image);
+						
+					});
+                    //获取勾选中的节点
+					var featureTreeObj = this.tree.getTreeObj("featureTree");
+					var nodes = this.tree.getCheckedNodes({ "treeObj": featureTreeObj, "checked": true });
+					var id = nodes[0].id;
+					var pId = nodes[0].pId;
+					var type = nodes[0].type;
+					var sIndex = nodes[0].sIndex;
+					var extent = nodes[0].extent == null ? "" : nodes[0].extent;
+					//删除对话框
+					this.cancelAddFeatureWithImg();
+					//显示保存中提示信息
+					L.mtip.usetip(1, "保存中...", 1234);
+					//提交保存信息
+					this.editFeature(id, pId, name, type, sIndex, extent, image);
+                }else{
+					//获取勾选中的节点
+					var featureTreeObj = this.tree.getTreeObj("featureTree");
+					var nodes = this.tree.getCheckedNodes({ "treeObj": featureTreeObj, "checked": true });
+					var id = nodes[0].id;
+					var pId = nodes[0].pId;
+					var type = nodes[0].type;
+					var sIndex = nodes[0].sIndex;
+					var extent = nodes[0].extent == null ? "" : nodes[0].extent;
+					//删除对话框
+					this.cancelAddFeatureWithImg();
+					//显示保存中提示信息
+					L.mtip.usetip(1, "保存中...", 1234);
+					//提交保存信息
+					this.editFeature(id, pId, name, type, sIndex, extent, image);
+				}
+                
             }
         },
 

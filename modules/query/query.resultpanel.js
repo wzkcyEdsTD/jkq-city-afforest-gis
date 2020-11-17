@@ -752,6 +752,8 @@ define("query/resultpanel", [
             //var _imgStr = _this.loadImg(obj.attributes["照片"]);
             _this.loadImg(obj.attributes["照片编号"], obj.layerName, function (_imgStr) {
 				 //console.log("_imgStr:" + _imgStr);
+                var _imgStr2020 = obj.attributes["照片2020"];
+                console.log(_imgStr2020);
 				 var OBJCODE=obj.attributes["标识码"]== undefined ? obj.attributes["OBJCODE"] : obj.attributes["标识码"];
 				 //_this.getYhList(OBJCODE, function (yhListStr) {
 					//console.log("yhListStr:" + yhListStr);
@@ -767,7 +769,8 @@ define("query/resultpanel", [
 						+ '<ul class="nav nav-tabs" role="tablist">'
 						+ '<li role="presentation" class="active"><a href="#datails-table-info" aria-controls="datails-table-info" role="tab" data-toggle="tab">详情</a></li>'
 						/*+ '<li role="presentation"><a href="#yhList" aria-controls="yhList" role="tab" data-toggle="tab">养护列表</a></li>'*/
-						+ '<li role="presentation"><a href="#loadImg" aria-controls="loadImg" role="tab" data-toggle="tab">图片</a></li>'
+                        + '<li role="presentation"><a href="#loadImg" aria-controls="loadImg" role="tab" data-toggle="tab">图片</a></li>'
+                        + '<li role="presentation"><a href="#loadImg2" aria-controls="loadImg2" role="tab" data-toggle="tab">图片2020</a></li>'
 						+ '</ul>'
 						+ '<div class="tab-content" style="margin-left: 10px;">'
 							+ ' <div role="tabpanel" class="tab-pane datails-table-info active" id="datails-table-info">'
@@ -784,7 +787,9 @@ define("query/resultpanel", [
 						+ '<div role="tabpanel" class="tab-pane datails-table-info" id="loadImg" OBJCODE="' + obj.attributes["OBJCODE"] + '">'
 						+ _imgStr
 						+ '</div>'
-
+                        + '<div role="tabpanel" class="tab-pane datails-table-info" id="loadImg2" OBJCODE="' + obj.attributes["OBJCODE"] + '">'
+                        + _this.loadImg2(_imgStr2020)
+                        + '</div>'
 							+ '</div>'
 							+ '</div>'
 						+ '<div>';
@@ -840,7 +845,14 @@ define("query/resultpanel", [
                         var folder = $(this).attr("folder");
 						var picUrlArr=picUrl.split(";");
                         _this.showPicPane(picUrlArr, folder);
-					});
+                    });
+                    //点击照片，放大轮播
+                    $("#projectYhzp2").click(function () {
+                        var picUrl = $(this).attr("picUrl");
+                        var folder = $(this).attr("folder");
+                        var picUrlArr = picUrl.split(";");
+                        _this.showPicPane(picUrlArr, folder);
+                    });
 					//关闭加载动画
 					L.dci.app.util.hideLoadFlash(loadingObj);
 				//});
@@ -894,14 +906,13 @@ define("query/resultpanel", [
             });
     
         },
-
         /**
        *加载图片
        *@method loadImg
        *@param OBJCODE {String} 惟一值
        *@param callback {Object} 回调函数
        */
-        loadImg: function (picUrl,layerName,callback) {
+        loadImg: function (picUrl, layerName, callback) {
             const imgConfig = {
                 '古树名木点': 'gsmm',
                 '公园配套设施': 'gyptss',
@@ -915,6 +926,18 @@ define("query/resultpanel", [
             const folder = imgConfig[layerName];
             const returnStr = picUrl && folder ? picUrl.split(';').map(v => `<img style='width:100%;margin-bottom:6px;' src='${Project_ParamConfig.imgHost}/${folder}/${v.toLowerCase().includes('.jpg') ? v : `${v}.jpg`}' />`).join('') : '暂无图片';
             return callback(`<div id="projectYhzp" picUrl="${picUrl}" folder="${folder}">${returnStr}</div>`);
+        },
+        /**
+       *加载图片
+       *@method loadImg
+       *@param OBJCODE {String} 惟一值
+       *@param callback {Object} 回调函数
+       */
+        loadImg2: function (picUrl,callback) {
+           
+            const folder = 'gsmm2020/gsmm';
+            const returnStr = picUrl && folder ? picUrl.split(';').map(v => `<img style='width:100%;margin-bottom:6px;' src='${Project_ParamConfig.imgHost}/${folder}/${v.toLowerCase().includes('.jpg') ? v : `${v}.jpg`}' />`).join('') : '暂无图片';
+            return `<div id="projectYhzp2" picUrl="${picUrl}" folder="${folder}">${returnStr}</div>`;
         },
 		/**
         *图片轮播
