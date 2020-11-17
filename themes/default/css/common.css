@@ -1,4 +1,19 @@
-﻿.extra_obj_hidden {
+﻿
+/** 底部 */
+#red-bottom {
+    padding: 6px 10px;
+    background-color: rgba(255,255,255,0.8);
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 10;
+}
+
+    #red-bottom > img {
+        width: 34px
+    }
+
+.extra_obj_hidden {
     height: 50px !important;
 }
 

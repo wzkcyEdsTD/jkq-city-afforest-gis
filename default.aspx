@@ -72,6 +72,9 @@
 	    <div id="app-loading"></div>
         <div id="loading-gif"></div>
     </div>
-
+    <div id="red-bottom">
+        <img src="themes/default/images/red.png"/>
+        <a href="https://beian.miit.gov.cn">备案号：浙ICP备12026052号-2</a>
+    </div>
 </body>
 </html>
