@@ -49,6 +49,20 @@ define("data/arcgisxhr", [
                 fn && fn(data);
             });
         },
+        analyseArcgisByXhr: function (url, { outStatistics, groupByFieldsForStatistics }, fn) {
+            this.ajax.get(url, {
+                f: "json",
+                where: "1=1",
+                outFields: "*",
+                returnCountOnly: false,
+                spatialRel: "esriSpatialRelIntersects",
+                relationParameter: (+new Date()).toString(),
+                groupByFieldsForStatistics,
+                outStatistics
+            }, true, this, function (data) {
+                fn && fn(data);
+            });
+        }
     });
 
     return L.DCI.ArcgisXhr;

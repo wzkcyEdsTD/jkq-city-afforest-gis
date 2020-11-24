@@ -102,7 +102,7 @@ define("tables/dataTables", [
             }, encodeURIComponent(query || "1=1"));
         },
         doAnalyse: function () {
-            const [name, nameAlias] = $(".analyse-title").val().split("/");
+            /*const [name, nameAlias] = $(".analyse-title").val().split("/");
             const [able, ableAlias] = $(".analyse-able").val().split("/");
             if (!able) return L.dci.app.util.dialog.alert("提示", "无可用统计字段");
             const countJson = {};
@@ -112,7 +112,20 @@ define("tables/dataTables", [
                 !countJson[_name_] && (countJson[_name_] = 0);
                 countJson[_name_] += val;
             })
-            this.showAnalyse(nameAlias, ableAlias, countJson);
+            this.showAnalyse(nameAlias, ableAlias, countJson);*/
+            /**
+             * 统计分析
+             * */
+            const [groupByFieldsForStatistics, nameAlias] = $(".analyse-title").val().split("/");
+            const [able, ableAlias] = $(".analyse-able").val().split("/");
+            const [statisticType, statisticTypeName] = $(".analyse-type").val().split("/");
+            if (!groupByFieldsForStatistics || !able) return L.dci.app.util.dialog.alert("提示", "无可用统计字段");
+            const outStatistics = JSON.stringify([{ statisticType, outStatisticFieldName: statisticType, onStatisticField: able }]);
+            const { Url, LayerIndex } = this._config;
+            const arcgisxhr = new L.DCI.ArcgisXhr();
+            arcgisxhr.analyseArcgisByXhr(`${Url}/${LayerIndex}/query`, { outStatistics, groupByFieldsForStatistics }, (data) => {
+                this.showAnalyse(data.features, { groupByFieldsForStatistics, nameAlias, ableAlias, statisticType, statisticTypeName});
+            });
         },
         /**
          * 添加统计分析按钮
@@ -129,6 +142,15 @@ define("tables/dataTables", [
                 </div>
                 <div class="form-group mb-2"><label>统计字段: </label>
                     <select class="form-control analyse-able">${analyzeAble.map(v => `<option value="${v.name}/${v.alias}">${v.alias}</option>`).join('')}</select>
+                </div>
+                <div class="form-group mb-2"><label>统计方式: </label>
+                    <select class="form-control analyse-type">
+                        <option value='sum/总和'>相加总和</option>
+                        <option value='count/数量'>条目数量</option>
+                        <option value='avg/平均值'>平均值</option>
+                        <option value='max/最大值'>最大值</option>
+                        <option value='min/最小值'>最小值</option>
+                    </select>
                 </div>
                 <button class='btn btn-primary extra_dataTable_analyse'>统计分析</button>
             `).addClass('extra_dataTable_analyseFrame');
@@ -270,10 +292,10 @@ define("tables/dataTables", [
                 }))
             })
         },
-        showAnalyse: function (nameAlias, ableAlias, data) {
+        showAnalyse: function (data, { groupByFieldsForStatistics, nameAlias, ableAlias, statisticType, statisticTypeName }) {
             $(".extra_details").remove();
             $("body").append(extra);
-            $(".extra_details_body_main").html(`<table border=1 style="width:100%;"><thead><tr><th>${nameAlias}</th><th>${ableAlias}</th></tr></thead><tbody>${Object.keys(data).map(v => `<tr><td>${v}</td><td>${parseFloat(data[v]).toFixed(2)}</td></tr>`).join('')}</tbody></table>`);
+            $(".extra_details_body_main").html(`<table border=1 style="width:100%;"><thead><tr><th>${nameAlias}</th><th>${ableAlias}(${statisticTypeName})</th></tr></thead><tbody>${data.map(v => `<tr><td>${v.attributes[groupByFieldsForStatistics]}</td><td>${v.attributes[statisticType].toFixed(4)}</td></tr>`).join('')}</tbody></table>`);
             this.doExtraEvent();
         },
         showDetails: function (data) {

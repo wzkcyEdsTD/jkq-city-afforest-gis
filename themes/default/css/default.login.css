@@ -177,3 +177,15 @@ body
 
 .closebtn {position: absolute;top: 0;right: 0px; margin: 10px 10px;border-radius: 25px;background-color: #ffb400;width: 30px;height: 30px;color: #fff;padding: 8px; opacity:0.5;behavior: url(../ie-css3.htc);}
 .closebtn:hover {opacity:1;}
+
+#red-bottom {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: gray;
+}
+    #red-bottom > a {
+        color: gray;
+    }

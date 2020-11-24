@@ -55,6 +55,10 @@
                 <img class="img-bg2" src="themes/default/images/Login/map-photo.png" />
             </a>
         </div>-->
+        <div id="red-bottom">
+            <p>主办单位：温州市园林绿化管理中心</p>
+            <a href="https://beian.miit.gov.cn">备案号：浙ICP备12026052号-2</a>
+        </div>
     </div>
 </body>
 </html>
